@@ -1,0 +1,248 @@
+# A generatív MI története: a Markov-láncoktól az ágensekig {#sec-generativ-mi-tortenete}
+
+*Korszakok, kulcspublikációk, modellek és benchmarkok*
+
+A generatív mesterséges intelligencia története nem 2022 novemberében, a ChatGPT megjelenésével kezdődött. A mai nagy nyelvi modellek és képgenerátorok mögött több mint száz év gondolkodása áll: valószínűségszámítás, információelmélet, neurális hálók, reprezentációtanulás, majd az utóbbi évtizedben a Transformer-architektúra, a skálázás és az emberi visszajelzésből tanulás összekapcsolódása. Ez a fejezet ezt az utat követi végig, korszakokra bontva.
+
+::: {.callout-note}
+## Hogyan olvassuk ezt a fejezetet?
+
+- **Generatív modell** az, amely egy adateloszlást tanul meg, és abból *új példányokat* tud előállítani – szöveget, képet, hangot. Ezzel szemben a *diszkriminatív* modell csak megkülönböztet, osztályoz.
+- Minden korszaknál három kérdést teszünk fel: *mi volt az új ötlet*, *melyik publikáció vagy modell hozta*, és *mivel mérték* (benchmark).
+- A fejezet egy MI-asszisztenssel folytatott beszélgetés vázlatára épül, de minden publikációt, dátumot és azonosítót elsődleges forrásból ellenőriztünk; a vázlat hibáit javítottuk (lásd a fejezet végén).
+:::
+
+## 1. Előtörténet: valószínűség és információ (1913–1985)
+
+A generatív modellezés alapkérdése – *mi a valószínűsége a következő jelnek az eddigiek ismeretében?* – jóval a számítógépek előtt megfogalmazódott.
+
+- **Markov (1913):** Andrej Markov Puskin *Anyegin*jének szövegén vizsgálta, hogy egy betű magánhangzó vagy mássalhangzó volta mennyire függ az előzőtől. Ez az első *Markov-lánc* alkalmazás nyelvi adatokon – a mai nyelvi modellek távoli őse [@markov2006].
+- **Shannon (1948):** az információelmélet megalapozása. Shannon már ebben a cikkben mutatott angol szövegszerű „mondatokat”, amelyeket egyre hosszabb előzményt figyelembe vevő statisztikai modellekkel (n-gramokkal) generált [@shannon1948].
+- **Perceptron (1958):** az első tanuló neurális modell, amelyet pszichológiai folyóiratban közöltek [@rosenblatt1958].
+- **ELIZA (1966):** szabályalapú párbeszédprogram, amely már ekkor megmutatta, mennyire hajlamosak az emberek megértést tulajdonítani egy nyelvi rendszernek [@weizenbaum1966].
+- **Hopfield-háló (1982):** asszociatív memóriát modellező, energiaalapú neurális háló [@hopfield1982].
+- **Boltzmann-gép (1985):** sztochasztikus, energiaalapú *generatív* neurális modell, amely rejtett egységek segítségével tanulja meg az adatok eloszlását [@ackley1985].
+
+**Benchmarkok:** ebben a korszakban még nem léteztek egységes mérőfeladatok; a modelleket egyedi, kis példákon mutatták be.
+
+::: {.callout-tip}
+## Pszichológiai kapcsolódás
+
+A perceptron, a Hopfield-háló és a Boltzmann-gép a kognitív tudomány *konnekcionista* irányzatának is alapművei. A Hopfield-féle asszociatív memória és a Boltzmann-gép közvetlenül az emlékezet és a mintázatkiegészítés pszichológiai modelljeihez kapcsolódott.
+:::
+
+## 2. Neurális alapok (1986–2005)
+
+- **Visszaterjesztés (1986):** Rumelhart, Hinton és Williams megmutatták, hogyan tanítható hatékonyan a többrétegű neurális háló; a rejtett rétegek ezzel feladatrelevánsábrázolásokat tanulhattak meg [@rumelhart1986].
+- **LSTM (1997):** a rekurrens hálók „feledékenységét” kapukkal kezelő architektúra, amely két évtizedig a szekvenciák (szöveg, beszéd) feldolgozásának fő eszköze maradt [@hochreiter1997].
+- **Neurális nyelvi modell (2003):** Bengio és munkatársai a szavakat folytonos vektorokkal ábrázolták, és neurális hálóval becsülték a következő szó valószínűségét – ez a mai nyelvi modellek közvetlen elméleti előzménye [@bengio2003].
+
+## 3. A mélytanulás reneszánsza (2006–2012)
+
+- **Deep Belief Networks (2006):** Hinton, Osindero és Teh rétegenként tanított, mély generatív modellje, amely újraélesztette a mély neurális hálók iránti érdeklődést [@hinton2006].
+- **ImageNet (2009):** több millió felcímkézett képből álló adatbázis, amely a gépi látás meghatározó benchmarkjává vált [@deng2009].
+- **AlexNet (2012):** konvolúciós háló, amely GPU-n tanítva nagy fölénnyel nyerte az ImageNet-versenyt; ez a mélytanulás áttörésének szimbolikus pillanata [@krizhevsky2012; @lecun2015].
+
+**Benchmarkok:** MNIST (kézírásos számjegyek), CIFAR-10/100, ImageNet. Ezek osztályozási feladatok voltak; a generatív modelleket gyakran a *tanult reprezentációk* minőségén keresztül értékelték.
+
+## 4. A modern generatív modellek születése (2013–2016)
+
+Ebben a rövid időszakban jelent meg a máig használt generatív alapötletek többsége.
+
+| Év | Modell / publikáció | Új ötlet |
+|---|---|---|
+| 2013 | **word2vec** [@mikolov2013] | Szavak sűrű vektorreprezentációja (beágyazás) |
+| 2013 | **Szekvenciagenerálás RNN-nel** [@graves2013] | Kézírás és szöveg generálása rekurrens hálóval |
+| 2013 | **VAE – Variational Autoencoder** [@kingma2013] | Folytonos latens tér, variációs következtetés, „reparametrizációs trükk” |
+| 2014 | **GAN – Generative Adversarial Network** [@goodfellow2014] | Két háló versenye: a *generátor* hamisít, a *diszkriminátor* leleplez |
+| 2014 | **Seq2seq** [@sutskever2014] | Teljes szekvencia → szekvencia leképezés (pl. gépi fordítás) |
+| 2015 | **Figyelmi mechanizmus a fordításban** [@bahdanau2015] | A modell a kimenet minden lépésénél a bemenet releváns részére „figyel” |
+| 2016 | **WaveNet** [@vandenoord2016] | Nyers hanghullám generálása, természetes hangzású beszédszintézis |
+
+A **GAN** különösen nagy hatású volt: néhány év alatt fotórealisztikus arcképek generálását tette lehetővé.
+
+| Év | GAN-változat |
+|---|---|
+| 2015 | DCGAN – konvolúciós GAN [@radford2016] |
+| 2017 | Progressive GAN – fokozatosan növelt felbontás [@karras2018] |
+| 2018 | StyleGAN – stílusalapú generátor [@karras2019] |
+| 2019 | StyleGAN2 [@karras2020] |
+| 2021 | StyleGAN3 [@karras2021] |
+
+**Benchmarkok:** a generált képek minőségének mérésére két mutató terjedt el: az **Inception Score** (IS, 2016) [@salimans2016] és a **Fréchet Inception Distance** (FID, 2017), amely a generált és a valódi képek jellemzőeloszlásának távolságát méri [@heusel2017]. A fordítási modelleket a WMT-versenyeken hasonlították össze.
+
+**Korlátok:** a VAE-k képei gyakran életlenek voltak; a GAN-ok tanítása instabil volt, és hajlamosak voltak a „módusösszeomlásra” (mode collapse), amikor a generátor csak néhány típusú kimenetet állít elő.
+
+## 5. A Transformer-fordulat (2017–2019)
+
+- **Transformer (2017):** a *self-attention* (önfigyelem) mechanizmusra épülő architektúra elhagyta a rekurrens feldolgozást, így párhuzamosan, sokkal nagyobb adatmennyiségen lehetett tanítani [@vaswani2017]. Szinte minden mai nagy nyelvi és multimodális modell erre épül.
+- **GPT-1 (2018):** generatív előtanítás nagy szövegkorpuszon, majd finomhangolás konkrét feladatokra [@radford2018].
+- **BERT (2018):** kétirányú, önfelügyelt előtanítás; nem elsősorban generatív, de megmutatta az előtanítás erejét a szövegértési feladatokban [@devlin2019].
+- **GPT-2 (2019):** 1,5 milliárd paraméter; hosszabb, koherens szövegek és a „zero-shot” feladatmegoldás első jelei [@radford2019].
+- **T5 (2019–2020):** minden nyelvi feladat egységes „szövegből szöveg” formában [@raffel2020].
+
+**Benchmarkok:** a **GLUE** (2018) és a nehezebb **SuperGLUE** (2019) szövegértési, következtetési és osztályozási feladatok gyűjteménye [@wang2019glue; @wang2019superglue]. Mindkettőt néhány éven belül „telítették”: a modellek elérték vagy meghaladták az emberi teljesítményszintet.
+
+## 6. A skálázás és a nagy nyelvi modellek korszaka (2020–2022)
+
+- **GPT-3 (2020):** 175 milliárd paraméter. Fő felfedezés a *kontextuson belüli tanulás*: a modell néhány, a promptban megadott példából új feladatot képes megoldani, paramétereinek módosítása nélkül [@brown2020].
+- **Skálázási törvények (2020):** Kaplan és munkatársai kimutatták, hogy a nyelvi modellek hibája hatványfüggvény szerint csökken a paraméterek, az adat és a számítási kapacitás növelésével [@kaplan2020]. Ez a felismerés vezette a későbbi nagy beruházásokat.
+- **Chinchilla (2022):** adott számítási kerethez az addigi gyakorlatnál több adat és kisebb modell az optimális [@hoffmann2022].
+- **Alapmodellek (2021):** a Stanford kutatói „alapmodell” (foundation model) néven írták le a széles adaton előtanított, sokféle feladatra adaptálható modelleket [@bommasani2021].
+
+**Benchmarkok:**
+
+| Benchmark | Év | Mit mér? |
+|---|---|---|
+| **MMLU** | 2020 | 57 tantárgy feleletválasztós kérdései az alapfoktól a szakmai szintig [@hendrycks2021] |
+| **HumanEval** | 2021 | Programozási feladatok; a *pass@k* mutató azt méri, hogy k próbálkozásból legalább egy helyes-e [@chen2021codex] |
+| **BIG-bench** | 2022 | Több mint kétszáz, sokféle képességet vizsgáló feladat közösségi gyűjteménye [@srivastava2023] |
+
+## 7. Diffúzió és szövegből kép (2020–2023)
+
+- **DDPM (2020):** a diffúziós modell a tanítás során megtanulja, hogyan lehet egy fokozatosan zajossá tett képből visszaállítani az eredetit; generáláskor tiszta zajból indul [@ho2020].
+- **CLIP (2021):** szöveg és kép közös reprezentációs terében tanult modell; a szövegből képet generáló rendszerek kulcsösszetevője lett [@radford2021].
+- **DALL·E (2021) és DALL·E 2 (2022):** szöveges leírásból képet generáló rendszerek [@ramesh2021; @ramesh2022].
+- **Latens diffúzió és Stable Diffusion (2022):** a diffúziót nem a képpontok, hanem egy tömörített latens tér szintjén végzik, ami jelentős gyorsulást hoz; erre épül a nyíltan elérhető Stable Diffusion [@rombach2022].
+- **Midjourney (2022):** kutatási publikáció helyett termékként fejlesztett képgenerátor, nagy hatással a kreatív iparágakra.
+
+**Benchmarkok:** FID, a szöveg és a kép egyezését mérő **CLIP-pontszám**, valamint egyre gyakrabban emberi preferencia-értékelések. A diffúziós modellek ezeken a mutatókon néhány év alatt felülmúlták a GAN-okat.
+
+## 8. Utasításkövetés és a társalgási MI (2022–2023)
+
+- **Chain-of-thought (2022):** ha a promptban lépésenkénti gondolatmenetet mutatunk vagy kérünk, a nagy modellek érvelési feladatokban jobban teljesítenek [@wei2022].
+- **InstructGPT (2022):** megerősítéses tanulás emberi visszajelzésből (RLHF): emberek rangsorolják a modell válaszait, és a modellt ezek alapján hangolják utasításkövetővé [@ouyang2022].
+- **Constitutional AI (2022):** az emberi visszajelzés egy részét írott elvek alapján adott MI-visszajelzéssel váltják ki [@bai2022cai].
+- **ChatGPT (2022. november 30.):** a generatív MI tömegtermékké vált; néhány hónap alatt több tízmillió, majd százmillió körüli felhasználót ért el [@openai2022chatgpt].
+- **2023 – verseny és sokszínűség:** megjelent a GPT-4 [@openai2023gpt4], az Anthropic Claude-modellje és a Google Gemini-családja; a Meta LLaMA-modelljei [@touvron2023] pedig elindították a *nyílt súlyú* modellek hullámát, amelyeket bárki letölthet és saját gépén futtathat.
+
+## 9. Multimodalitás és videó (2021–2025)
+
+- **Flamingo (2022):** kép és szöveg együttes feldolgozása, néhány példából tanulva [@alayrac2022].
+- **GPT-4 (2023)** képbemenettel, majd 2024-től a szöveget, képet és hangot együtt kezelő modellek váltak általánossá.
+- **Videógenerálás (2024–):** szöveges leírásból néhány másodperces vagy perces videót előállító rendszerek jelentek meg (pl. OpenAI Sora, Google Veo, Runway Gen-3, Meta Movie Gen).
+
+## 10. Gondolkodó modellek (2024–)
+
+**2024. szeptember 12.** fontos dátum: az OpenAI ekkor mutatta be az **o1** modellcsaládot, amelyet arra tanítottak, hogy válasz előtt hosszabb belső gondolatmenetet végezzen. A vállalat szerint ez matematikai, programozási és tudományos feladatokon jelentős javulást hozott [@openai2024o1]. 2025 januárjában a **DeepSeek-R1** nyílt súlyú modellként mutatta meg, hogy hasonló érvelési képesség megerősítéses tanulással is kialakítható [@deepseek2025].
+
+Ezek a modellek a *teszteléskori számítás* (test-time compute) irányát képviselik: a teljesítményt nemcsak a modell méretének, hanem a válaszonként ráfordított „gondolkodási” számításnak a növelésével javítják. Ennek közvetlen következménye a nagyobb tokenfogyasztás (lásd [Tokenek, kontextus és kreditek](tokenek-es-kreditek.qmd)).
+
+**Benchmarkok:** az egyre nehezebb mérőfeladatok közé tartozik a „Google-ellenálló” **GPQA**, amelynek doktori szintű természettudományos kérdéseire kereséssel sem könnyű választ találni [@rein2023]; az absztrakt szabálykövetkeztetést vizsgáló **ARC** feladatsor [@chollet2019]; és a szakértők által összeállított, rendkívül nehéz **Humanity's Last Exam** [@phan2025].
+
+::: {.callout-important}
+## Történészi óvatosság
+
+Hogy az o1 új paradigma kezdete volt-e, vagy a Transformer-alapú nyelvi modellek egy új tanítási technikája, arról nincs szakmai konszenzus. A benchmarkokon elért kiugró eredmények erős teljesítményt jeleznek, de önmagukban nem bizonyítják az „általános intelligencia” megjelenését. A „System 2” (lassú, megfontolt gondolkodás) kifejezés pszichológiai metafora, nem a modell működésének leírása.
+:::
+
+## 11. Az ágensek története
+
+A gondolkodó modell még nem **ágens**. Az ágens *rendszer*: célt kap, érzékeli a környezetét, több lépésben tervez, eszközöket használ, cselekszik, és az eredmények alapján korrigál [@russell2021]. Az ágensfogalom jóval régebbi a generatív MI-nél.
+
+### Klasszikus előzmények (1956–2016)
+
+| Év | Rendszer / publikáció | Jelentőség |
+|---|---|---|
+| 1956 | **Logic Theorist** [@newell1956] | Célt kap, köztes lépéseket keres, matematikai tételeket bizonyít |
+| 1971 | **STRIPS** [@fikes1971] | Tervezőrendszer: világállapot, cselekvések előfeltételei és hatásai, célállapot |
+| 1995 | **BDI-ágensek** [@rao1995] | Hiedelem–vágy–szándék (belief–desire–intention) modell; pszichológiai fogalmakból építkező ágensarchitektúra |
+| 1995– | **Racionális ágens paradigma** [@russell2021] | Az MI-tankönyvek központi fogalmává vált |
+| 2013–2015 | **DQN** [@mnih2013; @mnih2015] | Megerősítéses tanulással Atari-játékokat tanuló ágens |
+| 2016 | **AlphaGo** [@silver2016] | Tervezés, önjáték és mély neurális hálók; legyőzte a go-világ élvonalát |
+
+Ezek az ágensek szűk, jól definiált környezetben működtek, és nem értették a természetes nyelvet.
+
+### Nyelvi modellre épülő ágensek (2022–2023)
+
+- **ReAct (2022):** a modell felváltva *gondolkodik* és *cselekszik* (pl. keres), majd a megfigyelés alapján folytatja; a mai nyelvimodell-ágensek többsége ezt a ciklust követi [@yao2023react].
+- **Toolformer (2023):** a modell maga tanulja meg, mikor és hogyan hívjon külső eszközt (számológép, kereső, fordító) [@schick2023].
+- **Generative Agents (2023):** egy virtuális kisvárosban 25 nyelvimodell-alapú szereplő élt emlékezettel, tervezéssel és társas interakcióval; pszichológiai szempontból is figyelemre méltó szimulációs kísérlet [@park2023].
+- **AutoGPT és BabyAGI (2023):** nyílt forráskódú kísérletek, amelyek egy célt részfeladatokra bontva, önállóan próbáltak végrehajtani [@autogpt2023; @babyagi2023]. Gyakran elakadtak, ismétlődő ciklusokba kerültek vagy hallucináltak, de széles körben népszerűsítették az ágensötletet.
+
+### Ipari ágensplatformok (2024–2025)
+
+| Dátum | Esemény | Mit tud? |
+|---|---|---|
+| 2024. május 14. | **Google Project Astra** bemutatása [@google2024astra] | Kamerán keresztül látó, beszélő, a környezetre reagáló multimodális asszisztens (prototípus) |
+| 2024. október 21. | **Microsoft Copilot Studio autonóm ágensei** [@microsoft2024agents] | Vállalati munkafolyamatokat önállóan végző ágensek |
+| 2024. október 22. | **Anthropic computer use** [@anthropic2024computer] | A Claude képernyőképek alapján egeret mozgat, kattint, gépel (nyilvános béta) |
+| 2024. november 25. | **Model Context Protocol (MCP)** [@anthropic2024mcp] | Nyílt szabvány a modellek és a külső eszközök, adatforrások összekapcsolására |
+| 2024. december 11. | **Google Gemini 2.0**, „az ágensek korszakára” tervezve [@google2024gemini2] | Project Mariner böngészőágens, Astra-fejlesztések |
+| 2025. január 23. | **OpenAI Operator** [@openai2025operator] | Böngészőt kezelő fogyasztói ágens |
+| 2025. április | **Meta Llama 4** [@meta2025llama4] | Natívan multimodális, nyílt súlyú modellcsalád, ágensalkalmazásokra is szánva |
+| 2025. július | **xAI Grok 4 Heavy** [@xai2025grok4] | Több párhuzamosan dolgozó ágenspéldány összetett feladatokra |
+| 2025. július 17. | **ChatGPT agent** [@openai2025agent] | Az Operator és a mély kutatás egyesítése: böngészés, kódfuttatás, fájlok készítése |
+
+Az xAI 2025 folyamán ütemezett, ismétlődő feladatokat végző funkciót („Tasks”) is bevezetett a Grokban; ennek pontos indulási dátumát nem sikerült elsődleges forrásból megerősíteni.
+
+**Benchmarkok:** az ágensek értékelése a valós feladatok felé mozdult. A **SWE-bench** valódi GitHub-hibajegyek megoldását méri [@jimenez2024], a **τ-bench** pedig azt, hogyan teljesít egy ágens felhasználóval és eszközökkel folytatott, szabályokhoz kötött párbeszédben (pl. ügyfélszolgálati helyzetekben) [@yao2024tau].
+
+## 12. A benchmarkok tanulságai
+
+A benchmarkok történetéből három általános tanulság adódik:
+
+1. **Telítődés:** a jó benchmarkok néhány éven belül „elfogynak” – a modellek elérik a plafont (GLUE, SuperGLUE, később MMLU), és újabb, nehezebb feladatsor kell.
+2. **Szennyeződés (contamination):** ha a benchmark kérdései bekerülnek a tanítóadatba, a magas pontszám részben „tesztismeret”, nem képesség.
+3. **Érvényesség:** egy szűk feladatsoron mért eredményből nem következtethetünk általános képességre; a benchmark a pszichológiai tesztekhez hasonlóan csak azt méri, amit mintavételezett [@raji2021].
+
+::: {.callout-tip}
+## Pszichológiai kapcsolódás
+
+A benchmarkok problémái a pszichometria klasszikus kérdéseit idézik: tartalmi validitás, a gyakorlási hatás (a „tesztre tanulás”), a normacsoport megfelelősége és a plafonhatás. Egy MI-modell „IQ-ját” ugyanazokkal a módszertani fenntartásokkal kell kezelni, mint egy rosszul validált tesztet.
+:::
+
+## Összefoglaló idővonal
+
+| Év | Mérföldkő | Jelentőség |
+|---:|---|---|
+| 1913 | Markov-lánc szövegen | A következő jel valószínűsége az előzőek alapján |
+| 1948 | Shannon információelmélete | Statisztikai szöveggenerálás |
+| 1958 | Perceptron | Tanuló neurális modell |
+| 1985 | Boltzmann-gép | Energiaalapú generatív háló |
+| 1986 | Visszaterjesztés | Többrétegű hálók tanítása |
+| 1997 | LSTM | Szekvenciák feldolgozása |
+| 2003 | Neurális nyelvi modell | Szóvektorok és következőszó-becslés |
+| 2006 | Deep Belief Networks | A mélytanulás reneszánsza |
+| 2012 | AlexNet | Mélytanulási áttörés a gépi látásban |
+| 2013 | VAE, word2vec | Latens generatív tér, szóbeágyazás |
+| 2014 | GAN, seq2seq | Adverzális tanulás, szekvenciagenerálás |
+| 2017 | Transformer | A mai nyelvi modellek alapja |
+| 2018 | GPT-1, BERT | Generatív és önfelügyelt előtanítás |
+| 2019 | GPT-2 | Koherens hosszú szöveg |
+| 2020 | GPT-3, skálázási törvények, DDPM | Kontextuson belüli tanulás, diffúzió |
+| 2021 | CLIP, DALL·E | Szöveg–kép kapcsolat |
+| 2022 | Stable Diffusion, InstructGPT, ChatGPT | Nyílt képgenerálás, RLHF, tömegpiac |
+| 2023 | GPT-4, LLaMA, Claude, Gemini; ReAct-alapú ágensek | Multimodalitás, nyílt súlyú modellek |
+| 2024 | o1, computer use, MCP, Gemini 2.0 | Gondolkodó modellek, ágensplatformok |
+| 2025 | DeepSeek-R1, Operator, ChatGPT agent, Llama 4 | Nyílt érvelő modellek, fogyasztói ágensek |
+
+## Nyitott kérdések
+
+- Kialakul-e a nyelvi modellekben valódi *világmodell*, vagy csak a szöveg statisztikai szabályszerűségeit tanulják meg?
+- Hogyan mérhető megbízhatóan az általánosítás, ha a benchmarkok gyorsan telítődnek és bekerülhetnek a tanítóadatba?
+- Felváltja-e valami a Transformert, és meddig folytatható a skálázás?
+- Hogyan építhetők megbízható, ellenőrizhető ágensrendszerek, amelyek hibái nem okoznak valós kárt?
+- Hogyan változtatja meg a „szöveg → gondolkodás → cselekvés” fejlődési ív az ember és a gép közötti munkamegosztást és felelősséget?
+
+## Ellenőrző kérdések
+
+1. Mi a különbség a generatív és a diszkriminatív modell között?
+2. Mit vizsgált Markov 1913-ban, és miért tekinthető ez a nyelvi modellek távoli előzményének?
+3. Hogyan működik a GAN? Mi a „módusösszeomlás”?
+4. Miben hozott újat a Transformer a rekurrens hálókhoz képest?
+5. Mit jelent a kontextuson belüli tanulás, és melyik modellnél vált először nyilvánvalóvá?
+6. Mit állítanak a skálázási törvények, és mit tett hozzá ehhez a Chinchilla-tanulmány?
+7. Hogyan működik a diffúziós képgenerálás?
+8. Mi az RLHF, és miért volt fontos a ChatGPT sikeréhez?
+9. Miért nem ágens önmagában egy gondolkodó (reasoning) modell? Milyen összetevők kellenek az ágenshez?
+10. Milyen problémák merülnek fel a benchmarkokkal kapcsolatban, és milyen pszichometriai fogalmakkal írhatók le?
+
+## Megjegyzés a forrásokhoz
+
+A fejezet egy MI-asszisztenssel (Microsoft Copilot) folytatott beszélgetés vázlatára épül. Az ellenőrzés során a következő hibákat javítottuk:
+
+- A vázlatban a GAN-hoz megadott DOI (`10.1145/3422622`) nem a 2014-es eredeti konferenciacikké, hanem egy 2020-as, *Communications of the ACM*-ben megjelent összefoglalóé; itt az eredeti NeurIPS-publikációra hivatkozunk.
+- A Boltzmann-gépről szóló cikk DOI-ja a vázlatban hibás volt; a helyes forrás a *Cognitive Science* 1985-ös kötete.
+- A Grok ágensfunkcióinak egy része a vázlatban megbízhatatlan, nem elsődleges forrásra hivatkozott; ezeket az xAI hivatalos közlése alapján pontosítottuk, illetve bizonytalanként jelöltük.
+- A vázlat korszakolásait (pl. „chatbot-korszak”, „ágens-korszak”) értelmezési keretként kezeljük, nem tudományosan rögzített periodizációként.

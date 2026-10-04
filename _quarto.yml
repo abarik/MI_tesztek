@@ -28,6 +28,9 @@ book:
         - kurzusosszefoglalo_pai_2.qmd
         - kurzusosszefoglalo_pai_3.qmd
         - kurzusosszefoglalo_pai_4.qmd
+    - part: "Történeti áttekintés"
+      chapters:
+        - generativ-mi-tortenete.qmd
     - part: "Gyakorlati MI-használat"
       chapters:
         - tokenek-es-kreditek.qmd

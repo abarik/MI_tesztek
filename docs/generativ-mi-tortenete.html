@@ -1,0 +1,1755 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="hu" xml:lang="hu"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.10.18">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>8&nbsp; A generatív MI története: a Markov-láncoktól az ágensekig – MI-tesztek</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./tokenek-es-kreditek.html" rel="next">
+<link href="./kurzusosszefoglalo_pai_4.html" rel="prev">
+<script src="site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-b85bc7c33db8c58e0ec93c3465666fed.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap-9d427fb9aa4e7f60cd390d7ae3c7ba90.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-dark-494993c62a01dd0104ea6b4a58da199b.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="site_libs/bootstrap/bootstrap-9d427fb9aa4e7f60cd390d7ae3c7ba90.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "Nincs találat",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<style>html{ scroll-behavior: smooth; }</style>
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+</head>
+
+<body class="nav-sidebar floating quarto-light"><script id="quarto-html-before-body" type="application/javascript">
+    const toggleBodyColorMode = (bsSheetEl) => {
+      const mode = bsSheetEl.getAttribute("data-mode");
+      const bodyEl = window.document.querySelector("body");
+      if (mode === "dark") {
+        bodyEl.classList.add("quarto-dark");
+        bodyEl.classList.remove("quarto-light");
+      } else {
+        bodyEl.classList.add("quarto-light");
+        bodyEl.classList.remove("quarto-dark");
+      }
+    }
+    const toggleBodyColorPrimary = () => {
+      const bsSheetEl = window.document.querySelector("link#quarto-bootstrap:not([rel=disabled-stylesheet])");
+      if (bsSheetEl) {
+        toggleBodyColorMode(bsSheetEl);
+      }
+    }
+    const setColorSchemeToggle = (alternate) => {
+      const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
+      for (let i=0; i < toggles.length; i++) {
+        const toggle = toggles[i];
+        if (toggle) {
+          if (alternate) {
+            toggle.classList.add("alternate");
+          } else {
+            toggle.classList.remove("alternate");
+          }
+        }
+      }
+    };
+    const toggleColorMode = (alternate) => {
+      // Switch the stylesheets
+      const primaryStylesheets = window.document.querySelectorAll('link.quarto-color-scheme:not(.quarto-color-alternate)');
+      const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
+      manageTransitions('#quarto-margin-sidebar .nav-link', false);
+      if (alternate) {
+        // note: dark is layered on light, we don't disable primary!
+        enableStylesheet(alternateStylesheets);
+        for (const sheetNode of alternateStylesheets) {
+          if (sheetNode.id === "quarto-bootstrap") {
+            toggleBodyColorMode(sheetNode);
+          }
+        }
+      } else {
+        disableStylesheet(alternateStylesheets);
+        enableStylesheet(primaryStylesheets)
+        toggleBodyColorPrimary();
+      }
+      manageTransitions('#quarto-margin-sidebar .nav-link', true);
+      // Switch the toggles
+      setColorSchemeToggle(alternate)
+      // Hack to workaround the fact that safari doesn't
+      // properly recolor the scrollbar when toggling (#1455)
+      if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
+        manageTransitions("body", false);
+        window.scrollTo(0, 1);
+        setTimeout(() => {
+          window.scrollTo(0, 0);
+          manageTransitions("body", true);
+        }, 40);
+      }
+    }
+    const disableStylesheet = (stylesheets) => {
+      for (let i=0; i < stylesheets.length; i++) {
+        const stylesheet = stylesheets[i];
+        stylesheet.rel = 'disabled-stylesheet';
+      }
+    }
+    const enableStylesheet = (stylesheets) => {
+      for (let i=0; i < stylesheets.length; i++) {
+        const stylesheet = stylesheets[i];
+        if(stylesheet.rel !== 'stylesheet') { // for Chrome, which will still FOUC without this check
+          stylesheet.rel = 'stylesheet';
+        }
+      }
+    }
+    const manageTransitions = (selector, allowTransitions) => {
+      const els = window.document.querySelectorAll(selector);
+      for (let i=0; i < els.length; i++) {
+        const el = els[i];
+        if (allowTransitions) {
+          el.classList.remove('notransition');
+        } else {
+          el.classList.add('notransition');
+        }
+      }
+    }
+    const isFileUrl = () => {
+      return window.location.protocol === 'file:';
+    }
+    const hasAlternateSentinel = () => {
+      let styleSentinel = getColorSchemeSentinel();
+      if (styleSentinel !== null) {
+        return styleSentinel === "alternate";
+      } else {
+        return false;
+      }
+    }
+    const setStyleSentinel = (alternate) => {
+      const value = alternate ? "alternate" : "default";
+      if (!isFileUrl()) {
+        window.localStorage.setItem("quarto-color-scheme", value);
+      } else {
+        localAlternateSentinel = value;
+      }
+    }
+    const getColorSchemeSentinel = () => {
+      if (!isFileUrl()) {
+        const storageValue = window.localStorage.getItem("quarto-color-scheme");
+        return storageValue != null ? storageValue : localAlternateSentinel;
+      } else {
+        return localAlternateSentinel;
+      }
+    }
+    const toggleGiscusIfUsed = (isAlternate, darkModeDefault) => {
+      const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
+      const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
+      let newTheme = '';
+      if(authorPrefersDark) {
+        newTheme = isAlternate ? baseTheme : alternateTheme;
+      } else {
+        newTheme = isAlternate ? alternateTheme : baseTheme;
+      }
+      const changeGiscusTheme = () => {
+        // From: https://github.com/giscus/giscus/issues/336
+        const sendMessage = (message) => {
+          const iframe = document.querySelector('iframe.giscus-frame');
+          if (!iframe) return;
+          iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
+        }
+        sendMessage({
+          setConfig: {
+            theme: newTheme
+          }
+        });
+      }
+      const isGiscussLoaded = window.document.querySelector('iframe.giscus-frame') !== null;
+      if (isGiscussLoaded) {
+        changeGiscusTheme();
+      }
+    };
+    const authorPrefersDark = false;
+    const darkModeDefault = authorPrefersDark;
+      document.querySelector('link#quarto-text-highlighting-styles.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
+      document.querySelector('link#quarto-bootstrap.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
+    let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
+    // Dark / light mode switch
+    window.quartoToggleColorScheme = () => {
+      // Read the current dark / light value
+      let toAlternate = !hasAlternateSentinel();
+      toggleColorMode(toAlternate);
+      setStyleSentinel(toAlternate);
+      toggleGiscusIfUsed(toAlternate, darkModeDefault);
+      window.dispatchEvent(new Event('resize'));
+    };
+    // Switch to dark mode if need be
+    if (hasAlternateSentinel()) {
+      toggleColorMode(true);
+    } else {
+      toggleColorMode(false);
+    }
+  </script>
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./generativ-mi-tortenete.html">Történeti áttekintés</a></li><li class="breadcrumb-item"><a href="./generativ-mi-tortenete.html"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">A generatív MI története: a Markov-láncoktól az ágensekig</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">MI-tesztek</a> 
+        <div class="sidebar-tools-main">
+  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
+</div>
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Előszó</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
+ <span class="menu-text">Témakörök és fogalmak</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./temakorok.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Témakörök a kurzus weboldala alapján</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./temakorok_irodalom.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Témakörök a szakirodalom alapján</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./temakorok_irodalom_kifejtve.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Fogalmak kifejtve</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./kurzusosszefoglalo_pai.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Kurzusösszefoglaló: bevezető fogalomtár</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./kurzusosszefoglalo_pai_2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Kibővített fogalomtár</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./kurzusosszefoglalo_pai_3.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">MI–pszichológia BA fogalomtár</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./kurzusosszefoglalo_pai_4.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">MI–pszichológia BA fogalomtár (bővített)</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
+ <span class="menu-text">Történeti áttekintés</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./generativ-mi-tortenete.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">A generatív MI története: a Markov-láncoktól az ágensekig</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
+ <span class="menu-text">Gyakorlati MI-használat</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./tokenek-es-kreditek.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Tokenek, kontextus és kreditek: mitől fogy el a chatbot?</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true">
+ <span class="menu-text">Kitekintés</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./MI-ellenesseg.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Az „MI-ellenesség” típusai és történeti dokumentumai</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./MI-kockazat-monitoring.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">MI-kockázatok, figyelmeztetések és cselekvési felhívások folyamatos monitorozása</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./references.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Hivatkozások</span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Tartalom</h2>
+   
+  <ul>
+  <li><a href="#előtörténet-valószínűség-és-információ-19131985" id="toc-előtörténet-valószínűség-és-információ-19131985" class="nav-link active" data-scroll-target="#előtörténet-valószínűség-és-információ-19131985">1. Előtörténet: valószínűség és információ (1913–1985)</a></li>
+  <li><a href="#neurális-alapok-19862005" id="toc-neurális-alapok-19862005" class="nav-link" data-scroll-target="#neurális-alapok-19862005">2. Neurális alapok (1986–2005)</a></li>
+  <li><a href="#a-mélytanulás-reneszánsza-20062012" id="toc-a-mélytanulás-reneszánsza-20062012" class="nav-link" data-scroll-target="#a-mélytanulás-reneszánsza-20062012">3. A mélytanulás reneszánsza (2006–2012)</a></li>
+  <li><a href="#a-modern-generatív-modellek-születése-20132016" id="toc-a-modern-generatív-modellek-születése-20132016" class="nav-link" data-scroll-target="#a-modern-generatív-modellek-születése-20132016">4. A modern generatív modellek születése (2013–2016)</a></li>
+  <li><a href="#a-transformer-fordulat-20172019" id="toc-a-transformer-fordulat-20172019" class="nav-link" data-scroll-target="#a-transformer-fordulat-20172019">5. A Transformer-fordulat (2017–2019)</a></li>
+  <li><a href="#a-skálázás-és-a-nagy-nyelvi-modellek-korszaka-20202022" id="toc-a-skálázás-és-a-nagy-nyelvi-modellek-korszaka-20202022" class="nav-link" data-scroll-target="#a-skálázás-és-a-nagy-nyelvi-modellek-korszaka-20202022">6. A skálázás és a nagy nyelvi modellek korszaka (2020–2022)</a></li>
+  <li><a href="#diffúzió-és-szövegből-kép-20202023" id="toc-diffúzió-és-szövegből-kép-20202023" class="nav-link" data-scroll-target="#diffúzió-és-szövegből-kép-20202023">7. Diffúzió és szövegből kép (2020–2023)</a></li>
+  <li><a href="#utasításkövetés-és-a-társalgási-mi-20222023" id="toc-utasításkövetés-és-a-társalgási-mi-20222023" class="nav-link" data-scroll-target="#utasításkövetés-és-a-társalgási-mi-20222023">8. Utasításkövetés és a társalgási MI (2022–2023)</a></li>
+  <li><a href="#multimodalitás-és-videó-20212025" id="toc-multimodalitás-és-videó-20212025" class="nav-link" data-scroll-target="#multimodalitás-és-videó-20212025">9. Multimodalitás és videó (2021–2025)</a></li>
+  <li><a href="#gondolkodó-modellek-2024" id="toc-gondolkodó-modellek-2024" class="nav-link" data-scroll-target="#gondolkodó-modellek-2024">10. Gondolkodó modellek (2024–)</a></li>
+  <li><a href="#az-ágensek-története" id="toc-az-ágensek-története" class="nav-link" data-scroll-target="#az-ágensek-története">11. Az ágensek története</a>
+  <ul class="collapse">
+  <li><a href="#klasszikus-előzmények-19562016" id="toc-klasszikus-előzmények-19562016" class="nav-link" data-scroll-target="#klasszikus-előzmények-19562016">Klasszikus előzmények (1956–2016)</a></li>
+  <li><a href="#nyelvi-modellre-épülő-ágensek-20222023" id="toc-nyelvi-modellre-épülő-ágensek-20222023" class="nav-link" data-scroll-target="#nyelvi-modellre-épülő-ágensek-20222023">Nyelvi modellre épülő ágensek (2022–2023)</a></li>
+  <li><a href="#ipari-ágensplatformok-20242025" id="toc-ipari-ágensplatformok-20242025" class="nav-link" data-scroll-target="#ipari-ágensplatformok-20242025">Ipari ágensplatformok (2024–2025)</a></li>
+  </ul></li>
+  <li><a href="#a-benchmarkok-tanulságai" id="toc-a-benchmarkok-tanulságai" class="nav-link" data-scroll-target="#a-benchmarkok-tanulságai">12. A benchmarkok tanulságai</a></li>
+  <li><a href="#összefoglaló-idővonal" id="toc-összefoglaló-idővonal" class="nav-link" data-scroll-target="#összefoglaló-idővonal">Összefoglaló idővonal</a></li>
+  <li><a href="#nyitott-kérdések" id="toc-nyitott-kérdések" class="nav-link" data-scroll-target="#nyitott-kérdések">Nyitott kérdések</a></li>
+  <li><a href="#ellenőrző-kérdések" id="toc-ellenőrző-kérdések" class="nav-link" data-scroll-target="#ellenőrző-kérdések">Ellenőrző kérdések</a></li>
+  <li><a href="#megjegyzés-a-forrásokhoz" id="toc-megjegyzés-a-forrásokhoz" class="nav-link" data-scroll-target="#megjegyzés-a-forrásokhoz">Megjegyzés a forrásokhoz</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./generativ-mi-tortenete.html">Történeti áttekintés</a></li><li class="breadcrumb-item"><a href="./generativ-mi-tortenete.html"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">A generatív MI története: a Markov-láncoktól az ágensekig</span></a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title"><span id="sec-generativ-mi-tortenete" class="quarto-section-identifier"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">A generatív MI története: a Markov-láncoktól az ágensekig</span></span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<p><em>Korszakok, kulcspublikációk, modellek és benchmarkok</em></p>
+<p>A generatív mesterséges intelligencia története nem 2022 novemberében, a ChatGPT megjelenésével kezdődött. A mai nagy nyelvi modellek és képgenerátorok mögött több mint száz év gondolkodása áll: valószínűségszámítás, információelmélet, neurális hálók, reprezentációtanulás, majd az utóbbi évtizedben a Transformer-architektúra, a skálázás és az emberi visszajelzésből tanulás összekapcsolódása. Ez a fejezet ezt az utat követi végig, korszakokra bontva.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Hogyan olvassuk ezt a fejezetet?
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li><strong>Generatív modell</strong> az, amely egy adateloszlást tanul meg, és abból <em>új példányokat</em> tud előállítani – szöveget, képet, hangot. Ezzel szemben a <em>diszkriminatív</em> modell csak megkülönböztet, osztályoz.</li>
+<li>Minden korszaknál három kérdést teszünk fel: <em>mi volt az új ötlet</em>, <em>melyik publikáció vagy modell hozta</em>, és <em>mivel mérték</em> (benchmark).</li>
+<li>A fejezet egy MI-asszisztenssel folytatott beszélgetés vázlatára épül, de minden publikációt, dátumot és azonosítót elsődleges forrásból ellenőriztünk; a vázlat hibáit javítottuk (lásd a fejezet végén).</li>
+</ul>
+</div>
+</div>
+<section id="előtörténet-valószínűség-és-információ-19131985" class="level2">
+<h2 class="anchored" data-anchor-id="előtörténet-valószínűség-és-információ-19131985">1. Előtörténet: valószínűség és információ (1913–1985)</h2>
+<p>A generatív modellezés alapkérdése – <em>mi a valószínűsége a következő jelnek az eddigiek ismeretében?</em> – jóval a számítógépek előtt megfogalmazódott.</p>
+<ul>
+<li><strong>Markov (1913):</strong> Andrej Markov Puskin <em>Anyegin</em>jének szövegén vizsgálta, hogy egy betű magánhangzó vagy mássalhangzó volta mennyire függ az előzőtől. Ez az első <em>Markov-lánc</em> alkalmazás nyelvi adatokon – a mai nyelvi modellek távoli őse <span class="citation" data-cites="markov2006">(<a href="references.html#ref-markov2006" role="doc-biblioref">Markov, 1913/2006</a>)</span>.</li>
+<li><strong>Shannon (1948):</strong> az információelmélet megalapozása. Shannon már ebben a cikkben mutatott angol szövegszerű „mondatokat”, amelyeket egyre hosszabb előzményt figyelembe vevő statisztikai modellekkel (n-gramokkal) generált <span class="citation" data-cites="shannon1948">(<a href="references.html#ref-shannon1948" role="doc-biblioref">Shannon, 1948</a>)</span>.</li>
+<li><strong>Perceptron (1958):</strong> az első tanuló neurális modell, amelyet pszichológiai folyóiratban közöltek <span class="citation" data-cites="rosenblatt1958">(<a href="references.html#ref-rosenblatt1958" role="doc-biblioref">Rosenblatt, 1958</a>)</span>.</li>
+<li><strong>ELIZA (1966):</strong> szabályalapú párbeszédprogram, amely már ekkor megmutatta, mennyire hajlamosak az emberek megértést tulajdonítani egy nyelvi rendszernek <span class="citation" data-cites="weizenbaum1966">(<a href="references.html#ref-weizenbaum1966" role="doc-biblioref">Weizenbaum, 1966</a>)</span>.</li>
+<li><strong>Hopfield-háló (1982):</strong> asszociatív memóriát modellező, energiaalapú neurális háló <span class="citation" data-cites="hopfield1982">(<a href="references.html#ref-hopfield1982" role="doc-biblioref">Hopfield, 1982</a>)</span>.</li>
+<li><strong>Boltzmann-gép (1985):</strong> sztochasztikus, energiaalapú <em>generatív</em> neurális modell, amely rejtett egységek segítségével tanulja meg az adatok eloszlását <span class="citation" data-cites="ackley1985">(<a href="references.html#ref-ackley1985" role="doc-biblioref">Ackley és mtsai., 1985</a>)</span>.</li>
+</ul>
+<p><strong>Benchmarkok:</strong> ebben a korszakban még nem léteztek egységes mérőfeladatok; a modelleket egyedi, kis példákon mutatták be.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Pszichológiai kapcsolódás
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>A perceptron, a Hopfield-háló és a Boltzmann-gép a kognitív tudomány <em>konnekcionista</em> irányzatának is alapművei. A Hopfield-féle asszociatív memória és a Boltzmann-gép közvetlenül az emlékezet és a mintázatkiegészítés pszichológiai modelljeihez kapcsolódott.</p>
+</div>
+</div>
+</section>
+<section id="neurális-alapok-19862005" class="level2">
+<h2 class="anchored" data-anchor-id="neurális-alapok-19862005">2. Neurális alapok (1986–2005)</h2>
+<ul>
+<li><strong>Visszaterjesztés (1986):</strong> Rumelhart, Hinton és Williams megmutatták, hogyan tanítható hatékonyan a többrétegű neurális háló; a rejtett rétegek ezzel feladatrelevánsábrázolásokat tanulhattak meg <span class="citation" data-cites="rumelhart1986">(<a href="references.html#ref-rumelhart1986" role="doc-biblioref">Rumelhart és mtsai., 1986</a>)</span>.</li>
+<li><strong>LSTM (1997):</strong> a rekurrens hálók „feledékenységét” kapukkal kezelő architektúra, amely két évtizedig a szekvenciák (szöveg, beszéd) feldolgozásának fő eszköze maradt <span class="citation" data-cites="hochreiter1997">(<a href="references.html#ref-hochreiter1997" role="doc-biblioref">Hochreiter &amp; Schmidhuber, 1997</a>)</span>.</li>
+<li><strong>Neurális nyelvi modell (2003):</strong> Bengio és munkatársai a szavakat folytonos vektorokkal ábrázolták, és neurális hálóval becsülték a következő szó valószínűségét – ez a mai nyelvi modellek közvetlen elméleti előzménye <span class="citation" data-cites="bengio2003">(<a href="references.html#ref-bengio2003" role="doc-biblioref">Bengio és mtsai., 2003</a>)</span>.</li>
+</ul>
+</section>
+<section id="a-mélytanulás-reneszánsza-20062012" class="level2">
+<h2 class="anchored" data-anchor-id="a-mélytanulás-reneszánsza-20062012">3. A mélytanulás reneszánsza (2006–2012)</h2>
+<ul>
+<li><strong>Deep Belief Networks (2006):</strong> Hinton, Osindero és Teh rétegenként tanított, mély generatív modellje, amely újraélesztette a mély neurális hálók iránti érdeklődést <span class="citation" data-cites="hinton2006">(<a href="references.html#ref-hinton2006" role="doc-biblioref">Hinton és mtsai., 2006</a>)</span>.</li>
+<li><strong>ImageNet (2009):</strong> több millió felcímkézett képből álló adatbázis, amely a gépi látás meghatározó benchmarkjává vált <span class="citation" data-cites="deng2009">(<a href="references.html#ref-deng2009" role="doc-biblioref">Deng és mtsai., 2009</a>)</span>.</li>
+<li><strong>AlexNet (2012):</strong> konvolúciós háló, amely GPU-n tanítva nagy fölénnyel nyerte az ImageNet-versenyt; ez a mélytanulás áttörésének szimbolikus pillanata <span class="citation" data-cites="krizhevsky2012 lecun2015">(<a href="references.html#ref-krizhevsky2012" role="doc-biblioref">Krizhevsky és mtsai., 2012</a>; <a href="references.html#ref-lecun2015" role="doc-biblioref">LeCun és mtsai., 2015</a>)</span>.</li>
+</ul>
+<p><strong>Benchmarkok:</strong> MNIST (kézírásos számjegyek), CIFAR-10/100, ImageNet. Ezek osztályozási feladatok voltak; a generatív modelleket gyakran a <em>tanult reprezentációk</em> minőségén keresztül értékelték.</p>
+</section>
+<section id="a-modern-generatív-modellek-születése-20132016" class="level2">
+<h2 class="anchored" data-anchor-id="a-modern-generatív-modellek-születése-20132016">4. A modern generatív modellek születése (2013–2016)</h2>
+<p>Ebben a rövid időszakban jelent meg a máig használt generatív alapötletek többsége.</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Év</th>
+<th>Modell / publikáció</th>
+<th>Új ötlet</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>2013</td>
+<td><strong>word2vec</strong> <span class="citation" data-cites="mikolov2013">(<a href="references.html#ref-mikolov2013" role="doc-biblioref">Mikolov és mtsai., 2013</a>)</span></td>
+<td>Szavak sűrű vektorreprezentációja (beágyazás)</td>
+</tr>
+<tr class="even">
+<td>2013</td>
+<td><strong>Szekvenciagenerálás RNN-nel</strong> <span class="citation" data-cites="graves2013">(<a href="references.html#ref-graves2013" role="doc-biblioref">Graves, 2013</a>)</span></td>
+<td>Kézírás és szöveg generálása rekurrens hálóval</td>
+</tr>
+<tr class="odd">
+<td>2013</td>
+<td><strong>VAE – Variational Autoencoder</strong> <span class="citation" data-cites="kingma2013">(<a href="references.html#ref-kingma2013" role="doc-biblioref">Kingma &amp; Welling, 2013</a>)</span></td>
+<td>Folytonos latens tér, variációs következtetés, „reparametrizációs trükk”</td>
+</tr>
+<tr class="even">
+<td>2014</td>
+<td><strong>GAN – Generative Adversarial Network</strong> <span class="citation" data-cites="goodfellow2014">(<a href="references.html#ref-goodfellow2014" role="doc-biblioref"><span class="nocase">Goodfellow és mtsai.</span>, 2014</a>)</span></td>
+<td>Két háló versenye: a <em>generátor</em> hamisít, a <em>diszkriminátor</em> leleplez</td>
+</tr>
+<tr class="odd">
+<td>2014</td>
+<td><strong>Seq2seq</strong> <span class="citation" data-cites="sutskever2014">(<a href="references.html#ref-sutskever2014" role="doc-biblioref">Sutskever és mtsai., 2014</a>)</span></td>
+<td>Teljes szekvencia → szekvencia leképezés (pl. gépi fordítás)</td>
+</tr>
+<tr class="even">
+<td>2015</td>
+<td><strong>Figyelmi mechanizmus a fordításban</strong> <span class="citation" data-cites="bahdanau2015">(<a href="references.html#ref-bahdanau2015" role="doc-biblioref">Bahdanau és mtsai., 2015</a>)</span></td>
+<td>A modell a kimenet minden lépésénél a bemenet releváns részére „figyel”</td>
+</tr>
+<tr class="odd">
+<td>2016</td>
+<td><strong>WaveNet</strong> <span class="citation" data-cites="vandenoord2016">(<a href="references.html#ref-vandenoord2016" role="doc-biblioref"><span class="nocase">Oord és mtsai.</span>, 2016</a>)</span></td>
+<td>Nyers hanghullám generálása, természetes hangzású beszédszintézis</td>
+</tr>
+</tbody>
+</table>
+<p>A <strong>GAN</strong> különösen nagy hatású volt: néhány év alatt fotórealisztikus arcképek generálását tette lehetővé.</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Év</th>
+<th>GAN-változat</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>2015</td>
+<td>DCGAN – konvolúciós GAN <span class="citation" data-cites="radford2016">(<a href="references.html#ref-radford2016" role="doc-biblioref">Radford és mtsai., 2016</a>)</span></td>
+</tr>
+<tr class="even">
+<td>2017</td>
+<td>Progressive GAN – fokozatosan növelt felbontás <span class="citation" data-cites="karras2018">(<a href="references.html#ref-karras2018" role="doc-biblioref">Karras és mtsai., 2018</a>)</span></td>
+</tr>
+<tr class="odd">
+<td>2018</td>
+<td>StyleGAN – stílusalapú generátor <span class="citation" data-cites="karras2019">(<a href="references.html#ref-karras2019" role="doc-biblioref">Karras és mtsai., 2019</a>)</span></td>
+</tr>
+<tr class="even">
+<td>2019</td>
+<td>StyleGAN2 <span class="citation" data-cites="karras2020">(<a href="references.html#ref-karras2020" role="doc-biblioref">Karras és mtsai., 2020</a>)</span></td>
+</tr>
+<tr class="odd">
+<td>2021</td>
+<td>StyleGAN3 <span class="citation" data-cites="karras2021">(<a href="references.html#ref-karras2021" role="doc-biblioref"><span class="nocase">Karras és mtsai.</span>, 2021</a>)</span></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Benchmarkok:</strong> a generált képek minőségének mérésére két mutató terjedt el: az <strong>Inception Score</strong> (IS, 2016) <span class="citation" data-cites="salimans2016">(<a href="references.html#ref-salimans2016" role="doc-biblioref">Salimans és mtsai., 2016</a>)</span> és a <strong>Fréchet Inception Distance</strong> (FID, 2017), amely a generált és a valódi képek jellemzőeloszlásának távolságát méri <span class="citation" data-cites="heusel2017">(<a href="references.html#ref-heusel2017" role="doc-biblioref">Heusel és mtsai., 2017</a>)</span>. A fordítási modelleket a WMT-versenyeken hasonlították össze.</p>
+<p><strong>Korlátok:</strong> a VAE-k képei gyakran életlenek voltak; a GAN-ok tanítása instabil volt, és hajlamosak voltak a „módusösszeomlásra” (mode collapse), amikor a generátor csak néhány típusú kimenetet állít elő.</p>
+</section>
+<section id="a-transformer-fordulat-20172019" class="level2">
+<h2 class="anchored" data-anchor-id="a-transformer-fordulat-20172019">5. A Transformer-fordulat (2017–2019)</h2>
+<ul>
+<li><strong>Transformer (2017):</strong> a <em>self-attention</em> (önfigyelem) mechanizmusra épülő architektúra elhagyta a rekurrens feldolgozást, így párhuzamosan, sokkal nagyobb adatmennyiségen lehetett tanítani <span class="citation" data-cites="vaswani2017">(<a href="references.html#ref-vaswani2017" role="doc-biblioref">Vaswani és mtsai., 2017</a>)</span>. Szinte minden mai nagy nyelvi és multimodális modell erre épül.</li>
+<li><strong>GPT-1 (2018):</strong> generatív előtanítás nagy szövegkorpuszon, majd finomhangolás konkrét feladatokra <span class="citation" data-cites="radford2018">(<a href="references.html#ref-radford2018" role="doc-biblioref">Radford és mtsai., 2018</a>)</span>.</li>
+<li><strong>BERT (2018):</strong> kétirányú, önfelügyelt előtanítás; nem elsősorban generatív, de megmutatta az előtanítás erejét a szövegértési feladatokban <span class="citation" data-cites="devlin2019">(<a href="references.html#ref-devlin2019" role="doc-biblioref">Devlin és mtsai., 2019</a>)</span>.</li>
+<li><strong>GPT-2 (2019):</strong> 1,5 milliárd paraméter; hosszabb, koherens szövegek és a „zero-shot” feladatmegoldás első jelei <span class="citation" data-cites="radford2019">(<a href="references.html#ref-radford2019" role="doc-biblioref">Radford és mtsai., 2019</a>)</span>.</li>
+<li><strong>T5 (2019–2020):</strong> minden nyelvi feladat egységes „szövegből szöveg” formában <span class="citation" data-cites="raffel2020">(<a href="references.html#ref-raffel2020" role="doc-biblioref"><span class="nocase">Raffel és mtsai.</span>, 2020</a>)</span>.</li>
+</ul>
+<p><strong>Benchmarkok:</strong> a <strong>GLUE</strong> (2018) és a nehezebb <strong>SuperGLUE</strong> (2019) szövegértési, következtetési és osztályozási feladatok gyűjteménye <span class="citation" data-cites="wang2019glue wang2019superglue">(<a href="references.html#ref-wang2019glue" role="doc-biblioref">Wang, Singh, és mtsai., 2019</a>; <a href="references.html#ref-wang2019superglue" role="doc-biblioref"><span class="nocase">Wang, Pruksachatkun, és mtsai.</span>, 2019</a>)</span>. Mindkettőt néhány éven belül „telítették”: a modellek elérték vagy meghaladták az emberi teljesítményszintet.</p>
+</section>
+<section id="a-skálázás-és-a-nagy-nyelvi-modellek-korszaka-20202022" class="level2">
+<h2 class="anchored" data-anchor-id="a-skálázás-és-a-nagy-nyelvi-modellek-korszaka-20202022">6. A skálázás és a nagy nyelvi modellek korszaka (2020–2022)</h2>
+<ul>
+<li><strong>GPT-3 (2020):</strong> 175 milliárd paraméter. Fő felfedezés a <em>kontextuson belüli tanulás</em>: a modell néhány, a promptban megadott példából új feladatot képes megoldani, paramétereinek módosítása nélkül <span class="citation" data-cites="brown2020">(<a href="references.html#ref-brown2020" role="doc-biblioref"><span class="nocase">Brown és mtsai.</span>, 2020</a>)</span>.</li>
+<li><strong>Skálázási törvények (2020):</strong> Kaplan és munkatársai kimutatták, hogy a nyelvi modellek hibája hatványfüggvény szerint csökken a paraméterek, az adat és a számítási kapacitás növelésével <span class="citation" data-cites="kaplan2020">(<a href="references.html#ref-kaplan2020" role="doc-biblioref">Kaplan és mtsai., 2020</a>)</span>. Ez a felismerés vezette a későbbi nagy beruházásokat.</li>
+<li><strong>Chinchilla (2022):</strong> adott számítási kerethez az addigi gyakorlatnál több adat és kisebb modell az optimális <span class="citation" data-cites="hoffmann2022">(<a href="references.html#ref-hoffmann2022" role="doc-biblioref"><span class="nocase">Hoffmann és mtsai.</span>, 2022</a>)</span>.</li>
+<li><strong>Alapmodellek (2021):</strong> a Stanford kutatói „alapmodell” (foundation model) néven írták le a széles adaton előtanított, sokféle feladatra adaptálható modelleket <span class="citation" data-cites="bommasani2021">(<a href="references.html#ref-bommasani2021" role="doc-biblioref"><span class="nocase">Bommasani és mtsai.</span>, 2021</a>)</span>.</li>
+</ul>
+<p><strong>Benchmarkok:</strong></p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Benchmark</th>
+<th>Év</th>
+<th>Mit mér?</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>MMLU</strong></td>
+<td>2020</td>
+<td>57 tantárgy feleletválasztós kérdései az alapfoktól a szakmai szintig <span class="citation" data-cites="hendrycks2021">(<a href="references.html#ref-hendrycks2021" role="doc-biblioref"><span class="nocase">Hendrycks és mtsai.</span>, 2021</a>)</span></td>
+</tr>
+<tr class="even">
+<td><strong>HumanEval</strong></td>
+<td>2021</td>
+<td>Programozási feladatok; a <em>pass@k</em> mutató azt méri, hogy k próbálkozásból legalább egy helyes-e <span class="citation" data-cites="chen2021codex">(<a href="references.html#ref-chen2021codex" role="doc-biblioref"><span class="nocase">Chen és mtsai.</span>, 2021</a>)</span></td>
+</tr>
+<tr class="odd">
+<td><strong>BIG-bench</strong></td>
+<td>2022</td>
+<td>Több mint kétszáz, sokféle képességet vizsgáló feladat közösségi gyűjteménye <span class="citation" data-cites="srivastava2023">(<a href="references.html#ref-srivastava2023" role="doc-biblioref"><span class="nocase">Srivastava és mtsai.</span>, 2023</a>)</span></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="diffúzió-és-szövegből-kép-20202023" class="level2">
+<h2 class="anchored" data-anchor-id="diffúzió-és-szövegből-kép-20202023">7. Diffúzió és szövegből kép (2020–2023)</h2>
+<ul>
+<li><strong>DDPM (2020):</strong> a diffúziós modell a tanítás során megtanulja, hogyan lehet egy fokozatosan zajossá tett képből visszaállítani az eredetit; generáláskor tiszta zajból indul <span class="citation" data-cites="ho2020">(<a href="references.html#ref-ho2020" role="doc-biblioref">Ho és mtsai., 2020</a>)</span>.</li>
+<li><strong>CLIP (2021):</strong> szöveg és kép közös reprezentációs terében tanult modell; a szövegből képet generáló rendszerek kulcsösszetevője lett <span class="citation" data-cites="radford2021">(<a href="references.html#ref-radford2021" role="doc-biblioref"><span class="nocase">Radford és mtsai.</span>, 2021</a>)</span>.</li>
+<li><strong>DALL·E (2021) és DALL·E 2 (2022):</strong> szöveges leírásból képet generáló rendszerek <span class="citation" data-cites="ramesh2021 ramesh2022">(<a href="references.html#ref-ramesh2021" role="doc-biblioref"><span class="nocase">Ramesh és mtsai.</span>, 2021</a>; <a href="references.html#ref-ramesh2022" role="doc-biblioref">Ramesh és mtsai., 2022</a>)</span>.</li>
+<li><strong>Latens diffúzió és Stable Diffusion (2022):</strong> a diffúziót nem a képpontok, hanem egy tömörített latens tér szintjén végzik, ami jelentős gyorsulást hoz; erre épül a nyíltan elérhető Stable Diffusion <span class="citation" data-cites="rombach2022">(<a href="references.html#ref-rombach2022" role="doc-biblioref">Rombach és mtsai., 2022</a>)</span>.</li>
+<li><strong>Midjourney (2022):</strong> kutatási publikáció helyett termékként fejlesztett képgenerátor, nagy hatással a kreatív iparágakra.</li>
+</ul>
+<p><strong>Benchmarkok:</strong> FID, a szöveg és a kép egyezését mérő <strong>CLIP-pontszám</strong>, valamint egyre gyakrabban emberi preferencia-értékelések. A diffúziós modellek ezeken a mutatókon néhány év alatt felülmúlták a GAN-okat.</p>
+</section>
+<section id="utasításkövetés-és-a-társalgási-mi-20222023" class="level2">
+<h2 class="anchored" data-anchor-id="utasításkövetés-és-a-társalgási-mi-20222023">8. Utasításkövetés és a társalgási MI (2022–2023)</h2>
+<ul>
+<li><strong>Chain-of-thought (2022):</strong> ha a promptban lépésenkénti gondolatmenetet mutatunk vagy kérünk, a nagy modellek érvelési feladatokban jobban teljesítenek <span class="citation" data-cites="wei2022">(<a href="references.html#ref-wei2022" role="doc-biblioref"><span class="nocase">Wei és mtsai.</span>, 2022</a>)</span>.</li>
+<li><strong>InstructGPT (2022):</strong> megerősítéses tanulás emberi visszajelzésből (RLHF): emberek rangsorolják a modell válaszait, és a modellt ezek alapján hangolják utasításkövetővé <span class="citation" data-cites="ouyang2022">(<a href="references.html#ref-ouyang2022" role="doc-biblioref"><span class="nocase">Ouyang és mtsai.</span>, 2022</a>)</span>.</li>
+<li><strong>Constitutional AI (2022):</strong> az emberi visszajelzés egy részét írott elvek alapján adott MI-visszajelzéssel váltják ki <span class="citation" data-cites="bai2022cai">(<a href="references.html#ref-bai2022cai" role="doc-biblioref"><span class="nocase">Bai és mtsai.</span>, 2022</a>)</span>.</li>
+<li><strong>ChatGPT (2022. november 30.):</strong> a generatív MI tömegtermékké vált; néhány hónap alatt több tízmillió, majd százmillió körüli felhasználót ért el <span class="citation" data-cites="openai2022chatgpt">(<a href="references.html#ref-openai2022chatgpt" role="doc-biblioref">OpenAI, 2022</a>)</span>.</li>
+<li><strong>2023 – verseny és sokszínűség:</strong> megjelent a GPT-4 <span class="citation" data-cites="openai2023gpt4">(<a href="references.html#ref-openai2023gpt4" role="doc-biblioref"><span class="nocase">OpenAI és mtsai.</span>, 2023</a>)</span>, az Anthropic Claude-modellje és a Google Gemini-családja; a Meta LLaMA-modelljei <span class="citation" data-cites="touvron2023">(<a href="references.html#ref-touvron2023" role="doc-biblioref"><span class="nocase">Touvron és mtsai.</span>, 2023</a>)</span> pedig elindították a <em>nyílt súlyú</em> modellek hullámát, amelyeket bárki letölthet és saját gépén futtathat.</li>
+</ul>
+</section>
+<section id="multimodalitás-és-videó-20212025" class="level2">
+<h2 class="anchored" data-anchor-id="multimodalitás-és-videó-20212025">9. Multimodalitás és videó (2021–2025)</h2>
+<ul>
+<li><strong>Flamingo (2022):</strong> kép és szöveg együttes feldolgozása, néhány példából tanulva <span class="citation" data-cites="alayrac2022">(<a href="references.html#ref-alayrac2022" role="doc-biblioref"><span class="nocase">Alayrac és mtsai.</span>, 2022</a>)</span>.</li>
+<li><strong>GPT-4 (2023)</strong> képbemenettel, majd 2024-től a szöveget, képet és hangot együtt kezelő modellek váltak általánossá.</li>
+<li><strong>Videógenerálás (2024–):</strong> szöveges leírásból néhány másodperces vagy perces videót előállító rendszerek jelentek meg (pl. OpenAI Sora, Google Veo, Runway Gen-3, Meta Movie Gen).</li>
+</ul>
+</section>
+<section id="gondolkodó-modellek-2024" class="level2">
+<h2 class="anchored" data-anchor-id="gondolkodó-modellek-2024">10. Gondolkodó modellek (2024–)</h2>
+<p><strong>2024. szeptember 12.</strong> fontos dátum: az OpenAI ekkor mutatta be az <strong>o1</strong> modellcsaládot, amelyet arra tanítottak, hogy válasz előtt hosszabb belső gondolatmenetet végezzen. A vállalat szerint ez matematikai, programozási és tudományos feladatokon jelentős javulást hozott <span class="citation" data-cites="openai2024o1">(<a href="references.html#ref-openai2024o1" role="doc-biblioref">OpenAI, 2024</a>)</span>. 2025 januárjában a <strong>DeepSeek-R1</strong> nyílt súlyú modellként mutatta meg, hogy hasonló érvelési képesség megerősítéses tanulással is kialakítható <span class="citation" data-cites="deepseek2025">(<a href="references.html#ref-deepseek2025" role="doc-biblioref"><span class="nocase">DeepSeek-AI és mtsai.</span>, 2025</a>)</span>.</p>
+<p>Ezek a modellek a <em>teszteléskori számítás</em> (test-time compute) irányát képviselik: a teljesítményt nemcsak a modell méretének, hanem a válaszonként ráfordított „gondolkodási” számításnak a növelésével javítják. Ennek közvetlen következménye a nagyobb tokenfogyasztás (lásd <a href="./tokenek-es-kreditek.html">Tokenek, kontextus és kreditek</a>).</p>
+<p><strong>Benchmarkok:</strong> az egyre nehezebb mérőfeladatok közé tartozik a „Google-ellenálló” <strong>GPQA</strong>, amelynek doktori szintű természettudományos kérdéseire kereséssel sem könnyű választ találni <span class="citation" data-cites="rein2023">(<a href="references.html#ref-rein2023" role="doc-biblioref"><span class="nocase">Rein és mtsai.</span>, 2023</a>)</span>; az absztrakt szabálykövetkeztetést vizsgáló <strong>ARC</strong> feladatsor <span class="citation" data-cites="chollet2019">(<a href="references.html#ref-chollet2019" role="doc-biblioref">Chollet, 2019</a>)</span>; és a szakértők által összeállított, rendkívül nehéz <strong>Humanity’s Last Exam</strong> <span class="citation" data-cites="phan2025">(<a href="references.html#ref-phan2025" role="doc-biblioref"><span class="nocase">Phan és mtsai.</span>, 2025</a>)</span>.</p>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Important</span>Történészi óvatosság
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Hogy az o1 új paradigma kezdete volt-e, vagy a Transformer-alapú nyelvi modellek egy új tanítási technikája, arról nincs szakmai konszenzus. A benchmarkokon elért kiugró eredmények erős teljesítményt jeleznek, de önmagukban nem bizonyítják az „általános intelligencia” megjelenését. A „System 2” (lassú, megfontolt gondolkodás) kifejezés pszichológiai metafora, nem a modell működésének leírása.</p>
+</div>
+</div>
+</section>
+<section id="az-ágensek-története" class="level2">
+<h2 class="anchored" data-anchor-id="az-ágensek-története">11. Az ágensek története</h2>
+<p>A gondolkodó modell még nem <strong>ágens</strong>. Az ágens <em>rendszer</em>: célt kap, érzékeli a környezetét, több lépésben tervez, eszközöket használ, cselekszik, és az eredmények alapján korrigál <span class="citation" data-cites="russell2021">(<a href="references.html#ref-russell2021" role="doc-biblioref">Russell &amp; Norvig, 2021</a>)</span>. Az ágensfogalom jóval régebbi a generatív MI-nél.</p>
+<section id="klasszikus-előzmények-19562016" class="level3">
+<h3 class="anchored" data-anchor-id="klasszikus-előzmények-19562016">Klasszikus előzmények (1956–2016)</h3>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Év</th>
+<th>Rendszer / publikáció</th>
+<th>Jelentőség</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1956</td>
+<td><strong>Logic Theorist</strong> <span class="citation" data-cites="newell1956">(<a href="references.html#ref-newell1956" role="doc-biblioref">Newell &amp; Simon, 1956</a>)</span></td>
+<td>Célt kap, köztes lépéseket keres, matematikai tételeket bizonyít</td>
+</tr>
+<tr class="even">
+<td>1971</td>
+<td><strong>STRIPS</strong> <span class="citation" data-cites="fikes1971">(<a href="references.html#ref-fikes1971" role="doc-biblioref">Fikes &amp; Nilsson, 1971</a>)</span></td>
+<td>Tervezőrendszer: világállapot, cselekvések előfeltételei és hatásai, célállapot</td>
+</tr>
+<tr class="odd">
+<td>1995</td>
+<td><strong>BDI-ágensek</strong> <span class="citation" data-cites="rao1995">(<a href="references.html#ref-rao1995" role="doc-biblioref">Rao &amp; Georgeff, 1995</a>)</span></td>
+<td>Hiedelem–vágy–szándék (belief–desire–intention) modell; pszichológiai fogalmakból építkező ágensarchitektúra</td>
+</tr>
+<tr class="even">
+<td>1995–</td>
+<td><strong>Racionális ágens paradigma</strong> <span class="citation" data-cites="russell2021">(<a href="references.html#ref-russell2021" role="doc-biblioref">Russell &amp; Norvig, 2021</a>)</span></td>
+<td>Az MI-tankönyvek központi fogalmává vált</td>
+</tr>
+<tr class="odd">
+<td>2013–2015</td>
+<td><strong>DQN</strong> <span class="citation" data-cites="mnih2013 mnih2015">(<a href="references.html#ref-mnih2013" role="doc-biblioref"><span class="nocase">Mnih és mtsai.</span>, 2013</a>; <a href="references.html#ref-mnih2015" role="doc-biblioref"><span class="nocase">Mnih és mtsai.</span>, 2015</a>)</span></td>
+<td>Megerősítéses tanulással Atari-játékokat tanuló ágens</td>
+</tr>
+<tr class="even">
+<td>2016</td>
+<td><strong>AlphaGo</strong> <span class="citation" data-cites="silver2016">(<a href="references.html#ref-silver2016" role="doc-biblioref"><span class="nocase">Silver és mtsai.</span>, 2016</a>)</span></td>
+<td>Tervezés, önjáték és mély neurális hálók; legyőzte a go-világ élvonalát</td>
+</tr>
+</tbody>
+</table>
+<p>Ezek az ágensek szűk, jól definiált környezetben működtek, és nem értették a természetes nyelvet.</p>
+</section>
+<section id="nyelvi-modellre-épülő-ágensek-20222023" class="level3">
+<h3 class="anchored" data-anchor-id="nyelvi-modellre-épülő-ágensek-20222023">Nyelvi modellre épülő ágensek (2022–2023)</h3>
+<ul>
+<li><strong>ReAct (2022):</strong> a modell felváltva <em>gondolkodik</em> és <em>cselekszik</em> (pl. keres), majd a megfigyelés alapján folytatja; a mai nyelvimodell-ágensek többsége ezt a ciklust követi <span class="citation" data-cites="yao2023react">(<a href="references.html#ref-yao2023react" role="doc-biblioref"><span class="nocase">Yao és mtsai.</span>, 2023</a>)</span>.</li>
+<li><strong>Toolformer (2023):</strong> a modell maga tanulja meg, mikor és hogyan hívjon külső eszközt (számológép, kereső, fordító) <span class="citation" data-cites="schick2023">(<a href="references.html#ref-schick2023" role="doc-biblioref"><span class="nocase">Schick és mtsai.</span>, 2023</a>)</span>.</li>
+<li><strong>Generative Agents (2023):</strong> egy virtuális kisvárosban 25 nyelvimodell-alapú szereplő élt emlékezettel, tervezéssel és társas interakcióval; pszichológiai szempontból is figyelemre méltó szimulációs kísérlet <span class="citation" data-cites="park2023">(<a href="references.html#ref-park2023" role="doc-biblioref">Park és mtsai., 2023</a>)</span>.</li>
+<li><strong>AutoGPT és BabyAGI (2023):</strong> nyílt forráskódú kísérletek, amelyek egy célt részfeladatokra bontva, önállóan próbáltak végrehajtani <span class="citation" data-cites="autogpt2023 babyagi2023">(<a href="references.html#ref-babyagi2023" role="doc-biblioref">Nakajima, 2023</a>; <a href="references.html#ref-autogpt2023" role="doc-biblioref">Significant Gravitas, 2023</a>)</span>. Gyakran elakadtak, ismétlődő ciklusokba kerültek vagy hallucináltak, de széles körben népszerűsítették az ágensötletet.</li>
+</ul>
+</section>
+<section id="ipari-ágensplatformok-20242025" class="level3">
+<h3 class="anchored" data-anchor-id="ipari-ágensplatformok-20242025">Ipari ágensplatformok (2024–2025)</h3>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Dátum</th>
+<th>Esemény</th>
+<th>Mit tud?</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>2024. május 14.</td>
+<td><strong>Google Project Astra</strong> bemutatása <span class="citation" data-cites="google2024astra">(<a href="references.html#ref-google2024astra" role="doc-biblioref">Google, 2024a</a>)</span></td>
+<td>Kamerán keresztül látó, beszélő, a környezetre reagáló multimodális asszisztens (prototípus)</td>
+</tr>
+<tr class="even">
+<td>2024. október 21.</td>
+<td><strong>Microsoft Copilot Studio autonóm ágensei</strong> <span class="citation" data-cites="microsoft2024agents">(<a href="references.html#ref-microsoft2024agents" role="doc-biblioref">Microsoft, 2024</a>)</span></td>
+<td>Vállalati munkafolyamatokat önállóan végző ágensek</td>
+</tr>
+<tr class="odd">
+<td>2024. október 22.</td>
+<td><strong>Anthropic computer use</strong> <span class="citation" data-cites="anthropic2024computer">(<a href="references.html#ref-anthropic2024computer" role="doc-biblioref">Anthropic, 2024a</a>)</span></td>
+<td>A Claude képernyőképek alapján egeret mozgat, kattint, gépel (nyilvános béta)</td>
+</tr>
+<tr class="even">
+<td>2024. november 25.</td>
+<td><strong>Model Context Protocol (MCP)</strong> <span class="citation" data-cites="anthropic2024mcp">(<a href="references.html#ref-anthropic2024mcp" role="doc-biblioref">Anthropic, 2024b</a>)</span></td>
+<td>Nyílt szabvány a modellek és a külső eszközök, adatforrások összekapcsolására</td>
+</tr>
+<tr class="odd">
+<td>2024. december 11.</td>
+<td><strong>Google Gemini 2.0</strong>, „az ágensek korszakára” tervezve <span class="citation" data-cites="google2024gemini2">(<a href="references.html#ref-google2024gemini2" role="doc-biblioref">Google, 2024b</a>)</span></td>
+<td>Project Mariner böngészőágens, Astra-fejlesztések</td>
+</tr>
+<tr class="even">
+<td>2025. január 23.</td>
+<td><strong>OpenAI Operator</strong> <span class="citation" data-cites="openai2025operator">(<a href="references.html#ref-openai2025operator" role="doc-biblioref">OpenAI, 2025a</a>)</span></td>
+<td>Böngészőt kezelő fogyasztói ágens</td>
+</tr>
+<tr class="odd">
+<td>2025. április</td>
+<td><strong>Meta Llama 4</strong> <span class="citation" data-cites="meta2025llama4">(<a href="references.html#ref-meta2025llama4" role="doc-biblioref">Meta, 2025</a>)</span></td>
+<td>Natívan multimodális, nyílt súlyú modellcsalád, ágensalkalmazásokra is szánva</td>
+</tr>
+<tr class="even">
+<td>2025. július</td>
+<td><strong>xAI Grok 4 Heavy</strong> <span class="citation" data-cites="xai2025grok4">(<a href="references.html#ref-xai2025grok4" role="doc-biblioref"><span class="nocase">xAI</span>, 2025</a>)</span></td>
+<td>Több párhuzamosan dolgozó ágenspéldány összetett feladatokra</td>
+</tr>
+<tr class="odd">
+<td>2025. július 17.</td>
+<td><strong>ChatGPT agent</strong> <span class="citation" data-cites="openai2025agent">(<a href="references.html#ref-openai2025agent" role="doc-biblioref">OpenAI, 2025b</a>)</span></td>
+<td>Az Operator és a mély kutatás egyesítése: böngészés, kódfuttatás, fájlok készítése</td>
+</tr>
+</tbody>
+</table>
+<p>Az xAI 2025 folyamán ütemezett, ismétlődő feladatokat végző funkciót („Tasks”) is bevezetett a Grokban; ennek pontos indulási dátumát nem sikerült elsődleges forrásból megerősíteni.</p>
+<p><strong>Benchmarkok:</strong> az ágensek értékelése a valós feladatok felé mozdult. A <strong>SWE-bench</strong> valódi GitHub-hibajegyek megoldását méri <span class="citation" data-cites="jimenez2024">(<a href="references.html#ref-jimenez2024" role="doc-biblioref"><span class="nocase">Jimenez és mtsai.</span>, 2024</a>)</span>, a <strong>τ-bench</strong> pedig azt, hogyan teljesít egy ágens felhasználóval és eszközökkel folytatott, szabályokhoz kötött párbeszédben (pl. ügyfélszolgálati helyzetekben) <span class="citation" data-cites="yao2024tau">(<a href="references.html#ref-yao2024tau" role="doc-biblioref">Yao és mtsai., 2024</a>)</span>.</p>
+</section>
+</section>
+<section id="a-benchmarkok-tanulságai" class="level2">
+<h2 class="anchored" data-anchor-id="a-benchmarkok-tanulságai">12. A benchmarkok tanulságai</h2>
+<p>A benchmarkok történetéből három általános tanulság adódik:</p>
+<ol type="1">
+<li><strong>Telítődés:</strong> a jó benchmarkok néhány éven belül „elfogynak” – a modellek elérik a plafont (GLUE, SuperGLUE, később MMLU), és újabb, nehezebb feladatsor kell.</li>
+<li><strong>Szennyeződés (contamination):</strong> ha a benchmark kérdései bekerülnek a tanítóadatba, a magas pontszám részben „tesztismeret”, nem képesség.</li>
+<li><strong>Érvényesség:</strong> egy szűk feladatsoron mért eredményből nem következtethetünk általános képességre; a benchmark a pszichológiai tesztekhez hasonlóan csak azt méri, amit mintavételezett <span class="citation" data-cites="raji2021">(<a href="references.html#ref-raji2021" role="doc-biblioref">Raji és mtsai., 2021</a>)</span>.</li>
+</ol>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Pszichológiai kapcsolódás
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>A benchmarkok problémái a pszichometria klasszikus kérdéseit idézik: tartalmi validitás, a gyakorlási hatás (a „tesztre tanulás”), a normacsoport megfelelősége és a plafonhatás. Egy MI-modell „IQ-ját” ugyanazokkal a módszertani fenntartásokkal kell kezelni, mint egy rosszul validált tesztet.</p>
+</div>
+</div>
+</section>
+<section id="összefoglaló-idővonal" class="level2">
+<h2 class="anchored" data-anchor-id="összefoglaló-idővonal">Összefoglaló idővonal</h2>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 40%">
+<col style="width: 30%">
+<col style="width: 30%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: right;">Év</th>
+<th>Mérföldkő</th>
+<th>Jelentőség</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: right;">1913</td>
+<td>Markov-lánc szövegen</td>
+<td>A következő jel valószínűsége az előzőek alapján</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">1948</td>
+<td>Shannon információelmélete</td>
+<td>Statisztikai szöveggenerálás</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">1958</td>
+<td>Perceptron</td>
+<td>Tanuló neurális modell</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">1985</td>
+<td>Boltzmann-gép</td>
+<td>Energiaalapú generatív háló</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">1986</td>
+<td>Visszaterjesztés</td>
+<td>Többrétegű hálók tanítása</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">1997</td>
+<td>LSTM</td>
+<td>Szekvenciák feldolgozása</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">2003</td>
+<td>Neurális nyelvi modell</td>
+<td>Szóvektorok és következőszó-becslés</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">2006</td>
+<td>Deep Belief Networks</td>
+<td>A mélytanulás reneszánsza</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">2012</td>
+<td>AlexNet</td>
+<td>Mélytanulási áttörés a gépi látásban</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">2013</td>
+<td>VAE, word2vec</td>
+<td>Latens generatív tér, szóbeágyazás</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">2014</td>
+<td>GAN, seq2seq</td>
+<td>Adverzális tanulás, szekvenciagenerálás</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">2017</td>
+<td>Transformer</td>
+<td>A mai nyelvi modellek alapja</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">2018</td>
+<td>GPT-1, BERT</td>
+<td>Generatív és önfelügyelt előtanítás</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">2019</td>
+<td>GPT-2</td>
+<td>Koherens hosszú szöveg</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">2020</td>
+<td>GPT-3, skálázási törvények, DDPM</td>
+<td>Kontextuson belüli tanulás, diffúzió</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">2021</td>
+<td>CLIP, DALL·E</td>
+<td>Szöveg–kép kapcsolat</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">2022</td>
+<td>Stable Diffusion, InstructGPT, ChatGPT</td>
+<td>Nyílt képgenerálás, RLHF, tömegpiac</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">2023</td>
+<td>GPT-4, LLaMA, Claude, Gemini; ReAct-alapú ágensek</td>
+<td>Multimodalitás, nyílt súlyú modellek</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">2024</td>
+<td>o1, computer use, MCP, Gemini 2.0</td>
+<td>Gondolkodó modellek, ágensplatformok</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">2025</td>
+<td>DeepSeek-R1, Operator, ChatGPT agent, Llama 4</td>
+<td>Nyílt érvelő modellek, fogyasztói ágensek</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="nyitott-kérdések" class="level2">
+<h2 class="anchored" data-anchor-id="nyitott-kérdések">Nyitott kérdések</h2>
+<ul>
+<li>Kialakul-e a nyelvi modellekben valódi <em>világmodell</em>, vagy csak a szöveg statisztikai szabályszerűségeit tanulják meg?</li>
+<li>Hogyan mérhető megbízhatóan az általánosítás, ha a benchmarkok gyorsan telítődnek és bekerülhetnek a tanítóadatba?</li>
+<li>Felváltja-e valami a Transformert, és meddig folytatható a skálázás?</li>
+<li>Hogyan építhetők megbízható, ellenőrizhető ágensrendszerek, amelyek hibái nem okoznak valós kárt?</li>
+<li>Hogyan változtatja meg a „szöveg → gondolkodás → cselekvés” fejlődési ív az ember és a gép közötti munkamegosztást és felelősséget?</li>
+</ul>
+</section>
+<section id="ellenőrző-kérdések" class="level2">
+<h2 class="anchored" data-anchor-id="ellenőrző-kérdések">Ellenőrző kérdések</h2>
+<ol type="1">
+<li>Mi a különbség a generatív és a diszkriminatív modell között?</li>
+<li>Mit vizsgált Markov 1913-ban, és miért tekinthető ez a nyelvi modellek távoli előzményének?</li>
+<li>Hogyan működik a GAN? Mi a „módusösszeomlás”?</li>
+<li>Miben hozott újat a Transformer a rekurrens hálókhoz képest?</li>
+<li>Mit jelent a kontextuson belüli tanulás, és melyik modellnél vált először nyilvánvalóvá?</li>
+<li>Mit állítanak a skálázási törvények, és mit tett hozzá ehhez a Chinchilla-tanulmány?</li>
+<li>Hogyan működik a diffúziós képgenerálás?</li>
+<li>Mi az RLHF, és miért volt fontos a ChatGPT sikeréhez?</li>
+<li>Miért nem ágens önmagában egy gondolkodó (reasoning) modell? Milyen összetevők kellenek az ágenshez?</li>
+<li>Milyen problémák merülnek fel a benchmarkokkal kapcsolatban, és milyen pszichometriai fogalmakkal írhatók le?</li>
+</ol>
+</section>
+<section id="megjegyzés-a-forrásokhoz" class="level2">
+<h2 class="anchored" data-anchor-id="megjegyzés-a-forrásokhoz">Megjegyzés a forrásokhoz</h2>
+<p>A fejezet egy MI-asszisztenssel (Microsoft Copilot) folytatott beszélgetés vázlatára épül. Az ellenőrzés során a következő hibákat javítottuk:</p>
+<ul>
+<li>A vázlatban a GAN-hoz megadott DOI (<code>10.1145/3422622</code>) nem a 2014-es eredeti konferenciacikké, hanem egy 2020-as, <em>Communications of the ACM</em>-ben megjelent összefoglalóé; itt az eredeti NeurIPS-publikációra hivatkozunk.</li>
+<li>A Boltzmann-gépről szóló cikk DOI-ja a vázlatban hibás volt; a helyes forrás a <em>Cognitive Science</em> 1985-ös kötete.</li>
+<li>A Grok ágensfunkcióinak egy része a vázlatban megbízhatatlan, nem elsődleges forrásra hivatkozott; ezeket az xAI hivatalos közlése alapján pontosítottuk, illetve bizonytalanként jelöltük.</li>
+<li>A vázlat korszakolásait (pl. „chatbot-korszak”, „ágens-korszak”) értelmezési keretként kezeljük, nem tudományosan rögzített periodizációként.</li>
+</ul>
+
+
+<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" data-line-spacing="2" role="list" style="display: none">
+<div id="ref-ackley1985" class="csl-entry" role="listitem">
+Ackley, D. H., Hinton, G. E., &amp; Sejnowski, T. J. (1985). A learning algorithm for <span>Boltzmann</span> machines. <em>Cognitive Science</em>, <em>9</em>(1), 147–169. <a href="https://doi.org/10.1207/s15516709cog0901_7">https://doi.org/10.1207/s15516709cog0901_7</a>
+</div>
+<div id="ref-alayrac2022" class="csl-entry" role="listitem">
+<span class="nocase">Alayrac, J.-B., Donahue, J., Luc, P., Miech, A., Barr, I., Hasson, Y., és mtsai.</span> (2022). Flamingo: a Visual Language Model for <span>Few-Shot</span> Learning. <em>Advances in Neural Information Processing Systems</em>, <em>35</em>. <a href="https://arxiv.org/abs/2204.14198">https://arxiv.org/abs/2204.14198</a>
+</div>
+<div id="ref-anthropic2024computer" class="csl-entry" role="listitem">
+Anthropic. (2024a, október 22). <em>Introducing computer use, a new <span>Claude</span> 3.5 <span>Sonnet</span>, and <span>Claude</span> 3.5 <span>Haiku</span></em>. <a href="https://www.anthropic.com/news/3-5-models-and-computer-use">https://www.anthropic.com/news/3-5-models-and-computer-use</a>
+</div>
+<div id="ref-anthropic2024mcp" class="csl-entry" role="listitem">
+Anthropic. (2024b, november 25). <em>Introducing the <span>Model Context Protocol</span></em>. <a href="https://www.anthropic.com/news/model-context-protocol">https://www.anthropic.com/news/model-context-protocol</a>
+</div>
+<div id="ref-bahdanau2015" class="csl-entry" role="listitem">
+Bahdanau, D., Cho, K., &amp; Bengio, Y. (2015). Neural machine translation by jointly learning to align and translate. <em>3rd International Conference on Learning Representations (ICLR 2015)</em>. <a href="https://arxiv.org/abs/1409.0473">https://arxiv.org/abs/1409.0473</a>
+</div>
+<div id="ref-bai2022cai" class="csl-entry" role="listitem">
+<span class="nocase">Bai, Y., Kadavath, S., Kundu, S., Askell, A., Kernion, J., Jones, A., és mtsai.</span> (2022). <em>Constitutional <span>AI</span>: Harmlessness from <span>AI</span> Feedback</em>. <a href="https://arxiv.org/abs/2212.08073">https://arxiv.org/abs/2212.08073</a>
+</div>
+<div id="ref-bengio2003" class="csl-entry" role="listitem">
+Bengio, Y., Ducharme, R., Vincent, P., &amp; Jauvin, C. (2003). A neural probabilistic language model. <em>Journal of Machine Learning Research</em>, <em>3</em>, 1137–1155. <a href="https://www.jmlr.org/papers/v3/bengio03a.html">https://www.jmlr.org/papers/v3/bengio03a.html</a>
+</div>
+<div id="ref-bommasani2021" class="csl-entry" role="listitem">
+<span class="nocase">Bommasani, R., Hudson, D. A., Adeli, E., Altman, R., Arora, S., és mtsai.</span> (2021). <em>On the opportunities and risks of foundation models</em>. <a href="https://arxiv.org/abs/2108.07258">https://arxiv.org/abs/2108.07258</a>
+</div>
+<div id="ref-brown2020" class="csl-entry" role="listitem">
+<span class="nocase">Brown, T. B., Mann, B., Ryder, N., Subbiah, M., Kaplan, J., Dhariwal, P., és mtsai.</span> (2020). Language models are few-shot learners. <em>Advances in Neural Information Processing Systems</em>, <em>33</em>, 1877–1901.
+</div>
+<div id="ref-chen2021codex" class="csl-entry" role="listitem">
+<span class="nocase">Chen, M., Tworek, J., Jun, H., Yuan, Q., Pinto, H. P. de O., Kaplan, J., és mtsai.</span> (2021). <em>Evaluating Large Language Models Trained on Code</em>. <a href="https://arxiv.org/abs/2107.03374">https://arxiv.org/abs/2107.03374</a>
+</div>
+<div id="ref-chollet2019" class="csl-entry" role="listitem">
+Chollet, F. (2019). <em>On the Measure of Intelligence</em>. <a href="https://arxiv.org/abs/1911.01547">https://arxiv.org/abs/1911.01547</a>
+</div>
+<div id="ref-deepseek2025" class="csl-entry" role="listitem">
+<span class="nocase">DeepSeek-AI, Guo, D., Yang, D., és mtsai.</span> (2025). <span>DeepSeek-R1</span> incentivizes reasoning in <span>LLMs</span> through reinforcement learning. <em>Nature</em>, <em>645</em>, 633–638. <a href="https://arxiv.org/abs/2501.12948">https://arxiv.org/abs/2501.12948</a>
+</div>
+<div id="ref-deng2009" class="csl-entry" role="listitem">
+Deng, J., Dong, W., Socher, R., Li, L.-J., Li, K., &amp; Fei-Fei, L. (2009). <span>ImageNet</span>: A large-scale hierarchical image database. <em>2009 IEEE Conference on Computer Vision and Pattern Recognition</em>, 248–255. <a href="https://doi.org/10.1109/CVPR.2009.5206848">https://doi.org/10.1109/CVPR.2009.5206848</a>
+</div>
+<div id="ref-devlin2019" class="csl-entry" role="listitem">
+Devlin, J., Chang, M.-W., Lee, K., &amp; Toutanova, K. (2019). <span>BERT</span>: Pre-training of deep bidirectional transformers for language understanding. <em>Proceedings of the 2019 Conference of the North American Chapter of the Association for Computational Linguistics: Human Language Technologies</em>, 4171–4186. <a href="https://doi.org/10.18653/v1/N19-1423">https://doi.org/10.18653/v1/N19-1423</a>
+</div>
+<div id="ref-fikes1971" class="csl-entry" role="listitem">
+Fikes, R. E., &amp; Nilsson, N. J. (1971). <span>STRIPS</span>: A new approach to the application of theorem proving to problem solving. <em>Artificial Intelligence</em>, <em>2</em>(3–4), 189–208. <a href="https://doi.org/10.1016/0004-3702(71)90010-5">https://doi.org/10.1016/0004-3702(71)90010-5</a>
+</div>
+<div id="ref-goodfellow2014" class="csl-entry" role="listitem">
+<span class="nocase">Goodfellow, I. J., Pouget-Abadie, J., Mirza, M., Xu, B., Warde-Farley, D., Ozair, S., és mtsai.</span> (2014). Generative Adversarial Networks. <em>Advances in Neural Information Processing Systems</em>, <em>27</em>. <a href="https://arxiv.org/abs/1406.2661">https://arxiv.org/abs/1406.2661</a>
+</div>
+<div id="ref-google2024astra" class="csl-entry" role="listitem">
+Google. (2024a, május 14). <em>Gemini breaks new ground with a faster model, longer context, <span>AI</span> agents and more</em>. <a href="https://blog.google/technology/ai/google-gemini-update-flash-ai-assistant-io-2024/">https://blog.google/technology/ai/google-gemini-update-flash-ai-assistant-io-2024/</a>
+</div>
+<div id="ref-google2024gemini2" class="csl-entry" role="listitem">
+Google. (2024b, december 11). <em>Introducing <span>Gemini</span> 2.0: Our new <span>AI</span> model for the agentic era</em>. <a href="https://blog.google/technology/google-deepmind/google-gemini-ai-update-december-2024/">https://blog.google/technology/google-deepmind/google-gemini-ai-update-december-2024/</a>
+</div>
+<div id="ref-graves2013" class="csl-entry" role="listitem">
+Graves, A. (2013). <em>Generating Sequences With Recurrent Neural Networks</em>. <a href="https://arxiv.org/abs/1308.0850">https://arxiv.org/abs/1308.0850</a>
+</div>
+<div id="ref-hendrycks2021" class="csl-entry" role="listitem">
+<span class="nocase">Hendrycks, D., Burns, C., Basart, S., Zou, A., Mazeika, M., Song, D., és mtsai.</span> (2021). Measuring Massive Multitask Language Understanding. <em>International Conference on Learning Representations (ICLR 2021)</em>. <a href="https://arxiv.org/abs/2009.03300">https://arxiv.org/abs/2009.03300</a>
+</div>
+<div id="ref-heusel2017" class="csl-entry" role="listitem">
+Heusel, M., Ramsauer, H., Unterthiner, T., Nessler, B., &amp; Hochreiter, S. (2017). <span>GANs</span> Trained by a Two <span>Time-Scale</span> Update Rule Converge to a Local Nash Equilibrium. <em>Advances in Neural Information Processing Systems</em>, <em>30</em>. <a href="https://arxiv.org/abs/1706.08500">https://arxiv.org/abs/1706.08500</a>
+</div>
+<div id="ref-hinton2006" class="csl-entry" role="listitem">
+Hinton, G. E., Osindero, S., &amp; Teh, Y.-W. (2006). A fast learning algorithm for deep belief nets. <em>Neural Computation</em>, <em>18</em>(7), 1527–1554. <a href="https://doi.org/10.1162/neco.2006.18.7.1527">https://doi.org/10.1162/neco.2006.18.7.1527</a>
+</div>
+<div id="ref-ho2020" class="csl-entry" role="listitem">
+Ho, J., Jain, A., &amp; Abbeel, P. (2020). Denoising diffusion probabilistic models. <em>Advances in Neural Information Processing Systems</em>, <em>33</em>, 6840–6851.
+</div>
+<div id="ref-hochreiter1997" class="csl-entry" role="listitem">
+Hochreiter, S., &amp; Schmidhuber, J. (1997). Long short-term memory. <em>Neural Computation</em>, <em>9</em>(8), 1735–1780. <a href="https://doi.org/10.1162/neco.1997.9.8.1735">https://doi.org/10.1162/neco.1997.9.8.1735</a>
+</div>
+<div id="ref-hoffmann2022" class="csl-entry" role="listitem">
+<span class="nocase">Hoffmann, J., Borgeaud, S., Mensch, A., Buchatskaya, E., Cai, T., Rutherford, E., és mtsai.</span> (2022). Training <span>Compute-Optimal</span> Large Language Models. <em>Advances in Neural Information Processing Systems</em>, <em>35</em>. <a href="https://arxiv.org/abs/2203.15556">https://arxiv.org/abs/2203.15556</a>
+</div>
+<div id="ref-hopfield1982" class="csl-entry" role="listitem">
+Hopfield, J. J. (1982). Neural networks and physical systems with emergent collective computational abilities. <em>Proceedings of the National Academy of Sciences</em>, <em>79</em>(8), 2554–2558. <a href="https://doi.org/10.1073/pnas.79.8.2554">https://doi.org/10.1073/pnas.79.8.2554</a>
+</div>
+<div id="ref-jimenez2024" class="csl-entry" role="listitem">
+<span class="nocase">Jimenez, C. E., Yang, J., Wettig, A., Yao, S., Pei, K., Press, O., és mtsai.</span> (2024). <span>SWE-bench</span>: Can Language Models Resolve <span>Real-World</span> <span>GitHub</span> Issues? <em>International Conference on Learning Representations (ICLR 2024)</em>. <a href="https://arxiv.org/abs/2310.06770">https://arxiv.org/abs/2310.06770</a>
+</div>
+<div id="ref-kaplan2020" class="csl-entry" role="listitem">
+Kaplan, J., McCandlish, S., Henighan, T., Brown, T. B., Chess, B., Child, R., Gray, S., Radford, A., Wu, J., &amp; Amodei, D. (2020). <em>Scaling laws for neural language models</em>. <a href="https://arxiv.org/abs/2001.08361">https://arxiv.org/abs/2001.08361</a>
+</div>
+<div id="ref-karras2018" class="csl-entry" role="listitem">
+Karras, T., Aila, T., Laine, S., &amp; Lehtinen, J. (2018). Progressive Growing of <span>GANs</span> for Improved Quality, Stability, and Variation. <em>International Conference on Learning Representations (ICLR 2018)</em>. <a href="https://arxiv.org/abs/1710.10196">https://arxiv.org/abs/1710.10196</a>
+</div>
+<div id="ref-karras2021" class="csl-entry" role="listitem">
+<span class="nocase">Karras, T., Aittala, M., Laine, S., Härkönen, E., Hellsten, J., Lehtinen, J., és mtsai.</span> (2021). <span>Alias-Free</span> Generative Adversarial Networks. <em>Advances in Neural Information Processing Systems</em>, <em>34</em>. <a href="https://arxiv.org/abs/2106.12423">https://arxiv.org/abs/2106.12423</a>
+</div>
+<div id="ref-karras2019" class="csl-entry" role="listitem">
+Karras, T., Laine, S., &amp; Aila, T. (2019). A <span>Style-Based</span> Generator Architecture for Generative Adversarial Networks. <em>Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)</em>. <a href="https://arxiv.org/abs/1812.04948">https://arxiv.org/abs/1812.04948</a>
+</div>
+<div id="ref-karras2020" class="csl-entry" role="listitem">
+Karras, T., Laine, S., Aittala, M., Hellsten, J., Lehtinen, J., &amp; Aila, T. (2020). Analyzing and Improving the Image Quality of <span>StyleGAN</span>. <em>Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)</em>. <a href="https://arxiv.org/abs/1912.04958">https://arxiv.org/abs/1912.04958</a>
+</div>
+<div id="ref-kingma2013" class="csl-entry" role="listitem">
+Kingma, D. P., &amp; Welling, M. (2013). <em><span>Auto-Encoding</span> Variational Bayes</em>. <a href="https://arxiv.org/abs/1312.6114">https://arxiv.org/abs/1312.6114</a>
+</div>
+<div id="ref-krizhevsky2012" class="csl-entry" role="listitem">
+Krizhevsky, A., Sutskever, I., &amp; Hinton, G. E. (2012). <span>ImageNet</span> classification with deep convolutional neural networks. <em>Advances in Neural Information Processing Systems</em>, <em>25</em>, 1097–1105.
+</div>
+<div id="ref-lecun2015" class="csl-entry" role="listitem">
+LeCun, Y., Bengio, Y., &amp; Hinton, G. (2015). Deep learning. <em>Nature</em>, <em>521</em>(7553), 436–444. <a href="https://doi.org/10.1038/nature14539">https://doi.org/10.1038/nature14539</a>
+</div>
+<div id="ref-markov2006" class="csl-entry" role="listitem">
+Markov, A. A. (2006). An example of statistical investigation of the text <span>Eugene Onegin</span> concerning the connection of samples in chains. <em>Science in Context</em>, <em>19</em>(4), 591–600. <a href="https://doi.org/10.1017/S0269889706001074">https://doi.org/10.1017/S0269889706001074</a> (Original work published 1913)
+</div>
+<div id="ref-maslej2025" class="csl-entry" role="listitem">
+<span class="nocase">Maslej, N. és mtsai.</span> (2025). <em>The <span>AI</span> index 2025 annual report</em>. Stanford Institute for Human-Centered Artificial Intelligence. <a href="https://hai.stanford.edu/ai-index/2025-ai-index-report">https://hai.stanford.edu/ai-index/2025-ai-index-report</a>
+</div>
+<div id="ref-meta2025llama4" class="csl-entry" role="listitem">
+Meta. (2025, április 5). <em>The <span>Llama</span> 4 herd: The beginning of a new era of natively multimodal <span>AI</span> innovation</em>. <a href="https://ai.meta.com/blog/llama-4-multimodal-intelligence/">https://ai.meta.com/blog/llama-4-multimodal-intelligence/</a>
+</div>
+<div id="ref-microsoft2024agents" class="csl-entry" role="listitem">
+Microsoft. (2024, október 21). <em>New autonomous agents scale your team like never before</em>. <a href="https://blogs.microsoft.com/blog/2024/10/21/new-autonomous-agents-scale-your-team-like-never-before/">https://blogs.microsoft.com/blog/2024/10/21/new-autonomous-agents-scale-your-team-like-never-before/</a>
+</div>
+<div id="ref-mikolov2013" class="csl-entry" role="listitem">
+Mikolov, T., Chen, K., Corrado, G., &amp; Dean, J. (2013). <em>Efficient estimation of word representations in vector space</em>. <a href="https://arxiv.org/abs/1301.3781">https://arxiv.org/abs/1301.3781</a>
+</div>
+<div id="ref-mnih2013" class="csl-entry" role="listitem">
+<span class="nocase">Mnih, V., Kavukcuoglu, K., Silver, D., Graves, A., Antonoglou, I., Wierstra, D., és mtsai.</span> (2013). <em>Playing Atari with Deep Reinforcement Learning</em>. <a href="https://arxiv.org/abs/1312.5602">https://arxiv.org/abs/1312.5602</a>
+</div>
+<div id="ref-mnih2015" class="csl-entry" role="listitem">
+<span class="nocase">Mnih, V., Kavukcuoglu, K., Silver, D., Rusu, A. A., Veness, J., Bellemare, M. G., és mtsai.</span> (2015). Human-level control through deep reinforcement learning. <em>Nature</em>, <em>518</em>(7540), 529–533. <a href="https://doi.org/10.1038/nature14236">https://doi.org/10.1038/nature14236</a>
+</div>
+<div id="ref-babyagi2023" class="csl-entry" role="listitem">
+Nakajima, Y. (2023). <em><span>BabyAGI</span></em>. <a href="https://github.com/yoheinakajima/babyagi">https://github.com/yoheinakajima/babyagi</a>
+</div>
+<div id="ref-newell1956" class="csl-entry" role="listitem">
+Newell, A., &amp; Simon, H. A. (1956). The logic theory machine: A complex information processing system. <em>IRE Transactions on Information Theory</em>, <em>2</em>(3), 61–79. <a href="https://doi.org/10.1109/TIT.1956.1056797">https://doi.org/10.1109/TIT.1956.1056797</a>
+</div>
+<div id="ref-vandenoord2016" class="csl-entry" role="listitem">
+<span class="nocase">Oord, A. van den, Dieleman, S., Zen, H., Simonyan, K., Vinyals, O., Graves, A., és mtsai.</span> (2016). <em><span>WaveNet</span>: A Generative Model for Raw Audio</em>. <a href="https://arxiv.org/abs/1609.03499">https://arxiv.org/abs/1609.03499</a>
+</div>
+<div id="ref-openai2022chatgpt" class="csl-entry" role="listitem">
+OpenAI. (2022, november 30). <em>Introducing <span>ChatGPT</span></em>. <a href="https://openai.com/index/chatgpt/">https://openai.com/index/chatgpt/</a>
+</div>
+<div id="ref-openai2024o1" class="csl-entry" role="listitem">
+OpenAI. (2024, szeptember 12). <em>Learning to reason with <span>LLMs</span></em>. <a href="https://openai.com/index/learning-to-reason-with-llms/">https://openai.com/index/learning-to-reason-with-llms/</a>
+</div>
+<div id="ref-openai2025operator" class="csl-entry" role="listitem">
+OpenAI. (2025a, január 23). <em>Introducing <span>Operator</span></em>. <a href="https://openai.com/index/introducing-operator/">https://openai.com/index/introducing-operator/</a>
+</div>
+<div id="ref-openai2025agent" class="csl-entry" role="listitem">
+OpenAI. (2025b, július 17). <em>Introducing <span>ChatGPT</span> agent</em>. <a href="https://openai.com/index/introducing-chatgpt-agent/">https://openai.com/index/introducing-chatgpt-agent/</a>
+</div>
+<div id="ref-openai2023gpt4" class="csl-entry" role="listitem">
+<span class="nocase">OpenAI, Achiam, J., Adler, S., Agarwal, S., Ahmad, L., Akkaya, I., és mtsai.</span> (2023). <em><span>GPT-4</span> Technical Report</em>. <a href="https://arxiv.org/abs/2303.08774">https://arxiv.org/abs/2303.08774</a>
+</div>
+<div id="ref-ouyang2022" class="csl-entry" role="listitem">
+<span class="nocase">Ouyang, L., Wu, J., Jiang, X., Almeida, D., Wainwright, C. L., Mishkin, P., és mtsai.</span> (2022). Training language models to follow instructions with human feedback. <em>Advances in Neural Information Processing Systems</em>, <em>35</em>, 27730–27744.
+</div>
+<div id="ref-park2023" class="csl-entry" role="listitem">
+Park, J. S., O’Brien, J. C., Cai, C. J., Morris, M. R., Liang, P., &amp; Bernstein, M. S. (2023). Generative agents: Interactive simulacra of human behavior. <em>Proceedings of the 36th Annual ACM Symposium on User Interface Software and Technology</em>, 1–22. <a href="https://doi.org/10.1145/3586183.3606763">https://doi.org/10.1145/3586183.3606763</a>
+</div>
+<div id="ref-phan2025" class="csl-entry" role="listitem">
+<span class="nocase">Phan, L., Gatti, A., Han, Z., Li, N., Hu, J., Zhang, H., és mtsai.</span> (2025). <em>Humanity’s Last Exam</em>. <a href="https://arxiv.org/abs/2501.14249">https://arxiv.org/abs/2501.14249</a>
+</div>
+<div id="ref-radford2021" class="csl-entry" role="listitem">
+<span class="nocase">Radford, A., Kim, J. W., Hallacy, C., Ramesh, A., Goh, G., Agarwal, S., és mtsai.</span> (2021). Learning Transferable Visual Models From Natural Language Supervision. <em>Proceedings of the 38th International Conference on Machine Learning (ICML)</em>. <a href="https://arxiv.org/abs/2103.00020">https://arxiv.org/abs/2103.00020</a>
+</div>
+<div id="ref-radford2016" class="csl-entry" role="listitem">
+Radford, A., Metz, L., &amp; Chintala, S. (2016). Unsupervised Representation Learning with Deep Convolutional Generative Adversarial Networks. <em>International Conference on Learning Representations (ICLR 2016)</em>. <a href="https://arxiv.org/abs/1511.06434">https://arxiv.org/abs/1511.06434</a>
+</div>
+<div id="ref-radford2018" class="csl-entry" role="listitem">
+Radford, A., Narasimhan, K., Salimans, T., &amp; Sutskever, I. (2018). <em>Improving language understanding by generative pre-training</em>. OpenAI. <a href="https://cdn.openai.com/research-covers/language-unsupervised/language_understanding_paper.pdf">https://cdn.openai.com/research-covers/language-unsupervised/language_understanding_paper.pdf</a>
+</div>
+<div id="ref-radford2019" class="csl-entry" role="listitem">
+Radford, A., Wu, J., Child, R., Luan, D., Amodei, D., &amp; Sutskever, I. (2019). <em>Language models are unsupervised multitask learners</em>. OpenAI. <a href="https://cdn.openai.com/better-language-models/language_models_are_unsupervised_multitask_learners.pdf">https://cdn.openai.com/better-language-models/language_models_are_unsupervised_multitask_learners.pdf</a>
+</div>
+<div id="ref-raffel2020" class="csl-entry" role="listitem">
+<span class="nocase">Raffel, C., Shazeer, N., Roberts, A., Lee, K., Narang, S., Matena, M., és mtsai.</span> (2020). Exploring the limits of transfer learning with a unified text-to-text transformer. <em>Journal of Machine Learning Research</em>, <em>21</em>(140), 1–67. <a href="https://jmlr.org/papers/v21/20-074.html">https://jmlr.org/papers/v21/20-074.html</a>
+</div>
+<div id="ref-raji2021" class="csl-entry" role="listitem">
+Raji, I. D., Bender, E. M., Paullada, A., Denton, E., &amp; Hanna, A. (2021). <span>AI</span> and the everything in the whole wide world benchmark. <em>Proceedings of the Neural Information Processing Systems Track on Datasets and Benchmarks</em>. <a href="https://datasets-benchmarks-proceedings.neurips.cc/paper/2021/hash/084b6fbb10729ed4da8c3d3f5a3ae7c9-Abstract-round2.html">https://datasets-benchmarks-proceedings.neurips.cc/paper/2021/hash/084b6fbb10729ed4da8c3d3f5a3ae7c9-Abstract-round2.html</a>
+</div>
+<div id="ref-ramesh2022" class="csl-entry" role="listitem">
+Ramesh, A., Dhariwal, P., Nichol, A., Chu, C., &amp; Chen, M. (2022). <em>Hierarchical <span>Text-Conditional</span> Image Generation with <span>CLIP</span> Latents</em>. <a href="https://arxiv.org/abs/2204.06125">https://arxiv.org/abs/2204.06125</a>
+</div>
+<div id="ref-ramesh2021" class="csl-entry" role="listitem">
+<span class="nocase">Ramesh, A., Pavlov, M., Goh, G., Gray, S., Voss, C., Radford, A., és mtsai.</span> (2021). <span>Zero-Shot</span> <span>Text-to-Image</span> Generation. <em>Proceedings of the 38th International Conference on Machine Learning (ICML)</em>. <a href="https://arxiv.org/abs/2102.12092">https://arxiv.org/abs/2102.12092</a>
+</div>
+<div id="ref-rao1995" class="csl-entry" role="listitem">
+Rao, A. S., &amp; Georgeff, M. P. (1995). <span>BDI</span> agents: From theory to practice. <em>Proceedings of the First International Conference on Multi-Agent Systems (ICMAS-95)</em>, 312–319.
+</div>
+<div id="ref-rein2023" class="csl-entry" role="listitem">
+<span class="nocase">Rein, D., Hou, B. L., Stickland, A. C., Petty, J., Pang, R. Y., Dirani, J., és mtsai.</span> (2023). <em><span>GPQA</span>: A <span>Graduate-Level</span> <span>Google-Proof</span> <span>Q&amp;A</span> Benchmark</em>. <a href="https://arxiv.org/abs/2311.12022">https://arxiv.org/abs/2311.12022</a>
+</div>
+<div id="ref-rombach2022" class="csl-entry" role="listitem">
+Rombach, R., Blattmann, A., Lorenz, D., Esser, P., &amp; Ommer, B. (2022). High-resolution image synthesis with latent diffusion models. <em>2022 IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)</em>, 10674–10685. <a href="https://doi.org/10.1109/CVPR52688.2022.01042">https://doi.org/10.1109/CVPR52688.2022.01042</a>
+</div>
+<div id="ref-rosenblatt1958" class="csl-entry" role="listitem">
+Rosenblatt, F. (1958). The perceptron: A probabilistic model for information storage and organization in the brain. <em>Psychological Review</em>, <em>65</em>(6), 386–408. <a href="https://doi.org/10.1037/h0042519">https://doi.org/10.1037/h0042519</a>
+</div>
+<div id="ref-rumelhart1986" class="csl-entry" role="listitem">
+Rumelhart, D. E., Hinton, G. E., &amp; Williams, R. J. (1986). Learning representations by back-propagating errors. <em>Nature</em>, <em>323</em>(6088), 533–536. <a href="https://doi.org/10.1038/323533a0">https://doi.org/10.1038/323533a0</a>
+</div>
+<div id="ref-russell2021" class="csl-entry" role="listitem">
+Russell, S., &amp; Norvig, P. (2021). <em>Artificial intelligence: A modern approach</em> (4. kiad.). Pearson.
+</div>
+<div id="ref-salimans2016" class="csl-entry" role="listitem">
+Salimans, T., Goodfellow, I., Zaremba, W., Cheung, V., Radford, A., &amp; Chen, X. (2016). Improved Techniques for Training <span>GANs</span>. <em>Advances in Neural Information Processing Systems</em>, <em>29</em>. <a href="https://arxiv.org/abs/1606.03498">https://arxiv.org/abs/1606.03498</a>
+</div>
+<div id="ref-schick2023" class="csl-entry" role="listitem">
+<span class="nocase">Schick, T., Dwivedi-Yu, J., Dessì, R., Raileanu, R., Lomeli, M., Zettlemoyer, L., és mtsai.</span> (2023). Toolformer: Language Models Can Teach Themselves to Use Tools. <em>Advances in Neural Information Processing Systems</em>, <em>36</em>. <a href="https://arxiv.org/abs/2302.04761">https://arxiv.org/abs/2302.04761</a>
+</div>
+<div id="ref-shannon1948" class="csl-entry" role="listitem">
+Shannon, C. E. (1948). A mathematical theory of communication. <em>Bell System Technical Journal</em>, <em>27</em>(3), 379–423. <a href="https://doi.org/10.1002/j.1538-7305.1948.tb01338.x">https://doi.org/10.1002/j.1538-7305.1948.tb01338.x</a>
+</div>
+<div id="ref-autogpt2023" class="csl-entry" role="listitem">
+Significant Gravitas. (2023). <em><span>AutoGPT</span></em>. <a href="https://github.com/Significant-Gravitas/AutoGPT">https://github.com/Significant-Gravitas/AutoGPT</a>
+</div>
+<div id="ref-silver2016" class="csl-entry" role="listitem">
+<span class="nocase">Silver, D., Huang, A., Maddison, C. J., Guez, A., Sifre, L., van den Driessche, G., és mtsai.</span> (2016). Mastering the game of <span>Go</span> with deep neural networks and tree search. <em>Nature</em>, <em>529</em>(7587), 484–489. <a href="https://doi.org/10.1038/nature16961">https://doi.org/10.1038/nature16961</a>
+</div>
+<div id="ref-srivastava2023" class="csl-entry" role="listitem">
+<span class="nocase">Srivastava, A., Rastogi, A., Rao, A., és mtsai.</span> (2023). Beyond the imitation game: Quantifying and extrapolating the capabilities of language models. <em>Transactions on Machine Learning Research</em>. <a href="https://arxiv.org/abs/2206.04615">https://arxiv.org/abs/2206.04615</a>
+</div>
+<div id="ref-sutskever2014" class="csl-entry" role="listitem">
+Sutskever, I., Vinyals, O., &amp; Le, Q. V. (2014). Sequence to Sequence Learning with Neural Networks. <em>Advances in Neural Information Processing Systems</em>, <em>27</em>. <a href="https://arxiv.org/abs/1409.3215">https://arxiv.org/abs/1409.3215</a>
+</div>
+<div id="ref-touvron2023" class="csl-entry" role="listitem">
+<span class="nocase">Touvron, H., Lavril, T., Izacard, G., Martinet, X., Lachaux, M.-A., Lacroix, T., és mtsai.</span> (2023). <em><span>LLaMA</span>: Open and Efficient Foundation Language Models</em>. <a href="https://arxiv.org/abs/2302.13971">https://arxiv.org/abs/2302.13971</a>
+</div>
+<div id="ref-vaswani2017" class="csl-entry" role="listitem">
+Vaswani, A., Shazeer, N., Parmar, N., Uszkoreit, J., Jones, L., Gomez, A. N., Kaiser, Ł., &amp; Polosukhin, I. (2017). Attention is all you need. <em>Advances in Neural Information Processing Systems</em>, <em>30</em>.
+</div>
+<div id="ref-wang2019superglue" class="csl-entry" role="listitem">
+<span class="nocase">Wang, A., Pruksachatkun, Y., Nangia, N., Singh, A., Michael, J., Hill, F., és mtsai.</span> (2019). <span>SuperGLUE</span>: A Stickier Benchmark for <span>General-Purpose</span> Language Understanding Systems. <em>Advances in Neural Information Processing Systems</em>, <em>32</em>. <a href="https://arxiv.org/abs/1905.00537">https://arxiv.org/abs/1905.00537</a>
+</div>
+<div id="ref-wang2019glue" class="csl-entry" role="listitem">
+Wang, A., Singh, A., Michael, J., Hill, F., Levy, O., &amp; Bowman, S. R. (2019). <span>GLUE</span>: A <span>Multi-Task</span> Benchmark and Analysis Platform for Natural Language Understanding. <em>International Conference on Learning Representations (ICLR 2019)</em>. <a href="https://arxiv.org/abs/1804.07461">https://arxiv.org/abs/1804.07461</a>
+</div>
+<div id="ref-wei2022" class="csl-entry" role="listitem">
+<span class="nocase">Wei, J., Wang, X., Schuurmans, D., Bosma, M., Ichter, B., Xia, F., és mtsai.</span> (2022). <span>Chain-of-Thought</span> Prompting Elicits Reasoning in Large Language Models. <em>Advances in Neural Information Processing Systems</em>, <em>35</em>. <a href="https://arxiv.org/abs/2201.11903">https://arxiv.org/abs/2201.11903</a>
+</div>
+<div id="ref-weizenbaum1966" class="csl-entry" role="listitem">
+Weizenbaum, J. (1966). <span>ELIZA</span>—A computer program for the study of natural language communication between man and machine. <em>Communications of the ACM</em>, <em>9</em>(1), 36–45. <a href="https://doi.org/10.1145/365153.365168">https://doi.org/10.1145/365153.365168</a>
+</div>
+<div id="ref-xai2025grok4" class="csl-entry" role="listitem">
+<span class="nocase">xAI</span>. (2025, július). <em>Grok 4</em>. <a href="https://x.ai/news/grok-4">https://x.ai/news/grok-4</a>
+</div>
+<div id="ref-yao2024tau" class="csl-entry" role="listitem">
+Yao, S., Shinn, N., Razavi, P., &amp; Narasimhan, K. (2024). <em><span class="math inline">\(τ\)</span>-bench: A Benchmark for <span>Tool-Agent-User</span> Interaction in <span>Real-World</span> Domains</em>. <a href="https://arxiv.org/abs/2406.12045">https://arxiv.org/abs/2406.12045</a>
+</div>
+<div id="ref-yao2023react" class="csl-entry" role="listitem">
+<span class="nocase">Yao, S., Zhao, J., Yu, D., Du, N., Shafran, I., Narasimhan, K., és mtsai.</span> (2023). <span>ReAct</span>: Synergizing Reasoning and Acting in Language Models. <em>International Conference on Learning Representations (ICLR 2023)</em>. <a href="https://arxiv.org/abs/2210.03629">https://arxiv.org/abs/2210.03629</a>
+</div>
+</div>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    // Ensure there is a toggle, if there isn't float one in the top right
+    if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
+      const a = window.document.createElement('a');
+      a.classList.add('top-right');
+      a.classList.add('quarto-color-scheme-toggle');
+      a.href = "";
+      a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
+      const i = window.document.createElement("i");
+      i.classList.add('bi');
+      a.appendChild(i);
+      window.document.body.appendChild(a);
+    }
+    setColorSchemeToggle(hasAlternateSentinel())
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./kurzusosszefoglalo_pai_4.html" class="pagination-link" aria-label="MI–pszichológia BA fogalomtár (bővített)">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">MI–pszichológia BA fogalomtár (bővített)</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./tokenek-es-kreditek.html" class="pagination-link" aria-label="Tokenek, kontextus és kreditek: mitől fogy el a chatbot?">
+        <span class="nav-page-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Tokenek, kontextus és kreditek: mitől fogy el a chatbot?</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+
+<script src="site_libs/quarto-html/zenscroll-min.js"></script>
+</body></html>
