@@ -1,0 +1,1548 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="hu" xml:lang="hu"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.10.18">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>8&nbsp; Tokenek, kontextus és kreditek: mitől fogy el a chatbot? – MI-tesztek</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./MI-ellenesseg.html" rel="next">
+<link href="./kurzusosszefoglalo_pai_4.html" rel="prev">
+<script src="site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-b85bc7c33db8c58e0ec93c3465666fed.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap-9d427fb9aa4e7f60cd390d7ae3c7ba90.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-dark-494993c62a01dd0104ea6b4a58da199b.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="site_libs/bootstrap/bootstrap-9d427fb9aa4e7f60cd390d7ae3c7ba90.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "Nincs találat",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<style>html{ scroll-behavior: smooth; }</style>
+<script src="site_libs/quarto-diagram/mermaid.min.js"></script>
+<script src="site_libs/quarto-diagram/mermaid-init.js"></script>
+<link href="site_libs/quarto-diagram/mermaid.css" rel="stylesheet">
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+</head>
+
+<body class="nav-sidebar floating quarto-light"><script id="quarto-html-before-body" type="application/javascript">
+    const toggleBodyColorMode = (bsSheetEl) => {
+      const mode = bsSheetEl.getAttribute("data-mode");
+      const bodyEl = window.document.querySelector("body");
+      if (mode === "dark") {
+        bodyEl.classList.add("quarto-dark");
+        bodyEl.classList.remove("quarto-light");
+      } else {
+        bodyEl.classList.add("quarto-light");
+        bodyEl.classList.remove("quarto-dark");
+      }
+    }
+    const toggleBodyColorPrimary = () => {
+      const bsSheetEl = window.document.querySelector("link#quarto-bootstrap:not([rel=disabled-stylesheet])");
+      if (bsSheetEl) {
+        toggleBodyColorMode(bsSheetEl);
+      }
+    }
+    const setColorSchemeToggle = (alternate) => {
+      const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
+      for (let i=0; i < toggles.length; i++) {
+        const toggle = toggles[i];
+        if (toggle) {
+          if (alternate) {
+            toggle.classList.add("alternate");
+          } else {
+            toggle.classList.remove("alternate");
+          }
+        }
+      }
+    };
+    const toggleColorMode = (alternate) => {
+      // Switch the stylesheets
+      const primaryStylesheets = window.document.querySelectorAll('link.quarto-color-scheme:not(.quarto-color-alternate)');
+      const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
+      manageTransitions('#quarto-margin-sidebar .nav-link', false);
+      if (alternate) {
+        // note: dark is layered on light, we don't disable primary!
+        enableStylesheet(alternateStylesheets);
+        for (const sheetNode of alternateStylesheets) {
+          if (sheetNode.id === "quarto-bootstrap") {
+            toggleBodyColorMode(sheetNode);
+          }
+        }
+      } else {
+        disableStylesheet(alternateStylesheets);
+        enableStylesheet(primaryStylesheets)
+        toggleBodyColorPrimary();
+      }
+      manageTransitions('#quarto-margin-sidebar .nav-link', true);
+      // Switch the toggles
+      setColorSchemeToggle(alternate)
+      // Hack to workaround the fact that safari doesn't
+      // properly recolor the scrollbar when toggling (#1455)
+      if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
+        manageTransitions("body", false);
+        window.scrollTo(0, 1);
+        setTimeout(() => {
+          window.scrollTo(0, 0);
+          manageTransitions("body", true);
+        }, 40);
+      }
+    }
+    const disableStylesheet = (stylesheets) => {
+      for (let i=0; i < stylesheets.length; i++) {
+        const stylesheet = stylesheets[i];
+        stylesheet.rel = 'disabled-stylesheet';
+      }
+    }
+    const enableStylesheet = (stylesheets) => {
+      for (let i=0; i < stylesheets.length; i++) {
+        const stylesheet = stylesheets[i];
+        if(stylesheet.rel !== 'stylesheet') { // for Chrome, which will still FOUC without this check
+          stylesheet.rel = 'stylesheet';
+        }
+      }
+    }
+    const manageTransitions = (selector, allowTransitions) => {
+      const els = window.document.querySelectorAll(selector);
+      for (let i=0; i < els.length; i++) {
+        const el = els[i];
+        if (allowTransitions) {
+          el.classList.remove('notransition');
+        } else {
+          el.classList.add('notransition');
+        }
+      }
+    }
+    const isFileUrl = () => {
+      return window.location.protocol === 'file:';
+    }
+    const hasAlternateSentinel = () => {
+      let styleSentinel = getColorSchemeSentinel();
+      if (styleSentinel !== null) {
+        return styleSentinel === "alternate";
+      } else {
+        return false;
+      }
+    }
+    const setStyleSentinel = (alternate) => {
+      const value = alternate ? "alternate" : "default";
+      if (!isFileUrl()) {
+        window.localStorage.setItem("quarto-color-scheme", value);
+      } else {
+        localAlternateSentinel = value;
+      }
+    }
+    const getColorSchemeSentinel = () => {
+      if (!isFileUrl()) {
+        const storageValue = window.localStorage.getItem("quarto-color-scheme");
+        return storageValue != null ? storageValue : localAlternateSentinel;
+      } else {
+        return localAlternateSentinel;
+      }
+    }
+    const toggleGiscusIfUsed = (isAlternate, darkModeDefault) => {
+      const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
+      const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
+      let newTheme = '';
+      if(authorPrefersDark) {
+        newTheme = isAlternate ? baseTheme : alternateTheme;
+      } else {
+        newTheme = isAlternate ? alternateTheme : baseTheme;
+      }
+      const changeGiscusTheme = () => {
+        // From: https://github.com/giscus/giscus/issues/336
+        const sendMessage = (message) => {
+          const iframe = document.querySelector('iframe.giscus-frame');
+          if (!iframe) return;
+          iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
+        }
+        sendMessage({
+          setConfig: {
+            theme: newTheme
+          }
+        });
+      }
+      const isGiscussLoaded = window.document.querySelector('iframe.giscus-frame') !== null;
+      if (isGiscussLoaded) {
+        changeGiscusTheme();
+      }
+    };
+    const authorPrefersDark = false;
+    const darkModeDefault = authorPrefersDark;
+      document.querySelector('link#quarto-text-highlighting-styles.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
+      document.querySelector('link#quarto-bootstrap.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
+    let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
+    // Dark / light mode switch
+    window.quartoToggleColorScheme = () => {
+      // Read the current dark / light value
+      let toAlternate = !hasAlternateSentinel();
+      toggleColorMode(toAlternate);
+      setStyleSentinel(toAlternate);
+      toggleGiscusIfUsed(toAlternate, darkModeDefault);
+      window.dispatchEvent(new Event('resize'));
+    };
+    // Switch to dark mode if need be
+    if (hasAlternateSentinel()) {
+      toggleColorMode(true);
+    } else {
+      toggleColorMode(false);
+    }
+  </script>
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./tokenek-es-kreditek.html">Gyakorlati MI-használat</a></li><li class="breadcrumb-item"><a href="./tokenek-es-kreditek.html"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Tokenek, kontextus és kreditek: mitől fogy el a chatbot?</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">MI-tesztek</a> 
+        <div class="sidebar-tools-main">
+  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
+</div>
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Előszó</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
+ <span class="menu-text">Témakörök és fogalmak</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./temakorok.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Témakörök a kurzus weboldala alapján</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./temakorok_irodalom.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Témakörök a szakirodalom alapján</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./temakorok_irodalom_kifejtve.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Fogalmak kifejtve</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./kurzusosszefoglalo_pai.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Kurzusösszefoglaló: bevezető fogalomtár</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./kurzusosszefoglalo_pai_2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Kibővített fogalomtár</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./kurzusosszefoglalo_pai_3.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">MI–pszichológia BA fogalomtár</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./kurzusosszefoglalo_pai_4.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">MI–pszichológia BA fogalomtár (bővített)</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
+ <span class="menu-text">Gyakorlati MI-használat</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./tokenek-es-kreditek.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Tokenek, kontextus és kreditek: mitől fogy el a chatbot?</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
+ <span class="menu-text">Kitekintés</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./MI-ellenesseg.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Az „MI-ellenesség” típusai és történeti dokumentumai</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./MI-kockazat-monitoring.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">MI-kockázatok, figyelmeztetések és cselekvési felhívások folyamatos monitorozása</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./references.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Hivatkozások</span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Tartalom</h2>
+   
+  <ul>
+  <li><a href="#a-token-az-mi-mértékegysége" id="toc-a-token-az-mi-mértékegysége" class="nav-link active" data-scroll-target="#a-token-az-mi-mértékegysége">A token: az MI „mértékegysége”</a>
+  <ul class="collapse">
+  <li><a href="#mi-a-token" id="toc-mi-a-token" class="nav-link" data-scroll-target="#mi-a-token">Mi a token?</a></li>
+  <li><a href="#hüvelykujjszabályok" id="toc-hüvelykujjszabályok" class="nav-link" data-scroll-target="#hüvelykujjszabályok">Hüvelykujjszabályok</a></li>
+  <li><a href="#a-magyar-nyelv-tokenadója" id="toc-a-magyar-nyelv-tokenadója" class="nav-link" data-scroll-target="#a-magyar-nyelv-tokenadója">A magyar nyelv „tokenadója”</a></li>
+  <li><a href="#bemeneti-és-kimeneti-tokenek" id="toc-bemeneti-és-kimeneti-tokenek" class="nav-link" data-scroll-target="#bemeneti-és-kimeneti-tokenek">Bemeneti és kimeneti tokenek</a></li>
+  </ul></li>
+  <li><a href="#a-kontextusablak-amit-a-modell-egyszerre-lát" id="toc-a-kontextusablak-amit-a-modell-egyszerre-lát" class="nav-link" data-scroll-target="#a-kontextusablak-amit-a-modell-egyszerre-lát">A kontextusablak: amit a modell egyszerre lát</a>
+  <ul class="collapse">
+  <li><a href="#fogalom" id="toc-fogalom" class="nav-link" data-scroll-target="#fogalom">Fogalom</a></li>
+  <li><a href="#mi-történik-ha-betelik" id="toc-mi-történik-ha-betelik" class="nav-link" data-scroll-target="#mi-történik-ha-betelik">Mi történik, ha betelik?</a></li>
+  </ul></li>
+  <li><a href="#állapotmentesség-a-modell-minden-alkalommal-nulláról-indul" id="toc-állapotmentesség-a-modell-minden-alkalommal-nulláról-indul" class="nav-link" data-scroll-target="#állapotmentesség-a-modell-minden-alkalommal-nulláról-indul">Állapotmentesség: a modell minden alkalommal „nulláról indul”</a>
+  <ul class="collapse">
+  <li><a href="#fogalom-1" id="toc-fogalom-1" class="nav-link" data-scroll-target="#fogalom-1">Fogalom</a></li>
+  <li><a href="#miért-fontos-ez" id="toc-miért-fontos-ez" class="nav-link" data-scroll-target="#miért-fontos-ez">Miért fontos ez?</a></li>
+  <li><a href="#kiszámolt-példa-egy-20-körös-beszélgetés" id="toc-kiszámolt-példa-egy-20-körös-beszélgetés" class="nav-link" data-scroll-target="#kiszámolt-példa-egy-20-körös-beszélgetés">Kiszámolt példa: egy 20 körös beszélgetés</a></li>
+  </ul></li>
+  <li><a href="#memória-mit-tud-rólad-a-chatbot" id="toc-memória-mit-tud-rólad-a-chatbot" class="nav-link" data-scroll-target="#memória-mit-tud-rólad-a-chatbot">Memória: mit „tud rólad” a chatbot?</a></li>
+  <li><a href="#mitől-fogy-a-token-a-hallgatói-tevékenységek-következményei" id="toc-mitől-fogy-a-token-a-hallgatói-tevékenységek-következményei" class="nav-link" data-scroll-target="#mitől-fogy-a-token-a-hallgatói-tevékenységek-következményei">Mitől fogy a token? A hallgatói tevékenységek következményei</a>
+  <ul class="collapse">
+  <li><a href="#promptolás" id="toc-promptolás" class="nav-link" data-scroll-target="#promptolás">Promptolás</a></li>
+  <li><a href="#gondolkodó-reasoning-üzemmód" id="toc-gondolkodó-reasoning-üzemmód" class="nav-link" data-scroll-target="#gondolkodó-reasoning-üzemmód">Gondolkodó (reasoning) üzemmód</a></li>
+  <li><a href="#modellválasztás" id="toc-modellválasztás" class="nav-link" data-scroll-target="#modellválasztás">Modellválasztás</a></li>
+  <li><a href="#fájlfeltöltés" id="toc-fájlfeltöltés" class="nav-link" data-scroll-target="#fájlfeltöltés">Fájlfeltöltés</a></li>
+  <li><a href="#fájlok-generáltatása-és-letöltése" id="toc-fájlok-generáltatása-és-letöltése" class="nav-link" data-scroll-target="#fájlok-generáltatása-és-letöltése">Fájlok generáltatása és letöltése</a></li>
+  <li><a href="#webes-keresés-és-források-beolvasása" id="toc-webes-keresés-és-források-beolvasása" class="nav-link" data-scroll-target="#webes-keresés-és-források-beolvasása">Webes keresés és források beolvasása</a></li>
+  </ul></li>
+  <li><a href="#mi-ágensek-a-tokenfogyasztás-megsokszorozódása" id="toc-mi-ágensek-a-tokenfogyasztás-megsokszorozódása" class="nav-link" data-scroll-target="#mi-ágensek-a-tokenfogyasztás-megsokszorozódása">MI-ágensek: a tokenfogyasztás megsokszorozódása</a></li>
+  <li><a href="#kreditek-és-használati-korlátok" id="toc-kreditek-és-használati-korlátok" class="nav-link" data-scroll-target="#kreditek-és-használati-korlátok">Kreditek és használati korlátok</a>
+  <ul class="collapse">
+  <li><a href="#hogyan-mérik-a-szolgáltatók-a-használatot" id="toc-hogyan-mérik-a-szolgáltatók-a-használatot" class="nav-link" data-scroll-target="#hogyan-mérik-a-szolgáltatók-a-használatot">Hogyan mérik a szolgáltatók a használatot?</a></li>
+  <li><a href="#mi-számít-bele-a-keretbe-összefoglaló-táblázat" id="toc-mi-számít-bele-a-keretbe-összefoglaló-táblázat" class="nav-link" data-scroll-target="#mi-számít-bele-a-keretbe-összefoglaló-táblázat">Mi számít bele a keretbe? – Összefoglaló táblázat</a></li>
+  </ul></li>
+  <li><a href="#gyakorlati-ellenőrzőlista-tokentudatos-mi-használat" id="toc-gyakorlati-ellenőrzőlista-tokentudatos-mi-használat" class="nav-link" data-scroll-target="#gyakorlati-ellenőrzőlista-tokentudatos-mi-használat">Gyakorlati ellenőrzőlista: tokentudatos MI-használat</a></li>
+  <li><a href="#fogalomtár" id="toc-fogalomtár" class="nav-link" data-scroll-target="#fogalomtár">Fogalomtár</a></li>
+  <li><a href="#ellenőrző-kérdések" id="toc-ellenőrző-kérdések" class="nav-link" data-scroll-target="#ellenőrző-kérdések">Ellenőrző kérdések</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./tokenek-es-kreditek.html">Gyakorlati MI-használat</a></li><li class="breadcrumb-item"><a href="./tokenek-es-kreditek.html"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Tokenek, kontextus és kreditek: mitől fogy el a chatbot?</span></a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title"><span id="sec-tokenek-es-kreditek" class="quarto-section-identifier"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Tokenek, kontextus és kreditek: mitől fogy el a chatbot?</span></span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<p><em>Gyakorlati útmutató pszichológia BA-hallgatóknak</em></p>
+<p>Aki rendszeresen használ chatbotot vagy MI-ágenst, előbb-utóbb találkozik ezekkel az üzenetekkel: „elérted a használati korlátot”, „a beszélgetés túl hosszú”, „próbáld újra néhány óra múlva”, vagy fizetős szolgáltatásnál azzal, hogy „elfogyott a kredited”. Ez a fejezet azt magyarázza el, <strong>mi áll e korlátok mögött</strong>, és hogyan befolyásolja a saját használati szokásod – a promptolás, a fájlfeltöltés, a fájlok generáltatása és letöltése, az ágensek használata –, hogy meddig tudsz dolgozni egy MI-eszközzel.</p>
+<p>A fejezet egyetlen gondolatmenetet követ:</p>
+<ol type="1">
+<li>a modell <strong>tokenekben</strong> „gondolkodik”;</li>
+<li>egyszerre csak korlátozott mennyiségű tokent lát: ez a <strong>kontextusablak</strong>;</li>
+<li>a modell <strong>állapotmentes</strong>, ezért minden válasznál újra el kell küldeni neki mindent, amit látnia kell;</li>
+<li>emiatt a beszélgetés hossza, a feltöltött fájlok és az ágensek lépései <strong>halmozódó tokenköltséget</strong> okoznak;</li>
+<li>a szolgáltatók ezt a tokenmennyiséget (és a mögötte álló számítási igényt) mérik, amikor <strong>kreditet vonnak le</strong> vagy <strong>használati korlátot</strong> alkalmaznak.</li>
+</ol>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>A számokról
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>A fejezetben szereplő tokenszámok <strong>szemléltető, kerekített becslések</strong>. A pontos értékek modellenként, tokenizálónként és szolgáltatónként eltérnek, az árak és a korlátok pedig gyakran változnak. A cél a <em>nagyságrendek</em> és az <em>összefüggések</em> megértése, nem konkrét árak megtanulása.</p>
+</div>
+</div>
+<section id="a-token-az-mi-mértékegysége" class="level2">
+<h2 class="anchored" data-anchor-id="a-token-az-mi-mértékegysége">A token: az MI „mértékegysége”</h2>
+<section id="mi-a-token" class="level3">
+<h3 class="anchored" data-anchor-id="mi-a-token">Mi a token?</h3>
+<p>A nagy nyelvi modellek nem betűket és nem szavakat dolgoznak fel, hanem <strong>tokeneket</strong>. A token a szöveg egy darabja: lehet egy teljes rövid szó, egy szórész, egy írásjel vagy szóköz egy szó elején <span class="citation" data-cites="jurafsky2023">(<a href="references.html#ref-jurafsky2023" role="doc-biblioref">Jurafsky &amp; Martin, 2023</a>)</span>. A szöveget egy <strong>tokenizáló</strong> program bontja tokenekre, majd minden tokent egy számmal (azonosítóval) helyettesít. A modell kizárólag ezekkel a számokkal dolgozik.</p>
+<p>A legtöbb mai tokenizáló úgynevezett <em>szórész-alapú</em> eljárást használ, például a bájtpár-kódolás (byte-pair encoding, BPE) valamely változatát <span class="citation" data-cites="sennrich2016">(<a href="references.html#ref-sennrich2016" role="doc-biblioref">Sennrich és mtsai., 2016</a>)</span>. Ennek lényege, hogy a gyakori karaktersorok – gyakori szavak, toldalékok – egyetlen tokent kapnak, a ritka szavak pedig több darabra esnek szét.</p>
+<p><strong>Példa.</strong> Egy angol tokenizáló a következőképpen bonthatja fel a szöveget (a <code>|</code> jel a tokenhatárokat jelöli; a pontos bontás tokenizálónként eltér):</p>
+<ul>
+<li><code>The| student| reads| a| book|.</code> → 6 token</li>
+<li><code>A| hall|gató| olvas| egy| köny|vet|.</code> → 8 token</li>
+<li><code>meg|szent|ség|tel|en|ít|het|et|len|ség|es|ked|és|eitek|ért</code> → egyetlen szó, akár 15 token</li>
+</ul>
+<p>Saját szövegeidet is felbonthatod egy nyilvános tokenizáló-eszközzel, például az OpenAI webes tokenizálójával <span class="citation" data-cites="openai_tokenizer">(<a href="references.html#ref-openai_tokenizer" role="doc-biblioref">OpenAI, é. n.</a>)</span>. Érdemes kipróbálni egy magyar és egy angol mondaton.</p>
+</section>
+<section id="hüvelykujjszabályok" class="level3">
+<h3 class="anchored" data-anchor-id="hüvelykujjszabályok">Hüvelykujjszabályok</h3>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Nyelv / tartalom</th>
+<th>Durva becslés</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Angol szöveg</td>
+<td>1 token ≈ 4 karakter ≈ ¾ szó; 1000 szó ≈ 1300–1400 token</td>
+</tr>
+<tr class="even">
+<td>Magyar szöveg</td>
+<td>egy szó gyakran 2–4 token; ugyanaz a tartalom jellemzően <strong>több</strong> tokenbe kerül, mint angolul</td>
+</tr>
+<tr class="odd">
+<td>Egy A4-es oldal folyó szöveg</td>
+<td>angolul kb. 500–700, magyarul ennél több token</td>
+</tr>
+<tr class="even">
+<td>Programkód, táblázat, sok szám</td>
+<td>sűrűbb tokenizálás: kevés karakter is sok token lehet</td>
+</tr>
+<tr class="odd">
+<td>Kép</td>
+<td>felbontástól függően néhány száz – néhány ezer token</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="a-magyar-nyelv-tokenadója" class="level3">
+<h3 class="anchored" data-anchor-id="a-magyar-nyelv-tokenadója">A magyar nyelv „tokenadója”</h3>
+<p>A tokenizálókat túlnyomórészt angol nyelvű szövegeken optimalizálják, ezért a toldalékoló, kisebb nyelvek szövegei jellemzően <strong>több tokenre</strong> bomlanak. Petrov és munkatársai kimutatták, hogy ugyanannak a szövegnek a fordításai között nyelvenként akár többszörös különbség is lehet a tokenszámban; ez hosszabb feldolgozást, magasabb költséget és a kontextusablak gyorsabb telítődését jelenti a hátrányos helyzetű nyelvek beszélőinek <span class="citation" data-cites="petrov2023">(<a href="references.html#ref-petrov2023" role="doc-biblioref">Petrov és mtsai., 2023</a>)</span>.</p>
+<p><strong>Következmény a hallgató számára:</strong> ugyanaz a feladat magyarul több tokent „fogyaszt”, mint angolul. Ez nem ok arra, hogy ne magyarul dolgozz – a magyar nyelvű gondolkodás és szakszöveg a cél –, de érdemes tudni, hogy egy hosszú magyar dokumentum hamarabb tölti meg a kontextust.</p>
+</section>
+<section id="bemeneti-és-kimeneti-tokenek" class="level3">
+<h3 class="anchored" data-anchor-id="bemeneti-és-kimeneti-tokenek">Bemeneti és kimeneti tokenek</h3>
+<p>Minden modellhívásnak két oldala van:</p>
+<ul>
+<li><strong>Bemeneti (input) tokenek:</strong> minden, amit a modell <em>elolvas</em> a válasz előtt – a te üzeneted, a korábbi beszélgetés, a feltöltött fájlok szövege, a rendszerutasítások, a keresési találatok.</li>
+<li><strong>Kimeneti (output) tokenek:</strong> amit a modell <em>megír</em> – a válasz, a generált kód vagy dokumentum, és ha a modell „gondolkodó” üzemmódban dolgozik, a háttérben végzett gondolatmenete is.</li>
+</ul>
+<p>A kimeneti tokenek előállítása tokenenként jóval költségesebb, mert a modell egyenként, egymás után generálja őket: minden új tokenhez újra le kell futnia <span class="citation" data-cites="vaswani2017 brown2020">(<a href="references.html#ref-brown2020" role="doc-biblioref"><span class="nocase">Brown és mtsai.</span>, 2020</a>; <a href="references.html#ref-vaswani2017" role="doc-biblioref">Vaswani és mtsai., 2017</a>)</span>. Ezért a szolgáltatói árlistákon a kimeneti token ára rendszerint többszöröse a bemenetinek. A bemeneti tokenek viszont <strong>mennyiségben</strong> szokták dominálni a költséget – ahogy az alábbiakban látni fogjuk.</p>
+</section>
+</section>
+<section id="a-kontextusablak-amit-a-modell-egyszerre-lát" class="level2">
+<h2 class="anchored" data-anchor-id="a-kontextusablak-amit-a-modell-egyszerre-lát">A kontextusablak: amit a modell egyszerre lát</h2>
+<section id="fogalom" class="level3">
+<h3 class="anchored" data-anchor-id="fogalom">Fogalom</h3>
+<p>A <strong>kontextusablak</strong> az a legnagyobb tokenmennyiség, amelyet a modell egyetlen válasz előállításakor figyelembe tud venni. Ebbe <em>minden</em> beleszámít: a rendszerutasítás, a teljes eddigi beszélgetés, a csatolt fájlok, az eszközök (pl. keresés) eredményei és maga a készülő válasz is. A mai nagy modellek kontextusablaka jellemzően néhány százezer, egyes esetekben egymillió token nagyságrendű.</p>
+<p>Egy százezres kontextusablak sok: nagyjából egy közepes regénynyi szöveg. Ettől azonban még nem érdemes „mindent beletenni”, három okból:</p>
+<ol type="1">
+<li><strong>Költség:</strong> ami a kontextusban van, azt a modell minden válasznál újra „elolvassa” (lásd a következő alfejezetet).</li>
+<li><strong>Figyelem:</strong> a hosszú kontextus közepén elhelyezett információt a modellek gyakran kevésbé hatékonyan használják fel, mint az elején vagy a végén lévőt („lost in the middle” jelenség) <span class="citation" data-cites="liu2024lost">(<a href="references.html#ref-liu2024lost" role="doc-biblioref">Liu és mtsai., 2024</a>)</span>.</li>
+<li><strong>Számítási igény:</strong> a Transformer-architektúra figyelmi mechanizmusa miatt a hosszabb bemenet feldolgozása aránytalanul több számítást igényel <span class="citation" data-cites="vaswani2017">(<a href="references.html#ref-vaswani2017" role="doc-biblioref">Vaswani és mtsai., 2017</a>)</span>, ami lassabb választ és nagyobb terhelést jelent.</li>
+</ol>
+</section>
+<section id="mi-történik-ha-betelik" class="level3">
+<h3 class="anchored" data-anchor-id="mi-történik-ha-betelik">Mi történik, ha betelik?</h3>
+<p>Ha a beszélgetés túllépi a kontextusablakot, a rendszer többféleképpen reagálhat: hibaüzenetet ad és új beszélgetést javasol; levágja a legrégebbi üzeneteket; vagy automatikusan <strong>tömöríti</strong> (összefoglalja) a korábbi részeket. Az utóbbi két esetben a modell szó szerint <em>nem látja többé</em> a korai részleteket – csak egy rövid összefoglalót vagy semmit. Ezért fordulhat elő, hogy egy hosszú beszélgetés végén a chatbot „elfelejti”, mit kértél az elején.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Pszichológiai analógia – óvatosan
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>A kontextusablak <em>funkcionálisan</em> emlékeztet a munkamemóriára: korlátozott kapacitású, aktuálisan hozzáférhető információt tartalmaz. Fontos azonban a különbség: a kontextusablak nem aktív feldolgozó rendszer, hanem egy szó szerint tárolt szövegpuffer, amelyet minden lépésnél teljes egészében újraolvas a modell. Az analógia segíthet megérteni a jelenséget, de nem bizonyítja, hogy a modell az emberi memóriához hasonlóan működne.</p>
+</div>
+</div>
+</section>
+</section>
+<section id="állapotmentesség-a-modell-minden-alkalommal-nulláról-indul" class="level2">
+<h2 class="anchored" data-anchor-id="állapotmentesség-a-modell-minden-alkalommal-nulláról-indul">Állapotmentesség: a modell minden alkalommal „nulláról indul”</h2>
+<section id="fogalom-1" class="level3">
+<h3 class="anchored" data-anchor-id="fogalom-1">Fogalom</h3>
+<p>A nyelvi modell <strong>állapotmentes</strong> (angolul <em>stateless</em>): két hívás között semmit nem őriz meg. A modell súlyai (a tanítás során beállított paraméterei) a beszélgetés közben <strong>nem változnak</strong>; a modell nem tanul abból, amit írsz, és nincs „emlékezete” a korábbi kérdésedről <span class="citation" data-cites="brown2020">(<a href="references.html#ref-brown2020" role="doc-biblioref"><span class="nocase">Brown és mtsai.</span>, 2020</a>)</span>.</p>
+<p>Akkor hogyan tud mégis „emlékezni” egy beszélgetésben az előző üzenetekre? Úgy, hogy a chatbot-alkalmazás <strong>minden új üzenetnél újra elküldi a modellnek a teljes eddigi beszélgetést</strong> – a rendszerutasítással és a csatolt anyagokkal együtt. A modell tehát minden válasz előtt elölről végigolvassa az egészet.</p>
+<div class="cell" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class="figure"><p></p>
+<div>
+<pre class="mermaid mermaid-js">sequenceDiagram
+    participant H as Hallgató
+    participant A as Chatbot-alkalmazás
+    participant M as Nyelvi modell (állapotmentes)
+    H-&gt;&gt;A: 1. üzenet
+    A-&gt;&gt;M: rendszerutasítás + 1. üzenet
+    M--&gt;&gt;A: 1. válasz
+    A--&gt;&gt;H: 1. válasz
+    H-&gt;&gt;A: 2. üzenet
+    A-&gt;&gt;M: rendszerutasítás + 1. üzenet + 1. válasz + 2. üzenet
+    M--&gt;&gt;A: 2. válasz
+    A--&gt;&gt;H: 2. válasz
+    H-&gt;&gt;A: 3. üzenet
+    A-&gt;&gt;M: rendszerutasítás + teljes eddigi beszélgetés + 3. üzenet
+    M--&gt;&gt;A: 3. válasz
+    A--&gt;&gt;H: 3. válasz
+</pre>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+</section>
+<section id="miért-fontos-ez" class="level3">
+<h3 class="anchored" data-anchor-id="miért-fontos-ez">Miért fontos ez?</h3>
+<p>Az állapotmentesség a kulcs a tokenfogyasztás megértéséhez. Mivel minden körben a teljes előzmény újra bemenetként szerepel, <strong>egy beszélgetés minden újabb üzenete drágább, mint az előző</strong>. A 20. üzenet nem 20 szónyi, hanem a teljes eddigi párbeszédnyi bemenetet jelent.</p>
+</section>
+<section id="kiszámolt-példa-egy-20-körös-beszélgetés" class="level3">
+<h3 class="anchored" data-anchor-id="kiszámolt-példa-egy-20-körös-beszélgetés">Kiszámolt példa: egy 20 körös beszélgetés</h3>
+<p>Tegyük fel, hogy:</p>
+<ul>
+<li>a rendszerutasítás és egyéb háttérszöveg: 2000 token;</li>
+<li>minden kérdésed: 200 token;</li>
+<li>minden válasz: 500 token.</li>
+</ul>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th style="text-align: right;">Kör</th>
+<th style="text-align: right;">Bemenet ebben a körben</th>
+<th style="text-align: right;">Ebből a korábbi beszélgetés</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: right;">1.</td>
+<td style="text-align: right;">2 200 token</td>
+<td style="text-align: right;">0</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">2.</td>
+<td style="text-align: right;">2 900 token</td>
+<td style="text-align: right;">700</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">5.</td>
+<td style="text-align: right;">5 000 token</td>
+<td style="text-align: right;">2 800</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">10.</td>
+<td style="text-align: right;">8 500 token</td>
+<td style="text-align: right;">6 300</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">20.</td>
+<td style="text-align: right;">15 500 token</td>
+<td style="text-align: right;">13 300</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;"><strong>Összesen (20 kör)</strong></td>
+<td style="text-align: right;"><strong>177 000 bemeneti token</strong></td>
+<td style="text-align: right;"></td>
+</tr>
+</tbody>
+</table>
+<p>A kimenet ugyanezalatt mindössze 20 × 500 = <strong>10 000 token</strong>. A beszélgetés összköltségének döntő része tehát nem abból adódik, amit a modell <em>ír</em>, hanem abból, amit újra és újra <em>elolvas</em>.</p>
+<p><strong>Mi történik, ha a 10. kör után új beszélgetést kezdesz?</strong> Két 10 körös beszélgetés együttes bemenete 2 × 53 500 = 107 000 token, ami <strong>körülbelül 40%-kal kevesebb</strong>. Ha az új beszélgetés elejére bemásolsz egy rövid, kb. 300 tokenes összefoglalót az addigiakról, az összesen 110 000 token: a megtakarítás még így is közel 38%.</p>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Important</span>A legfontosabb gyakorlati következmény
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><strong>Egy téma = egy beszélgetés.</strong> Ha új témába kezdesz, nyiss új beszélgetést. Ha egy hosszú beszélgetés eltávolodott a céljától, kérj róla összefoglalót, és azzal indíts újat. Így kevesebb tokent használsz, és a modell figyelme is az aktuális feladatra irányul.</p>
+</div>
+</div>
+</section>
+</section>
+<section id="memória-mit-tud-rólad-a-chatbot" class="level2">
+<h2 class="anchored" data-anchor-id="memória-mit-tud-rólad-a-chatbot">Memória: mit „tud rólad” a chatbot?</h2>
+<p>A köznyelvben gyakran mondjuk, hogy a chatbot „emlékszik” ránk. Technikailag több, egymástól eltérő dologról lehet szó:</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Memóriatípus</th>
+<th>Mi ez valójában?</th>
+<th>Tokenköltsége</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Tanult tudás (paraméterek)</strong></td>
+<td>A modell súlyaiban tárolt, a tanítás során kialakult mintázatok. Egy adott dátumig terjedő tudás (<em>tudás-határidő</em>). A beszélgetésed nem változtatja meg.</td>
+<td>Nincs külön költség, de nem frissíthető.</td>
+</tr>
+<tr class="even">
+<td><strong>Beszélgetési kontextus</strong></td>
+<td>Az aktuális beszélgetés szövege, amelyet minden körben újraküld az alkalmazás.</td>
+<td>Minden körben a teljes hossza bemenetként számít.</td>
+</tr>
+<tr class="odd">
+<td><strong>Tartós „memória” funkció</strong></td>
+<td>Egyes alkalmazások elmentenek rólad tényeket vagy preferenciákat, és azokat <strong>szövegként</strong> beillesztik minden új beszélgetés elejére.</td>
+<td>Minden beszélgetés minden körében bemenet – kicsi, de állandó többlet.</td>
+</tr>
+<tr class="even">
+<td><strong>Egyéni utasítások, projektutasítások</strong></td>
+<td>Általad megírt állandó szöveg („Pszichológia BA-hallgató vagyok, magyarul válaszolj…”), amely minden kérdés elé bekerül.</td>
+<td>Mint fent: minden körben bemenet.</td>
+</tr>
+<tr class="odd">
+<td><strong>Projektek, tudásbázisok (visszakeresés)</strong></td>
+<td>Feltöltött dokumentumok gyűjteménye, amelyből a rendszer a kérdéshez illő részleteket keresi elő és illeszti a kontextusba (RAG) <span class="citation" data-cites="lewis2020">(<a href="references.html#ref-lewis2020" role="doc-biblioref"><span class="nocase">Lewis és mtsai.</span>, 2020</a>)</span>.</td>
+<td>Csak a beemelt részletek számítanak; ez takarékosabb, mint a teljes dokumentum.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Pszichológiai szempont:</strong> a „memória” funkciók könnyen erősítik az antropomorfizációt – azt az érzést, hogy a rendszer <em>ismer</em> minket. Valójában egy elmentett szövegrészlet kerül újra a modell elé. Érdemes időnként átnézni, mit tárol rólad az alkalmazás, mert minden elmentett tény adatvédelmi kérdés is.</p>
+</section>
+<section id="mitől-fogy-a-token-a-hallgatói-tevékenységek-következményei" class="level2">
+<h2 class="anchored" data-anchor-id="mitől-fogy-a-token-a-hallgatói-tevékenységek-következményei">Mitől fogy a token? A hallgatói tevékenységek következményei</h2>
+<section id="promptolás" class="level3">
+<h3 class="anchored" data-anchor-id="promptolás">Promptolás</h3>
+<ul>
+<li><strong>Hosszú, ismétlődő promptok:</strong> ha minden üzenetbe bemásolod ugyanazt a hosszú utasítást, azt minden körben többszörösen fizeted meg (egyszer az új üzenetben, és az összes későbbi körben az előzmények részeként). Állandó utasításhoz használd az egyéni vagy projektutasítás-funkciót, vagy írd le egyszer, világosan.</li>
+<li><strong>Pontatlan prompt → sok javítókör:</strong> egy homályos kérdés után három-négy pontosító kör következhet, amelyek mind hozzáadódnak a kontextushoz. Egy jól megírt első prompt (feladat, kontextus, formátum, terjedelem) tokent és időt is takarít meg.</li>
+<li><strong>„Írd újra az egészet”:</strong> ha egy hosszú szövegben egyetlen bekezdést szeretnél módosítani, kérd csak annak a bekezdésnek az átírását. A teljes szöveg újragenerálása a teljes kimeneti tokenmennyiséget újra felhasználja.</li>
+<li><strong>Kért terjedelem:</strong> a „legfeljebb 200 szóban” jellegű kérés közvetlenül csökkenti a kimeneti tokeneket.</li>
+</ul>
+</section>
+<section id="gondolkodó-reasoning-üzemmód" class="level3">
+<h3 class="anchored" data-anchor-id="gondolkodó-reasoning-üzemmód">Gondolkodó (reasoning) üzemmód</h3>
+<p>Számos modell képes válasz előtt hosszabb belső gondolatmenetet végezni. Ezek a <strong>gondolkodási tokenek</strong> kimeneti tokenként számítanak – akkor is, ha a felületen csak egy rövid összefoglaló vagy semmi sem látszik belőlük. Egy nehéz feladatnál a háttérben több ezer, akár több tízezer token keletkezhet egyetlen válaszhoz. A gondolkodó üzemmód összetett elemzésnél hasznos, egyszerű kérdésekhez (definíció, helyesírás, rövid átfogalmazás) felesleges.</p>
+</section>
+<section id="modellválasztás" class="level3">
+<h3 class="anchored" data-anchor-id="modellválasztás">Modellválasztás</h3>
+<p>A nagyobb, „okosabb” modellek tokenenként többe kerülnek, illetve gyorsabban merítik a használati keretet. Egyszerű feladathoz egy kisebb, gyorsabb modell is elegendő; a legerősebb modellt érdemes a valóban nehéz feladatokra tartogatni.</p>
+</section>
+<section id="fájlfeltöltés" class="level3">
+<h3 class="anchored" data-anchor-id="fájlfeltöltés">Fájlfeltöltés</h3>
+<p>A feltöltött fájl nem „mellékletként” utazik, hanem <strong>szöveggé (vagy képpé) alakítva a kontextus része lesz</strong>:</p>
+<ul>
+<li>egy 30 oldalas magyar nyelvű tanulmány PDF-je könnyen <strong>40 000 token</strong> körüli bemenetet jelenthet;</li>
+<li>a beszkennelt vagy sok ábrát tartalmazó PDF-oldalak képként is feldolgozásra kerülhetnek, ami oldalanként további tokeneket jelent;</li>
+<li>egy fénykép vagy képernyőkép felbontástól függően néhány száz – néhány ezer token.</li>
+</ul>
+<p><strong>Kiszámolt példa.</strong> Az előző beszélgetési modellben egy 40 000 tokenes PDF feltöltése után 10 kör beszélgetés összesen kb. <strong>453 500</strong> bemeneti tokent jelent – a fájl nélküli 53 500 helyett, vagyis több mint nyolcszorosát. Ennek oka, hogy a 40 000 token mind a tíz körben újra a modell elé kerül.</p>
+<p>Egyes szolgáltatók ezt <strong>gyorsítótárazással</strong> (prompt caching) mérséklik: ha a beszélgetés eleje változatlan, annak újraolvasását kedvezményesen számolják el, és gyorsabban is dolgozzák fel. A tartalom ettől még a kontextusablakban marad, tehát a helyet ugyanúgy foglalja.</p>
+<p><strong>Gyakorlati tanácsok:</strong></p>
+<ul>
+<li>csak azt töltsd fel, ami a kérdéshez valóban kell (pl. a módszertani fejezetet, ne a teljes tanulmányt);</li>
+<li>ha több kérdésed van ugyanarról a dokumentumról, tedd fel őket egy jól átgondolt üzenetben, vagy használj projekt- / tudásbázis-funkciót, amely csak a releváns részleteket emeli be;</li>
+<li>a kép felbontását ne növeld feleslegesen: egy jól olvasható képernyőkép elegendő.</li>
+</ul>
+</section>
+<section id="fájlok-generáltatása-és-letöltése" class="level3">
+<h3 class="anchored" data-anchor-id="fájlok-generáltatása-és-letöltése">Fájlok generáltatása és letöltése</h3>
+<p>A <strong>letöltés</strong> – a kész fájl elmentése a gépedre – önmagában nem fogyaszt tokent. A <em>létrehozása</em> viszont igen:</p>
+<ul>
+<li>ha a modell egy 10 oldalas dokumentumot, táblázatot vagy prezentációt ír meg, annak teljes tartalma <strong>kimeneti token</strong>;</li>
+<li>ha a fájl kódfuttatással készül (pl. diagram, Excel-tábla), a megírt kód, a futtatás eredménye és az esetleges hibajavító körök is tokenként számítanak, és bekerülnek a további kontextusba;</li>
+<li>ha egy apró módosítás miatt az egész fájlt újragenerálod, az egész kimenet újra „fizetendő”.</li>
+</ul>
+<p><strong>Tanács:</strong> a fájl tartalmát előbb vázlatban beszéld meg, és csak a végleges változatot generáltasd le. Módosításnál nevezd meg pontosan, mit kell megváltoztatni.</p>
+</section>
+<section id="webes-keresés-és-források-beolvasása" class="level3">
+<h3 class="anchored" data-anchor-id="webes-keresés-és-források-beolvasása">Webes keresés és források beolvasása</h3>
+<p>Amikor a chatbot keres az interneten, a talált weboldalak szövege – gyakran oldalanként több ezer token – a kontextusba kerül. Egy „nézz utána alaposan” típusú kérés tucatnyi oldal beolvasásával járhat. Ez hasznos, de jelentős bemeneti tokenmennyiség, amely a beszélgetés további köreiben is megmarad.</p>
+</section>
+</section>
+<section id="mi-ágensek-a-tokenfogyasztás-megsokszorozódása" class="level2">
+<h2 class="anchored" data-anchor-id="mi-ágensek-a-tokenfogyasztás-megsokszorozódása">MI-ágensek: a tokenfogyasztás megsokszorozódása</h2>
+<p>Az <strong>MI-ágens</strong> nem egyetlen választ ad, hanem egy célért több lépésben dolgozik: tervez, eszközöket hív (keresés, böngészés, kódfuttatás, fájlműveletek), értékeli az eredményt, majd a következő lépést választja. Minden lépés <strong>egy újabb modellhívás</strong>, amelyben – az állapotmentesség miatt – az addigi teljes munkamenet újra bemenetként szerepel, kiegészülve az eszközök által visszaadott eredményekkel.</p>
+<p><strong>Kiszámolt példa.</strong> Egy ágens 25 lépésben dolgozik. Az induló kontextus (utasítás, feladat, eszközleírások) 5000 token; minden lépés további kb. 3300 tokennel bővíti (az eszköz eredménye, pl. egy weboldal vagy fájl részlete, és a modell rövid lépésleírása). Ekkor a 25 lépés együttes bemenete:</p>
+<p><span class="math display">\[
+\sum_{k=1}^{25} \bigl(5000 + (k-1)\cdot 3300\bigr) \approx 1\,115\,000 \text{ token.}
+\]</span></p>
+<p>Ez több mint <strong>ötszázszorosa</strong> egy egyszerű, kb. 2000 tokenes kérdés-válasz bemenetének – és ebben még nincsenek benne a gondolkodási tokenek, a képernyőképek vagy a párhuzamosan dolgozó alágensek.</p>
+<p>Az ágensek tokenigényét tovább növeli:</p>
+<ul>
+<li><strong>böngészés képernyőképekkel:</strong> minden képernyőkép kép-tokenként számít;</li>
+<li><strong>alágensek:</strong> ha egy ágens több „segédágenst” indít, mindegyik saját kontextussal és saját tokenfogyasztással dolgozik;</li>
+<li><strong>hibakörök:</strong> egy sikertelen lépés (pl. hibás kód) javítása további köröket jelent;</li>
+<li><strong>hosszú munkamenet:</strong> a kontextus gyorsan betelik, ezért az ágensrendszerek gyakran automatikusan tömörítik az előzményeket, ami részletvesztéssel járhat.</li>
+</ul>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Important</span>Mikor éri meg ágenst használni?
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Az ágens akkor hasznos, ha a feladat valóban sok lépést, eszközhasználatot és önálló döntést igényel (pl. több forrás összegyűjtése és táblázatba rendezése). Egy definíció megkérdezéséhez vagy egy bekezdés átfogalmazásához az ágens a tokenfogyasztás szempontjából olyan, mintha egy rövid szöveg kinyomtatásához egy egész nyomdát indítanánk be. Ágensnél különösen fontos a pontos, jól körülhatárolt feladatleírás és a megállási feltétel megadása.</p>
+</div>
+</div>
+</section>
+<section id="kreditek-és-használati-korlátok" class="level2">
+<h2 class="anchored" data-anchor-id="kreditek-és-használati-korlátok">Kreditek és használati korlátok</h2>
+<section id="hogyan-mérik-a-szolgáltatók-a-használatot" class="level3">
+<h3 class="anchored" data-anchor-id="hogyan-mérik-a-szolgáltatók-a-használatot">Hogyan mérik a szolgáltatók a használatot?</h3>
+<p>A szolgáltatók eltérő elszámolási modelleket alkalmaznak:</p>
+<ul>
+<li><strong>Fejlesztői hozzáférés (API):</strong> tokenalapú díjazás, jellemzően külön áron a bemeneti, a kimeneti és a gyorsítótárazott bemeneti tokenekre, egymillió tokenre vetítve. Itt a költség közvetlenül arányos a fenti számításokkal.</li>
+<li><strong>Előfizetéses chatbotok:</strong> havi díj ellenében használati keret, amely időablakonként (pl. néhány óránként vagy hetente) megújul. A keretet szolgáltatótól függően üzenetszámban, felhasznált tokenben vagy a számítási igényt tükröző belső „kreditben” mérik.</li>
+<li><strong>Kreditalapú szolgáltatások:</strong> előre megvásárolt vagy havonta jóváírt egyenleg, amelyből minden művelet – válasz, képgenerálás, ágensfuttatás – a ráfordított erőforrással arányos mennyiséget von le.</li>
+</ul>
+<p>Ahol a keret nem pusztán az üzenetek számán, hanem a mögöttük lévő tokenmennyiségen vagy számításon alapul, ott <strong>egy hosszú beszélgetés vége, egy nagy fájlra vonatkozó kérdés, egy gondolkodó üzemmódú válasz vagy egy ágensfuttatás sokkal többet „fogyaszt”, mint egy rövid kérdés egy friss beszélgetésben.</strong> Ezért tapasztalhatod, hogy egyik nap sokáig tudod használni a chatbotot, máskor néhány intenzív feladat után eléred a korlátot.</p>
+</section>
+<section id="mi-számít-bele-a-keretbe-összefoglaló-táblázat" class="level3">
+<h3 class="anchored" data-anchor-id="mi-számít-bele-a-keretbe-összefoglaló-táblázat">Mi számít bele a keretbe? – Összefoglaló táblázat</h3>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Tevékenység</th>
+<th>Hogyan hat a tokenfogyasztásra?</th>
+<th>Mekkora a hatás?</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Rövid kérdés új beszélgetésben</td>
+<td>Kevés bemenet és kimenet</td>
+<td>Kicsi</td>
+</tr>
+<tr class="even">
+<td>Ugyanez egy hosszú beszélgetés végén</td>
+<td>A teljes előzmény újra bemenet</td>
+<td>Közepes–nagy</td>
+</tr>
+<tr class="odd">
+<td>Hosszú, minden üzenetben ismételt utasítás</td>
+<td>Minden körben újra bemenet</td>
+<td>Halmozódó</td>
+</tr>
+<tr class="even">
+<td>Nagy PDF feltöltése, majd sok kérdés</td>
+<td>A fájl minden körben újra bemenet</td>
+<td>Nagy</td>
+</tr>
+<tr class="odd">
+<td>Kép, képernyőkép feltöltése</td>
+<td>Kép-tokenek, felbontásfüggő</td>
+<td>Kicsi–közepes</td>
+</tr>
+<tr class="even">
+<td>Hosszú dokumentum vagy kód generáltatása</td>
+<td>Kimeneti tokenek (drágábbak)</td>
+<td>Közepes–nagy</td>
+</tr>
+<tr class="odd">
+<td>Az egész fájl újragenerálása apró javításért</td>
+<td>A teljes kimenet újra</td>
+<td>Nagy</td>
+</tr>
+<tr class="even">
+<td>Kész fájl letöltése</td>
+<td>Nem modellművelet</td>
+<td>Nincs</td>
+</tr>
+<tr class="odd">
+<td>Gondolkodó (reasoning) üzemmód</td>
+<td>Rejtett kimeneti tokenek</td>
+<td>Közepes–nagy</td>
+</tr>
+<tr class="even">
+<td>Webes keresés, mély kutatás</td>
+<td>Beolvasott oldalak bemenetként</td>
+<td>Nagy</td>
+</tr>
+<tr class="odd">
+<td>MI-ágens többlépéses feladattal</td>
+<td>Sok modellhívás, növekvő kontextus</td>
+<td>Nagyon nagy</td>
+</tr>
+<tr class="even">
+<td>Tartós memória, egyéni utasítás</td>
+<td>Kis, állandó bemeneti többlet</td>
+<td>Kicsi, de mindig jelen van</td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+<section id="gyakorlati-ellenőrzőlista-tokentudatos-mi-használat" class="level2">
+<h2 class="anchored" data-anchor-id="gyakorlati-ellenőrzőlista-tokentudatos-mi-használat">Gyakorlati ellenőrzőlista: tokentudatos MI-használat</h2>
+<ol type="1">
+<li><strong>Egy téma – egy beszélgetés.</strong> Új témához nyiss új beszélgetést.</li>
+<li><strong>Hosszú beszélgetésnél összefoglaló és újrakezdés.</strong> Kérj rövid összefoglalót, és azzal indíts új beszélgetést.</li>
+<li><strong>Első prompt legyen jó.</strong> Feladat, kontextus, formátum, terjedelem – kevesebb javítókör.</li>
+<li><strong>Csak a szükséges részt töltsd fel.</strong> Fejezetet, ne teljes könyvet; olvasható, de nem óriási felbontású képet.</li>
+<li><strong>Kérdéseket csoportosítsd.</strong> Egy dokumentumról egy átgondolt, több kérdést tartalmazó üzenet hatékonyabb, mint tíz rövid.</li>
+<li><strong>Célzott módosítást kérj.</strong> „Csak a 3. bekezdést írd át” – ne az egész szöveget.</li>
+<li><strong>Kérj terjedelmi korlátot.</strong> „Legfeljebb 150 szóban”, „csak a táblázatot”.</li>
+<li><strong>Gondolkodó üzemmód és nagy modell csak ott, ahol kell.</strong></li>
+<li><strong>Ágenst valóban többlépéses feladatra használj,</strong> pontos céllal és megállási feltétellel.</li>
+<li><strong>Nézd át a memóriát és az állandó utasításokat</strong> – tokenszempontból és adatvédelmi szempontból is.</li>
+</ol>
+</section>
+<section id="fogalomtár" class="level2">
+<h2 class="anchored" data-anchor-id="fogalomtár">Fogalomtár</h2>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Fogalom</th>
+<th>Rövid meghatározás</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Token</strong></td>
+<td>A modell által feldolgozott szövegegység (szó, szórész, írásjel).</td>
+</tr>
+<tr class="even">
+<td><strong>Tokenizáló, tokenizáció</strong></td>
+<td>A szöveget tokenekre bontó és azokat számokká alakító eljárás.</td>
+</tr>
+<tr class="odd">
+<td><strong>Bájtpár-kódolás (BPE)</strong></td>
+<td>Gyakori szórész-alapú tokenizálási eljárás: a gyakori karaktersorok önálló tokent kapnak.</td>
+</tr>
+<tr class="even">
+<td><strong>Bemeneti (input) token</strong></td>
+<td>Minden, amit a modell a válasz előtt elolvas.</td>
+</tr>
+<tr class="odd">
+<td><strong>Kimeneti (output) token</strong></td>
+<td>Amit a modell generál; tokenenként drágább.</td>
+</tr>
+<tr class="even">
+<td><strong>Gondolkodási (reasoning) token</strong></td>
+<td>A modell rejtett belső gondolatmenetének tokenjei; kimenetként számítanak.</td>
+</tr>
+<tr class="odd">
+<td><strong>Kontextusablak</strong></td>
+<td>Az egy válaszhoz egyszerre figyelembe vehető legnagyobb tokenmennyiség.</td>
+</tr>
+<tr class="even">
+<td><strong>Állapotmentesség (stateless)</strong></td>
+<td>A modell két hívás között semmit sem őriz meg; az előzményeket minden alkalommal újra meg kell kapnia.</td>
+</tr>
+<tr class="odd">
+<td><strong>Rendszerutasítás (system prompt)</strong></td>
+<td>A szolgáltató vagy alkalmazás által minden beszélgetés elé illesztett háttérszöveg.</td>
+</tr>
+<tr class="even">
+<td><strong>Tömörítés (compaction)</strong></td>
+<td>A betelő kontextus korábbi részeinek automatikus összefoglalása; részletvesztéssel járhat.</td>
+</tr>
+<tr class="odd">
+<td><strong>„Lost in the middle”</strong></td>
+<td>A hosszú kontextus közepén lévő információ gyengébb felhasználása <span class="citation" data-cites="liu2024lost">(<a href="references.html#ref-liu2024lost" role="doc-biblioref">Liu és mtsai., 2024</a>)</span>.</td>
+</tr>
+<tr class="even">
+<td><strong>Tartós memória</strong></td>
+<td>Elmentett, minden új beszélgetésbe szövegként beillesztett tények vagy preferenciák.</td>
+</tr>
+<tr class="odd">
+<td><strong>Visszakereséssel támogatott generálás (RAG)</strong></td>
+<td>Dokumentumgyűjteményből csak a releváns részletek beemelése a kontextusba <span class="citation" data-cites="lewis2020">(<a href="references.html#ref-lewis2020" role="doc-biblioref"><span class="nocase">Lewis és mtsai.</span>, 2020</a>)</span>.</td>
+</tr>
+<tr class="even">
+<td><strong>Gyorsítótárazás (prompt caching)</strong></td>
+<td>A változatlan kontextuselőtag kedvezményes, gyorsabb újrafeldolgozása.</td>
+</tr>
+<tr class="odd">
+<td><strong>Tudás-határidő</strong></td>
+<td>Az az időpont, ameddig a modell tanítóadatai terjednek.</td>
+</tr>
+<tr class="even">
+<td><strong>MI-ágens</strong></td>
+<td>Többlépéses, eszközöket használó rendszer; minden lépés újabb modellhívás.</td>
+</tr>
+<tr class="odd">
+<td><strong>Alágens</strong></td>
+<td>Egy ágens által indított, saját kontextussal dolgozó segédágens.</td>
+</tr>
+<tr class="even">
+<td><strong>API-díjazás</strong></td>
+<td>Tokenalapú elszámolás, jellemzően egymillió tokenre vetített áron.</td>
+</tr>
+<tr class="odd">
+<td><strong>Használati korlát, kredit</strong></td>
+<td>Az előfizetéses vagy kreditalapú szolgáltatásokban a felhasználható erőforrás kerete.</td>
+</tr>
+<tr class="even">
+<td><strong>Tokenadó (nyelvi egyenlőtlenség)</strong></td>
+<td>Az a jelenség, hogy egyes nyelvek ugyanazon tartalma több tokenbe kerül <span class="citation" data-cites="petrov2023">(<a href="references.html#ref-petrov2023" role="doc-biblioref">Petrov és mtsai., 2023</a>)</span>.</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="ellenőrző-kérdések" class="level2">
+<h2 class="anchored" data-anchor-id="ellenőrző-kérdések">Ellenőrző kérdések</h2>
+<ol type="1">
+<li>Miért kerül jellemzően több tokenbe egy magyar szöveg, mint ugyanannak az angol fordítása?</li>
+<li>Mi a különbség a bemeneti és a kimeneti token között, és melyik a drágább tokenenként? Melyik dominálja általában egy hosszú beszélgetés összköltségét?</li>
+<li>Mit jelent, hogy a nyelvi modell állapotmentes? Hogyan „emlékszik” mégis a chatbot a beszélgetés korábbi részeire?</li>
+<li>Egy 20 körös beszélgetés helyett két 10 körös beszélgetést folytatsz. Miért csökken ezzel az összes bemeneti token mennyisége?</li>
+<li>Mi történik egy feltöltött 40 000 tokenes PDF-fel a beszélgetés további köreiben? Hogyan csökkenthető a hatása?</li>
+<li>Fogyaszt-e tokent egy kész fájl letöltése? És a létrehozása? Indokold!</li>
+<li>Miért fogyaszt egy MI-ágens nagyságrendekkel több tokent, mint egy egyszerű kérdés-válasz?</li>
+<li>Milyen memóriatípusokat különböztetünk meg egy chatbotnál, és melyiknek van minden beszélgetésben állandó tokenköltsége?</li>
+<li>Miért nem érdemes egy nagy kontextusablakot „teletölteni”, még ha a modell elvileg képes is feldolgozni?</li>
+<li>Miért lehet félrevezető az a kijelentés, hogy „a chatbot megismert engem”? Milyen pszichológiai jelenség erősítheti ezt a benyomást?</li>
+</ol>
+
+
+<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" data-line-spacing="2" role="list" style="display: none">
+<div id="ref-brown2020" class="csl-entry" role="listitem">
+<span class="nocase">Brown, T. B., Mann, B., Ryder, N., Subbiah, M., Kaplan, J., Dhariwal, P., és mtsai.</span> (2020). Language models are few-shot learners. <em>Advances in Neural Information Processing Systems</em>, <em>33</em>, 1877–1901.
+</div>
+<div id="ref-jurafsky2023" class="csl-entry" role="listitem">
+Jurafsky, D., &amp; Martin, J. H. (2023). <em>Speech and language processing</em> (3. kiad.). <a href="https://web.stanford.edu/~jurafsky/slp3/">https://web.stanford.edu/~jurafsky/slp3/</a>
+</div>
+<div id="ref-lewis2020" class="csl-entry" role="listitem">
+<span class="nocase">Lewis, P., Perez, E., Piktus, A., Petroni, F., Karpukhin, V., Goyal, N., és mtsai.</span> (2020). Retrieval-augmented generation for knowledge-intensive <span>NLP</span> tasks. <em>Advances in Neural Information Processing Systems</em>, <em>33</em>, 9459–9474.
+</div>
+<div id="ref-liu2024lost" class="csl-entry" role="listitem">
+Liu, N. F., Lin, K., Hewitt, J., Paranjape, A., Bevilacqua, M., Petroni, F., &amp; Liang, P. (2024). Lost in the middle: How language models use long contexts. <em>Transactions of the Association for Computational Linguistics</em>, <em>12</em>, 157–173. <a href="https://doi.org/10.1162/tacl_a_00638">https://doi.org/10.1162/tacl_a_00638</a>
+</div>
+<div id="ref-maslej2025" class="csl-entry" role="listitem">
+<span class="nocase">Maslej, N. és mtsai.</span> (2025). <em>The <span>AI</span> index 2025 annual report</em>. Stanford Institute for Human-Centered Artificial Intelligence. <a href="https://hai.stanford.edu/ai-index/2025-ai-index-report">https://hai.stanford.edu/ai-index/2025-ai-index-report</a>
+</div>
+<div id="ref-openai_tokenizer" class="csl-entry" role="listitem">
+OpenAI. (é. n.). <em>Tokenizer</em>. Elérés <a href="https://platform.openai.com/tokenizer">https://platform.openai.com/tokenizer</a>
+</div>
+<div id="ref-petrov2023" class="csl-entry" role="listitem">
+Petrov, A., La Malfa, E., Torr, P. H. S., &amp; Bibi, A. (2023). Language model tokenizers introduce unfairness between languages. <em>Advances in Neural Information Processing Systems</em>, <em>36</em>. <a href="https://arxiv.org/abs/2305.15425">https://arxiv.org/abs/2305.15425</a>
+</div>
+<div id="ref-sennrich2016" class="csl-entry" role="listitem">
+Sennrich, R., Haddow, B., &amp; Birch, A. (2016). Neural machine translation of rare words with subword units. <em>Proceedings of the 54th Annual Meeting of the Association for Computational Linguistics</em>, 1715–1725. <a href="https://doi.org/10.18653/v1/P16-1162">https://doi.org/10.18653/v1/P16-1162</a>
+</div>
+<div id="ref-vaswani2017" class="csl-entry" role="listitem">
+Vaswani, A., Shazeer, N., Parmar, N., Uszkoreit, J., Jones, L., Gomez, A. N., Kaiser, Ł., &amp; Polosukhin, I. (2017). Attention is all you need. <em>Advances in Neural Information Processing Systems</em>, <em>30</em>.
+</div>
+</div>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    // Ensure there is a toggle, if there isn't float one in the top right
+    if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
+      const a = window.document.createElement('a');
+      a.classList.add('top-right');
+      a.classList.add('quarto-color-scheme-toggle');
+      a.href = "";
+      a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
+      const i = window.document.createElement("i");
+      i.classList.add('bi');
+      a.appendChild(i);
+      window.document.body.appendChild(a);
+    }
+    setColorSchemeToggle(hasAlternateSentinel())
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./kurzusosszefoglalo_pai_4.html" class="pagination-link" aria-label="MI–pszichológia BA fogalomtár (bővített)">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">MI–pszichológia BA fogalomtár (bővített)</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./MI-ellenesseg.html" class="pagination-link" aria-label="Az „MI-ellenesség” típusai és történeti dokumentumai">
+        <span class="nav-page-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Az „MI-ellenesség” típusai és történeti dokumentumai</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+
+<script src="site_libs/quarto-html/zenscroll-min.js"></script>
+</body></html>

@@ -22,6 +22,8 @@ A kérdéseket később az R [`exams`](https://www.r-exams.org/) csomaggal áll�
   pszichológiai kapcsolattal, közelítő példával és forrással, idővonallal és ellenőrző kérdésekkel.
 - **[MI–pszichológia BA fogalomtár (bővített)](kurzusosszefoglalo_pai_4.qmd)**: egyetemi pszichológiai MI-kurzusok
   és MI-vizsgatematikák alapján készült, hosszabb kifejtésű fogalomtár (a forrásszöveg hiányos, 58 szócikk).
+- **[Tokenek, kontextus és kreditek](tokenek-es-kreditek.qmd)** (Gyakorlati MI-használat): a tokentől az
+  állapotmentes működésen és a kontextusablakon át a kreditszámításig; mitől fogy el a chatbot és az ágens.
 - **[Az „MI-ellenesség” típusai és történeti dokumentumai](MI-ellenesseg.qmd)** (Kitekintés): narratív–történeti
   áttekintés az MI kritikájának 12 típusáról, a beavatkozási igény fokozatairól és a meghatározó dokumentumokról.
 - **[MI-kockázatok folyamatos monitorozása](MI-kockazat-monitoring.qmd)** (Kitekintés): forrástérkép

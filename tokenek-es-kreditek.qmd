@@ -1,0 +1,308 @@
+# Tokenek, kontextus és kreditek: mitől fogy el a chatbot? {#sec-tokenek-es-kreditek}
+
+*Gyakorlati útmutató pszichológia BA-hallgatóknak*
+
+Aki rendszeresen használ chatbotot vagy MI-ágenst, előbb-utóbb találkozik ezekkel az üzenetekkel: „elérted a használati korlátot”, „a beszélgetés túl hosszú”, „próbáld újra néhány óra múlva”, vagy fizetős szolgáltatásnál azzal, hogy „elfogyott a kredited”. Ez a fejezet azt magyarázza el, **mi áll e korlátok mögött**, és hogyan befolyásolja a saját használati szokásod – a promptolás, a fájlfeltöltés, a fájlok generáltatása és letöltése, az ágensek használata –, hogy meddig tudsz dolgozni egy MI-eszközzel.
+
+A fejezet egyetlen gondolatmenetet követ:
+
+1. a modell **tokenekben** „gondolkodik”;
+2. egyszerre csak korlátozott mennyiségű tokent lát: ez a **kontextusablak**;
+3. a modell **állapotmentes**, ezért minden válasznál újra el kell küldeni neki mindent, amit látnia kell;
+4. emiatt a beszélgetés hossza, a feltöltött fájlok és az ágensek lépései **halmozódó tokenköltséget** okoznak;
+5. a szolgáltatók ezt a tokenmennyiséget (és a mögötte álló számítási igényt) mérik, amikor **kreditet vonnak le** vagy **használati korlátot** alkalmaznak.
+
+::: {.callout-note}
+## A számokról
+
+A fejezetben szereplő tokenszámok **szemléltető, kerekített becslések**. A pontos értékek modellenként, tokenizálónként és szolgáltatónként eltérnek, az árak és a korlátok pedig gyakran változnak. A cél a *nagyságrendek* és az *összefüggések* megértése, nem konkrét árak megtanulása.
+:::
+
+## A token: az MI „mértékegysége”
+
+### Mi a token?
+
+A nagy nyelvi modellek nem betűket és nem szavakat dolgoznak fel, hanem **tokeneket**. A token a szöveg egy darabja: lehet egy teljes rövid szó, egy szórész, egy írásjel vagy szóköz egy szó elején [@jurafsky2023]. A szöveget egy **tokenizáló** program bontja tokenekre, majd minden tokent egy számmal (azonosítóval) helyettesít. A modell kizárólag ezekkel a számokkal dolgozik.
+
+A legtöbb mai tokenizáló úgynevezett *szórész-alapú* eljárást használ, például a bájtpár-kódolás (byte-pair encoding, BPE) valamely változatát [@sennrich2016]. Ennek lényege, hogy a gyakori karaktersorok – gyakori szavak, toldalékok – egyetlen tokent kapnak, a ritka szavak pedig több darabra esnek szét.
+
+**Példa.** Egy angol tokenizáló a következőképpen bonthatja fel a szöveget (a `|` jel a tokenhatárokat jelöli; a pontos bontás tokenizálónként eltér):
+
+- `The| student| reads| a| book|.` → 6 token
+- `A| hall|gató| olvas| egy| köny|vet|.` → 8 token
+- `meg|szent|ség|tel|en|ít|het|et|len|ség|es|ked|és|eitek|ért` → egyetlen szó, akár 15 token
+
+Saját szövegeidet is felbonthatod egy nyilvános tokenizáló-eszközzel, például az OpenAI webes tokenizálójával [@openai_tokenizer]. Érdemes kipróbálni egy magyar és egy angol mondaton.
+
+### Hüvelykujjszabályok
+
+| Nyelv / tartalom | Durva becslés |
+|---|---|
+| Angol szöveg | 1 token ≈ 4 karakter ≈ ¾ szó; 1000 szó ≈ 1300–1400 token |
+| Magyar szöveg | egy szó gyakran 2–4 token; ugyanaz a tartalom jellemzően **több** tokenbe kerül, mint angolul |
+| Egy A4-es oldal folyó szöveg | angolul kb. 500–700, magyarul ennél több token |
+| Programkód, táblázat, sok szám | sűrűbb tokenizálás: kevés karakter is sok token lehet |
+| Kép | felbontástól függően néhány száz – néhány ezer token |
+
+### A magyar nyelv „tokenadója”
+
+A tokenizálókat túlnyomórészt angol nyelvű szövegeken optimalizálják, ezért a toldalékoló, kisebb nyelvek szövegei jellemzően **több tokenre** bomlanak. Petrov és munkatársai kimutatták, hogy ugyanannak a szövegnek a fordításai között nyelvenként akár többszörös különbség is lehet a tokenszámban; ez hosszabb feldolgozást, magasabb költséget és a kontextusablak gyorsabb telítődését jelenti a hátrányos helyzetű nyelvek beszélőinek [@petrov2023].
+
+**Következmény a hallgató számára:** ugyanaz a feladat magyarul több tokent „fogyaszt”, mint angolul. Ez nem ok arra, hogy ne magyarul dolgozz – a magyar nyelvű gondolkodás és szakszöveg a cél –, de érdemes tudni, hogy egy hosszú magyar dokumentum hamarabb tölti meg a kontextust.
+
+### Bemeneti és kimeneti tokenek
+
+Minden modellhívásnak két oldala van:
+
+- **Bemeneti (input) tokenek:** minden, amit a modell *elolvas* a válasz előtt – a te üzeneted, a korábbi beszélgetés, a feltöltött fájlok szövege, a rendszerutasítások, a keresési találatok.
+- **Kimeneti (output) tokenek:** amit a modell *megír* – a válasz, a generált kód vagy dokumentum, és ha a modell „gondolkodó” üzemmódban dolgozik, a háttérben végzett gondolatmenete is.
+
+A kimeneti tokenek előállítása tokenenként jóval költségesebb, mert a modell egyenként, egymás után generálja őket: minden új tokenhez újra le kell futnia [@vaswani2017; @brown2020]. Ezért a szolgáltatói árlistákon a kimeneti token ára rendszerint többszöröse a bemenetinek. A bemeneti tokenek viszont **mennyiségben** szokták dominálni a költséget – ahogy az alábbiakban látni fogjuk.
+
+## A kontextusablak: amit a modell egyszerre lát
+
+### Fogalom
+
+A **kontextusablak** az a legnagyobb tokenmennyiség, amelyet a modell egyetlen válasz előállításakor figyelembe tud venni. Ebbe *minden* beleszámít: a rendszerutasítás, a teljes eddigi beszélgetés, a csatolt fájlok, az eszközök (pl. keresés) eredményei és maga a készülő válasz is. A mai nagy modellek kontextusablaka jellemzően néhány százezer, egyes esetekben egymillió token nagyságrendű.
+
+Egy százezres kontextusablak sok: nagyjából egy közepes regénynyi szöveg. Ettől azonban még nem érdemes „mindent beletenni”, három okból:
+
+1. **Költség:** ami a kontextusban van, azt a modell minden válasznál újra „elolvassa” (lásd a következő alfejezetet).
+2. **Figyelem:** a hosszú kontextus közepén elhelyezett információt a modellek gyakran kevésbé hatékonyan használják fel, mint az elején vagy a végén lévőt („lost in the middle” jelenség) [@liu2024lost].
+3. **Számítási igény:** a Transformer-architektúra figyelmi mechanizmusa miatt a hosszabb bemenet feldolgozása aránytalanul több számítást igényel [@vaswani2017], ami lassabb választ és nagyobb terhelést jelent.
+
+### Mi történik, ha betelik?
+
+Ha a beszélgetés túllépi a kontextusablakot, a rendszer többféleképpen reagálhat: hibaüzenetet ad és új beszélgetést javasol; levágja a legrégebbi üzeneteket; vagy automatikusan **tömöríti** (összefoglalja) a korábbi részeket. Az utóbbi két esetben a modell szó szerint *nem látja többé* a korai részleteket – csak egy rövid összefoglalót vagy semmit. Ezért fordulhat elő, hogy egy hosszú beszélgetés végén a chatbot „elfelejti”, mit kértél az elején.
+
+::: {.callout-tip}
+## Pszichológiai analógia – óvatosan
+
+A kontextusablak *funkcionálisan* emlékeztet a munkamemóriára: korlátozott kapacitású, aktuálisan hozzáférhető információt tartalmaz. Fontos azonban a különbség: a kontextusablak nem aktív feldolgozó rendszer, hanem egy szó szerint tárolt szövegpuffer, amelyet minden lépésnél teljes egészében újraolvas a modell. Az analógia segíthet megérteni a jelenséget, de nem bizonyítja, hogy a modell az emberi memóriához hasonlóan működne.
+:::
+
+## Állapotmentesség: a modell minden alkalommal „nulláról indul”
+
+### Fogalom
+
+A nyelvi modell **állapotmentes** (angolul *stateless*): két hívás között semmit nem őriz meg. A modell súlyai (a tanítás során beállított paraméterei) a beszélgetés közben **nem változnak**; a modell nem tanul abból, amit írsz, és nincs „emlékezete” a korábbi kérdésedről [@brown2020].
+
+Akkor hogyan tud mégis „emlékezni” egy beszélgetésben az előző üzenetekre? Úgy, hogy a chatbot-alkalmazás **minden új üzenetnél újra elküldi a modellnek a teljes eddigi beszélgetést** – a rendszerutasítással és a csatolt anyagokkal együtt. A modell tehát minden válasz előtt elölről végigolvassa az egészet.
+
+```{mermaid}
+sequenceDiagram
+    participant H as Hallgató
+    participant A as Chatbot-alkalmazás
+    participant M as Nyelvi modell (állapotmentes)
+    H->>A: 1. üzenet
+    A->>M: rendszerutasítás + 1. üzenet
+    M-->>A: 1. válasz
+    A-->>H: 1. válasz
+    H->>A: 2. üzenet
+    A->>M: rendszerutasítás + 1. üzenet + 1. válasz + 2. üzenet
+    M-->>A: 2. válasz
+    A-->>H: 2. válasz
+    H->>A: 3. üzenet
+    A->>M: rendszerutasítás + teljes eddigi beszélgetés + 3. üzenet
+    M-->>A: 3. válasz
+    A-->>H: 3. válasz
+```
+
+### Miért fontos ez?
+
+Az állapotmentesség a kulcs a tokenfogyasztás megértéséhez. Mivel minden körben a teljes előzmény újra bemenetként szerepel, **egy beszélgetés minden újabb üzenete drágább, mint az előző**. A 20. üzenet nem 20 szónyi, hanem a teljes eddigi párbeszédnyi bemenetet jelent.
+
+### Kiszámolt példa: egy 20 körös beszélgetés
+
+Tegyük fel, hogy:
+
+- a rendszerutasítás és egyéb háttérszöveg: 2000 token;
+- minden kérdésed: 200 token;
+- minden válasz: 500 token.
+
+| Kör | Bemenet ebben a körben | Ebből a korábbi beszélgetés |
+|---:|---:|---:|
+| 1. | 2 200 token | 0 |
+| 2. | 2 900 token | 700 |
+| 5. | 5 000 token | 2 800 |
+| 10. | 8 500 token | 6 300 |
+| 20. | 15 500 token | 13 300 |
+| **Összesen (20 kör)** | **177 000 bemeneti token** | |
+
+A kimenet ugyanezalatt mindössze 20 × 500 = **10 000 token**. A beszélgetés összköltségének döntő része tehát nem abból adódik, amit a modell *ír*, hanem abból, amit újra és újra *elolvas*.
+
+**Mi történik, ha a 10. kör után új beszélgetést kezdesz?** Két 10 körös beszélgetés együttes bemenete 2 × 53 500 = 107 000 token, ami **körülbelül 40%-kal kevesebb**. Ha az új beszélgetés elejére bemásolsz egy rövid, kb. 300 tokenes összefoglalót az addigiakról, az összesen 110 000 token: a megtakarítás még így is közel 38%.
+
+::: {.callout-important}
+## A legfontosabb gyakorlati következmény
+
+**Egy téma = egy beszélgetés.** Ha új témába kezdesz, nyiss új beszélgetést. Ha egy hosszú beszélgetés eltávolodott a céljától, kérj róla összefoglalót, és azzal indíts újat. Így kevesebb tokent használsz, és a modell figyelme is az aktuális feladatra irányul.
+:::
+
+## Memória: mit „tud rólad” a chatbot?
+
+A köznyelvben gyakran mondjuk, hogy a chatbot „emlékszik” ránk. Technikailag több, egymástól eltérő dologról lehet szó:
+
+| Memóriatípus | Mi ez valójában? | Tokenköltsége |
+|---|---|---|
+| **Tanult tudás (paraméterek)** | A modell súlyaiban tárolt, a tanítás során kialakult mintázatok. Egy adott dátumig terjedő tudás (*tudás-határidő*). A beszélgetésed nem változtatja meg. | Nincs külön költség, de nem frissíthető. |
+| **Beszélgetési kontextus** | Az aktuális beszélgetés szövege, amelyet minden körben újraküld az alkalmazás. | Minden körben a teljes hossza bemenetként számít. |
+| **Tartós „memória” funkció** | Egyes alkalmazások elmentenek rólad tényeket vagy preferenciákat, és azokat **szövegként** beillesztik minden új beszélgetés elejére. | Minden beszélgetés minden körében bemenet – kicsi, de állandó többlet. |
+| **Egyéni utasítások, projektutasítások** | Általad megírt állandó szöveg („Pszichológia BA-hallgató vagyok, magyarul válaszolj…”), amely minden kérdés elé bekerül. | Mint fent: minden körben bemenet. |
+| **Projektek, tudásbázisok (visszakeresés)** | Feltöltött dokumentumok gyűjteménye, amelyből a rendszer a kérdéshez illő részleteket keresi elő és illeszti a kontextusba (RAG) [@lewis2020]. | Csak a beemelt részletek számítanak; ez takarékosabb, mint a teljes dokumentum. |
+
+**Pszichológiai szempont:** a „memória” funkciók könnyen erősítik az antropomorfizációt – azt az érzést, hogy a rendszer *ismer* minket. Valójában egy elmentett szövegrészlet kerül újra a modell elé. Érdemes időnként átnézni, mit tárol rólad az alkalmazás, mert minden elmentett tény adatvédelmi kérdés is.
+
+## Mitől fogy a token? A hallgatói tevékenységek következményei
+
+### Promptolás
+
+- **Hosszú, ismétlődő promptok:** ha minden üzenetbe bemásolod ugyanazt a hosszú utasítást, azt minden körben többszörösen fizeted meg (egyszer az új üzenetben, és az összes későbbi körben az előzmények részeként). Állandó utasításhoz használd az egyéni vagy projektutasítás-funkciót, vagy írd le egyszer, világosan.
+- **Pontatlan prompt → sok javítókör:** egy homályos kérdés után három-négy pontosító kör következhet, amelyek mind hozzáadódnak a kontextushoz. Egy jól megírt első prompt (feladat, kontextus, formátum, terjedelem) tokent és időt is takarít meg.
+- **„Írd újra az egészet”:** ha egy hosszú szövegben egyetlen bekezdést szeretnél módosítani, kérd csak annak a bekezdésnek az átírását. A teljes szöveg újragenerálása a teljes kimeneti tokenmennyiséget újra felhasználja.
+- **Kért terjedelem:** a „legfeljebb 200 szóban” jellegű kérés közvetlenül csökkenti a kimeneti tokeneket.
+
+### Gondolkodó (reasoning) üzemmód
+
+Számos modell képes válasz előtt hosszabb belső gondolatmenetet végezni. Ezek a **gondolkodási tokenek** kimeneti tokenként számítanak – akkor is, ha a felületen csak egy rövid összefoglaló vagy semmi sem látszik belőlük. Egy nehéz feladatnál a háttérben több ezer, akár több tízezer token keletkezhet egyetlen válaszhoz. A gondolkodó üzemmód összetett elemzésnél hasznos, egyszerű kérdésekhez (definíció, helyesírás, rövid átfogalmazás) felesleges.
+
+### Modellválasztás
+
+A nagyobb, „okosabb” modellek tokenenként többe kerülnek, illetve gyorsabban merítik a használati keretet. Egyszerű feladathoz egy kisebb, gyorsabb modell is elegendő; a legerősebb modellt érdemes a valóban nehéz feladatokra tartogatni.
+
+### Fájlfeltöltés
+
+A feltöltött fájl nem „mellékletként” utazik, hanem **szöveggé (vagy képpé) alakítva a kontextus része lesz**:
+
+- egy 30 oldalas magyar nyelvű tanulmány PDF-je könnyen **40 000 token** körüli bemenetet jelenthet;
+- a beszkennelt vagy sok ábrát tartalmazó PDF-oldalak képként is feldolgozásra kerülhetnek, ami oldalanként további tokeneket jelent;
+- egy fénykép vagy képernyőkép felbontástól függően néhány száz – néhány ezer token.
+
+**Kiszámolt példa.** Az előző beszélgetési modellben egy 40 000 tokenes PDF feltöltése után 10 kör beszélgetés összesen kb. **453 500** bemeneti tokent jelent – a fájl nélküli 53 500 helyett, vagyis több mint nyolcszorosát. Ennek oka, hogy a 40 000 token mind a tíz körben újra a modell elé kerül.
+
+Egyes szolgáltatók ezt **gyorsítótárazással** (prompt caching) mérséklik: ha a beszélgetés eleje változatlan, annak újraolvasását kedvezményesen számolják el, és gyorsabban is dolgozzák fel. A tartalom ettől még a kontextusablakban marad, tehát a helyet ugyanúgy foglalja.
+
+**Gyakorlati tanácsok:**
+
+- csak azt töltsd fel, ami a kérdéshez valóban kell (pl. a módszertani fejezetet, ne a teljes tanulmányt);
+- ha több kérdésed van ugyanarról a dokumentumról, tedd fel őket egy jól átgondolt üzenetben, vagy használj projekt- / tudásbázis-funkciót, amely csak a releváns részleteket emeli be;
+- a kép felbontását ne növeld feleslegesen: egy jól olvasható képernyőkép elegendő.
+
+### Fájlok generáltatása és letöltése
+
+A **letöltés** – a kész fájl elmentése a gépedre – önmagában nem fogyaszt tokent. A *létrehozása* viszont igen:
+
+- ha a modell egy 10 oldalas dokumentumot, táblázatot vagy prezentációt ír meg, annak teljes tartalma **kimeneti token**;
+- ha a fájl kódfuttatással készül (pl. diagram, Excel-tábla), a megírt kód, a futtatás eredménye és az esetleges hibajavító körök is tokenként számítanak, és bekerülnek a további kontextusba;
+- ha egy apró módosítás miatt az egész fájlt újragenerálod, az egész kimenet újra „fizetendő”.
+
+**Tanács:** a fájl tartalmát előbb vázlatban beszéld meg, és csak a végleges változatot generáltasd le. Módosításnál nevezd meg pontosan, mit kell megváltoztatni.
+
+### Webes keresés és források beolvasása
+
+Amikor a chatbot keres az interneten, a talált weboldalak szövege – gyakran oldalanként több ezer token – a kontextusba kerül. Egy „nézz utána alaposan” típusú kérés tucatnyi oldal beolvasásával járhat. Ez hasznos, de jelentős bemeneti tokenmennyiség, amely a beszélgetés további köreiben is megmarad.
+
+## MI-ágensek: a tokenfogyasztás megsokszorozódása
+
+Az **MI-ágens** nem egyetlen választ ad, hanem egy célért több lépésben dolgozik: tervez, eszközöket hív (keresés, böngészés, kódfuttatás, fájlműveletek), értékeli az eredményt, majd a következő lépést választja. Minden lépés **egy újabb modellhívás**, amelyben – az állapotmentesség miatt – az addigi teljes munkamenet újra bemenetként szerepel, kiegészülve az eszközök által visszaadott eredményekkel.
+
+**Kiszámolt példa.** Egy ágens 25 lépésben dolgozik. Az induló kontextus (utasítás, feladat, eszközleírások) 5000 token; minden lépés további kb. 3300 tokennel bővíti (az eszköz eredménye, pl. egy weboldal vagy fájl részlete, és a modell rövid lépésleírása). Ekkor a 25 lépés együttes bemenete:
+
+$$
+\sum_{k=1}^{25} \bigl(5000 + (k-1)\cdot 3300\bigr) \approx 1\,115\,000 \text{ token.}
+$$
+
+Ez több mint **ötszázszorosa** egy egyszerű, kb. 2000 tokenes kérdés-válasz bemenetének – és ebben még nincsenek benne a gondolkodási tokenek, a képernyőképek vagy a párhuzamosan dolgozó alágensek.
+
+Az ágensek tokenigényét tovább növeli:
+
+- **böngészés képernyőképekkel:** minden képernyőkép kép-tokenként számít;
+- **alágensek:** ha egy ágens több „segédágenst” indít, mindegyik saját kontextussal és saját tokenfogyasztással dolgozik;
+- **hibakörök:** egy sikertelen lépés (pl. hibás kód) javítása további köröket jelent;
+- **hosszú munkamenet:** a kontextus gyorsan betelik, ezért az ágensrendszerek gyakran automatikusan tömörítik az előzményeket, ami részletvesztéssel járhat.
+
+::: {.callout-important}
+## Mikor éri meg ágenst használni?
+
+Az ágens akkor hasznos, ha a feladat valóban sok lépést, eszközhasználatot és önálló döntést igényel (pl. több forrás összegyűjtése és táblázatba rendezése). Egy definíció megkérdezéséhez vagy egy bekezdés átfogalmazásához az ágens a tokenfogyasztás szempontjából olyan, mintha egy rövid szöveg kinyomtatásához egy egész nyomdát indítanánk be. Ágensnél különösen fontos a pontos, jól körülhatárolt feladatleírás és a megállási feltétel megadása.
+:::
+
+## Kreditek és használati korlátok
+
+### Hogyan mérik a szolgáltatók a használatot?
+
+A szolgáltatók eltérő elszámolási modelleket alkalmaznak:
+
+- **Fejlesztői hozzáférés (API):** tokenalapú díjazás, jellemzően külön áron a bemeneti, a kimeneti és a gyorsítótárazott bemeneti tokenekre, egymillió tokenre vetítve. Itt a költség közvetlenül arányos a fenti számításokkal.
+- **Előfizetéses chatbotok:** havi díj ellenében használati keret, amely időablakonként (pl. néhány óránként vagy hetente) megújul. A keretet szolgáltatótól függően üzenetszámban, felhasznált tokenben vagy a számítási igényt tükröző belső „kreditben” mérik.
+- **Kreditalapú szolgáltatások:** előre megvásárolt vagy havonta jóváírt egyenleg, amelyből minden művelet – válasz, képgenerálás, ágensfuttatás – a ráfordított erőforrással arányos mennyiséget von le.
+
+Ahol a keret nem pusztán az üzenetek számán, hanem a mögöttük lévő tokenmennyiségen vagy számításon alapul, ott **egy hosszú beszélgetés vége, egy nagy fájlra vonatkozó kérdés, egy gondolkodó üzemmódú válasz vagy egy ágensfuttatás sokkal többet „fogyaszt”, mint egy rövid kérdés egy friss beszélgetésben.** Ezért tapasztalhatod, hogy egyik nap sokáig tudod használni a chatbotot, máskor néhány intenzív feladat után eléred a korlátot.
+
+### Mi számít bele a keretbe? – Összefoglaló táblázat
+
+| Tevékenység | Hogyan hat a tokenfogyasztásra? | Mekkora a hatás? |
+|---|---|---|
+| Rövid kérdés új beszélgetésben | Kevés bemenet és kimenet | Kicsi |
+| Ugyanez egy hosszú beszélgetés végén | A teljes előzmény újra bemenet | Közepes–nagy |
+| Hosszú, minden üzenetben ismételt utasítás | Minden körben újra bemenet | Halmozódó |
+| Nagy PDF feltöltése, majd sok kérdés | A fájl minden körben újra bemenet | Nagy |
+| Kép, képernyőkép feltöltése | Kép-tokenek, felbontásfüggő | Kicsi–közepes |
+| Hosszú dokumentum vagy kód generáltatása | Kimeneti tokenek (drágábbak) | Közepes–nagy |
+| Az egész fájl újragenerálása apró javításért | A teljes kimenet újra | Nagy |
+| Kész fájl letöltése | Nem modellművelet | Nincs |
+| Gondolkodó (reasoning) üzemmód | Rejtett kimeneti tokenek | Közepes–nagy |
+| Webes keresés, mély kutatás | Beolvasott oldalak bemenetként | Nagy |
+| MI-ágens többlépéses feladattal | Sok modellhívás, növekvő kontextus | Nagyon nagy |
+| Tartós memória, egyéni utasítás | Kis, állandó bemeneti többlet | Kicsi, de mindig jelen van |
+
+## Gyakorlati ellenőrzőlista: tokentudatos MI-használat
+
+1. **Egy téma – egy beszélgetés.** Új témához nyiss új beszélgetést.
+2. **Hosszú beszélgetésnél összefoglaló és újrakezdés.** Kérj rövid összefoglalót, és azzal indíts új beszélgetést.
+3. **Első prompt legyen jó.** Feladat, kontextus, formátum, terjedelem – kevesebb javítókör.
+4. **Csak a szükséges részt töltsd fel.** Fejezetet, ne teljes könyvet; olvasható, de nem óriási felbontású képet.
+5. **Kérdéseket csoportosítsd.** Egy dokumentumról egy átgondolt, több kérdést tartalmazó üzenet hatékonyabb, mint tíz rövid.
+6. **Célzott módosítást kérj.** „Csak a 3. bekezdést írd át” – ne az egész szöveget.
+7. **Kérj terjedelmi korlátot.** „Legfeljebb 150 szóban”, „csak a táblázatot”.
+8. **Gondolkodó üzemmód és nagy modell csak ott, ahol kell.**
+9. **Ágenst valóban többlépéses feladatra használj,** pontos céllal és megállási feltétellel.
+10. **Nézd át a memóriát és az állandó utasításokat** – tokenszempontból és adatvédelmi szempontból is.
+
+## Fogalomtár
+
+| Fogalom | Rövid meghatározás |
+|---|---|
+| **Token** | A modell által feldolgozott szövegegység (szó, szórész, írásjel). |
+| **Tokenizáló, tokenizáció** | A szöveget tokenekre bontó és azokat számokká alakító eljárás. |
+| **Bájtpár-kódolás (BPE)** | Gyakori szórész-alapú tokenizálási eljárás: a gyakori karaktersorok önálló tokent kapnak. |
+| **Bemeneti (input) token** | Minden, amit a modell a válasz előtt elolvas. |
+| **Kimeneti (output) token** | Amit a modell generál; tokenenként drágább. |
+| **Gondolkodási (reasoning) token** | A modell rejtett belső gondolatmenetének tokenjei; kimenetként számítanak. |
+| **Kontextusablak** | Az egy válaszhoz egyszerre figyelembe vehető legnagyobb tokenmennyiség. |
+| **Állapotmentesség (stateless)** | A modell két hívás között semmit sem őriz meg; az előzményeket minden alkalommal újra meg kell kapnia. |
+| **Rendszerutasítás (system prompt)** | A szolgáltató vagy alkalmazás által minden beszélgetés elé illesztett háttérszöveg. |
+| **Tömörítés (compaction)** | A betelő kontextus korábbi részeinek automatikus összefoglalása; részletvesztéssel járhat. |
+| **„Lost in the middle”** | A hosszú kontextus közepén lévő információ gyengébb felhasználása [@liu2024lost]. |
+| **Tartós memória** | Elmentett, minden új beszélgetésbe szövegként beillesztett tények vagy preferenciák. |
+| **Visszakereséssel támogatott generálás (RAG)** | Dokumentumgyűjteményből csak a releváns részletek beemelése a kontextusba [@lewis2020]. |
+| **Gyorsítótárazás (prompt caching)** | A változatlan kontextuselőtag kedvezményes, gyorsabb újrafeldolgozása. |
+| **Tudás-határidő** | Az az időpont, ameddig a modell tanítóadatai terjednek. |
+| **MI-ágens** | Többlépéses, eszközöket használó rendszer; minden lépés újabb modellhívás. |
+| **Alágens** | Egy ágens által indított, saját kontextussal dolgozó segédágens. |
+| **API-díjazás** | Tokenalapú elszámolás, jellemzően egymillió tokenre vetített áron. |
+| **Használati korlát, kredit** | Az előfizetéses vagy kreditalapú szolgáltatásokban a felhasználható erőforrás kerete. |
+| **Tokenadó (nyelvi egyenlőtlenség)** | Az a jelenség, hogy egyes nyelvek ugyanazon tartalma több tokenbe kerül [@petrov2023]. |
+
+## Ellenőrző kérdések
+
+1. Miért kerül jellemzően több tokenbe egy magyar szöveg, mint ugyanannak az angol fordítása?
+2. Mi a különbség a bemeneti és a kimeneti token között, és melyik a drágább tokenenként? Melyik dominálja általában egy hosszú beszélgetés összköltségét?
+3. Mit jelent, hogy a nyelvi modell állapotmentes? Hogyan „emlékszik” mégis a chatbot a beszélgetés korábbi részeire?
+4. Egy 20 körös beszélgetés helyett két 10 körös beszélgetést folytatsz. Miért csökken ezzel az összes bemeneti token mennyisége?
+5. Mi történik egy feltöltött 40 000 tokenes PDF-fel a beszélgetés további köreiben? Hogyan csökkenthető a hatása?
+6. Fogyaszt-e tokent egy kész fájl letöltése? És a létrehozása? Indokold!
+7. Miért fogyaszt egy MI-ágens nagyságrendekkel több tokent, mint egy egyszerű kérdés-válasz?
+8. Milyen memóriatípusokat különböztetünk meg egy chatbotnál, és melyiknek van minden beszélgetésben állandó tokenköltsége?
+9. Miért nem érdemes egy nagy kontextusablakot „teletölteni”, még ha a modell elvileg képes is feldolgozni?
+10. Miért lehet félrevezető az a kijelentés, hogy „a chatbot megismert engem”? Milyen pszichológiai jelenség erősítheti ezt a benyomást?
