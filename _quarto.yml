@@ -33,6 +33,7 @@ book:
         - generativ-mi-tortenete.qmd
     - part: "Gyakorlati MI-használat"
       chapters:
+        - elso-lepesek.qmd
         - tokenek-es-kreditek.qmd
     - part: "Kitekintés"
       chapters:
