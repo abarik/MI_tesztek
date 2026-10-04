@@ -1,0 +1,194 @@
+# Témakörök a kurzus weboldala alapján {#sec-temakorok}
+
+*Bevezetés a mesterséges intelligenciába (2026/27/1)*
+
+Forrás: <https://abarik.github.io/bevezetes_a_mesterseges_intelligenciaba_2026_27_1/>
+(átvizsgálva: 2026. október 3.)
+
+A témakörök a későbbi `exams` alapú kérdésbank szerkezetét adják.
+A Moodle-ben mindegyik témakör egy külön kérdéskategória lesz.
+
+- Témakör-azonosító: `T1`–`T8`. Ez lesz a mappa- és kategórianév előtagja.
+- Fogalom-azonosító: `T1.01`, `T1.02` stb. Ez lesz a kérdésfájlok névelőtagja.
+- Rövidítések a „Forrás” oszlopban:
+  - **F** – 3. fejezet, Fogalmak (`alapfogalmak.html`), a szám a fogalom sorszáma
+  - **E** – 4. fejezet, MI-eszközök (`eszkozok.html`)
+  - **FM** – 7. fejezet, Felelős MI-használat (`felelos_mi.html`)
+  - **GN** – 6. fejezet, Gemini Notebook (`gemini_notebook.html`)
+  - **D** – 2. fejezet, A digitális technológia (`digit.html`)
+  - **V** – D. függelék, Fogalmak videóhoz (`video_magyarazat.html`)
+
+---
+
+## T1 – Az MI alapjai és típusai
+
+Mi az MI, milyen szintjei vannak, és hogyan viszonyul egymáshoz az algoritmus, a modell és a gépi tanulás.
+
+| ID    | Fogalom                                         | Forrás |
+|-------|-------------------------------------------------|--------|
+| T1.01 | Mesterséges intelligencia (MI, AI)              | F1, V  |
+| T1.02 | Szűk MI (ANI)                                   | F2     |
+| T1.03 | Mesterséges általános intelligencia (AGI)       | F2, V  |
+| T1.04 | Algoritmus                                      | F3     |
+| T1.05 | Modell                                          | F3, E  |
+| T1.06 | Gépi tanulás (ML)                               | F4, V  |
+| T1.07 | Szabályalapú rendszer vs. tanuló rendszer       | F1, F4 |
+| T1.08 | Skálázás és számítási kapacitás                 | V      |
+| T1.09 | Benchmark                                       | V      |
+
+## T2 – Tanulási paradigmák és feladattípusok
+
+A gépi tanulás fő formái, és hogy milyen típusú kérdésekre adnak választ.
+
+| ID    | Fogalom                                 | Forrás |
+|-------|-----------------------------------------|--------|
+| T2.01 | Felügyelt tanulás                       | F5     |
+| T2.02 | Felügyelet nélküli tanulás              | F6     |
+| T2.03 | Megerősítéses tanulás (RL), ágens, jutalom | F7  |
+| T2.04 | Klasszifikáció                          | F8     |
+| T2.05 | Regresszió                              | F8     |
+| T2.06 | Klaszterezés                            | F8     |
+
+## T3 – Adatok, modellalkotás és modellértékelés
+
+Hogyan tanul a modell az adatokból, és hogyan mérjük a teljesítményét.
+
+| ID    | Fogalom                                            | Forrás |
+|-------|----------------------------------------------------|--------|
+| T3.01 | Jellemző (prediktor, feature)                      | F9     |
+| T3.02 | Célváltozó, címke (label)                          | F9     |
+| T3.03 | Tanítás (training)                                 | F10    |
+| T3.04 | Inferencia                                         | F10    |
+| T3.05 | Paraméter                                          | F11    |
+| T3.06 | Hiperparaméter                                     | F11    |
+| T3.07 | Veszteségfüggvény                                  | F12    |
+| T3.08 | Optimalizálás                                      | F12    |
+| T3.09 | Tanító-, validációs és teszthalmaz                 | F13    |
+| T3.10 | K-szoros keresztvalidáció                          | F13    |
+| T3.11 | Túlillesztés (overfitting)                         | F14    |
+| T3.12 | Generalizáció                                      | F14    |
+| T3.13 | Accuracy (találati arány)                          | F15    |
+| T3.14 | Precision                                          | F15    |
+| T3.15 | Recall / szenzitivitás                             | F15    |
+| T3.16 | Specificitás                                       | F15    |
+| T3.17 | F1-mutató                                          | F15    |
+| T3.18 | Téves pozitív és téves negatív döntés              | F15    |
+
+## T4 – Neurális hálózatok és nagy nyelvi modellek
+
+A modern nyelvi modellek felépítése a neurontól a finomhangolásig.
+
+| ID    | Fogalom                                         | Forrás  |
+|-------|-------------------------------------------------|---------|
+| T4.01 | Mesterséges neurális hálózat, súly              | F16     |
+| T4.02 | Mélytanulás                                     | F16, V  |
+| T4.03 | Természetesnyelv-feldolgozás (NLP)              | F17     |
+| T4.04 | Token és tokenizáció                            | F18     |
+| T4.05 | Beágyazás (embedding), vektortér                | F19     |
+| T4.06 | Figyelmi mechanizmus (attention)                | F20     |
+| T4.07 | Transformer                                     | F20     |
+| T4.08 | Alapmodell (foundation model)                   | F21     |
+| T4.09 | Nagy nyelvi modell (LLM), következőtoken-becslés | F22, V |
+| T4.10 | Finomhangolás (fine-tuning)                     | F25     |
+| T4.11 | Igazítás (alignment)                            | F25, V  |
+| T4.12 | RLHF                                            | F25     |
+
+## T5 – Generatív MI, promptolás és MI-eszközök
+
+Hogyan dolgozunk generatív rendszerekkel, és milyen eszköztípusok közül választhatunk.
+
+| ID    | Fogalom                                              | Forrás     |
+|-------|------------------------------------------------------|------------|
+| T5.01 | Generatív mesterséges intelligencia                  | F23, E, V  |
+| T5.02 | Prompt                                               | F24, V     |
+| T5.03 | Kontextusablak, kontextus                            | F24, V     |
+| T5.04 | Prompttervezés (feladat, formátum, közönség, korlát) | F24, GN    |
+| T5.05 | Ötelemű promptmodell                                 | GN         |
+| T5.06 | PPAE-hurok (Perceive, Plan, Act, Evaluate)           | GN         |
+| T5.07 | Visszakereséssel támogatott generálás (RAG)          | F26, E     |
+| T5.08 | Multimodális MI                                      | F27, V     |
+| T5.09 | MI-ágens / ágensalapú MI, számítógép-használat       | F28, E, V  |
+| T5.10 | Chatbot                                              | E          |
+| T5.11 | MI-asszisztens / copilot                             | E          |
+| T5.12 | Kereső- és válaszmotor                               | E          |
+| T5.13 | Forrásalapú asszisztens, forrásalapú megalapozottság | E, GN      |
+| T5.14 | Specializált MI-eszköz                               | E          |
+
+## T6 – Megbízhatóság, értelmezés és forráskritika
+
+Mikor és miért téved az MI, és hogyan ellenőrizzük a kimenetét.
+
+| ID    | Fogalom                                                | Forrás     |
+|-------|--------------------------------------------------------|------------|
+| T6.01 | Hallucináció / konfabuláció                            | F29, FM, V |
+| T6.02 | Antropomorfizálás (a „hallucináció” metafora korlátai) | F29        |
+| T6.03 | Értelmezhetőség                                        | F30        |
+| T6.04 | Magyarázható MI (XAI)                                  | F30        |
+| T6.05 | Forráshierarchia (elsődleges forrás … MI-válasz)       | FM         |
+| T6.06 | Idézetek és hivatkozások ellenőrzése                   | FM         |
+| T6.07 | CRAAP–MI ellenőrzés                                    | FM         |
+| T6.08 | Pontosságnövelés: feladatbontás, visszakérdezés, ellenőrző prompt | FM |
+| T6.09 | AI slop                                                | FM         |
+| T6.10 | Workslop                                               | FM         |
+
+## T7 – Etika, adatvédelem és emberi felügyelet
+
+A felelős MI-használat jogi, etikai és akadémiai keretei.
+
+| ID    | Fogalom                                             | Forrás     |
+|-------|-----------------------------------------------------|------------|
+| T7.01 | Algoritmikus torzítás (Gender Shades)               | F31        |
+| T7.02 | Méltányosság (fairness)                             | F31        |
+| T7.03 | Érzékeny adatok és adatvédelem                      | F32, FM    |
+| T7.04 | Automatizált döntéshozatal, profilalkotás (GDPR 22. cikk) | F32  |
+| T7.05 | Pszeudonimizálás vs. anonimizálás                   | FM         |
+| T7.06 | Adatosztályozási jelzőlámpa                         | FM         |
+| T7.07 | Shadow AI                                           | FM         |
+| T7.08 | Emberi felügyelet, human-in-the-loop                | F33, FM    |
+| T7.09 | Automatizációs torzítás                             | F33, FM    |
+| T7.10 | Kontrollvesztés és rekurzív önfejlesztés            | V          |
+| T7.11 | EU AI Act                                           | FM, V      |
+| T7.12 | Akadémiai integritás, átláthatóság, MI és szerzőség (COPE) | FM  |
+
+## T8 – MI a pszichológiában és digitális kompetencia
+
+Pszichológiai alkalmazások, módszertani csapdák és a digitális kompetencia kerete.
+
+| ID    | Fogalom                                           | Forrás |
+|-------|---------------------------------------------------|--------|
+| T8.01 | Digitális fenotipizálás                           | F34    |
+| T8.02 | Affektív számítástechnika                         | F34    |
+| T8.03 | Predikció vs. magyarázat                          | F35    |
+| T8.04 | Okság (prediktív pontosság ≠ oksági kapcsolat)    | F35    |
+| T8.05 | Operacionalizáció és validitás MI-modelleknél     | F9, F17 |
+| T8.06 | DigComp 3.0 és az 5 kompetenciaterület            | D      |
+| T8.07 | Jártassági szintek; tudás, készség, attitűd       | D      |
+| T8.08 | Explicit (AI-E) és implicit (AI-I) MI             | D      |
+| T8.09 | MI-műveltség                                      | V, FM  |
+| T8.10 | Kognitív adósság                                  | V      |
+
+---
+
+## Összesítés
+
+| Témakör | Név                                             | Fogalmak száma |
+|---------|-------------------------------------------------|---------------:|
+| T1      | Az MI alapjai és típusai                        | 9  |
+| T2      | Tanulási paradigmák és feladattípusok           | 6  |
+| T3      | Adatok, modellalkotás és modellértékelés        | 18 |
+| T4      | Neurális hálózatok és nagy nyelvi modellek      | 12 |
+| T5      | Generatív MI, promptolás és MI-eszközök         | 14 |
+| T6      | Megbízhatóság, értelmezés és forráskritika      | 10 |
+| T7      | Etika, adatvédelem és emberi felügyelet         | 12 |
+| T8      | MI a pszichológiában és digitális kompetencia   | 10 |
+|         | **Összesen**                                    | **91** |
+
+## Kihagyott tartalmak (szándékosan)
+
+- **Konkrét termékek** (ChatGPT, Claude, Gemini, Perplexity, Elicit, Consensus, DeepL stb.) és a ChatGPT felületének elemei.
+  Gyorsan elavulnak, ezért nem kerültek be önálló fogalomként.
+  Ha kell, a T5 alá felvehető egy „eszközválasztás” alpont.
+- **Aktuális hírek a videós függelékből** (GPT‑6 Astra, ARC‑AGI pontszámok, New York-i moratórium, MI-szuverenitás, fair use, munkaerőpiaci hatás).
+  Ezek inkább esetpéldák, mint vizsgafogalmak.
+- **Gyakorlati útmutatók** (B, E függelék) és kiselőadás-ötletek (A függelék).
+  Ezekben munkafolyamatok vannak, nem definiálható fogalmak.

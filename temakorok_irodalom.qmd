@@ -1,0 +1,322 @@
+# Témakörök a szakirodalom alapján {#sec-temakorok-irodalom}
+
+*Bevezető MI-kurzusok szakirodalmi áttekintése*
+
+Készült: 2026. október 3.
+
+Ez a fejezet **nem** a kurzus weboldalára épül (ahhoz lásd: [Témakörök a kurzus weboldala alapján](temakorok.qmd)).
+Azt vizsgálja, hogy hasonló bevezető egyetemi MI-kurzusok, tankönyvek, tantervi ajánlások
+és MI-műveltségi keretrendszerek milyen nagyobb témaköröket és fogalmakat tanítanak.
+Az eredmény 8 témakör. Mindegyiknél jelölve van, hogy mely források tárgyalják,
+és hogyan kapcsolható a pszichológiához.
+
+---
+
+## 1. Az elemzett források
+
+### A) Technikai bevezető kurzusok és tankönyvek (informatikus hallgatóknak)
+
+| Kód | Forrás | Fő szerkezet |
+|-----|--------|--------------|
+| AIMA | *Artificial Intelligence: A Modern Approach*, 4. kiadás [@russell2021] – a legtöbbet használt egyetemi MI-tankönyv | MI és ágensek → problémamegoldás és keresés → tudás, következtetés, tervezés → bizonytalanság → tanulás (gépi, mély, megerősítéses) → kommunikáció, észlelés, cselekvés (NLP, látás, robotika) → filozófia, etika, jövő |
+| CS2023 | ACM/IEEE/AAAI *Computer Science Curricula 2023*, MI tudásterület [@cs2023] | 12 tudásegység: alapkérdések, keresés, tudásreprezentáció, gépi tanulás, alkalmazások és társadalmi hatás (ezek a törzsanyag), valamint logika, valószínűségi következtetés, tervezés, ágensek, NLP, robotika, gépi látás |
+| CS50AI | Harvard: *CS50's Introduction to AI with Python* [@cs50ai] | Keresés, tudás, bizonytalanság, optimalizálás, tanulás, neurális hálók, nyelv (2023 óta LLM-ekkel bővítve) |
+| CS188 / CS221 | Berkeley és Stanford bevezető MI-kurzusa [@cs188; @cs221] | Keresés, kényszerkielégítés, játékok, Markov-döntési folyamat, megerősítéses tanulás, Bayes-hálók, gépi tanulás, logika |
+
+### B) Nem informatikusoknak szóló kurzusok
+
+| Kód | Forrás | Fő szerkezet |
+|-----|--------|--------------|
+| EoAI | University of Helsinki & MinnaLearn: *Elements of AI* (2 ECTS) [@elementsofai] | 1. Mi az MI? 2. MI-alapú problémamegoldás 3. Valós MI (bizonytalanság, Bayes) 4. Gépi tanulás 5. Neurális hálók 6. Következmények |
+| AI4E | DeepLearning.AI (Andrew Ng): *AI for Everyone* [@ng_ai4e] | Mi az MI? → MI-projektek felépítése → MI a szervezetben → MI és társadalom |
+| GAI4E | DeepLearning.AI: *Generative AI for Everyone* [@ng_gai4e] | Mi a generatív MI, és hogyan működik → generatív MI-projektek, promptolás → lehetőségek és kockázatok |
+| FLU | Anthropic: *AI Fluency* [@dakan2025] | 4D-modell: delegálás, leírás, ítélőképesség, gondosság |
+| GenAI-HE | Egyetemi generatív MI-műveltségi modulok (pl. CHARM-EU, The Citadel, Saarland) [@charmeu; @citadel; @saarland] | Promptolás, korlátok és hallucináció, torzítás, akadémiai integritás, hivatkozás, félretájékoztatás |
+
+### C) MI-műveltségi keretrendszerek és mérőeszközök
+
+| Kód | Forrás | Fő szerkezet |
+|-----|--------|--------------|
+| LM | @long2020: *What is AI Literacy?* | 17 kompetencia, 5 kérdés köré szervezve: Mi az MI? Mit tud az MI? Hogyan működik? Hogyan kell használni? Hogyan észlelik az emberek? |
+| NG | @ng2021 | 4 dimenzió: ismeret és megértés; használat és alkalmazás; értékelés és alkotás; etika |
+| HBN | @hornberger2023: validált MI-műveltségi teszt egyetemistáknak | 31 feleletválasztós tétel az LM 5 területén; IRT-elemzés (3PL). **Mintaként szolgálhat a Moodle-kérdésekhez.** |
+| AI4K12 | AI4K12 Initiative: *Five Big Ideas in AI* [@ai4k12; @touretzky2023] | Észlelés; reprezentáció és következtetés; tanulás; természetes interakció; társadalmi hatás |
+| UNESCO | UNESCO: *AI Competency Framework for Students* [@unesco2024] | 4 dimenzió × 3 szint (megértés, alkalmazás, alkotás): emberközpontú szemlélet; az MI etikája; MI-technikák és alkalmazások; MI-rendszerek tervezése |
+| AILit | OECD & Európai Bizottság: *Empowering Learners for the Age of AI* [@oecd2025] | 4 terület, 22 kompetencia: Engage, Create, Manage, Shape (kapcsolódás, alkotás, irányítás, alakítás) |
+
+---
+
+## 2. A nyolc témakör
+
+Minden témakörnél szerepel:
+
+- egy rövid leírás;
+- **Lefedettség:** mely források tárgyalják;
+- **Fogalmak:** egyedi azonosítóval (`L1.01` …). Az `L` előtag jelzi, hogy irodalmi alapú; a webes változat `T` előtagot használ;
+- **Pszichológiai kapcsolódás:** pszichológus hallgatóknak releváns kapcsolódási pontok.
+
+### L1 – Az MI fogalma, története és filozófiai alapjai
+
+Mit nevezünk intelligenciának, és mit mesterséges intelligenciának? Hogyan alakult a terület, és milyen alapvető vitákat folytat?
+
+**Lefedettség:** AIMA 1. és 28. fejezet, EoAI 1., CS2023 (alapkérdések), AI4E 1. hét, LM („Mi az MI?”), HBN, NG
+
+| ID    | Fogalom |
+|-------|---------|
+| L1.01 | Az MI definíciói (Russell–Norvig négy megközelítése: emberi vagy racionális gondolkodás, illetve cselekvés) |
+| L1.02 | Turing-teszt |
+| L1.03 | Kínai szoba érv (Searle) |
+| L1.04 | Gyenge és erős MI |
+| L1.05 | Szűk MI (ANI), általános MI (AGI), szuperintelligencia (ASI) |
+| L1.06 | Dartmouth-konferencia (1956), az MI születése |
+| L1.07 | MI-telek (AI winters) és hype-ciklusok |
+| L1.08 | Szimbolikus (GOFAI) és konnekcionista (szubszimbolikus) MI |
+| L1.09 | Moravec-paradoxon |
+| L1.10 | MI-effektus („ha működik, már nem hívjuk MI-nek”) |
+| L1.11 | ELIZA és az ELIZA-hatás |
+| L1.12 | Az MI felismerése a hétköznapi technológiákban |
+
+**Pszichológiai kapcsolódás:** a kognitív tudomány és az MI közös gyökerei (Newell & Simon, a konnekcionizmus és a PDP-modellek). Az intelligencia fogalmának pszichológiai és gépi értelmezése. Az ELIZA-hatás és az antropomorfizáció mint pszichológiai jelenség.
+
+---
+
+### L2 – Intelligens ágensek, keresés és problémamegoldás
+
+Hogyan fogalmazható meg egy feladat úgy, hogy egy gép megoldhassa? Ez a klasszikus MI-kurzusok gerince.
+
+**Lefedettség:** AIMA 2–6. és 11. fejezet, CS2023 (keresés, ágensek, tervezés), CS50AI, CS188/CS221, EoAI 2., AI4K12 (reprezentáció és következtetés)
+
+| ID    | Fogalom |
+|-------|---------|
+| L2.01 | Intelligens ágens, környezet, érzékelő, beavatkozó |
+| L2.02 | Racionális ágens, teljesítménymérték (PEAS) |
+| L2.03 | Környezettípusok (megfigyelhető/részben megfigyelhető, determinisztikus/sztochasztikus) |
+| L2.04 | Állapottér, kezdő- és célállapot, operátor |
+| L2.05 | Nem informált keresés (szélességi, mélységi) |
+| L2.06 | Heurisztika és informált keresés (A*) |
+| L2.07 | Játékfa, minimax, ellenséges keresés |
+| L2.08 | Optimalizálás, lokális keresés (hegymászás, genetikus algoritmus) |
+| L2.09 | Kényszerkielégítési probléma |
+| L2.10 | Automatikus tervezés |
+| L2.11 | Kombinatorikus robbanás |
+
+**Pszichológiai kapcsolódás:** Newell és Simon problémamegoldás-elmélete (problématér, eszköz–cél elemzés). A heurisztikák a gépi és az emberi döntéshozatalban (Kahneman & Tversky). A korlátozott racionalitás.
+
+---
+
+### L3 – Tudásreprezentáció, következtetés és bizonytalanság
+
+Hogyan tárol tudást egy gép, és hogyan következtet belőle, akkor is, ha az információ bizonytalan?
+
+**Lefedettség:** AIMA 7–10. és 12–16. fejezet, CS2023 (tudásreprezentáció, logika, valószínűségi következtetés), CS50AI (tudás, bizonytalanság), EoAI 3., AI4K12
+
+| ID    | Fogalom |
+|-------|---------|
+| L3.01 | Tudásbázis és következtetőgép |
+| L3.02 | Ítéletlogika és elsőrendű logika (alapszinten) |
+| L3.03 | Szabályalapú rendszer (ha–akkor szabályok) |
+| L3.04 | Szakértői rendszer (pl. MYCIN) |
+| L3.05 | Ontológia, szemantikus háló, tudásgráf |
+| L3.06 | Valószínűség, feltételes valószínűség |
+| L3.07 | Bayes-tétel, a priori és a posteriori valószínűség |
+| L3.08 | Bayes-háló |
+| L3.09 | Naiv Bayes-osztályozó |
+| L3.10 | Döntéselmélet, várható hasznosság |
+| L3.11 | Markov-döntési folyamat (alapszinten) |
+
+**Pszichológiai kapcsolódás:** szemantikus hálók és sémák a memóriakutatásban. A báziseráta-figyelmen kívül hagyás és a Bayes-i gondolkodás. A Bayes-i agy és a prediktív feldolgozás elmélete. A várható hasznosság és a prospektelmélet összevetése.
+
+---
+
+### L4 – Gépi tanulás
+
+Hogyan tanul a gép adatokból, és hogyan ítéljük meg, hogy jól tanult-e? Minden forrás tárgyalja, ez a legszélesebb konszenzussal tanított témakör.
+
+**Lefedettség:** mind a 15 forrás. Kiemelten: AIMA 19–20. és 22. fejezet, CS2023 (törzsanyag), EoAI 4., AI4E 1–2. hét, AI4K12 (tanulás), LM, HBN, UNESCO
+
+| ID    | Fogalom |
+|-------|---------|
+| L4.01 | Gépi tanulás vs. explicit programozás |
+| L4.02 | Felügyelt tanulás, címke, jellemző |
+| L4.03 | Felügyelet nélküli tanulás |
+| L4.04 | Megerősítéses tanulás (ágens, jutalom, stratégia) |
+| L4.05 | Klasszifikáció és regresszió |
+| L4.06 | Klaszterezés (k-közép) |
+| L4.07 | Legközelebbi szomszéd (k-NN) |
+| L4.08 | Döntési fa |
+| L4.09 | Lineáris és logisztikus regresszió |
+| L4.10 | Tanító-, validációs és teszthalmaz |
+| L4.11 | Túlillesztés, alulillesztés, generalizáció |
+| L4.12 | Torzítás–variancia átváltás (bias–variance) |
+| L4.13 | Konfúziós mátrix, pontosság, precizitás, szenzitivitás |
+| L4.14 | Adatminőség, „szemét be, szemét ki” |
+| L4.15 | Az ML-projekt munkafolyamata (adatgyűjtés → tanítás → értékelés → telepítés) |
+
+**Pszichológiai kapcsolódás:** a megerősítéses tanulás és a kondicionálás párhuzamai (Rescorla–Wagner-modell, dopamin és jutalom-előrejelzési hiba). A kategorizációkutatás prototípus- és példányelméletei mint osztályozási modellek. A predikció és a magyarázat viszonya a pszichológiában (Yarkoni & Westfall). A szenzitivitás és a specificitás a pszichodiagnosztikából is ismerős.
+
+---
+
+### L5 – Neurális hálózatok, mélytanulás és gépi észlelés
+
+Hogyan épülnek fel a mesterséges neurális hálók, és hogyan „lát” és „hall” a gép?
+
+**Lefedettség:** AIMA 21., 25–26. fejezet, CS2023 (gépi látás, robotika), CS50AI, EoAI 5., AI4E („a mélytanulás intuitív magyarázata”), AI4K12 (észlelés), LM („Hogyan működik?”), HBN
+
+| ID    | Fogalom |
+|-------|---------|
+| L5.01 | Mesterséges neuron, perceptron |
+| L5.02 | Súly, torzítási tag (bias), aktivációs függvény |
+| L5.03 | Rétegek: bemeneti, rejtett, kimeneti |
+| L5.04 | Hiba-visszaterjesztés (backpropagation), gradiensereszkedés |
+| L5.05 | Mélytanulás, reprezentációtanulás |
+| L5.06 | Konvolúciós neurális háló (CNN), gépi látás |
+| L5.07 | Rekurrens hálók (RNN) és szekvenciák feldolgozása |
+| L5.08 | Beszédfelismerés, képfelismerés, arcfelismerés |
+| L5.09 | Számítási kapacitás, GPU, a big data szerepe |
+| L5.10 | „Fekete doboz” jelleg |
+
+**Pszichológiai kapcsolódás:** a biológiai és a mesterséges neuron eltérései. Hebb-szabály, PDP-modellek (Rumelhart & McClelland). A látórendszer hierarchikus feldolgozása (Hubel & Wiesel) mint a CNN-ek ihletője. A mélytanuló modellek mint az emberi észlelés modelljei.
+
+---
+
+### L6 – Nyelvi modellek és generatív MI
+
+Hogyan működnek a nagy nyelvi modellek és más generatív rendszerek? 2023 óta minden frissített kurzusban megjelenik.
+
+**Lefedettség:** AIMA 23–24. fejezet (NLP), CS2023 (NLP), CS50AI (nyelv, LLM), GAI4E (teljes kurzus), FLU, GenAI-HE, AILit (Create), UNESCO
+
+| ID    | Fogalom |
+|-------|---------|
+| L6.01 | Természetesnyelv-feldolgozás (NLP) |
+| L6.02 | Token, tokenizáció |
+| L6.03 | Szóbeágyazás (embedding), szemantikus vektortér |
+| L6.04 | Nyelvi modell, következő token előrejelzése |
+| L6.05 | Transformer, figyelmi mechanizmus |
+| L6.06 | Nagy nyelvi modell (LLM), alapmodell |
+| L6.07 | Előtanítás, finomhangolás, RLHF |
+| L6.08 | Generatív MI (szöveg, kép, hang, videó, kód) |
+| L6.09 | Diffúziós modellek (képgenerálás) |
+| L6.10 | Prompt, prompttervezés |
+| L6.11 | Kontextusablak |
+| L6.12 | Hőmérséklet (temperature) és sztochasztikus kimenet |
+| L6.13 | Visszakereséssel támogatott generálás (RAG) |
+| L6.14 | Multimodális modellek |
+| L6.15 | MI-ágensek, eszközhasználat |
+| L6.16 | Hallucináció/konfabuláció, tudás-határidő (knowledge cutoff) |
+
+**Pszichológiai kapcsolódás:** a disztribúciós szemantika és az emberi jelentésreprezentáció. Az LLM-ek „elmeelmélet”-vitái. Az LLM-ek mint kísérleti személyek vagy szimulált résztvevők (silicon sampling). Az emberi és a gépi konfabuláció párhuzamai és különbségei.
+
+---
+
+### L7 – Az MI etikai, jogi és társadalmi hatásai
+
+Kinek használ és kinek árt az MI, ki felel érte, és hogyan szabályozzák?
+
+**Lefedettség:** mind a 15 forrás. Kiemelten: AIMA 27–28. fejezet, CS2023 (alkalmazások és társadalmi hatás, a törzsanyag része), EoAI 6., AI4E 4. hét, AI4K12 (a központi „nagy gondolat”), UNESCO (az MI etikája), AILit (Shape), NG
+
+| ID    | Fogalom |
+|-------|---------|
+| L7.01 | Algoritmikus torzítás, diszkrimináció |
+| L7.02 | Méltányosság (fairness) és annak különböző mérései |
+| L7.03 | Átláthatóság, magyarázhatóság (XAI) |
+| L7.04 | Elszámoltathatóság, felelősség |
+| L7.05 | Adatvédelem, megfigyelés, GDPR |
+| L7.06 | Automatizált döntéshozatal, profilalkotás |
+| L7.07 | Deepfake, dezinformáció, manipuláció |
+| L7.08 | Szerzői jog, szellemi tulajdon, tanítóadatok |
+| L7.09 | Munkaerőpiaci hatás, automatizáció |
+| L7.10 | Környezeti hatás (energia- és vízfelhasználás) |
+| L7.11 | Digitális egyenlőtlenség, hozzáférés |
+| L7.12 | EU AI Act és kockázatalapú szabályozás (tiltott, magas, korlátozott, minimális kockázat) |
+| L7.13 | MI-biztonság, igazítás (alignment), kontrollprobléma |
+| L7.14 | Emberközpontú MI, emberi felügyelet |
+
+**Pszichológiai kapcsolódás:** a kutatásetika és az MI-etika közös elvei (beleegyezés, ártalomkerülés). Az érzelemfelismerés és a munkahelyi pszichometriai MI tilalmai az AI Actben. A torzítás forrásai mérési-pszichometriai szemmel (mérési invariancia).
+
+---
+
+### L8 – MI-műveltség és felelős MI-használat
+
+Hogyan használja a felhasználó jól, kritikusan és felelősen az MI-t? A 2020 utáni keretrendszerek ezt helyezik a középpontba.
+
+**Lefedettség:** LM („Hogyan kell használni?”, „Hogyan észlelik az emberek?”), NG, HBN, UNESCO (emberközpontú szemlélet), AILit (Engage, Manage), FLU (4D), GAI4E, GenAI-HE
+
+| ID    | Fogalom |
+|-------|---------|
+| L8.01 | MI-műveltség (AI literacy) |
+| L8.02 | Az MI képességei és korlátai |
+| L8.03 | Delegálás: mit bízzunk az MI-re és mit ne |
+| L8.04 | Leírás: a cél, a kontextus és a formátum megadása (promptolás) |
+| L8.05 | Ítélőképesség: a kimenet pontosságának és relevanciájának értékelése |
+| L8.06 | Gondosság: felelősségvállalás, átláthatóság, hivatkozás |
+| L8.07 | Forráskritika és tényellenőrzés MI-kimeneteknél |
+| L8.08 | Akadémiai integritás, plágium, az MI-használat feltüntetése |
+| L8.09 | Automatizációs torzítás és túlzott bizalom |
+| L8.10 | Antropomorfizáció |
+| L8.11 | Kognitív kiszervezés (cognitive offloading), deskilling |
+| L8.12 | Ember–MI együttműködés, human-in-the-loop |
+| L8.13 | Adatbiztonság a mindennapi használatban (mit ne töltsünk fel) |
+| L8.14 | Laikus mentális modellek az MI működéséről |
+
+**Pszichológiai kapcsolódás:** ez a legerősebben pszichológiai témakör. Bizalom az automatizációban (Parasuraman & Riley). Metakogníció és tanulás. A laikus mentális modellek kutatása. Az MI-használattal kapcsolatos attitűdök és szorongás mérése (pl. MAILS, AI anxiety skálák).
+
+---
+
+## 3. Lefedettségi mátrix
+
+● = hangsúlyos, ○ = érintett, – = nem jellemző
+
+| Forrás  | L1 | L2 | L3 | L4 | L5 | L6 | L7 | L8 |
+|---------|----|----|----|----|----|----|----|----|
+| AIMA    | ●  | ●  | ●  | ●  | ●  | ○  | ○  | –  |
+| CS2023  | ○  | ●  | ●  | ●  | ○  | ○  | ●  | –  |
+| CS50AI  | –  | ●  | ●  | ●  | ●  | ●  | –  | –  |
+| CS188/221 | ○ | ● | ●  | ●  | ○  | –  | ○  | –  |
+| EoAI    | ●  | ●  | ●  | ●  | ●  | –  | ●  | ○  |
+| AI4E    | ●  | –  | –  | ●  | ○  | –  | ●  | ○  |
+| GAI4E   | ○  | –  | –  | ○  | –  | ●  | ●  | ●  |
+| FLU     | –  | –  | –  | –  | –  | ○  | ○  | ●  |
+| GenAI-HE| –  | –  | –  | –  | –  | ●  | ●  | ●  |
+| LM      | ●  | ○  | ○  | ●  | ○  | –  | ●  | ●  |
+| NG      | ●  | –  | –  | ○  | –  | –  | ●  | ●  |
+| HBN     | ●  | ○  | –  | ●  | ●  | –  | ●  | ●  |
+| AI4K12  | ○  | ●  | ●  | ●  | ●  | ○  | ●  | ○  |
+| UNESCO  | ○  | –  | –  | ●  | ○  | ○  | ●  | ●  |
+| AILit   | ○  | –  | –  | ○  | –  | ●  | ●  | ●  |
+
+A mátrix a források szerkezetéből készült becslés, nem tételes tartalomelemzés.
+
+**Mit mutat a mátrix:**
+
+- **L4 (gépi tanulás) és L7 (társadalmi hatás)** minden forrástípusban megjelenik, ez a „biztos mag”.
+- **L2–L3 (keresés, logika, valószínűség)** szinte csak a technikai kurzusokban hangsúlyos. Nem informatikus hallgatóknak ezt általában csak fogalmi szinten tanítják (EoAI, AI4K12).
+- **L6 és L8** a 2023 utáni, generatív MI-re reagáló anyagokban vált meghatározóvá.
+
+---
+
+## 4. Összevetés a kurzus weboldalával
+
+| Irodalmi témakör | Weboldal (T1–T8) | Megjegyzés |
+|------------------|------------------|------------|
+| L1 Fogalom, történet, filozófia | T1 részben | **Hiányzik:** Turing-teszt, kínai szoba, MI-történet, szimbolikus vs. konnekcionista MI |
+| L2 Ágensek, keresés | – | **Hiányzik teljesen.** Pszichológushallgatóknak elég az ágens, a heurisztika és az állapottér fogalma |
+| L3 Tudás, bizonytalanság | – | **Hiányzik:** szabályalapú és szakértői rendszer, Bayes-tétel. A Bayes-i gondolkodás pszichológiailag is releváns |
+| L4 Gépi tanulás | T2 + T3 | Jól lefedett, a metrikák terén részletesebb is az átlagnál |
+| L5 Neurális hálók, észlelés | T4 részben | A gépi észlelés (látás, beszéd) kevésbé hangsúlyos |
+| L6 Nyelvi és generatív MI | T4 + T5 | Jól lefedett; plusz: konkrét eszköztípusok |
+| L7 Etika, társadalom | T7 | Jól lefedett. **Kevésbé szerepel:** munkaerőpiac, környezeti hatás, deepfake, szerzői jog |
+| L8 MI-műveltség, felelős használat | T6 + T7 + T8 | Az átlagnál erősebb (forráskritika, AI slop, adatosztályozás) |
+| – | T8 (pszichológiai alkalmazások) | **A weboldal többlete:** digitális fenotipizálás, affektív számítástechnika, predikció és okság |
+
+**Javaslat a kérdésbankhoz:** a két struktúra összefésülhető. A weboldal T1–T8 szerkezete maradhat, de érdemes kiegészíteni:
+
+- egy rövid „MI története és filozófiája” résszel (L1-ből);
+- egy „klasszikus MI: ágensek, szabályok, Bayes” résszel (L2–L3 fogalmi szintjén).
+
+A HBN-teszt (31 tétel, 5 terület) jó viszonyítási pont a kérdések nehézségéhez és formátumához.
+
+---
+
+## 5. Hivatkozások
+
+Az elemzett források teljes bibliográfiai adatai a könyv végi [Hivatkozások](references.qmd) fejezetben találhatók.

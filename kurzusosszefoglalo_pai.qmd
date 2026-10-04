@@ -1,0 +1,184 @@
+# Kurzusösszefoglaló: bevezető fogalomtár {#sec-kurzusosszefoglalo-pai}
+
+*MI–pszichológia BA: bevezető fogalomtár*
+
+Ez a vázlat egy bevezető MI-kurzus 10 tematikus egységére épül pszichológia BA-hallgatók számára.
+Nem programozási tananyag. A cél az, hogy a hallgató értse:
+
+- hogyan alakult az MI;
+- hogyan működnek a ma használt rendszerek;
+- miként kapcsolódnak a pszichológiai kutatáshoz és gyakorlathoz;
+- milyen bizonyítékok, korlátok és etikai kérdések alapján kell őket megítélni.
+
+A szerkezet szándékosan ötvözi az MI-oktatás ismert alapterületeit (észlelés; reprezentáció és következtetés; tanulás; ember–gép interakció; társadalmi hatás) a pszichológiai alkalmazásokkal.
+A kurzusban az MI-műveltség nem pusztán eszközhasználatot jelent, hanem technikai alapértést, kritikai értékelést, kommunikációs–kognitív készségeket, valamint társadalmi-etikai tájékozottságot [@touretzky2023; @ai4k12; @polomoshnov2026].
+
+## 1. Történet és alapfogalmak
+
+- **Mesterséges intelligencia (MI):** Olyan számítógépes rendszerek és módszerek gyűjtőneve, amelyek tipikusan emberi intelligenciához társított feladatokat végeznek, például észlelést, nyelvi feldolgozást, problémamegoldást, döntéstámogatást vagy tanulást. Az „intelligens” működés nem azonos emberi tudattal, megértéssel vagy személyiséggel.
+- **Turing-teszt:** Alan Turing 1950-es gondolatkísérlete. Ha egy szöveges párbeszédben a kérdező nem tudja megbízhatóan eldönteni, hogy emberrel vagy géppel kommunikál, akkor a gép viselkedése az adott helyzetben intelligensnek tekinthető. A teszt inkább történeti és filozófiai mérföldkő, mint korszerű MI-értékelési eljárás.
+- **Dartmouth-konferencia (1956):** Az esemény, amelyhez az „artificial intelligence” elnevezés megszületését szokás kötni. A korai kutatók azt remélték, hogy az intelligencia sok eleme rövid idő alatt formalizálható és géppel megvalósítható. Ez az optimizmus jelentősen túlbecsülte a probléma nehézségét.
+- **Szimbolikus MI:** Olyan korai MI-megközelítés, amely explicit szabályokkal, fogalmakkal és logikai következtetéssel dolgozik. Példa: „ha a tünetek A és B fennállnak, akkor valószínűsíthető C”. Erőssége az átláthatóság, korlátja a kivételek, a bizonytalan információ és a hétköznapi tudás kezelése.
+- **MI-tél:** Az MI-kutatás iránti finanszírozás és társadalmi lelkesedés visszaesésének időszaka, amikor a túlzó ígéretek nem találkoztak a technikai teljesítménnyel. A fogalom arra figyelmeztet, hogy az MI-vel kapcsolatos állításokat mindig konkrét feladatra, adatra, mérőszámra és alkalmazási környezetre kell szűkíteni.
+- **Szűk vagy feladatspecifikus MI:** Egy jól körülhatárolt feladatban működő rendszer, például arcfelismerő, ajánlórendszer, beszédfelismerő vagy szöveggeneráló modell. A ma elterjedt rendszerek döntő többsége ilyen. Sokszor látványosan teljesítenek egy adott feladatban, de nincs általános, emberhez hasonló értelemben vett kompetenciájuk.
+- **Általános mesterséges intelligencia (AGI):** Elméleti, vitatott fogalom olyan rendszerre, amely széles körben, rugalmasan és új helyzetekben is képes emberi szintű vagy azt megközelítő kognitív teljesítményre. Nem tekinthető elért, egységesen definiált technológiai állapotnak.
+
+::: {.callout-note}
+## Pszichológiai kapcsolat
+
+Az MI története párhuzamos a kognitív pszichológia és a kognitív tudomány fejlődésével.
+A „problémamegoldó ember” korai számítógépes metaforája inspiráló volt, de nem igazolja, hogy az emberi elme egyszerűen szabályrendszerként vagy neurális hálózatként írható le.
+:::
+
+## 2. Adat, reprezentáció és mérés
+
+- **Adat:** Rögzített megfigyelés vagy információ, amelyből elemzés, modellezés vagy döntés készülhet. Pszichológiában lehet kérdőívválasz, reakcióidő, szemmozgási adat, interjúátirat, digitális viselkedési nyom, hangfelvétel vagy klinikai dokumentáció.
+- **Adathalmaz (dataset):** Strukturált vagy strukturálatlan adatok gyűjteménye, amelyet modellfejlesztéshez, teszteléshez vagy elemzéshez használnak. Az adathalmaz nem „nyers valóság”: létrejöttét mérési döntések, mintavétel, címkézés, tisztítás és kizárási szabályok alakítják.
+- **Változó / jellemző (feature):** A modell bemeneteként használt mérhető információ. Egy depresszió-kockázatot becslő modell jellemzője lehet például az életkor, a korábbi ellátás, egy kérdőívpontszám, vagy problematikusabb esetben egy közösségimédia-használati jellegzetesség.
+- **Címke (label):** A tanulóalgoritmus számára megadott célváltozó vagy „helyes válasz”. Egy képosztályozó modellnél például a képhez rendelt kategória, pszichológiai kutatásban például diagnosztikai státusz, viselkedési kimenet vagy szakértői értékelés.
+- **Annotáció / címkézés:** Az a folyamat, amelyben emberek vagy szabályok jelentést rendelnek az adatokhoz. Ha például interjúátiratokat „szorongó” és „nem szorongó” kategóriába sorolnak, az eredmény függ a kódolási útmutatótól, a kódolók képzettségétől és egyezésétől, valamint a kategória elméleti tisztaságától.
+- **Mérési validitás:** Annak mértéke, hogy egy mérőeszköz vagy változó valóban azt a konstruktumot méri-e, amelyet mérni kívánunk. Egy modell magas prediktív teljesítménye nem bizonyítja automatikusan, hogy pszichológiailag érvényes konstruktumot mért.
+- **Proxi (proxy) változó:** Olyan könnyen megfigyelhető változó, amelyet egy nehezebben mérhető jelenség helyettesítőjeként alkalmaznak. A hiányzások száma például lehet a tanulmányi nehézségek proxi mutatója, de nem azonos a motivációval, a mentális egészséggel vagy a társadalmi hátránnyal.
+- **Adatminőség:** Az adatok pontossága, teljessége, relevanciája, időszerűsége, összehasonlíthatósága és dokumentáltsága. Az MI-modell minőségét az algoritmus mellett erősen meghatározza az adatgyűjtés és a mérés minősége.
+
+::: {.callout-tip}
+## Kulcskérdés: „Miből tudja ezt a rendszer?”
+
+Ez gyakran fontosabb kérdés, mint az, hogy „milyen okosnak tűnik?”.
+A pszichológusnak vizsgálnia kell, kitől, mikor, milyen kontextusban és milyen mérőeljárással származik az adat.
+:::
+
+## 3. Gépi tanulás
+
+- **Gépi tanulás (machine learning, ML):** Olyan MI-megközelítés, amelyben a rendszer adatokból azonosít mintázatokat, és ezek alapján jóslatot, besorolást vagy döntési javaslatot készít. Nem egyszerűen „felfedezi az igazságot”: a betanítási adatokban meglévő mintázatokat és hibákat is megtanulhatja.
+- **Felügyelt tanulás:** Olyan gépi tanulási eljárás, amely címkézett példákból tanul. Egy modell például sok, korábban szakértők által címkézett szöveget kap, és megtanulja előre jelezni, hogy egy új szöveg melyik kategóriába tartozik.
+- **Felügyelet nélküli tanulás:** Címke nélküli adatokban keres struktúrát, például hasonló esetek csoportjait. Pszichológiai példája lehet a kérdőíves válaszmintázatok klaszterezése. Az így kapott csoportok értelmezése nem automatikus: statisztikai elkülönülésük nem garantál pszichológiai jelentést.
+- **Megerősítéses tanulás:** A rendszer cselekvéseket próbál ki, és jutalmakból vagy büntetésekből tanulja meg, mely döntések eredményesek. Fontos példája az ajánlórendszer vagy a játékszoftver. Pszichológiai párhuzama a jutalomvezérelt tanulás, de a két fogalom nem azonos.
+- **Osztályozás (klasszifikáció):** Esetek kategóriákba sorolása, például „spam/nem spam”, „kockázatos/nem kockázatos” vagy „pozitív/negatív érzelem”. Pszichológiai alkalmazáskor különösen körültekintően kell bánni a diagnosztikusnak tűnő címkékkel.
+- **Regresszió:** Folytonos érték előrejelzése, például egy skálapontszám, reakcióidő vagy várható kimenet becslése.
+- **Predikció:** Jövőbeli, ismeretlen vagy nem megfigyelt érték becslése adatok alapján. A predikció és az oksági magyarázat különböző célok: egy modell előre jelezhet valamit anélkül, hogy megmondaná, mi okozza azt.
+- **Korreláció:** Két változó együttjárása. A gépi tanulás sokszor korrelációs mintázatokat használ, ezért eredményei önmagukban nem alkalmasak oksági állításokra vagy beavatkozási döntések automatikus igazolására.
+- **Oksági következtetés:** Annak vizsgálata, hogy egy tényező megváltoztatása okoz-e változást egy másik változóban. Ehhez kutatási tervre, a zavaró változók kezelésére, elméletre és gyakran kísérleti vagy kvázi-kísérleti módszerekre van szükség.
+
+::: {.callout-important}
+## Példa
+
+Egy modell jól előre jelezheti, ki hagyja abba a terápiát.
+Ebből azonban nem következik, hogy a modellben fontos változó (például a lakóhely vagy az időpontfoglalások száma) okozza a lemorzsolódást, vagy hogy annak megváltoztatása megoldaná a problémát.
+:::
+
+## 4. Modellek és értékelés
+
+- **Modell:** Matematikai vagy számítógépes eljárás, amely bemeneti adatokból becslést, kategóriát, rangsort vagy új tartalmat állít elő. A modell nem maga a valóság, hanem annak célhoz kötött, részleges reprezentációja.
+- **Tanító-, validációs és tesztadat:** Az adatokat ideálisan elkülönítik:
+  - a tanítóadatból a modell mintázatokat tanul;
+  - a validációs adat segíti a modellválasztást és a finomhangolást;
+  - a tesztadat végső, lehetőleg érintetlen értékelést ad.
+
+  Ennek hiányában a modell teljesítményét könnyű túlbecsülni.
+- **Túlilleszkedés (overfitting):** A modell túlzottan alkalmazkodik a tanítóadat sajátosságaihoz, akár a zajához is, ezért új adatokon gyengén teljesít. Pszichológiai kutatásban ez különösen gyakori veszély kis mintán, sok prediktorral vagy ismételt modellhangolással.
+- **Generalizálhatóság:** Annak kérdése, hogy az eredmény vagy modell más személyeknél, időpontban, helyszínen, kultúrában, mérőeszközzel vagy célhelyzetben is működik-e. Egy egyetemistákon tanított modell nem feltétlenül működik klinikai, idős vagy magyar populációban.
+- **Külső validáció:** A modell tesztelése olyan független adaton, amely nem része a fejlesztésnek. Ez fontosabb bizonyíték a gyakorlati alkalmazhatóságra, mint a fejlesztői adathalmazon elért kiváló eredmény.
+- **Pontosság (accuracy):** A helyes besorolások aránya. Kiegyensúlyozatlan kategóriák esetén félrevezető lehet: ha az esetek 95%-a negatív, egy mindig „negatívat” mondó rendszer is 95%-os pontosságot érhet el.
+- **Érzékenység (szenzitivitás, recall):** A valóban pozitív esetek közül mennyit azonosít helyesen a rendszer. Klinikai szűrésben kiemelten fontos lehet, mert az alacsony érzékenység sok elmulasztott esetet jelent.
+- **Specificitás:** A valóban negatív esetek közül mennyit azonosít helyesen a rendszer. Alacsony specificitás esetén sok a téves riasztás, ami felesleges aggodalmat, terhelést vagy stigmatizációt okozhat.
+- **Precizitás (a pozitív prediktív értékhez közeli fogalom):** A pozitívnak jelölt esetek között mekkora a ténylegesen pozitívak aránya. Függ attól is, mennyire gyakori az adott jelenség a vizsgált populációban.
+- **Kalibráció:** Azt mutatja meg, mennyire egyeznek a modell által jelzett valószínűségek a tényleges gyakoriságokkal. Ha a modell hasonló esetekre 70%-os kockázatot jelez, akkor ezekben az esetekben nagyjából 70%-ban kellene valóban bekövetkeznie az eseménynek.
+- **Döntési küszöb:** Az a határ, amely fölött a modell pozitív jelzést ad vagy intézkedést javasol. Ez nem pusztán technikai döntés: függ a téves pozitív és téves negatív eredmények emberi, klinikai és intézményi következményeitől.
+
+## 5. Mélytanulás és neurális hálók
+
+- **Neurális hálózat:** Egymáshoz kapcsolt, egyszerű számítási egységekből álló modellcsalád, amely sok példán keresztül bonyolult összefüggéseket képes megtanulni. Elnevezése az idegrendszerből merít metaforát, de nem az agy részletes, biológiailag hű másolata.
+- **Mélytanulás (deep learning):** Több egymásra épülő réteget használó neurális hálózati tanulás. Különösen sikeres képek, hangok és természetes nyelv feldolgozásában, ám jellemzően jelentős adatmennyiséget, számítási kapacitást és gondos értékelést igényel.
+- **Paraméter:** A modell belső, a tanulás során beállított értéke, amely befolyásolja a bemenet és a kimenet közötti kapcsolatot. A sok paraméter önmagában nem jelent megbízhatóságot, tudatosságot vagy pszichológiai értelemben vett megértést.
+- **Reprezentációtanulás:** Az a folyamat, amelynek során a modell maga alakít ki a bemenetből használható belső mintázatokat, ahelyett hogy minden fontos jellemzőt ember adna meg előre. Ez hatékony lehet, de csökkentheti az értelmezhetőséget.
+- **Transzformer (transformer):** A mai nagyméretű nyelvi modellek és számos multimodális rendszer kulcsarchitektúrája. A bemenet elemei közötti kapcsolatokat úgynevezett figyelmi mechanizmusokkal modellezi, ezért különösen alkalmas hosszabb szövegösszefüggések kezelésére.
+- **Figyelmi mechanizmus (attention):** Olyan számítási eljárás, amely dinamikusan súlyozza, hogy a rendszer egy bemenet feldolgozásakor mely más elemekre támaszkodjon erősebben. Nem szabad automatikusan összekeverni az emberi pszichológiai figyelemmel.
+- **Embedding / beágyazás:** Szavak, mondatok, képek vagy személyek numerikus vektorreprezentációja, amelyben a hasonló mintázatok gyakran közelebb kerülnek egymáshoz. Keresésre, ajánlásra, klaszterezésre és szemantikai összehasonlításra használják.
+- **Multimodális MI:** Olyan rendszer, amely több adattípust (például szöveget, képet, hangot, videót vagy strukturált adatot) képes közösen feldolgozni vagy létrehozni. A pszichológiai alkalmazásokban ez lehetőséget ad több forrás integrálására, ugyanakkor összeadja az adatvédelmi, torzítási és validációs kockázatokat is.
+
+## 6. Generatív MI és nyelv
+
+- **Generatív MI:** Olyan rendszer, amely új tartalmat hoz létre (szöveget, képet, hangot, programkódot vagy videót) a betanítás során megtanult statisztikai mintázatok alapján. A generált tartalom lehet meggyőző, de ettől még nem garantáltan pontos, eredeti vagy forrásolható.
+- **Nagy nyelvi modell (large language model, LLM):** Nagy mennyiségű szövegen tanított generatív modell, amely a következő szövegegység valószínűségét becsüli. Ebből képes koherensnek tűnő válaszokat, összefoglalókat, fordításokat vagy dialógusokat generálni.
+- **Prompt:** A generatív rendszernek adott utasítás, kérdés, kontextus vagy példa. A jó prompt kijelöli a feladatot, a célközönséget, a kimeneti formátumot, a korlátokat és lehetőleg az ellenőrzés szempontjait is.
+- **Promptolás:** A rendszerrel való tudatos kommunikáció és feladatkijelölés gyakorlata. Tanulási célra az a jó prompt, amely nem pusztán kész választ kér, hanem indoklást, ellenpéldát, forrásellenőrzési tervet vagy több alternatíva összevetését is előírja.
+- **Kontextusablak:** Az a korlátozott mennyiségű információ, amelyet a modell az adott válasz létrehozásakor figyelembe tud venni. Egy hosszú beszélgetés vagy dokumentum egy része ezért elveszhet, torzulhat vagy alacsonyabb súlyt kaphat.
+- **Hallucináció:** Hihetőnek hangzó, de pontatlan, kitalált vagy nem ellenőrizhető MI-kimenet. Lehet hamis hivatkozás, nem létező tanulmány, téves adat vagy magabiztos, de hibás magyarázat. Nem „hazugság”, mert a modellnek nincsenek emberi értelemben vett szándékai vagy tudása.
+- **Forrásföldelés (grounding):** A modell válaszának megbízható, azonosítható forrásokhoz vagy külső adatokhoz kötése. A jó rendszer nemcsak választ ad, hanem azt is lehetővé teszi, hogy ellenőrizzük, pontosan milyen bizonyítékra épül az állítás.
+- **Visszakereséssel támogatott generálás (retrieval-augmented generation, RAG):** Olyan megoldás, amely a válaszgenerálás előtt releváns dokumentumokat keres vissza, majd ezek alapján állít elő választ. Csökkentheti a hallucinációt, de nem szünteti meg: a visszakeresett forrás lehet irreleváns, régi vagy hibás.
+- **Szintetikus média:** MI által létrehozott vagy módosított szöveg, kép, hang vagy videó. Ide tartoznak a deepfake-ek is, amelyek valós személy látszatát kelthetik olyan mondatokkal vagy viselkedésekkel, amelyek ténylegesen nem történtek meg.
+
+Az LLM-ek és más generatív rendszerek produktív tanulási eszközök lehetnek.
+A felsőoktatásban azonban a fő kérdés az, hogyan őrizhető meg az értékelés érvényessége, a szerzőség átláthatósága és a hallgatói gondolkodási folyamat láthatósága.
+Pszichológushallgatóknál különösen hasznos feladat lehet egy MI-válasz módszertani hibáinak, hamis hivatkozásainak vagy túlzó oksági következtetéseinek azonosítása [@delvenne2026].
+
+## 7. Ember–MI interakció
+
+- **Ember–számítógép interakció (HCI):** Az emberek és a digitális rendszerek közötti kapcsolat használhatósági, kommunikációs, kognitív és társas szempontú vizsgálata. Az MI-rendszer minőségét nemcsak a pontossága határozza meg, hanem a felület, a visszajelzés, a hibajelzés és a felhasználói döntéstámogatás is.
+- **Antropomorfizáció:** Emberi tulajdonságok, szándékok, érzelmek vagy tudat tulajdonítása nem emberi rendszernek. Chatbotoknál különösen gyakori, mert a nyelvi folyékonyság, az empatikus hangnem és az első személyű megfogalmazás az emberi társas interakció benyomását keltheti.
+- **ELIZA-hatás:** Az a jelenség, amikor az emberek túlbecsülik egy egyszerű nyelvi rendszer megértését vagy empátiáját. Nevét az 1960-as évekbeli ELIZA programról kapta, amely visszakérdezésekkel pszichoterápiás beszélgetést imitált.
+- **Automatizálási torzítás (automation bias):** Az a tendencia, hogy az ember indokolatlanul elfogadja egy automatizált rendszer javaslatát, vagy kevésbé keresi az alternatív bizonyítékokat. Különösen kockázatos a nagy tekintélyűnek, objektívnek vagy „adatvezéreltnek” látszó rendszereknél.
+- **Algoritmikus averzió:** Az a jelenség, amikor a felhasználó egy algoritmus egyetlen látható hibája után túlzottan elutasítóvá válik vele szemben, akkor is, ha az összességében pontosabb lenne az emberi döntéshozónál.
+- **Kalibrált bizalom:** Olyan bizalmi szint, amely arányban áll a rendszer tényleges megbízhatóságával és kompetenciahatáraival. Nem a maximális bizalom a cél, hanem az, hogy a felhasználó tudja, mikor támaszkodhat a rendszerre, és mikor szükséges emberi ellenőrzés.
+- **Döntéstámogató rendszer:** Olyan rendszer, amely információt, előrejelzést, rangsort vagy javaslatot ad emberi döntéshez. Nem helyettesíti automatikusan a szakmai döntést, különösen akkor nem, ha a döntés jogokat, jólétet, ellátást vagy erőforrásokhoz való hozzáférést érint.
+- **Ember a döntési körben (human-in-the-loop):** Az az elv, hogy emberi szakértő érdemben részt vesz az MI-rendszer ellenőrzésében, a döntésben és a felelősségviselésben. Ez nem teljesül pusztán attól, hogy valaki formálisan „jóváhagy” egy nem átlátható automatikus ajánlást.
+- **Affektív számítástechnika:** Olyan terület, amely az érzelmekhez kapcsolódó jelek felismerésével, modellezésével vagy kommunikációjával foglalkozik. A hangból, arcból vagy szövegből történő érzelemfelismerés eredményeit óvatosan kell értelmezni, mert az érzelmi kifejezés erősen kontextus-, kultúra- és személyfüggő.
+
+## 8. MI a pszichológiában
+
+- **Digitális fenotipizálás:** Viselkedési, kommunikációs vagy szenzoradatok (például aktivitás, alvásra utaló mintázatok, telefonhasználat) elemzése pszichológiai vagy egészségi állapotok becslésére. Ígéretes kutatási irány, ugyanakkor súlyos adatvédelmi, validitási és beleegyezési kérdésekkel jár.
+- **Pszichometria:** A pszichológiai mérőeszközök fejlesztésének és értékelésének tudománya. MI-alapú mérési eljárásnál ugyanúgy kulcskérdés a megbízhatóság, a konstruktumvaliditás, a mérési invariancia és a következményes validitás, mint a hagyományos teszteknél.
+- **Számítógépes adaptív tesztelés:** Olyan tesztelési eljárás, amely a válaszok függvényében választja ki a következő feladatot. Célja, hogy kevesebb kérdéssel is pontosabb becslést adjon a vizsgált személy képességéről vagy jellemzőjéről.
+- **Természetesnyelv-feldolgozás (NLP):** Az emberi nyelv számítógépes elemzésének és előállításának területe. Pszichológiai kutatásban használható például interjúk, nyílt végű válaszok, naplók vagy online beszélgetések elemzésére. A nyelvi jel és a pszichológiai konstruktum közötti kapcsolatot azonban empirikusan igazolni kell.
+- **Érzelemelemzés (sentiment analysis):** Szövegek érzelmi töltetének vagy értékelő jellegének automatizált becslése. Nem azonos az egyén valódi, belső érzelmi állapotának mérésével. A szarkazmus, a kontextus, a nyelvváltozatok és a kulturális különbségek jelentős hibaforrások.
+- **Klinikai döntéstámogatás:** MI használata egészségügyi vagy mentális egészségügyi szakemberek munkájának támogatására, például kockázatjelzés, dokumentáció, triázs vagy információ-visszakeresés céljából. Alkalmazása nem választható el a szakmai felelősségtől, a kompetenciahatároktól és a rendszeres validációtól.
+- **Digitális mentális egészség:** Digitális eszközök (például önsegítő alkalmazások, online intervenciók, chatalapú támogató rendszerek vagy távellátási megoldások) használata a mentális egészség támogatására. Hatásosságuk, hozzáférhetőségük, biztonságuk és adatkezelésük eszközönként külön vizsgálandó.
+- **Algoritmikus triázs:** Az esetek sürgősség, kockázat vagy várható szükséglet szerinti automatizált előszűrése. Hasznos lehet erőforráshiányos helyzetekben, de hibás jelzés esetén a következmények aszimmetrikusak lehetnek: valaki eleshet a szükséges segítségtől, vagy indokolatlan megfigyelés alá kerülhet.
+
+Az APA klinikai gyakorlathoz készült útmutatója az MI-integrációt a szakmai etikai kötelezettségekhez, a gyakorlati óvatossághoz és a valós ellátási helyzetekhez köti.
+Pszichológiai szempontból ezért nem elegendő azt kérdezni, hogy egy rendszer „működik-e”.
+Azt is vizsgálni kell, kinek, milyen feltételek között, milyen hibákkal és milyen következményekkel működik [@apa2025ethical].
+
+## 9. Torzítás, méltányosság, átláthatóság
+
+- **Algoritmikus torzítás:** Szisztematikus és igazságtalan különbség az MI-rendszer működésében vagy következményeiben egyes személyek, csoportok vagy társadalmi kategóriák között. Forrása lehet az adat, a mérés, a címkézés, a modell, a küszöbérték, a bevezetési környezet vagy a társadalmi egyenlőtlenség.
+- **Mintavételi torzítás:** Akkor jelentkezik, amikor az adathalmaz nem megfelelően reprezentálja azt a populációt, amelyben a rendszert használni kívánják. Egy angol nyelvű, nyugati, főként fiatal felhasználókon tanított modell eredményei például nem vihetők át automatikusan magyar vagy klinikai populációkra.
+- **Címkézési torzítás:** Akkor keletkezik, ha a „helyes válaszok” maguk is szubjektív, elfogult vagy történetileg diszkriminatív döntéseket tükröznek. A modell ilyenkor nem pusztán a jelenséget, hanem a korábbi emberi értékelési gyakorlatokat is reprodukálhatja.
+- **Mérési torzítás:** Akkor áll fenn, ha az adatgyűjtési eljárás különböző csoportoknál eltérően vagy pontatlanul méri ugyanazt a konstruktumot. Ez pszichometriai probléma is: előfordulhat, hogy a modell valójában nem azt méri, amit állít.
+- **Méltányosság (fairness):** Normatív és technikai kérdés arról, milyen eloszlás, hibaarány vagy bánásmód tekinthető igazságosnak a csoportok között. Nincs egyetlen univerzális matematikai definíciója. A releváns méltányossági kritériumot az alkalmazás célja, a jogok, a kockázatok és az érintettek határozzák meg.
+- **Magyarázhatóság (explainability):** Annak lehetősége, hogy érthetően indokoljuk, milyen tényezők és folyamatok vezettek a modell adott kimenetéhez. Nem azonos azzal, hogy a rendszer által generált magyarázat meggyőzőnek hangzik.
+- **Átláthatóság (transparency):** Az MI-rendszer céljára, fejlesztőjére, adataira, képességeire, korlátaira, értékelésére, frissítéseire és használati feltételeire vonatkozó információk hozzáférhetősége. Átláthatóság nélkül korlátozott a független ellenőrzés és az elszámoltathatóság.
+- **Modellkártya (model card):** Strukturált dokumentáció egy modell rendeltetéséről, tanítóadatairól, teljesítményéről, korlátairól, ismert kockázatairól és nem ajánlott felhasználási módjairól. Jó gyakorlat a felelős alkalmazásban és a szakmai ellenőrzésben.
+- **Adatlap (datasheet for datasets):** Olyan dokumentáció, amely leírja az adathalmaz eredetét, összetételét, gyűjtési és címkézési módját, tervezett használatát, korlátait és etikai vonatkozásait.
+- **Elszámoltathatóság:** Annak egyértelműsége, hogy ki felel a rendszer fejlesztéséért, bevezetéséért, felügyeletéért, hibáiért és káros következményeinek kezeléséért. Az „ezt az algoritmus döntötte el” nem elfogadható felelősségi válasz.
+
+Az APA állásfoglalása emberközpontú, a sokféleséget érvényesítő, biztonságos, az adatvédelmet tiszteletben tartó és átlátható MI-fejlesztést és -használatot szorgalmaz.
+Ez a pszichológushallgató számára különösen fontos keret, mert a pszichológiai adatok és döntések gyakran érzékenyek, identitásformálók, és jelentős életkövetkezményekkel járnak [@apaservices].
+
+## 10. Etika, jog és felelős használat
+
+- **Adatvédelem:** A személyes adatok jogszerű, tisztességes, átlátható, célhoz kötött és biztonságos kezelése. Pszichológiai és egészségügyi adatoknál fokozott körültekintés szükséges, különösen ha az adatokat külső MI-szolgáltatásba töltenék fel.
+- **Informált beleegyezés:** A résztvevő vagy kliens önkéntes, megfelelő tájékoztatáson alapuló hozzájárulása az adatkezeléshez vagy a kutatásban való részvételhez. MI-alapú adatfeldolgozás esetén a tájékoztatásnak érthetően ki kell térnie az adat útjára, a szereplőkre, a célra, a kockázatokra és a visszavonás lehetőségére.
+- **Célhoz kötöttség:** Az az elv, hogy az adatot csak meghatározott, legitim és világosan közölt célra szabad gyűjteni és használni. Egy kutatási célból felvett interjú nem válik automatikusan tanítóadattá egy másik MI-rendszer számára.
+- **Adatminimalizálás:** Csak olyan személyes adat gyűjtése és használata, amely valóban szükséges az adott célhoz. A „minél több adat, annál jobb modell” technikai intuíciója nem írhatja felül a szükségesség és az arányosság etikai elvét.
+- **Kockázatalapú megközelítés:** A rendszer vizsgálata annak alapján, milyen valószínűségű és súlyosságú kárt okozhat. Más követelmények indokoltak egy kreatív írást támogató chatbotnál, mint egy mentális egészségi kockázatot előrejelző rendszernél.
+- **Emberi felügyelet:** Olyan szervezeti és szakmai intézkedések együttese, amelyek biztosítják, hogy az ember képes legyen a rendszer kimenetét megérteni, felülvizsgálni, korrigálni és szükség esetén figyelmen kívül hagyni.
+- **Akadémiai integritás:** A tanulmányi és kutatási munka őszintesége, átláthatósága és elszámoltathatósága. Generatív MI használatakor ide tartozik a helyi intézményi szabályok követése, a felhasználás dokumentálása, a leadott szöveg tartalmáért vállalt felelősség és a hivatkozások ellenőrzése.
+- **MI-használat dokumentálása:** Annak rögzítése, hogy milyen eszközt, milyen célra, mikor, milyen bemenettel és milyen mértékben alkalmaztak. Az APA folyóiratpolitikája szerint a kézirat készítésében használt generatív MI alkalmazását a módszerek között fel kell tüntetni és megfelelően hivatkozni kell. Bizalmas anyagot nem szabad nyílt generatív eszközökbe beírni [@apa2023policy].
+- **Felelős MI-használat:** Gyakorlati döntési mód, amely összeköti a célhoz illeszkedést, az adatok védelmét, a bizonyítékok ellenőrzését, a torzítások elemzését, az emberi felügyeletet, a dokumentációt és a károk megelőzését.
+
+## Minimumkompetenciák
+
+A kurzus végére a hallgató legyen képes:
+
+1. megkülönböztetni a szimbolikus MI-t, a gépi tanulást, a mélytanulást és a generatív MI-t;
+2. elmagyarázni, miért nem azonos a jó predikció az oksági magyarázattal;
+3. felismerni a túlilleszkedés, a mintavételi torzítás, a mérési torzítás és a hallucináció kockázatát;
+4. értelmezni az alapvető modellmutatókat: pontosság, érzékenység, specificitás, kalibráció és külső validáció;
+5. kritikusan értékelni egy MI-eszköz pszichológiai alkalmazhatóságát adat, populáció, validitás, kár és méltányosság alapján;
+6. tudatos promptokat használni tanulási támogatásra, de a kimenetet forrásokkal és saját szakmai mérlegeléssel ellenőrizni;
+7. azonosítani, mikor nem szabad érzékeny személyes, kutatási vagy kliensadatot nyilvános generatív MI-rendszerbe bemásolni;
+8. átláthatóan dokumentálni az MI használatát beadandóban, kutatásban és szakmai kommunikációban.
+
+Az összeállítás a pszichológiai műveltség céljával is összhangban áll: a hallgatók ne csak definíciókat ismerjenek, hanem pszichológiai tudásukat személyes, szakmai és társadalmi célokra is képesek legyenek alkalmazni.^[[openurl.ebsco.com](https://openurl.ebsco.com/contentitem/lgd:150169979?sid=ebsco:plink:pplx&id=ebsco:lgd:150169979).]

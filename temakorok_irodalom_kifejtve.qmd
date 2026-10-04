@@ -1,0 +1,1439 @@
+# Fogalmak kifejtve {#sec-temakorok-irodalom-kifejtve}
+
+*Bevezető MI-kurzusok szakirodalma alapján, középiskolás szinten*
+
+Készült: 2026. október 3.
+
+Ez a fejezet a [Témakörök a szakirodalom alapján](temakorok_irodalom.qmd) mind a 103 fogalmát kifejti.
+A magyarázatok **középiskolás szinten** készültek: képletek csak ott szerepelnek, ahol elkerülhetetlenek,
+és minden fogalomhoz tartozik egy hétköznapi vagy pszichológiai példa.
+
+Minden fogalomnál:
+
+- **Meghatározás:** egy-két mondatos, a szakirodalomhoz igazodó definíció.
+- **Kifejtés:** a fogalom érthető magyarázata.
+- **Példa:** egy konkrét eset.
+- **Forrás:** szövegközi hivatkozások; a teljes lista a könyv végi [Hivatkozások](references.qmd) fejezetben található. A rövidítéssel jelölt kurzusok és keretrendszerek leírása a [Témakörök a szakirodalom alapján](temakorok_irodalom.qmd) fejezetben olvasható.
+
+---
+
+## L1 – Az MI fogalma, története és filozófiai alapjai
+
+### L1.01 – Az MI definíciói (Russell–Norvig négy megközelítése)
+
+**Meghatározás:** Russell és Norvig szerint az MI-definíciók két kérdés mentén csoportosíthatók: a *gondolkodást* vagy a *viselkedést* vizsgáljuk-e, és az *emberhez* vagy egy *ideális racionalitáshoz* mérjük-e a gépet. Ebből négy megközelítés adódik.
+
+**Kifejtés:** A négy megközelítés:
+
+1. **Emberként gondolkodni:** a gép úgy oldja meg a feladatot, ahogy az emberi elme. Ez a kognitív modellezés, a kognitív tudomány területe.
+2. **Emberként cselekedni:** a gép viselkedése megkülönböztethetetlen az emberétől. Ennek próbája a Turing-teszt.
+3. **Racionálisan gondolkodni:** a gép a logika szabályai szerint helyes következtetéseket von le.
+4. **Racionálisan cselekedni:** a gép úgy cselekszik, hogy a lehető legjobb eredményt érje el.
+
+A tankönyv a negyediket, a *racionális ágens* megközelítést választja, mert ez mérhető, és nem kell hozzá eldönteni, mi zajlik a gép „fejében”.
+
+**Példa:** Egy sakkprogram nem úgy gondolkodik, mint egy nagymester, de racionálisan cselekszik, mert a nyerő lépéseket választja.
+
+**Forrás:** [@russell2021, {}1.1. alfejezet]
+
+### L1.02 – Turing-teszt
+
+**Meghatározás:** Alan Turing 1950-ben javasolt „utánzási játéka”. Egy emberi kérdező írásban beszélget egy emberrel és egy géppel. Ha nem tudja megbízhatóan megmondani, melyik a gép, akkor a gép átment a teszten.
+
+**Kifejtés:** Turing a „Tudnak-e a gépek gondolkodni?” kérdést túl homályosnak tartotta, ezért egy viselkedési próbával helyettesítette: ne azt kérdezzük, mi van a gép belsejében, hanem azt, hogy meg tudjuk-e különböztetni egy embertől. A teszt fontos gondolatkísérlet, de sokan bírálják. Átmenni rajta trükkökkel, hibák utánzásával és témaváltással is lehet, a mai nyelvi modellek pedig rövid beszélgetésben gyakran megtévesztik az embereket. Ebből még nem következik, hogy értik, amit mondanak.
+
+**Példa:** Ha egy chatbottal beszélgetve nem vesszük észre, hogy gép, a rendszer erre a rövid beszélgetésre „átment” a teszten.
+
+**Forrás:** [@turing1950; @russell2021, {}1.1. alfejezet és 28. fejezet]
+
+### L1.03 – Kínai szoba érv (Searle)
+
+**Meghatározás:** John Searle 1980-as gondolatkísérlete. Azt állítja, hogy egy program pusztán a jelek szabályok szerinti kezelésével nem jut el a jelentés megértéséhez.
+
+**Kifejtés:** Képzeljük el, hogy egy kínaiul nem tudó ember egy szobában ül egy vastag szabálykönyvvel. Kínai írásjeleket kap egy résen, a könyv alapján kikeresi, milyen jeleket kell visszaadnia, és kiadja őket. Kívülről úgy tűnik, mintha folyékonyan válaszolna kínaiul, pedig egy szót sem ért. Searle szerint a számítógép ugyanígy csak szimbólumokat kezel (szintaxis), de nem érti a jelentésüket (szemantika). Az érv máig vitatott. Egyes bírálók szerint például az egész rendszer, vagyis az ember, a könyv és a szoba együtt mégis „ért”.
+
+**Példa:** A nagy nyelvi modellekről szóló vitában gyakran felmerül, hogy „valóban értik-e” a szöveget, vagy csak a kínai szoba modern változatai.
+
+**Forrás:** [@searle1980; @russell2021, {}28.2. alfejezet]
+
+### L1.04 – Gyenge és erős MI
+
+**Meghatározás:** Searle megkülönböztetése. A *gyenge MI* szerint a gépek az intelligens viselkedés hasznos szimulációi és eszközei. Az *erős MI* szerint egy megfelelően programozott számítógép valódi elmével, megértéssel, akár tudattal rendelkezik.
+
+**Kifejtés:** A gyenge MI-állítással kevesen vitatkoznak: a programok segíthetnek tanulmányozni a gondolkodást, és intelligensnek tűnő feladatokat végezhetnek el. Az erős MI filozófiai állítás az elméről. Azt mondja, hogy a megfelelő program futtatása maga a gondolkodás. Fontos, hogy ez a fogalompár nem azonos a szűk/általános MI megkülönböztetésével (L1.05). Az egyik arról szól, *van-e* elméje a gépnek, a másik arról, *milyen széles* feladatkört tud ellátni.
+
+**Példa:** Ha valaki azt mondja, hogy egy chatbot „csak eszköz, amely embernek tűnő szöveget gyárt”, az gyenge MI-álláspont. Ha azt állítja, hogy a chatbot „tényleg gondolkodik és érez”, az erős MI-álláspont.
+
+**Forrás:** [@searle1980; @russell2021, {}28.1–28.2. alfejezet]
+
+### L1.05 – Szűk MI (ANI), általános MI (AGI), szuperintelligencia (ASI)
+
+**Meghatározás:** A *szűk MI* (artificial narrow intelligence) egy körülhatárolt feladatra képes. Az *általános MI* (artificial general intelligence) bármilyen szellemi feladatban emberi szinten, rugalmasan tudna tanulni és teljesíteni. A *szuperintelligencia* (artificial superintelligence) gyakorlatilag minden területen messze felülmúlná az embert.
+
+**Kifejtés:** Ma minden működő MI-rendszer szűk MI. Ez akkor is igaz, ha egy nyelvi modell sokféle feladatot old meg, mert a képességei egyenetlenek és kiszámíthatatlanok. Az AGI-nak nincs egyértelmű, elfogadott definíciója és mérési küszöbe, ezért az „elértük-e már” vita gyakran definíciós vita. A szuperintelligencia elsősorban Nick Bostrom [-@bostrom2014] nyomán került a köztudatba. Ma hipotetikus fogalom, főleg az MI-biztonsági kutatásban használják.
+
+**Példa:** Egy arcfelismerő szoftver szűk MI. Egy olyan robot, amely bármilyen új munkát betanulna, mint egy ember, AGI lenne.
+
+**Forrás:** [@russell2021, {}1.3. alfejezet és 28. fejezet; @bostrom2014; @hornberger2023]
+
+### L1.06 – Dartmouth-konferencia (1956)
+
+**Meghatározás:** Az 1956 nyarán a Dartmouth College-ban (USA) tartott kutatói műhely, amelyet az MI tudományterület születésének tekintenek. Az „artificial intelligence” kifejezés a műhelyt előkészítő 1955-ös pályázatból származik.
+
+**Kifejtés:** A pályázatot John McCarthy, Marvin Minsky, Nathaniel Rochester és Claude Shannon írta. Abból a feltevésből indultak ki, hogy a tanulás és az intelligencia minden vonása elvileg olyan pontosan leírható, hogy egy gép szimulálni tudja. A résztvevők optimisták voltak: azt gondolták, egy nyár alatt jelentős előrelépést érnek el. Ez nem így lett, de a műhely megalapozta a terület nevét, kérdéseit és kutatói közösségét. Itt mutatta be Allen Newell és Herbert Simon a *Logic Theorist* programot, amely matematikai tételeket bizonyított.
+
+**Példa:** Ha egy tankönyv azt írja, hogy „az MI hivatalos születési éve 1956”, a Dartmouth-konferenciára utal.
+
+**Forrás:** [@russell2021, {}1.3. alfejezet; @mitchell2019, {}1. fejezet]
+
+### L1.07 – MI-telek (AI winters) és hype-ciklusok
+
+**Meghatározás:** Az *MI-tél* az a kifejezés, amellyel a túlzott várakozások utáni kiábrándulás időszakait jelölik, amikor csökkent az MI-kutatások finanszírozása és az iránta való érdeklődés. A *hype-ciklus* a túlzott lelkesedés és az azt követő csalódás ismétlődő mintája.
+
+**Kifejtés:** Két nagy MI-telet szokás említeni:
+
+- **Az 1970-es évek közepén:** a korai ígéretek nem teljesültek, a brit Lighthill-jelentés [-@lighthill1973] pedig erősen bírálta a területet.
+- **Az 1980-as évek végén:** a szakértői rendszerek (L3.04) kereskedelmi fellendülése után a drága, nehezen karbantartható rendszerek piaca összeomlott.
+
+A tanulság, hogy az MI fejlődése nem egyenletes. A lelkes bejelentéseket érdemes óvatosan kezelni, mert a valós képességek gyakran elmaradnak az ígéretektől.
+
+**Példa:** Ha egy hírben az áll, hogy „öt éven belül megszűnik minden irodai munka”, érdemes eszünkbe juttatni, hogy az MI története során már többször is elhangzottak hasonló jóslatok.
+
+**Forrás:** [@russell2021, {}1.3. alfejezet; @mitchell2019, {}1–2. fejezet]
+
+### L1.08 – Szimbolikus (GOFAI) és konnekcionista MI
+
+**Meghatározás:** A *szimbolikus MI* a tudást kifejezett szimbólumokkal és szabályokkal ábrázolja, és logikai műveletekkel következtet. A gúnyos-kedveskedő neve GOFAI, „Good Old-Fashioned AI”, a kifejezést John Haugeland alkotta 1985-ben. A *konnekcionista* (szubszimbolikus) MI egyszerű egységekből álló hálózatokkal dolgozik, amelyek példákból tanulnak, és a tudást a kapcsolatok erősségében tárolják.
+
+**Kifejtés:** A szimbolikus rendszerek döntései jól követhetők („azért döntött így, mert ez a szabály teljesült”), de nehéz minden szabályt kézzel megírni, és rosszul kezelik a bizonytalan, zajos világot. A konnekcionista rendszerek, vagyis a neurális hálók (L5), jól tanulnak nagy adatmennyiségből, és jók a mintafelismerésben, viszont nehezen magyarázhatók. A mai MI-t a konnekcionista megközelítés uralja. Egyre több kutató keres azonban olyan *hibrid* (neuroszimbolikus) megoldást, amely mindkét irány előnyeit egyesíti.
+
+**Példa:** Egy „ha láz és köhögés, akkor gyanús influenza” szabályrendszer szimbolikus. Egy több ezer röntgenképen betanított tüdőgyulladás-felismerő háló konnekcionista.
+
+**Forrás:** [@russell2021, {}1.3. alfejezet; @mitchell2019, {}1. fejezet; @haugeland1985]
+
+### L1.09 – Moravec-paradoxon
+
+**Meghatározás:** Hans Moravec [-@moravec1988] és mások megfigyelése: ami az embernek nehéz (sakk, matematika, logika), az a gépnek viszonylag könnyű. Ami az embernek könnyű (járás, tárgyak megfogása, arcok felismerése), az a gépnek nagyon nehéz.
+
+**Kifejtés:** A magyarázat evolúciós. Az érzékelési és mozgási képességeinket évmilliók alatt csiszolta a természet, ezért olyan magától értetődőnek érezzük őket, hogy észre sem vesszük, milyen bonyolultak. Az elvont gondolkodás evolúciós léptékkel friss képesség, ezért tudatosan, erőfeszítéssel végezzük, és ezért tűnik „nehéznek”. A paradoxon máig érvényes: a nyelvi modellek esszét írnak, a háztartási robotok viszont még mindig ügyetlenül hajtogatnak ruhát.
+
+**Példa:** Egy számítógép 1997-ben legyőzte a sakkvilágbajnokot, de egy kétéves gyerek ügyességével lépcsőn járó robotot sokkal nehezebb volt építeni.
+
+**Forrás:** [@moravec1988; @mitchell2019; @russell2021, {}26. fejezet]
+
+### L1.10 – MI-effektus
+
+**Meghatározás:** Az a jelenség, hogy ha egy MI-módszer megbízhatóan működik és hétköznapivá válik, az emberek már nem tekintik „igazi” mesterséges intelligenciának. Larry Tesler szellemes megfogalmazásában: az MI az, amit még nem sikerült megcsinálni.
+
+**Kifejtés:** Az útvonaltervezés, a helyesírás-ellenőrzés, a levélszemét-szűrés vagy a sakkprogram valaha az MI-kutatás élvonalába tartozott. Ma egyszerű szoftverfunkciónak látjuk őket. Az MI-effektus miatt az „igazi MI” mindig a jövőben látszik, és alábecsüljük, mennyi MI működik már körülöttünk. Ezért fontos MI-műveltségi készség, hogy felismerjük az MI-t a hétköznapi eszközökben (L1.12).
+
+**Példa:** Kevesen gondolják, hogy a telefon fényképezőgépének arcfelismerő élessége vagy a navigáció útvonaltervezése MI, pedig MI-módszereken alapulnak.
+
+**Forrás:** [@mitchell2019; @russell2021, {}1. fejezet; @long2020]
+
+### L1.11 – ELIZA és az ELIZA-hatás
+
+**Meghatározás:** Az *ELIZA* Joseph Weizenbaum 1966-os chatbotja. Legismertebb szkriptje (DOCTOR) egy Rogers-féle, kliensközpontú terapeutát utánzott. Az *ELIZA-hatás* az a hajlam, hogy egy egyszerű program válaszai mögé megértést, érzelmeket, szándékot tulajdonítunk.
+
+**Kifejtés:** Az ELIZA nagyon egyszerűen működött. Kulcsszavakat keresett a felhasználó mondataiban, és sablonok szerint visszakérdezett („Azt mondja, szomorú. Miért szomorú?”). Weizenbaumot megdöbbentette, hogy sokan, köztük a titkárnője is, személyes beszélgetést folytattak vele, és úgy érezték, a program megérti őket. Később kritikus könyvet írt az MI-ről (*Computer Power and Human Reason*, 1976). Az ELIZA-hatás ma, a sokkal meggyőzőbb chatbotok korában még erősebben érvényesül.
+
+**Példa:** Ha valaki úgy érzi, hogy egy chatbot „tényleg törődik vele”, az ELIZA-hatás egy formáját éli át. Ez pszichológiailag érthető, de a rendszer nem érez.
+
+**Forrás:** [@weizenbaum1966; @weizenbaum1976; @mitchell2019; @long2020]
+
+### L1.12 – Az MI felismerése a hétköznapi technológiákban
+
+**Meghatározás:** Long és Magerko MI-műveltségi keretének első kompetenciája. Azt jelenti, hogy meg tudjuk különböztetni az MI-t használó eszközöket a nem MI-alapúaktól.
+
+**Kifejtés:** Az MI sokszor láthatatlanul, a háttérben működik. Ilyen az ajánlórendszer, a hírfolyam sorrendje, a spamszűrő, a hangasszisztens, a fordítóprogram vagy a banki csalásészlelés. Aki felismeri ezeket, jobban érti, miért éppen azt látja, amit lát, és tudatosabban tud dönteni. A felismerés nem mindig egyszerű: nem minden „okos” eszköz használ MI-t (egy egyszerű időzítős termosztát például nem), és nem minden MI-t neveznek annak.
+
+**Példa:** Egy videómegosztó „Neked ajánlott” listáját MI-alapú ajánlórendszer állítja össze a korábbi nézési szokásaink alapján.
+
+**Forrás:** [@long2020, {}1. kompetencia; @ai4k12; @cosgrove2025, {}implicit MI]
+
+---
+
+## L2 – Intelligens ágensek, keresés és problémamegoldás
+
+### L2.01 – Intelligens ágens, környezet, érzékelő, beavatkozó
+
+**Meghatározás:** Az *ágens* minden olyan rendszer, amely *érzékelőkön* (szenzorokon) keresztül információt kap a *környezetéről*, és *beavatkozókon* (aktuátorokon) keresztül hat rá.
+
+**Kifejtés:** Az ágensfogalom nagyon általános: az ember, a robot és egy szoftver is lehet ágens. Az embernél az érzékelők a szemek és fülek, a beavatkozók a kezek és a hang. Egy robotporszívónál az érzékelők az ütközés- és távolságérzékelők, a beavatkozók a kerekek és a kefe. Egy szoftverágensnél az érzékelés lehet beérkező adat, a beavatkozás pedig egy fájlírás vagy üzenetküldés. Az ágens működését az *ágensfüggvény* írja le: azt adja meg, hogy az eddigi érzékelések alapján milyen cselekvést választ.
+
+**Példa:** Egy önvezető autó kamerákkal és radarral érzékel, és kormánnyal, gázzal, fékkel avatkozik be.
+
+**Forrás:** [@russell2021, {}2.1. alfejezet]
+
+### L2.02 – Racionális ágens és teljesítménymérték (PEAS)
+
+**Meghatározás:** A *racionális ágens* minden helyzetben azt a cselekvést választja, amelytől az eddigi érzékelései és tudása alapján a legjobb várható teljesítményt reméli. A *PEAS* egy feladat leírására szolgáló séma: **P**erformance (teljesítménymérték), **E**nvironment (környezet), **A**ctuators (beavatkozók), **S**ensors (érzékelők).
+
+**Kifejtés:** A racionalitás nem mindentudást jelent. Az ágens nem lát a jövőbe, csak az elérhető információ alapján dönt jól. Kulcskérdés a *teljesítménymérték*, vagyis hogy mit tekintünk sikernek. Ha rosszul határozzuk meg, a gép „racionálisan” rossz dolgot fog csinálni. Ha egy porszívót például a felszívott por mennyiségével jutalmazunk, „rájöhet”, hogy érdemes kiönteni és újra felszívni ugyanazt a port.
+
+**Példa:** Egy taxisofőr-ágens PEAS-leírása:
+
+- **Teljesítménymérték:** biztonság, gyorsaság, utaskényelem.
+- **Környezet:** utak, forgalom, gyalogosok.
+- **Beavatkozók:** kormány, gáz, fék, kijelző.
+- **Érzékelők:** kamera, GPS, sebességmérő.
+
+**Forrás:** [@russell2021, {}2.2–2.3. alfejezet]
+
+### L2.03 – Környezettípusok
+
+**Meghatározás:** Az ágens környezete több tulajdonság mentén osztályozható. A legfontosabbak:
+
+- **teljesen vagy részben megfigyelhető;**
+- **determinisztikus vagy sztochasztikus** (véletlenszerű);
+- **epizodikus vagy szekvenciális;**
+- **statikus vagy dinamikus;**
+- **diszkrét vagy folytonos;**
+- **egy- vagy többágenses.**
+
+**Kifejtés:** A környezet típusa meghatározza, milyen nehéz a feladat és milyen módszer kell hozzá. A *teljesen megfigyelhető* környezetben az ágens mindent lát, ami a döntéshez kell (sakk). *Részben megfigyelhető* környezetben nem (póker, ahol nem látjuk az ellenfél lapjait). *Determinisztikus* környezetben a cselekvés eredménye biztos, *sztochasztikusban* a véletlen is közrejátszik (kockadobás, forgalom). *Szekvenciális* környezetben a mostani döntés a későbbieket is befolyásolja. *Dinamikus* környezetben a világ változik, miközben az ágens gondolkodik. A valós világ általában a nehezebb végén áll: részben megfigyelhető, sztochasztikus, dinamikus, folytonos és többágenses.
+
+**Példa:** A sudoku teljesen megfigyelhető, determinisztikus, statikus és diszkrét. Az autóvezetés mindennek az ellentéte.
+
+**Forrás:** [@russell2021, {}2.3. alfejezet]
+
+### L2.04 – Állapottér, kezdő- és célállapot, operátor
+
+**Meghatározás:** Egy probléma *állapottere* az összes lehetséges helyzet (állapot) halmaza. A *kezdőállapot* a kiinduló helyzet, a *célállapot* a kívánt helyzet. Az *operátorok* (cselekvések) vezetnek egyik állapotból a másikba. A megoldás egy olyan operátorsorozat, amely a kezdőállapotból a célállapotba visz.
+
+**Kifejtés:** Sok feladat, legyen az útvonaltervezés, rejtvény vagy ütemezés, megfogalmazható úgy, mint egy út keresése egy hatalmas „térképen”, amelynek pontjai az állapotok, élei a cselekvések. A jó problémamegfogalmazás a megoldás fele. El kell dönteni, mi számít állapotnak, mely részletek fontosak és melyek hagyhatók el. Ez az *absztrakció*.
+
+**Példa:** A Rubik-kockánál az állapot a kocka egy elrendezése, az operátor egy lap elforgatása, a célállapot a kirakott kocka.
+
+**Forrás:** [@russell2021, {}3.1–3.2. alfejezet; @newell1972]
+
+### L2.05 – Nem informált keresés (szélességi, mélységi)
+
+**Meghatározás:** A *nem informált* (vak) keresési eljárások az állapottérben a cél helyére vonatkozó bármiféle extra tudás nélkül keresnek. A *szélességi keresés* (breadth-first search) szintenként halad: először a kezdőponthoz legközelebbi állapotokat vizsgálja. A *mélységi keresés* (depth-first search) egy ágon a lehető legmélyebbre megy, és csak zsákutcánál lép vissza.
+
+**Kifejtés:** A szélességi keresés garantáltan a legkevesebb lépésből álló megoldást találja meg, de nagyon sok memóriát igényel, mert minden szintet egyszerre kell nyilvántartania. A mélységi keresés kevés memóriával beéri, de eltévedhet egy végtelenül hosszú ágon, és nem feltétlenül a legrövidebb utat találja meg. Mindkettő „vakon” keres: nem tudja, merre van a cél.
+
+**Példa:** Egy labirintusban a mélységi keresés olyan, mint a „mindig a jobb kezünket a falon tartva” stratégia: végigmegyünk egy folyosón, és csak a zsákutcánál fordulunk vissza.
+
+**Forrás:** [@russell2021, {}3.4. alfejezet; @cs50ai, {}Search]
+
+### L2.06 – Heurisztika és informált keresés (A*)
+
+**Meghatározás:** A *heurisztika* egy becslés arról, milyen messze van egy állapot a céltól. Az *informált keresés* ezt a becslést használja a keresés irányítására. Az *A\** algoritmus minden állapotot az eddig megtett út költsége és a hátralévő út becsült költsége összege alapján rangsorol.
+
+**Kifejtés:** A heurisztika „hüvelykujjszabály”: nem garantáltan pontos, de jó irányba terel, és rengeteg felesleges vizsgálatot spórol meg. Az A\* akkor találja meg biztosan a legjobb megoldást, ha a heurisztika soha nem becsüli túl a valódi távolságot. Ezt *elfogadható* (admissible) heurisztikának hívjuk. Az A\* az útvonaltervezők és a számítógépes játékok egyik alapalgoritmusa.
+
+**Példa:** Városok közötti útvonaltervezéskor jó heurisztika a légvonalbeli távolság, mert az valódi út sosem lehet rövidebb nála.
+
+**Forrás:** [@russell2021, {}3.5–3.6. alfejezet; @cs50ai, {}Search]
+
+### L2.07 – Játékfa, minimax, ellenséges keresés
+
+**Meghatározás:** Az *ellenséges keresés* olyan helyzetekben használatos, ahol egy ellenfél a mi céljainkkal szemben cselekszik (kétszemélyes játékok). A *játékfa* a lehetséges lépéssorozatokat ábrázolja. A *minimax* algoritmus abból indul ki, hogy az ellenfél mindig a számunkra legrosszabb lépést választja, és ehhez képest keresi a legjobb lépést.
+
+**Kifejtés:** A minimax felváltva gondolkodik a két játékos fejével: „ha ide lépek, az ellenfél a számomra legrosszabbat lépi, arra én a legjobbat válaszolom…”. Valós játékokban a fa túl nagy, ezért a programok csak néhány lépés mélységig keresnek. Ott egy *kiértékelő függvénnyel* becsülik meg az állás jóságát, a felesleges ágakat pedig az *alfa-béta nyesés* vágja le. Az IBM Deep Blue így győzte le 1997-ben Garri Kaszparov sakkvilágbajnokot. A Go-játékban a DeepMind AlphaGo programja 2016-ban már neurális hálókat és megerősítéses tanulást is használt.
+
+**Példa:** Az amőba (tic-tac-toe) játékfája elég kicsi ahhoz, hogy a minimax teljesen végigszámolja. Ezért egy jól megírt program soha nem veszít.
+
+**Forrás:** [@russell2021, {}5. fejezet; @cs50ai, {}Search]
+
+### L2.08 – Optimalizálás, lokális keresés
+
+**Meghatározás:** Az *optimalizálás* a lehető legjobb megoldás keresése egy célfüggvény szerint. A *lokális keresés* egyetlen aktuális megoldásból indul, és lépésenként a szomszédos, jobb megoldások felé mozdul. Ide tartozik a *hegymászó* algoritmus és a *genetikus algoritmus*.
+
+**Kifejtés:** Sok feladatnál nem az út érdekes, hanem csak a végeredmény, például egy jó órarend vagy egy rövid szállítási útvonal. A *hegymászó* algoritmus mindig a legjobb szomszédos megoldásra lép, de beragadhat egy *lokális optimumba*: egy kis dombra, ahonnan minden irányba lefelé vezet az út, pedig máshol van magasabb hegy. A *genetikus algoritmus* az evolúciót utánozza. Megoldások „populációját” tartja fenn, a jobbakat „keresztezi” és „mutálja”, így nemzedékről nemzedékre javulnak a megoldások.
+
+**Példa:** Egy futárcég napi útvonalainak megtervezése optimalizálási feladat. Célja a lehető legrövidebb összút úgy, hogy minden csomag időben megérkezzen.
+
+**Forrás:** [@russell2021, {}4.1. alfejezet; @cs50ai, {}Optimization]
+
+### L2.09 – Kényszerkielégítési probléma
+
+**Meghatározás:** Olyan feladat, amelyben *változóknak* kell értéket adni úgy, hogy minden előírt *kényszer* (feltétel) teljesüljön.
+
+**Kifejtés:** Egy kényszerkielégítési probléma három részből áll:
+
+- **változók:** amiknek értéket kell adni;
+- **értéktartományok:** milyen értékeket vehetnek fel;
+- **kényszerek:** milyen kombinációk megengedettek.
+
+Az általános megoldó algoritmusok ügyesen szűkítik a lehetőségeket. Ha egy változónak értéket adunk, azonnal kihúzzák a többi változó tartományából az ezzel ütköző értékeket. Így sokkal gyorsabban jutnak eredményre, mint ha minden kombinációt kipróbálnának.
+
+**Példa:** Az órarend-készítés kényszerkielégítési probléma:
+
+- **változók:** az órák;
+- **értékek:** az időpontok és termek;
+- **kényszerek:** egy tanár nem lehet egyszerre két helyen, egy teremben egyszerre csak egy óra lehet.
+
+A sudoku is ilyen feladat.
+
+**Forrás:** [@russell2021, {}6. fejezet; @cs50ai, {}Optimization]
+
+### L2.10 – Automatikus tervezés
+
+**Meghatározás:** Az *automatikus tervezés* (planning) olyan cselekvéssorozat előállítása, amely egy kiinduló helyzetből egy kitűzött cél elérésére vezet. A cselekvéseket előfeltételeikkel és hatásaikkal írja le.
+
+**Kifejtés:** A tervezés a kereséshez hasonló, de a világot tényekkel írja le („a doboz az asztalon van”), a cselekvéseket pedig szabályokkal („felemelni csak üres kézzel lehet, és utána a doboz a kézben van”). A klasszikus leírónyelv a STRIPS (1971). Tervezést használnak az űrszondák, a gyári robotok és a logisztika. A mai MI-ágensek (L6.15) is terveznek: egy célt részlépésekre bontanak.
+
+**Példa:** „Készíts reggelit”: ahhoz, hogy kávé legyen, előbb vizet kell forralni, ahhoz pedig előbb vizet kell tölteni a kannába.
+
+**Forrás:** [@russell2021, {}11. fejezet; @cs2023, {}Planning]
+
+### L2.11 – Kombinatorikus robbanás
+
+**Meghatározás:** Az a jelenség, hogy a lehetséges kombinációk száma a probléma méretével rendkívül gyorsan, gyakran exponenciálisan nő, ezért az összes lehetőség végigpróbálása gyakorlatilag kivitelezhetetlenné válik.
+
+**Kifejtés:** Ha minden lépésnél csak tíz lehetőség van, tíz lépés után már tízmilliárd lehetséges sorozat létezik. Claude Shannon becslése szerint a lehetséges sakkjátszmák száma nagyságrendileg 10^120, ez több, mint ahány atom a látható univerzumban van. Ezért az MI-ben a nyers erő helyett okos módszerek kellenek: heurisztikák, nyesés, tanulás. A kombinatorikus robbanás volt az egyik oka a korai MI kudarcainak, amikor a laboratóriumi „játékproblémákon” működő módszereket valós méretű feladatokra próbálták alkalmazni.
+
+**Példa:** Ha 20 várost kell bejárni a legrövidebb úton (utazó ügynök problémája), a lehetséges sorrendek száma több mint 10^17. Ezt még a leggyorsabb számítógép sem tudja egyenként végigpróbálni.
+
+**Forrás:** [@russell2021, {}3. fejezet; @lighthill1973; @elementsofai, {}2. fejezet]
+
+---
+
+## L3 – Tudásreprezentáció, következtetés és bizonytalanság
+
+### L3.01 – Tudásbázis és következtetőgép
+
+**Meghatározás:** A *tudásbázis* egy formális nyelven leírt állítások (tények és szabályok) gyűjteménye. A *következtetőgép* (inference engine) az a program, amely ezekből új állításokat vezet le.
+
+**Kifejtés:** A tudásalapú rendszerek alapötlete, hogy szétválasztják a *tudást* (mit tudunk a világról) és a *gondolkodást* (hogyan következtetünk). Így a tudásbázis bővíthető vagy javítható anélkül, hogy a programot át kellene írni. Ha a tudásbázisban szerepel, hogy „minden ember halandó” és „Szókratész ember”, a következtetőgép levezeti, hogy „Szókratész halandó”.
+
+**Példa:** Egy növényhatározó alkalmazás tudásbázisa a növények jellemzőit tartalmazza, a következtetőgép pedig a megadott tulajdonságokból kikövetkezteti a faj nevét.
+
+**Forrás:** [@russell2021, {}7.1. alfejezet; @cs50ai, {}Knowledge]
+
+### L3.02 – Ítéletlogika és elsőrendű logika
+
+**Meghatározás:** Az *ítéletlogika* egyszerű, igaz vagy hamis állításokat kapcsol össze logikai műveletekkel (ÉS, VAGY, NEM, HA…AKKOR). Az *elsőrendű logika* (predikátumlogika) ennél kifejezőbb: tárgyakról, tulajdonságaikról és kapcsolataikról beszél, és használja a „minden” és „létezik” kvantorokat.
+
+**Kifejtés:**
+
+- **Ítéletlogika:** egy állítás vagy igaz, vagy hamis, például „Esik az eső” vagy „Viszem az esernyőt”. Ezekből szabályokat építhetünk: „HA esik az eső, AKKOR viszem az esernyőt.”
+- **Elsőrendű logika:** általánosításokat is ki tud fejezni („Minden macska emlős”). Ezt az ítéletlogika csak minden egyes macskára külön kimondva tudná.
+
+A logika előnye, hogy a következtetések garantáltan helyesek, ha a kiinduló állítások igazak. Hátránya, hogy a bizonytalan, kivételekkel teli valós világot nehezen kezeli. Kivétel például, hogy „a madarak repülnek, kivéve a pingvint”.
+
+**Példa:** A *modus ponens* szabály: ha tudjuk, hogy „HA A, AKKOR B” és „A igaz”, akkor „B is igaz”.
+
+**Forrás:** [@russell2021, {}7–8. fejezet; @cs50ai, {}Knowledge]
+
+### L3.03 – Szabályalapú rendszer
+
+**Meghatározás:** Olyan MI-rendszer, amely a tudást „HA feltétel, AKKOR következmény” alakú szabályok formájában tárolja, és ezek láncolásával jut döntésre.
+
+**Kifejtés:** A szabályokat emberek írják meg, általában szakértők tudására építve. A rendszer kétféleképpen működhet:
+
+- **Előrefelé láncolás:** a tényekből kiindulva alkalmazza a szabályokat, amíg következtetésre nem jut.
+- **Hátrafelé láncolás:** egy feltételezett következtetésből indul, és megnézi, milyen tények kellenének az igazolásához.
+
+A szabályalapú rendszerek átláthatók és ellenőrizhetők, de sok szabály esetén nehéz őket karbantartani. Rosszul kezelik azokat a helyzeteket, amelyekre nem írtak szabályt, és nem tanulnak maguktól. Ebben különböznek a gépi tanulástól (L4.01).
+
+**Példa:** Egy banki rendszer szabálya: „HA a tranzakció külföldi ÉS az összeg 500 000 Ft felett van ÉS éjjel történik, AKKOR jelöld gyanúsnak.”
+
+**Forrás:** [@russell2021, {}7. és 9. fejezet; @elementsofai, {}1. fejezet]
+
+### L3.04 – Szakértői rendszer (pl. MYCIN)
+
+**Meghatározás:** A *szakértői rendszer* olyan szabályalapú MI-program, amely egy szűk szakterület emberi szakértőinek tudását gyűjti össze, és ennek alapján tanácsot ad vagy döntést javasol.
+
+**Kifejtés:** A szakértői rendszerek az 1970–80-as években élték fénykorukat, és az MI első nagy kereskedelmi sikerét jelentették. A legismertebb a Stanfordon az 1970-es években fejlesztett *MYCIN*. Néhány száz szabály alapján javasolt antibiotikumos kezelést vérfertőzésekre, és a bizonytalanságot „bizonyossági tényezőkkel” kezelte. Teszteken a szakértőkhöz mérhetően teljesített, a klinikai gyakorlatban mégsem használták, részben jogi és etikai, részben gyakorlati okok miatt. A szakértői rendszerek gyengéje a *tudásszerzés szűk keresztmetszete*: a szakértők tudását nagyon nehéz szabályokká alakítani.
+
+**Példa:** Egy kórházi döntéstámogató program, amely a tünetek és laborértékek alapján figyelmeztet egy lehetséges gyógyszer-kölcsönhatásra.
+
+**Forrás:** [@russell2021, {}1.3. alfejezet; @buchanan1984]
+
+### L3.05 – Ontológia, szemantikus háló, tudásgráf
+
+**Meghatározás:**
+
+- **Ontológia:** egy terület fogalmainak és a köztük lévő kapcsolatoknak formális leírása, például „a kutya egy emlős”, „az emlős egy állat”.
+- **Szemantikus háló:** ennek gráf formájú ábrázolása, ahol a csúcsok fogalmak, az élek kapcsolatok.
+- **Tudásgráf:** nagy méretű, valós entitásokat (személyeket, helyeket, eseményeket) és kapcsolataikat tartalmazó hálózat.
+
+**Kifejtés:** Ezek a reprezentációk lehetővé teszik a tulajdonságok öröklését. Ha a kutya emlős, és az emlősök szőrösek, akkor a kutya is szőrös, és ezt nem kell minden állatnál külön tárolni. A szemantikus háló ötletét Ross Quillian dolgozta ki az 1960-as évek végén, és pszichológiai kísérletekben is vizsgálták [@collins1969]. Azt mérték, hogy az emberek lassabban erősítik-e meg azokat az állításokat, amelyekhez a hálóban több lépést kell megtenni. A Google 2012-ben vezette be a keresőjébe a *Knowledge Graph*-ot, amely a találatok melletti információs dobozokat táplálja.
+
+**Példa:** Ha rákeresünk egy híres festőre, és a találatok mellett megjelenik a születési éve, a főbb művei és a kortársai, azt egy tudásgráf szolgáltatja.
+
+**Forrás:** [@russell2021, {}10. fejezet; @collins1969]
+
+### L3.06 – Valószínűség, feltételes valószínűség
+
+**Meghatározás:** A *valószínűség* egy 0 és 1 közötti szám, amely azt fejezi ki, mennyire várható egy esemény. A *feltételes valószínűség*, P(A | B), annak valószínűsége, hogy A bekövetkezik, *feltéve*, hogy B már bekövetkezett.
+
+**Kifejtés:** A valós világban az ágensek ritkán biztosak valamiben. A valószínűség-számítás matematikailag következetes módot ad a bizonytalanság kezelésére. A feltételes valószínűség azt írja le, hogyan változik a meggyőződésünk új információ hatására. Fontos, hogy P(A | B) és P(B | A) általában nem egyenlő. Annak valószínűsége, hogy aki influenzás, az lázas, nagy. Annak valószínűsége, hogy aki lázas, az influenzás, sokkal kisebb, mert sok más oka is lehet a láznak.
+
+**Példa:** Annak valószínűsége, hogy esni fog, ha reggel borús az ég, nagyobb, mint az eső általános valószínűsége.
+
+**Forrás:** [@russell2021, {}12. fejezet; @cs50ai, {}Uncertainty; @elementsofai, {}3. fejezet]
+
+### L3.07 – Bayes-tétel, a priori és a posteriori valószínűség
+
+**Meghatározás:** A *Bayes-tétel* megmutatja, hogyan frissítsük egy feltevés valószínűségét új bizonyíték fényében:
+
+P(H | E) = P(E | H) · P(H) / P(E)
+
+- Az *a priori* valószínűség, P(H), a bizonyíték előtti kiinduló hiedelem.
+- Az *a posteriori* valószínűség, P(H | E), a bizonyíték utáni, frissített hiedelem.
+
+**Kifejtés:** A tétel lényege, hogy a bizonyíték erejét mindig a kiinduló gyakorisággal (báziseráta) együtt kell értékelni. Ha egy betegség nagyon ritka, még egy pontos teszt pozitív eredménye után is meglepően kicsi lehet az esélye, hogy valaki tényleg beteg, mert a téves pozitívok száma meghaladhatja a valódi betegekét. Az emberek hajlamosak ezt figyelmen kívül hagyni. Kahneman és Tversky ezt *báziseráta-figyelmen kívül hagyásnak* nevezte. Az MI-ben a Bayes-tétel a valószínűségi következtetés alapja.
+
+**Példa:** Egy betegség az emberek 1%-át érinti. A teszt a betegek 90%-át kimutatja, de az egészségesek 9%-ánál is pozitív. 1000 emberből 10 beteg, közülük 9-nél pozitív a teszt. A 990 egészségesből körülbelül 89-nél szintén pozitív. Pozitív eredmény esetén tehát a betegség valószínűsége csak kb. 9/98, azaz körülbelül 9%.
+
+**Forrás:** [@russell2021, {}12.5. alfejezet; @elementsofai, {}3. fejezet; @kahneman1973]
+
+### L3.08 – Bayes-háló
+
+**Meghatározás:** A *Bayes-háló* (bayesi hálózat) olyan irányított gráf, amelynek csúcsai valószínűségi változók, nyilai pedig a közvetlen függőségeket (gyakran oksági kapcsolatokat) jelölik. Minden csúcshoz egy táblázat tartozik, amely megadja, hogyan függ a változó a szülőitől.
+
+**Kifejtés:** Sok változó együttes valószínűségét közvetlenül tárolni lehetetlen lenne, mert túl sok kombináció van. A Bayes-háló kihasználja, hogy a legtöbb változó csak néhány másiktól függ közvetlenül, így a tudás tömören tárolható. A hálóból bármilyen kérdés kiszámítható: ha megfigyeltük X-et, mennyire valószínű Y? A módszert Judea Pearl dolgozta ki az 1980-as években, és 2011-ben Turing-díjat kapott érte.
+
+**Példa:**
+
+- **Háló:** „Eső” → „Vizes fű” ← „Locsoló”.
+- **Kérdés:** ha a fű vizes, mennyire valószínű, hogy esett?
+- **Új információ:** ha megtudjuk, hogy a locsoló be volt kapcsolva, az eső valószínűsége csökken, mert a vizes füvet már a locsoló is megmagyarázza.
+
+**Forrás:** [@russell2021, {}13. fejezet; @cs50ai, {}Uncertainty; @pearl1988]
+
+### L3.09 – Naiv Bayes-osztályozó
+
+**Meghatározás:** Egyszerű, a Bayes-tételre épülő osztályozó módszer, amely leegyszerűsítésként („naivan”) feltételezi, hogy az egyes jellemzők az osztályon belül függetlenek egymástól.
+
+**Kifejtés:** A függetlenségi feltevés a valóságban szinte sosem teljesül: egy levélben az „ingyen” és a „nyeremény” szó gyakran együtt fordul elő. A módszer ennek ellenére meglepően jól működik, gyors, és kevés adatból is tanul. Minden lehetséges osztályra kiszámítja, mennyire valószínű az adott jellemzők mellett, és a legvalószínűbbet választja. Klasszikus alkalmazása a levélszemét-szűrés.
+
+**Példa:** Egy spamszűrő megtanulja, hogy az „ingyen”, „nyertél”, „kattints” szavak gyakrabban fordulnak elő kéretlen levelekben. Egy új levélnél a szavak alapján kiszámítja, mennyire valószínű, hogy spam.
+
+**Forrás:** [@russell2021, {}12.6. alfejezet; @cs50ai, {}Learning]
+
+### L3.10 – Döntéselmélet, várható hasznosság
+
+**Meghatározás:** A *döntéselmélet* a valószínűség-számítást és a *hasznosságot* (mennyire jó nekünk egy kimenet) kapcsolja össze. A *várható hasznosság* elve szerint a racionális döntéshozó azt a lehetőséget választja, amelynél a lehetséges kimenetek hasznosságának valószínűségekkel súlyozott átlaga a legnagyobb.
+
+**Kifejtés:** Egy jó döntéshez nem elég tudni, mi valószínű, azt is tudni kell, mennyire fontos az egyes kimenetel. A ritka, de súlyos következmény többet nyomhat a latban, mint a gyakori, de jelentéktelen. Az MI-rendszerek gyakran ezt az elvet követik. Az emberek viszont szisztematikusan eltérnek tőle: a veszteséget erősebben éljük meg, mint az ugyanakkora nyereséget. Ezt írja le Kahneman és Tversky *prospektelmélete*.
+
+**Példa:** Vigyek esernyőt?
+
+- **Ha viszem, és nem esik:** kicsit kényelmetlen.
+- **Ha nem viszem, és esik:** nagyon rossz.
+- **Döntés:** már 30%-os esőesélynél is érdemes lehet vinni.
+
+**Forrás:** [@russell2021, {}16. fejezet; @kahneman1979]
+
+### L3.11 – Markov-döntési folyamat
+
+**Meghatározás:** A *Markov-döntési folyamat* (Markov decision process, MDP) olyan döntési helyzetek matematikai modellje, ahol egy ágens lépésről lépésre cselekszik egy véletlenszerű környezetben. Minden lépésben jutalmat vagy büntetést kap, a következő állapot pedig csak a jelenlegi állapottól és cselekvéstől függ.
+
+**Kifejtés:** Egy MDP részei:
+
+- **állapotok;**
+- **cselekvések;**
+- **átmeneti valószínűségek:** melyik cselekvés hova vezet milyen eséllyel;
+- **jutalom.**
+
+A cél egy *stratégia* (policy) megtalálása, vagyis egy szabályé, amely minden állapotra megmondja, mit kell tenni ahhoz, hogy hosszú távon a legtöbb jutalmat gyűjtsük. A „Markov” jelző arra utal, hogy a jövő csak a jelentől függ, a múlttól nem. Az MDP a megerősítéses tanulás (L4.04) matematikai alapja.
+
+**Példa:** Egy robot egy rácsos teremben mozog. Ha előre akar lépni, 80% eséllyel sikerül, 20% eséllyel megcsúszik oldalra. A célmező +10 pontot ér, egy gödör -10 pontot. Az MDP megoldása megmondja, melyik mezőn merre érdemes indulni.
+
+**Forrás:** [@russell2021, {}17. fejezet; @cs188; @cs221]
+
+---
+
+## L4 – Gépi tanulás
+
+### L4.01 – Gépi tanulás vs. explicit programozás
+
+**Meghatározás:** A *gépi tanulás* (machine learning) az MI azon ága, amelyben a számítógép adatokból, példákból tanulja meg a feladat megoldását, ahelyett hogy egy ember lépésről lépésre beprogramozná. Tom Mitchell [-@mitchell1997] definíciója szerint egy program akkor tanul, ha egy feladatban nyújtott teljesítménye a tapasztalattal javul.
+
+**Kifejtés:**
+
+- **Explicit programozás:** a programozó írja meg a szabályokat (lásd szabályalapú rendszer, L3.03).
+- **Gépi tanulás:** a programozó adatokat és egy tanulási eljárást ad, a szabályokat (a modellt) a gép állítja elő.
+
+Ez akkor előnyös, ha a szabályokat nehéz megfogalmazni, például „mitől macska egy kép?”, vagy ha folyamatosan változnak, mint a spamek trükkjei. Arthur Samuel már 1959-ben így írta le a területet: a gépi tanulás képessé teszi a számítógépet a tanulásra anélkül, hogy kifejezetten programoznák.
+
+**Példa:** Kézírásos számjegyek felismerésére szinte lehetetlen szabályokat írni. Több tízezer felcímkézett példából viszont egy gépi tanuló modell nagyon pontosan megtanulja.
+
+**Forrás:** [@mitchell1997; @russell2021, {}19.1. alfejezet; @elementsofai, {}4. fejezet; @ng_ai4e, {}1. hét]
+
+### L4.02 – Felügyelt tanulás, címke, jellemző
+
+**Meghatározás:** A *felügyelt tanulás* (supervised learning) során a modell olyan példákból tanul, amelyekhez ismert a helyes válasz. A *jellemzők* (features) a bemeneti adatok, a *címke* (label) a kívánt kimenet.
+
+**Kifejtés:** Olyan ez, mint a megoldókulccsal való gyakorlás. A modell sok „kérdés–helyes válasz” párt lát, és megpróbálja megtalálni a kettő közötti összefüggést, hogy új, eddig nem látott kérdésekre is jól válaszoljon. A címkéket általában emberek készítik, ami drága és időigényes, és a címkézők hibái vagy előítéletei bekerülhetnek a modellbe. A felügyelt tanulás két fő feladattípusa az osztályozás és a regresszió (L4.05).
+
+**Példa:**
+
+- **Jellemzők:** egy lakás alapterülete, szobaszáma és elhelyezkedése.
+- **Címke:** a lakás eladási ára.
+- **Feladat:** a modell ezekből tanulja meg megbecsülni új lakások árát.
+
+**Forrás:** [@russell2021, {}19.1. alfejezet; @elementsofai, {}4. fejezet; @hornberger2023]
+
+### L4.03 – Felügyelet nélküli tanulás
+
+**Meghatározás:** A *felügyelet nélküli tanulás* (unsupervised learning) során a modell címkék nélküli adatokban keres szerkezetet, mintázatokat, csoportokat.
+
+**Kifejtés:** Itt nincs „megoldókulcs”. A gép maga fedezi fel, hogy mely adatpontok hasonlítanak egymásra, vagy milyen rejtett dimenziók mentén rendeződnek az adatok. A leggyakoribb feladatai:
+
+- **klaszterezés** (L4.06);
+- **dimenziócsökkentés:** sok változó összefoglalása kevesebbel;
+- **anomáliakeresés:** szokatlan esetek kiszűrése.
+
+Az eredmény értelmezése az emberre marad. Azt, hogy a gép talált három csoportot, nekünk kell eldöntenünk, valóban értelmes, valós csoportokat jelent-e.
+
+**Példa:** Egy webáruház a vásárlási szokások alapján vevőcsoportokat azonosít, például „akciókeresők”, „márkahűek” és „alkalmi vásárlók”, anélkül hogy előre megmondaná, milyen csoportokat keres.
+
+**Forrás:** [@russell2021, {}19.1. alfejezet; @elementsofai, {}4. fejezet]
+
+### L4.04 – Megerősítéses tanulás
+
+**Meghatározás:** A *megerősítéses tanulás* (reinforcement learning) során egy ágens próbálkozások révén tanul. Cselekszik egy környezetben, jutalmat vagy büntetést kap, és fokozatosan olyan *stratégiát* alakít ki, amely hosszú távon a legtöbb jutalmat hozza.
+
+**Kifejtés:** Itt nincs megmondva, mi a helyes lépés, csak az derül ki, hogy a cselekvéssorozat jó vagy rossz eredménnyel járt. Az ágensnek egyensúlyoznia kell a *felfedezés* (új dolgok kipróbálása) és a *kiaknázás* (a már bevált lépések ismétlése) között. A jutalom gyakran késleltetett: egy sakkjátszmában csak a végén derül ki, ki nyert, és nehéz megállapítani, melyik lépés volt a döntő. Ez a *hozzárendelési probléma* (credit assignment). A megerősítéses tanulás erős rokonságot mutat a pszichológiai kondicionálással.
+
+**Példa:** Az AlphaGo program részben önmaga ellen játszott partik millióiból tanult. Csak azt tudta meg, nyert-e vagy veszített, és ebből finomította a stratégiáját.
+
+**Forrás:** [@russell2021, {}22. fejezet; @cs50ai, {}Learning; @sutton2018]
+
+### L4.05 – Klasszifikáció és regresszió
+
+**Meghatározás:** A felügyelt tanulás két fő feladattípusa:
+
+- **Klasszifikáció** (osztályozás): a modell egy *kategóriát* jósol meg, például spam vagy nem spam, macska, kutya vagy madár.
+- **Regresszió:** a modell egy *folytonos számértéket* becsül meg, például árat, hőmérsékletet vagy pontszámot.
+
+**Kifejtés:** A különbség a kimenet típusában van: diszkrét kategória vagy folytonos szám. Ez meghatározza, milyen módszert és milyen értékelési mutatót használunk. Az osztályozásnál pontosságot, precizitást és szenzitivitást (L4.13) mérünk, a regressziónál az átlagos eltérést a valódi értéktől. Sok kérdés mindkét formában feltehető. Megbecsülhetjük egy diák vizsgapontszámát (regresszió), vagy azt, hogy átmegy-e a vizsgán (osztályozás).
+
+**Példa:** Egy kérdőív alapján annak eldöntése, hogy valaki valószínűleg depressziós-e, klasszifikáció. A depressziós tünetek súlyosságának pontszámként való becslése regresszió.
+
+**Forrás:** [@russell2021, {}19.1. alfejezet; @elementsofai, {}4. fejezet]
+
+### L4.06 – Klaszterezés (k-közép)
+
+**Meghatározás:** A *klaszterezés* az adatpontok csoportokba (klaszterekbe) rendezése úgy, hogy egy csoporton belül a pontok hasonlók, a csoportok között pedig eltérők legyenek. A *k-közép* (k-means) algoritmus előre megadott számú (k) csoportot keres.
+
+**Kifejtés:** A k-közép algoritmus lépései:
+
+1. Véletlenszerűen kijelöl k középpontot.
+2. Minden pontot a hozzá legközelebbi középponthoz rendel.
+3. A középpontokat áthelyezi a hozzájuk rendelt pontok átlagába.
+4. A 2–3. lépést addig ismétli, amíg a csoportok már nem változnak.
+
+Egyszerű és gyors módszer, de a csoportok számát nekünk kell megadnunk, és az eredmény a kiindulópontoktól is függhet. A talált klaszterek nem feltétlenül felelnek meg „valódi” típusoknak a világban.
+
+**Példa:** Egy iskola a diákok tanulási szokásai (tanulási idő, órai aktivitás, házi feladatok) alapján három csoportot talál. A csoportok értelmezése és elnevezése a pedagógusok feladata.
+
+**Forrás:** [@russell2021, {}20.3. alfejezet; @elementsofai, {}4. fejezet]
+
+### L4.07 – Legközelebbi szomszéd (k-NN)
+
+**Meghatározás:** A *k legközelebbi szomszéd* (k-nearest neighbors, k-NN) módszer egy új esetet úgy osztályoz, hogy megkeresi a hozzá leginkább hasonló k ismert esetet, és azt a kategóriát választja, amely közöttük a leggyakoribb.
+
+**Kifejtés:** A k-NN a legegyszerűbb tanuló módszerek egyike. Nem épít elvont modellt, hanem „emlékszik” az összes példára, és hasonlóság alapján dönt. A hasonlóságot általában valamilyen távolságként méri. Előnye, hogy könnyen érthető. Hátránya, hogy sok adatnál lassú, és érzékeny arra, milyen jellemzőket és milyen mértékegységet használunk. Ha a jellemzők nagyon különböző léptékűek (az egyik ezres, a másik egyes nagyságrendű), a nagyobb léptékű jellemző uralja a távolságot.
+
+**Példa:** Egy filmajánló megnézi, melyik 5 felhasználó ízlése hasonlít legjobban a miénkre, és azt ajánlja, amit ők szerettek.
+
+**Forrás:** [@russell2021, {}19.7. alfejezet; @elementsofai, {}4. fejezet]
+
+### L4.08 – Döntési fa
+
+**Meghatározás:** A *döntési fa* olyan modell, amely egymást követő igen–nem (vagy több kimenetelű) kérdések sorozatával jut el egy döntéshez. Fa alakú szerkezetben ábrázoljuk, ahol a levelek a végső kategóriák vagy értékek.
+
+**Kifejtés:** A döntési fát az adatokból lehet tanítani. Az algoritmus minden lépésben azt a kérdést választja, amely a legjobban szétválasztja az eseteket. A döntési fa nagy előnye az értelmezhetőség: egy ember is könnyen követi, miért született a döntés. Ha a fa túl mély, túlillesztésre (L4.11) hajlamos. Ezért gyakran sok fát kombinálnak egy *véletlen erdőben* (random forest), ami pontosabb, de kevésbé átlátható.
+
+**Példa:** Hitelbírálati fa:
+
+- „Van rendszeres jövedelme?” Ha nem: elutasítás.
+- Ha igen: „Van tartozása?” Ha igen: további vizsgálat. Ha nem: jóváhagyás.
+
+**Forrás:** [@russell2021, {}19.3. alfejezet; @elementsofai, {}4. fejezet]
+
+### L4.09 – Lineáris és logisztikus regresszió
+
+**Meghatározás:**
+
+- **Lineáris regresszió:** egy folytonos kimenetet a bemeneti változók súlyozott összegeként (egyenesként vagy síkként) becsül meg.
+- **Logisztikus regresszió:** a súlyozott összeget egy S alakú függvénnyel 0 és 1 közé szorítja, és így egy esemény *valószínűségét* becsüli. Osztályozásra használják, a neve ellenére.
+
+**Kifejtés:** A lineáris regresszió a statisztikából is ismert. Az adatpontokra a „legjobban illeszkedő” egyenest keresi, vagyis azt, amelynél a pontok és az egyenes közötti eltérések négyzetösszege a legkisebb. A logisztikus regresszió például azt becsli meg, mekkora eséllyel tartozik egy eset az „igen” csoportba. Mindkét módszer egyszerű és jól értelmezhető: a súlyokból látszik, melyik változó milyen irányban és mennyire befolyásolja az eredményt. Gyakran ezek az első modellek, amelyekhez a bonyolultabbakat viszonyítják.
+
+**Példa:**
+
+- **Lineáris regresszió:** a tanulással töltött órák száma alapján megbecsüljük a vizsgapontszámot.
+- **Logisztikus regresszió:** ugyanebből azt becsüljük meg, mekkora valószínűséggel lesz sikeres a vizsga.
+
+**Forrás:** [@russell2021, {}19.6. alfejezet; @goodfellow2016, {}5. fejezet]
+
+### L4.10 – Tanító-, validációs és teszthalmaz
+
+**Meghatározás:** Az adatokat a modellépítés során általában három részre osztják:
+
+- **tanítóhalmaz:** ezen tanul a modell;
+- **validációs halmaz:** ezen hangolják a beállításokat és választanak a modellváltozatok közül;
+- **teszthalmaz:** ezen mérik a végleges modell teljesítményét új, ismeretlen adatokon.
+
+**Kifejtés:** A felosztás célja, hogy őszintén megtudjuk, mennyire működik a modell olyan adatokon, amelyeket még nem látott. Ha ugyanazon az adaton tanítanánk és tesztelnénk, a modell egyszerűen „bemagolhatná” a válaszokat. A teszthalmazt csak a legvégén szabad elővenni. Ha többször is ránézünk és ennek alapján változtatunk a modellen, akkor az is a fejlesztés részévé válik, és már nem ad független értékelést. Ha kevés az adat, *keresztvalidációt* alkalmaznak: az adatokat felváltva használják tanításra és ellenőrzésre.
+
+**Példa:** Olyan ez, mint amikor a diák a gyakorlófeladatokból tanul (tanítóhalmaz), próbadolgozatokkal méri fel magát (validációs halmaz), végül egy előre nem ismert érettségin vizsgázik (teszthalmaz).
+
+**Forrás:** [@russell2021, {}19.4. alfejezet; @ng_ai4e, {}2. hét]
+
+### L4.11 – Túlillesztés, alulillesztés, generalizáció
+
+**Meghatározás:**
+
+- **Túlillesztés** (overfitting): a modell a tanítóadatok véletlenszerű sajátosságait, zaját is megtanulja. Ezért a tanítóadatokon kiválóan, új adatokon gyengén teljesít.
+- **Alulillesztés** (underfitting): a modell túl egyszerű ahhoz, hogy a valódi összefüggést megragadja, ezért már a tanítóadatokon is gyenge.
+- **Generalizáció** (általánosítás): az a képesség, hogy a modell új, korábban nem látott adatokon is jól működjön.
+
+**Kifejtés:** A gépi tanulás igazi célja a generalizáció, nem a tanítóadatok tökéletes visszaadása. A túlillesztett modell olyan, mint a diák, aki szóról szóra bemagolta a tankönyv példáit, de egy kicsit más feladatnál elakad. Az alulillesztett modell olyan, mint aki csak annyit jegyzett meg, hogy „a válasz általában C”. A túlillesztés ellen több adattal, egyszerűbb modellel, szabályozással (regularizáció) és gondos validálással lehet védekezni.
+
+**Példa:** Egy modell 100 fotón tanulja meg felismerni a farkasokat. Ha minden farkasos képen havas a háttér, a modell a havat tanulhatja meg a farkas helyett, és egy havas tájon álló kutyát is farkasnak néz.
+
+**Forrás:** [@russell2021, {}19.4. alfejezet; @elementsofai, {}4. fejezet; @hornberger2023]
+
+### L4.12 – Torzítás–variancia átváltás
+
+**Meghatározás:** A modell hibájának két fő forrása van, és a kettő között egyensúlyozni kell:
+
+- **Torzítás** (bias): az a hiba, amely abból adódik, hogy a modell túl egyszerű feltevésekkel él.
+- **Variancia:** az a hiba, amely abból adódik, hogy a modell túlságosan érzékeny a tanítóadatok véletlen ingadozásaira.
+
+**Kifejtés:** Az egyszerű modelleknek nagy a torzításuk és kicsi a varianciájuk. Mindig hasonló eredményt adnak, de rendszeresen mellétalálhatnak (alulillesztés). A bonyolult modelleknek kicsi a torzításuk és nagy a varianciájuk. Átlagosan közel vannak a jó válaszhoz, de egy másik tanítóadat-mintán egészen más eredményt adhatnak (túlillesztés). A jó modell a kettő közötti egyensúlyt találja meg. Megjegyzés: a „bias” itt statisztikai fogalom. Nem azonos a társadalmi értelemben vett algoritmikus torzítással (L7.01), bár az angol szó ugyanaz.
+
+**Példa:** A céltáblára lövés hasonlata:
+
+- **Nagy torzítás:** a lövések szorosan együtt vannak, de mind a középponttól balra.
+- **Nagy variancia:** a lövések átlagosan középre esnek, de nagyon szórnak.
+
+**Forrás:** [@russell2021, {}19.4. alfejezet; @goodfellow2016, {}5.4]
+
+### L4.13 – Konfúziós mátrix, pontosság, precizitás, szenzitivitás
+
+**Meghatározás:** A *konfúziós mátrix* egy osztályozó döntéseit négy csoportba rendezi:
+
+- **valódi pozitív:** helyesen jelzett eset;
+- **téves pozitív:** tévesen jelzett eset (téves riasztás);
+- **valódi negatív:** helyesen nem jelzett eset;
+- **téves negatív:** elmulasztott eset.
+
+Ebből számolhatók a fő mutatók:
+
+- **Pontosság** (accuracy): a helyes döntések aránya az összesből.
+- **Precizitás** (precision): a pozitívnak jelzett esetek közül hány valóban pozitív.
+- **Szenzitivitás** (recall, érzékenység): a valódi pozitívok közül hányat talált meg a modell.
+
+**Kifejtés:** A pontosság félrevezető lehet, ha az egyik osztály nagyon ritka. Ha 1000 emberből csak 10 beteg, egy modell, amely mindenkire azt mondja, hogy „egészséges”, 99%-os pontosságú, mégsem talál meg egyetlen beteget sem. Ezért kell a precizitást és a szenzitivitást is nézni, és a kettő gyakran ellentétes irányba mozog. Az érzékenyebb modell több beteget talál meg, de több téves riasztást is ad. Hogy melyik hiba a súlyosabb, az a helyzettől függ. Szűrővizsgálatnál az elmulasztott beteg, spamszűrésnél a fontos levél tévedésből való kiszűrése a nagyobb baj.
+
+**Példa:** Egy spamszűrő 100 levelet jelöl spamnek, ebből 90 valóban spam: a precizitás 90%. Ha összesen 120 spam érkezett, a szűrő 90-et talált meg belőlük: a szenzitivitás 75%.
+
+**Forrás:** [@russell2021, {}19.7. alfejezet; @google_mlcc]
+
+### L4.14 – Adatminőség, „szemét be, szemét ki”
+
+**Meghatározás:** A „szemét be, szemét ki” (garbage in, garbage out, GIGO) elv szerint egy modell nem lehet jobb, mint az adatok, amelyekből tanult. A hiányos, hibás, torz vagy nem reprezentatív adat rossz modellt eredményez.
+
+**Kifejtés:** A gépi tanulásban az adat legalább annyira fontos, mint az algoritmus. Gyakori adatproblémák:
+
+- **mérési hiba:** pontatlanul rögzített értékek;
+- **hiányzó értékek;**
+- **hibás címkék;**
+- **elavult adatok;**
+- **nem reprezentatív minta:** például csak egy csoportból származó adatok.
+
+A modell ezeket a hibákat is megtanulja, sőt felerősítheti őket. Andrew Ng hangsúlyozza, hogy a gyakorlati MI-projektekben a munka jelentős része az adatok gyűjtése, tisztítása és ellenőrzése.
+
+**Példa:** Ha egy arcfelismerő rendszert főleg világos bőrű férfiak fotóin tanítanak, sötét bőrű nők arcán jóval gyakrabban téved (lásd Gender Shades, L7.01).
+
+**Forrás:** [@ng_ai4e, {}1. hét; @elementsofai, {}4. fejezet; @russell2021, {}19. fejezet]
+
+### L4.15 – Az ML-projekt munkafolyamata
+
+**Meghatározás:** Egy gépi tanulási projekt tipikus lépései:
+
+1. a probléma meghatározása;
+2. adatgyűjtés és -előkészítés;
+3. a modell tanítása;
+4. értékelés;
+5. telepítés (bevezetés a gyakorlatba);
+6. folyamatos figyelés és karbantartás.
+
+**Kifejtés:** A folyamat nem egyenes vonalú, hanem ismétlődő. Az értékelés után gyakran vissza kell térni az adatgyűjtéshez vagy a probléma újrafogalmazásához. A telepítés után is figyelni kell a modellt, mert a világ változik, és a modell teljesítménye romolhat. Ezt *adat-* vagy *modellsodródásnak* (drift) nevezik. Andrew Ng *AI for Everyone* kurzusa szerint a legfontosabb lépés a jól megválasztott, megvalósítható és értékes probléma.
+
+**Példa:** Egy okoshangszóró ébresztőszó-felismerője („Hé, …!”):
+
+- **Adatgyűjtés:** hangfelvételek rögzítése.
+- **Tanítás:** a modell megtanulja felismerni az ébresztőszót.
+- **Tesztelés:** valódi otthoni környezetben.
+- **Telepítés után:** a modell rosszul működik idős felhasználókkal, ezért újabb adatokkal kell javítani.
+
+**Forrás:** [@ng_ai4e, {}2. hét; @ng_gai4e, {}2. modul]
+
+---
+
+## L5 – Neurális hálózatok, mélytanulás és gépi észlelés
+
+### L5.01 – Mesterséges neuron, perceptron
+
+**Meghatározás:** A *mesterséges neuron* egy egyszerű számítási egység. Több bemenő számot kap, mindegyiket megszorozza egy súllyal, összeadja őket, majd egy függvény segítségével eldönti, mekkora jelet ad tovább. A *perceptron* [@rosenblatt1958] az első tanulni képes mesterséges neuronmodell.
+
+**Kifejtés:** A mesterséges neuron ötlete Warren McCulloch és Walter Pitts 1943-as munkájából ered [@mcculloch1943]. Ők az idegsejt működését egyszerű logikai egységként modellezték. A perceptron a súlyait a hibáiból tanulva állítja be. Marvin Minsky és Seymour Papert 1969-ben megmutatta, hogy egyetlen perceptron csak egyszerű, egy egyenessel szétválasztható feladatokat tud megoldani. Ilyen feladatra nem képes például a „kizáró vagy” (XOR) művelet. Ez hozzájárult a neurális hálók iránti érdeklődés évtizedes visszaeséséhez. A megoldást a több rétegből álló hálózatok hozták.
+
+**Példa:** Egy perceptron megtanulhatja, hogy egy gyümölcs alma vagy körte. A bemenetei lehetnek a gyümölcs színe és alakja, a kimenete „alma” vagy „körte”.
+
+**Forrás:** [@russell2021, {}21.1. alfejezet; @elementsofai, {}5. fejezet; @mcculloch1943; @rosenblatt1958]
+
+### L5.02 – Súly, torzítási tag, aktivációs függvény
+
+**Meghatározás:**
+
+- **Súly:** megadja, mennyire fontos egy bemenet a neuron számára.
+- **Torzítási tag** (bias): egy hozzáadott állandó, amely eltolja a neuron „ingerküszöbét”.
+- **Aktivációs függvény:** a súlyozott összegből kiszámítja a neuron kimenetét. Ilyen például a szigmoid vagy a ReLU függvény.
+
+**Kifejtés:** A súlyok a neurális háló „tudásának” hordozói: a tanulás során ezek változnak. A torzítási tag lehetővé teszi, hogy a neuron akkor is aktív legyen, ha a bemenetek összege nulla, vagy éppen nehezebben aktiválódjon. Az aktivációs függvény teszi lehetővé, hogy a háló *nemlineáris*, vagyis bonyolult, görbe vonalú összefüggéseket is megtanuljon. Nélküle akárhány réteg is csak egy egyszerű lineáris függvényt tudna kiszámítani. A ReLU („ha negatív, legyen nulla, egyébként maradjon”) ma a leggyakoribb aktivációs függvény.
+
+**Példa:** Egy „menjek-e moziba?” neuron bemenetei: jó-e a film, ráérek-e, jön-e a barátom. Ha a barátom társasága nagyon fontos, az a bemenet nagy súlyt kap.
+
+**Forrás:** [@russell2021, {}21.1. alfejezet; @goodfellow2016, {}6. fejezet]
+
+### L5.03 – Rétegek: bemeneti, rejtett, kimeneti
+
+**Meghatározás:** A neurális hálók neuronjai rétegekbe szerveződnek:
+
+- **bemeneti réteg:** fogadja az adatokat;
+- **rejtett rétegek:** köztes feldolgozást végeznek;
+- **kimeneti réteg:** megadja az eredményt.
+
+**Kifejtés:** Az információ a bemenettől a kimenet felé halad, rétegről rétegre. A rejtett rétegeket azért hívják így, mert közvetlenül nem látjuk, mit csinálnak: sem az adat, sem a kívánt eredmény nem jelenik meg bennük. A rétegek hierarchikus feldolgozást tesznek lehetővé. Képfelismerésnél az első rétegek egyszerű mintázatokat (éleket, foltokat) ismernek fel, a későbbiek ezekből összetettebbeket (szemet, kereket), az utolsók pedig egész tárgyakat. Ha a háló több rejtett réteget tartalmaz, *mély* hálóról beszélünk.
+
+**Példa:** Egy kézírásos számjegyeket felismerő hálóban:
+
+- **bemeneti réteg:** a kép képpontjai;
+- **rejtett rétegek:** vonalakat és íveket ismernek fel;
+- **kimeneti réteg:** 10 neuron, egy-egy a 0–9 számjegyekre.
+
+**Forrás:** [@russell2021, {}21.1. alfejezet; @elementsofai, {}5. fejezet]
+
+### L5.04 – Hiba-visszaterjesztés és gradiensereszkedés
+
+**Meghatározás:**
+
+- **Gradiensereszkedés** (gradient descent): olyan optimalizálási eljárás, amely a súlyokat kis lépésekben abba az irányba módosítja, amerre a modell hibája csökken.
+- **Hiba-visszaterjesztés** (backpropagation): az az algoritmus, amely kiszámítja, hogy a kimeneti hibáért az egyes súlyok mennyire felelősek. A hibát a kimenettől visszafelé, rétegről rétegre terjeszti.
+
+**Kifejtés:** A tanulás így zajlik: a háló jósol valamit, összevetjük a helyes válasszal, és kiszámítjuk a hibát. A hiba-visszaterjesztés megmondja, melyik súlyt merre kell igazítani, a gradiensereszkedés pedig elvégzi a kis igazítást. Ezt több millió példán ismételjük. A gradiensereszkedés olyan, mint ködben lefelé menni egy hegyről: nem látjuk a völgyet, de a lábunk alatt érezzük, merre lejt a talaj. A hiba-visszaterjesztést Rumelhart, Hinton és Williams 1986-os cikke tette ismertté [@rumelhart1986]. Ez tette lehetővé a többrétegű hálók hatékony tanítását.
+
+**Példa:** Ha a háló egy macskás képre azt mondja, hogy „kutya”, a hiba-visszaterjesztés kiszámítja, mely súlyok vezettek leginkább ehhez a tévedéshez, és ezeket egy kicsit módosítja.
+
+**Forrás:** [@russell2021, {}21.2–21.4. alfejezet; @rumelhart1986]
+
+### L5.05 – Mélytanulás, reprezentációtanulás
+
+**Meghatározás:** A *mélytanulás* (deep learning) sok rétegből álló neurális hálózatokat alkalmazó gépi tanulás. A *reprezentációtanulás* azt jelenti, hogy a modell maga tanulja meg, milyen jellemzők fontosak az adatokban. Ezeket nem az embernek kell előre megadnia.
+
+**Kifejtés:** A hagyományos gépi tanulásban a szakértőknek kellett kitalálniuk, milyen jellemzőket nézzen a modell, például egy képen az éleket vagy a színeloszlást. A mélytanuló háló a nyers adatokból (képpontokból, hanghullámokból, szövegből) maga építi fel a hasznos jellemzők hierarchiáját. Az áttörés 2012 körül jött el, amikor az *AlexNet* nevű háló nagy fölénnyel megnyerte az ImageNet képfelismerési versenyt. A 2018-as Turing-díjat Yoshua Bengio, Geoffrey Hinton és Yann LeCun kapta a mélytanulás megalapozásáért.
+
+**Példa:** A mai fordítóprogramok, hangasszisztensek és chatbotok mind mélytanuló modelleken alapulnak.
+
+**Forrás:** [@goodfellow2016, {}1. fejezet; @russell2021, {}21. fejezet; @ng_ai4e, {}1. hét]
+
+### L5.06 – Konvolúciós neurális háló (CNN), gépi látás
+
+**Meghatározás:** A *konvolúciós neurális háló* (convolutional neural network, CNN) képek és más rácsszerű adatok feldolgozására kifejlesztett háló. Kis „szűrőkkel” végigpásztázza a képet, és helyi mintázatokat keres. A *gépi látás* (computer vision) az MI azon területe, amely képek és videók értelmezésével foglalkozik.
+
+**Kifejtés:** A CNN egyik fő ötlete, hogy ugyanaz a szűrő a kép minden részén ugyanazt a mintázatot keresi, például egy függőleges élt. Így a háló a mintázatot bárhol felismeri a képen, és sokkal kevesebb súlyra van szüksége. A CNN-ek felépítését részben a látókéreg működése ihlette. Hubel és Wiesel macskákon végzett kutatásai (Nobel-díj, 1981) kimutatták, hogy a látókéreg egyes sejtjei adott irányú élekre reagálnak. A gépi látás alkalmazásai közé tartozik az arcfelismerés, az orvosi képalkotás elemzése és az önvezető autók környezetérzékelése.
+
+**Példa:** A telefon fotóalkalmazása automatikusan csoportosítja a képeket aszerint, hogy kutya, tengerpart vagy étel látható-e rajtuk.
+
+**Forrás:** [@russell2021, {}25. és 27. fejezet; @goodfellow2016, {}9. fejezet; @lecun1998]
+
+### L5.07 – Rekurrens hálók (RNN) és szekvenciák feldolgozása
+
+**Meghatározás:** A *rekurrens neurális háló* (recurrent neural network, RNN) sorozatok, például szövegek, beszéd vagy idősorok feldolgozására szolgál. Belső „emlékezettel” rendelkezik, amely a sorozat korábbi elemeiből származó információt továbbviszi a következő lépésekre.
+
+**Kifejtés:** Egy mondat értelme a szavak sorrendjétől függ, ezért a hálónak „emlékeznie” kell arra, amit korábban látott. Az RNN minden lépésben az új bemenetet és a saját előző állapotát együtt dolgozza fel. Az egyszerű RNN-ek hamar „felejtenek”, ezért fejlesztették ki az *LSTM* (Long Short-Term Memory) hálókat [@hochreiter1997]. Ezek kapukkal szabályozzák, mit őrizzenek meg és mit felejtsenek el. A nyelvfeldolgozásban 2017 után a Transformer (L6.05) nagyrészt felváltotta az RNN-eket.
+
+**Példa:** A korábbi telefonos szövegkiegészítők RNN-t használtak: a már beírt szavak alapján jósolták meg a következőt.
+
+**Forrás:** [@russell2021, {}21.6. alfejezet; @goodfellow2016, {}10. fejezet]
+
+### L5.08 – Beszédfelismerés, képfelismerés, arcfelismerés
+
+**Meghatározás:** A gépi észlelés fő alkalmazási területei:
+
+- **Beszédfelismerés:** beszélt nyelv átalakítása írott szöveggé.
+- **Képfelismerés:** a képen látható tárgyak, jelenetek azonosítása.
+- **Arcfelismerés:** személyek azonosítása vagy hitelesítése arcképük alapján.
+
+**Kifejtés:** Ezek a feladatok az embernek könnyűek, a gépnek nehezek (Moravec-paradoxon, L1.09). Mindhárom területen a mélytanulás hozott áttörést, és ma már sok helyzetben emberi szintű pontosságot érnek el. A teljesítmény azonban erősen függ a tanítóadatoktól. Zajos környezetben, akcentussal, gyenge fényviszonyok között vagy alulreprezentált csoportoknál jóval rosszabb lehet. Az arcfelismerés különösen érzékeny terület az adatvédelem és a megfigyelés miatt. Az EU AI Act a nyilvános helyeken történő valós idejű biometrikus azonosítást a bűnüldözés számára csak szűk kivételekkel engedi.
+
+**Példa:**
+
+- **Beszédfelismerés:** az automatikus feliratozás egy videón.
+- **Képfelismerés:** egy növényhatározó alkalmazás.
+- **Arcfelismerés:** a telefon feloldása az arcunkkal.
+
+**Forrás:** [@russell2021, {}25–26. fejezet; @ai4k12, {}észlelés; @hornberger2023]
+
+### L5.09 – Számítási kapacitás, GPU, a big data szerepe
+
+**Meghatározás:** A mélytanulás sikere három tényezőn múlt:
+
+- **jobb algoritmusok;**
+- **nagy számítási kapacitás**, különösen a grafikus processzorok (GPU-k) használata;
+- **hatalmas adatmennyiség** (big data).
+
+**Kifejtés:** A neurális hálók ötlete évtizedek óta létezett, de csak a 2010-es évekre lett elég adat (digitális fotók, internetes szövegek) és elég gyors hardver a nagy hálók tanításához. A GPU-kat eredetileg számítógépes játékok grafikájához fejlesztették. Kiderült, hogy a neurális hálók számításaihoz szükséges sok egyszerű, párhuzamos műveletet is nagyon hatékonyan végzik. A mai nagy modellek tanítása hatalmas adatközpontokat, sok energiát és jelentős pénzt igényel. Ez gazdasági és környezeti kérdéseket is felvet (L7.10).
+
+**Példa:** Egy mai nagy nyelvi modell tanítása több ezer GPU-n hetekig vagy hónapokig tarthat.
+
+**Forrás:** [@russell2021, {}1.3. alfejezet és 21. fejezet; @goodfellow2016, {}1. fejezet; @ng_ai4e]
+
+### L5.10 – „Fekete doboz” jelleg
+
+**Meghatározás:** A „fekete doboz” kifejezés azt jelenti, hogy egy modell bemenete és kimenete látható, de a belső működése, vagyis hogy *miért* éppen azt a döntést hozta, ember számára nehezen vagy egyáltalán nem követhető.
+
+**Kifejtés:** Egy mély neurális hálóban milliók vagy milliárdok a súlyok, és a tudás ezek bonyolult együttesében van elosztva. Nincsenek benne olyan szabályok, amelyeket el lehetne olvasni. Ez probléma, ha a döntések fontos következményekkel járnak (orvoslás, hitelbírálat, igazságszolgáltatás), mert nehéz ellenőrizni, igazolni vagy megtámadni őket. Erre a problémára válaszol a *magyarázható MI* (XAI, L7.03). Az egyszerűbb modellek, például a döntési fa (L4.08), átláthatóbbak, de gyakran kevésbé pontosak.
+
+**Példa:** Ha egy bank MI-rendszere elutasítja a hitelkérelmet, és senki sem tudja megmondani, miért, akkor a rendszer fekete dobozként működik.
+
+**Forrás:** [@russell2021, {}21. és 27. fejezet; @mitchell2019; @long2020]
+
+---
+
+## L6 – Nyelvi modellek és generatív MI
+
+### L6.01 – Természetesnyelv-feldolgozás (NLP)
+
+**Meghatározás:** A *természetesnyelv-feldolgozás* (natural language processing, NLP) az MI és a nyelvészet közös területe. Azzal foglalkozik, hogyan értelmezzen, elemezzen és állítson elő a számítógép emberi nyelvet.
+
+**Kifejtés:** Az NLP feladatai közé tartozik:
+
+- a gépi fordítás;
+- a szövegosztályozás (például spamszűrés, véleményelemzés);
+- az információkinyerés (nevek, dátumok kiszűrése);
+- az összefoglalás;
+- a kérdésmegválaszolás;
+- a szöveggenerálás.
+
+Az emberi nyelv nehéz terep a gép számára, mert tele van többértelműséggel, utalásokkal, iróniával, és a jelentés gyakran a kontextustól függ. Az „Ő látta a férfit a távcsővel” mondatnál nem világos, kinél van a távcső. A terület a szabályalapú megközelítéstől a statisztikai módszereken át jutott el a mai nagy nyelvi modellekig.
+
+**Példa:** Egy cég automatikusan elemzi a vásárlói véleményeket, és megállapítja, hogy elégedettek vagy elégedetlenek-e a vevők.
+
+**Forrás:** [@russell2021, {}23–24. fejezet; @cs50ai, {}Language; @jurafsky2023]
+
+### L6.02 – Token, tokenizáció
+
+**Meghatározás:** A *token* az a szövegegység, amellyel a nyelvi modell dolgozik. Lehet egész szó, szórész, írásjel vagy karakter. A *tokenizáció* a szöveg tokenekre bontása és számokká alakítása.
+
+**Kifejtés:** A nyelvi modellek nem betűket és nem feltétlenül szavakat „látnak”, hanem tokeneket. A gyakori szavak általában egy tokent alkotnak, a ritka vagy hosszú szavakat több részre bontják. A magyar nyelv toldalékoló jellege miatt egy magyar szöveg gyakran több tokenből áll, mint ugyanannak az angol fordítása. A tokenszám azért fontos, mert ez határozza meg, mennyi szöveg fér a modell kontextusablakába (L6.11), és sok szolgáltatás tokenek alapján számláz. A tokenizáció részben megmagyarázza a modellek egyes furcsa hibáit is, például hogy nehezen számolják meg egy szó betűit.
+
+**Példa:** A „megszentségteleníthetetlenségeskedéseitekért” szót a modell valószínűleg több tucat tokenre bontja.
+
+**Forrás:** [@ng_gai4e, {}1. modul; @jurafsky2023; @cs50ai, {}Language]
+
+### L6.03 – Szóbeágyazás (embedding), szemantikus vektortér
+
+**Meghatározás:** A *beágyazás* (embedding) egy szó, mondat vagy más objektum számsorozattal (vektorral) való ábrázolása, egy sokdimenziós térben elhelyezett pontként. A *szemantikus vektortérben* a hasonló jelentésű elemek egymáshoz közel kerülnek.
+
+**Kifejtés:** A beágyazások azon az elven alapulnak, hogy egy szó jelentését a környezete határozza meg. Ez a *disztribúciós hipotézis*: a hasonló szövegkörnyezetben előforduló szavak jelentése is hasonló. A modell sok szövegből tanulja meg a beágyazásokat. Meglepő tulajdonságuk, hogy bizonyos jelentésbeli viszonyok irányokként jelennek meg a térben. A híres példa a word2vec modellből [@mikolov2013]: „király” − „férfi” + „nő” ≈ „királynő”. A beágyazások a kereséstől az ajánlórendszereken át a nyelvi modellekig mindenütt jelen vannak.
+
+**Példa:** Egy kereső a „kutyakozmetika” keresésre a „kutyakozmetikus” és a „kutyatrimmelés” oldalakat is megtalálja, mert beágyazásaik közel vannak egymáshoz, még ha a szavak különböznek is.
+
+**Forrás:** [@jurafsky2023, {}6. fejezet; @mikolov2013; @russell2021, {}24.1. alfejezet]
+
+### L6.04 – Nyelvi modell, következő token előrejelzése
+
+**Meghatározás:** A *nyelvi modell* olyan modell, amely szövegsorozatok valószínűségét becsli meg. A mai generatív nyelvi modellek alapművelete: az eddigi szöveg alapján megjósolni, melyik token következik a legnagyobb valószínűséggel.
+
+**Kifejtés:** A szöveggenerálás úgy történik, hogy a modell kiválaszt egy következő tokent, hozzáfűzi a szöveghez, majd újra jósol, és így tovább, tokenről tokenre. Ez egyszerűnek hangzik. Ahhoz azonban, hogy valaki jól jósolja meg egy szöveg folytatását, sokat kell „tudnia” a nyelvtanról, a tényekről és az érvelés menetéről. Fontos következmény, hogy a modell elsősorban *valószínű* szöveget állít elő, nem feltétlenül *igazat*. Ez a hallucináció (L6.16) egyik oka.
+
+**Példa:** „A Duna Magyarország leghosszabb …” Itt a modell a „folyója” tokent valószínűsíti, mert sok hasonló mondatot látott.
+
+**Forrás:** [@jurafsky2023, {}3. és 10. fejezet; @ng_gai4e, {}1. modul; @cs50ai, {}Language]
+
+### L6.05 – Transformer, figyelmi mechanizmus
+
+**Meghatározás:** A *Transformer* egy 2017-ben bemutatott neurális hálózati architektúra (Vaswani és mtsai: „Attention Is All You Need”). Alapja a *figyelmi mechanizmus* (attention), amely minden szónál kiszámítja, a szöveg többi része közül melyekre kell leginkább „figyelnie” a jelentés meghatározásához.
+
+**Kifejtés:** A korábbi rekurrens hálók (L5.07) szóról szóra haladtak, és a hosszú szövegek elején lévő információt nehezen őrizték meg. A Transformer a szöveg összes elemét egyszerre, párhuzamosan dolgozza fel, és a figyelmi mechanizmus közvetlen kapcsolatot teremt bármely két szó között, akármilyen messze vannak egymástól. Ez gyorsabb tanítást és jobb nyelvi teljesítményt tett lehetővé. A GPT rövidítésben a T betű is a Transformert jelöli (Generative Pre-trained Transformer). A modell „figyelme” matematikai súlyozás, nem azonos az emberi figyelemmel.
+
+**Példa:** Az „A macska nem ment át az utcán, mert *az* túl fáradt volt” mondatban a figyelmi mechanizmus segít a modellnek, hogy az „az” szót a macskához kapcsolja, ne az utcához.
+
+**Forrás:** [@vaswani2017; @russell2021, {}24.4. alfejezet; @cs50ai, {}Language]
+
+### L6.06 – Nagy nyelvi modell (LLM), alapmodell
+
+**Meghatározás:** A *nagy nyelvi modell* (large language model, LLM) hatalmas szövegmennyiségen tanított, nagyon sok (akár több száz milliárd) paraméterrel rendelkező, Transformer-alapú nyelvi modell. Az *alapmodell* (foundation model) olyan, széles adathalmazon előtanított modell, amely sokféle későbbi feladatra alkalmazható.
+
+**Kifejtés:** Az „alapmodell” kifejezést a Stanford kutatói vezették be 2021-ben [@bommasani2021]. Arra utal, hogy egyetlen modell sok alkalmazás közös alapja lehet: chatbotoké, fordítóké, kódolóasszisztenseké. A nagy méret meglepő képességeket hozott. Ugyanaz a modell fordít, összefoglal, programot ír és kérdésekre válaszol. Ugyanakkor a hibák és torzítások is öröklődnek minden ráépülő alkalmazásba. A gördülékeny nyelvhasználat nem jelent emberi értelemben vett megértést vagy megbízható tudást.
+
+**Példa:** A ChatGPT, a Claude és a Gemini mögött nagy nyelvi modellek működnek.
+
+**Forrás:** [@bommasani2021; @ng_gai4e, {}1. modul; @cs50ai, {}Language]
+
+### L6.07 – Előtanítás, finomhangolás, RLHF
+
+**Meghatározás:** A nagy nyelvi modellek tanításának tipikus szakaszai:
+
+1. **Előtanítás** (pre-training): a modell hatalmas szövegmennyiségen tanulja a következő token előrejelzését.
+2. **Finomhangolás** (fine-tuning): kisebb, célzott adathalmazon továbbtanítják, például utasítás–válasz párokon.
+3. **RLHF** (reinforcement learning from human feedback, megerősítéses tanulás emberi visszajelzésből): emberek értékelik vagy rangsorolják a modell válaszait, és a modellt ezek alapján hangolják tovább.
+
+**Kifejtés:** Az előtanítás után a modell sokat „tud” a nyelvről és a világról, de még nem jó beszélgetőpartner. Csak folytatja a szöveget, nem feltétlenül követi az utasításokat. A finomhangolás és az RLHF teszi segítőkész, utasításkövető asszisztenssé. Az RLHF-et az OpenAI 2022-es InstructGPT-cikke [@ouyang2022] tette ismertté. Az emberi visszajelzés azonban maga is lehet torz: az értékelők a magabiztos, hízelgő vagy hosszú válaszokat jutalmazhatják akkor is, ha azok nem pontosak.
+
+**Példa:** Az előtanított modell a „Hogyan süssek palacsintát?” kérdésre folytathatná egy fórumbejegyzésként, további kérdésekkel. A finomhangolt asszisztens receptet ad.
+
+**Forrás:** [@ouyang2022; @ng_gai4e, {}1. modul; @jurafsky2023]
+
+### L6.08 – Generatív MI
+
+**Meghatározás:** A *generatív MI* olyan MI-rendszerek összefoglaló neve, amelyek új tartalmat állítanak elő: szöveget, képet, hangot, zenét, videót vagy programkódot. Ezt a tanítóadatokban megtanult mintázatok alapján teszik.
+
+**Kifejtés:** A korábbi MI-rendszerek többsége *diszkriminatív* volt: osztályozott vagy előre jelzett, például eldöntötte, hogy egy kép macska-e. A generatív modellek ezzel szemben maguk hoznak létre új példányokat, például egy új macskaképet. A generatív MI 2022-től, a ChatGPT és a képgenerátorok megjelenésével vált széles körben ismertté. Az előállított tartalom lehet meggyőző és hasznos, de pontatlan, elfogult vagy jogilag aggályos is. A gördülékenység nem a minőség bizonyítéka.
+
+**Példa:** Egy diák generatív MI-vel készít vázlatot egy beszámolóhoz, egy grafikus pedig képgenerátorral ötletel egy plakáthoz.
+
+**Forrás:** [@ng_gai4e; @oecd2025, {}Create; @unesco2024]
+
+### L6.09 – Diffúziós modellek
+
+**Meghatározás:** A *diffúziós modellek* olyan generatív modellek, amelyek véletlenszerű zajból kiindulva, sok kis lépésben „tisztítják ki” a képet, amíg egy, a kérésnek megfelelő kép nem jön létre.
+
+**Kifejtés:** A tanításkor a modell azt tanulja meg, hogyan lehet egy fokozatosan zajossá tett képből lépésről lépésre visszaállítani az eredetit. Generáláskor ezt a folyamatot tiszta zajból indítja el, és egy szöveges leírás irányítja, mi alakuljon ki a zajból. A legismertebb képgenerátorok, például a Stable Diffusion, a DALL·E és a Midjourney, ilyen elven vagy ehhez hasonlóan működnek. A diffúziós modellek videó- és hanggenerálásra is alkalmasak.
+
+**Példa:** A „vízfestmény egy rókáról, amint könyvet olvas egy erdei tisztáson” leírásból a diffúziós modell néhány másodperc alatt képet készít.
+
+**Forrás:** [@ng_gai4e, {}1. modul; @ho2020]
+
+### L6.10 – Prompt, prompttervezés
+
+**Meghatározás:** A *prompt* az az utasítás, kérdés vagy szöveg, amelyet a felhasználó a generatív modellnek ad. A *prompttervezés* (prompt engineering) a promptok tudatos megfogalmazása úgy, hogy a modell minél hasznosabb választ adjon.
+
+**Kifejtés:** A jó prompt általában tartalmazza:
+
+- a feladatot;
+- a szükséges háttérinformációt (kontextust);
+- a kívánt formátumot és terjedelmet;
+- a célközönséget;
+- a korlátokat.
+
+Hasznos technikák:
+
+- **példák megadása** (few-shot);
+- **szerep kijelölése** („Viselkedj úgy, mint egy tapasztalt tanár…”);
+- **feladatbontás:** az összetett feladat részlépésekre osztása;
+- **lépésenkénti gondolkodás kérése.**
+
+A jó prompt javítja a válasz használhatóságát, de nem garantálja, hogy a válasz igaz.
+
+**Példa:**
+
+- **Gyenge prompt:** „Írj a stresszről.”
+- **Jobb prompt:** „Írj 200 szavas, középiskolásoknak szóló ismertetőt a vizsgastressz három tünetéről és két kezelési módjáról, felsorolásos formában.”
+
+**Forrás:** [@ng_gai4e, {}2. modul; @dakan2025, {}leírás; @charmeu; @citadel; @saarland]
+
+### L6.11 – Kontextusablak
+
+**Meghatározás:** A *kontextusablak* az a maximális szövegmennyiség (tokenekben mérve), amelyet a nyelvi modell egy válasz előállításakor egyszerre figyelembe tud venni. Ebbe beletartozik a prompt, a feltöltött dokumentumok, a korábbi beszélgetés és maga a válasz is.
+
+**Kifejtés:** A modell csak arról „tud”, ami a kontextusablakban van, illetve amit a tanítás során megtanult. Ha egy beszélgetés túl hosszú lesz, a legrégebbi részek kieshetnek az ablakból, és a modell „elfelejti” őket. A kontextusablak mérete az elmúlt években nagyon megnőtt: néhány ezer tokenről akár egymillió tokenre is. A hosszú kontextusban azonban a modellek nem mindig használják egyformán jól az információt. A szöveg közepén lévő részleteket néha kevésbé veszik figyelembe.
+
+**Példa:** Ha egy 300 oldalas könyvet töltünk fel, és a modell kontextusablaka csak 100 oldalnyi szöveget fogad be, nem tud az egész könyvről érdemben nyilatkozni.
+
+**Forrás:** [@ng_gai4e, {}1. modul; @jurafsky2023]
+
+### L6.12 – Hőmérséklet (temperature) és sztochasztikus kimenet
+
+**Meghatározás:** A *hőmérséklet* a nyelvi modellek egy beállítása, amely azt szabályozza, mennyire véletlenszerűen választja a modell a következő tokent. Alacsony hőmérsékletnél a legvalószínűbbet választja, magasnál a kevésbé valószínűek is gyakrabban sorra kerülnek. A *sztochasztikus kimenet* azt jelenti, hogy ugyanarra a kérdésre a modell nem mindig ugyanazt válaszolja.
+
+**Kifejtés:**
+
+- **Alacsony hőmérséklet:** kiszámíthatóbb, egyhangúbb szöveg. Tényszerű feladatokhoz előnyös.
+- **Magas hőmérséklet:** változatosabb, kreatívabb, de hibára hajlamosabb szöveg.
+
+A véletlenszerűség miatt egyetlen válasz nem elég egy modell megbízhatóságának megítéléséhez. Érdemes a kérdést többször is feltenni, és összevetni az eredményeket. A kutatásban és az értékelésben ez a reprodukálhatóság szempontjából is fontos.
+
+**Példa:** Ha háromszor kérünk egy versszakot ugyanarról a témáról, három különböző verset kapunk.
+
+**Forrás:** [@ng_gai4e, {}1. modul; @jurafsky2023]
+
+### L6.13 – Visszakereséssel támogatott generálás (RAG)
+
+**Meghatározás:** A *RAG* (retrieval-augmented generation) olyan megoldás, amelyben a rendszer a válasz előtt külső dokumentumokból (adatbázisból, internetről, feltöltött fájlokból) kikeresi a kérdéshez kapcsolódó részleteket. Ezeket a modell kontextusába helyezi, és ezek alapján generálja a választ.
+
+**Kifejtés:** A nyelvi modellek tudása a tanítás idejéhez kötött, és nem tartalmazza a magán- vagy céges dokumentumokat. A RAG ezt hidalja át: a modell „kinyitja a könyvet” válaszadás előtt. Így a válasz frissebb, ellenőrizhetőbb, és hivatkozhat a forrásokra. A módszert Lewis és mtsai írták le 2020-ban [@lewis2020]. A RAG csökkenti, de nem szünteti meg a hallucinációt. Hibás lehet a keresés, a forrás, vagy a forrás modell általi értelmezése.
+
+**Példa:** Egy egyetemi tanulmányi chatbot a szabályzatokból keresi ki a releváns paragrafust, és arra hivatkozva válaszol arra a kérdésre, hányszor lehet egy vizsgát megismételni.
+
+**Forrás:** [@lewis2020; @ng_gai4e, {}2. modul]
+
+### L6.14 – Multimodális modellek
+
+**Meghatározás:** A *multimodális* modellek több adattípust (modalitást) képesek együtt feldolgozni vagy előállítani: szöveget, képet, hangot, videót.
+
+**Kifejtés:** Az ember is több érzékszervből származó információt kapcsol össze: látja a beszélő arcát, és hallja a hangját. A multimodális modellek ezt próbálják utánozni. Leírhatják egy fénykép tartalmát, válaszolhatnak egy diagramról feltett kérdésre, vagy szöveges leírásból képet készíthetnek. Fontos, hogy egy modell nem minden modalitásban egyformán megbízható: lehet, hogy jól ír, de egy kép apró részleteit félreérti.
+
+**Példa:** Lefényképezzük a hűtőszekrényünk tartalmát, és a multimodális asszisztenstől receptet kérünk a látható alapanyagokból.
+
+**Forrás:** [@ng_gai4e, {}1. modul; @ai4k12, {}természetes interakció]
+
+### L6.15 – MI-ágensek, eszközhasználat
+
+**Meghatározás:** Az *MI-ágens* olyan, általában nyelvi modellre épülő rendszer, amely nemcsak válaszol, hanem egy cél érdekében több lépést tervez, és önállóan cselekszik. Külső *eszközöket* használ (keresőt, számológépet, programokat, böngészőt), fájlokat szerkeszt, üzeneteket küld.
+
+**Kifejtés:** Az MI-ágens a klasszikus ágensfogalom (L2.01) mai megvalósítása: érzékel, tervez és beavatkozik a digitális környezetben. Az ágensek nagyobb önállósága több hasznot és több kockázatot is hoz. Egy hibás válasz kellemetlen. Egy hibásan működő ágens viszont törölhet adatot, rossz üzenetet küldhet el, vagy pénzt költhet. Ezért fontos:
+
+- a jogosultságok korlátozása;
+- a műveletek naplózása;
+- az emberi jóváhagyás a fontos lépéseknél.
+
+**Példa:** Egy ágens azt a feladatot kapja, hogy „szervezz egy találkozót a csoporttal jövő hétre”. Megnézi a naptárakat, keres egy közös időpontot, és meghívót küld.
+
+**Forrás:** [@russell2021, {}2. fejezet; @ng_gai4e, {}3. modul; @oecd2025, {}Manage]
+
+### L6.16 – Hallucináció/konfabuláció, tudás-határidő
+
+**Meghatározás:**
+
+- **Hallucináció** (konfabuláció): a generatív modell magabiztosan fogalmazott, de valótlan, kitalált vagy alá nem támasztott állítást közöl.
+- **Tudás-határidő** (knowledge cutoff): az az időpont, ameddig a modell tanítóadatai terjednek. Az ennél későbbi eseményekről a modell külső keresés nélkül nem tud.
+
+**Kifejtés:** A hallucináció abból fakad, hogy a nyelvi modell valószínű szöveget állít elő (L6.04), nem tényeket keres ki egy adatbázisból. Ha nincs megbízható tudása, akkor is gördülékeny, hihetőnek tűnő választ adhat. Kitalálhat például egy nem létező tanulmányt pontos szerzőkkel és oldalszámmal. A „hallucináció” szó metafora, és sokan félrevezetőnek tartják, mert emberi észlelést tulajdonít a gépnek. Ezért egyesek a *konfabuláció* kifejezést használják. A tudás-határidő miatt a modell elavult információt is közölhet, például egy azóta megváltozott szabályt.
+
+**Példa:** Egy diák forrásokat kér egy chatbottól a dolgozatához, és a felsorolt öt cikkből kettő nem létezik. Minden hivatkozást az eredeti forrásban kell ellenőrizni.
+
+**Forrás:** [@ng_gai4e, {}1. modul; @charmeu; @citadel; @saarland; @nist2024]
+
+---
+
+## L7 – Az MI etikai, jogi és társadalmi hatásai
+
+### L7.01 – Algoritmikus torzítás, diszkrimináció
+
+**Meghatározás:** *Algoritmikus torzításról* (algorithmic bias) akkor beszélünk, ha egy MI-rendszer döntései vagy hibái szisztematikusan hátrányosan érintenek bizonyos csoportokat, például nem, bőrszín, életkor vagy lakóhely szerint. Ez akkor is előfordulhat, ha senki sem szándékozott diszkriminálni.
+
+**Kifejtés:** A torzítás többféle forrásból eredhet:
+
+- **nem reprezentatív tanítóadatok;**
+- **múltbeli igazságtalanságokat tükröző adatok:** a modell „megtanulja” a korábbi diszkriminációt;
+- **hibás címkék;**
+- **rosszul megválasztott célváltozó;**
+- **az alkalmazás körülményei.**
+
+Három gyakran idézett eset:
+
+- **Amazon [@dastin2018]:** egy önéletrajz-szűrő rendszert állítottak le, mert hátrányosan kezelte a női jelentkezőket. A korábbi, főleg férfiakból álló felvételi adatokból tanult.
+- **Gender Shades [@buolamwini2018]:** kereskedelmi arcelemző rendszerek a sötét bőrű nőknél sokszor gyakrabban tévedtek, mint a világos bőrű férfiaknál.
+- **COMPAS [@angwin2016]:** a visszaesési kockázatbecslő eszköz elemzése vitát indított arról, hogy a téves „magas kockázat” besorolás gyakoribb-e a fekete vádlottaknál.
+
+**Példa:** Ha egy hitelbírálati modell a lakóhely irányítószámát is használja, közvetve etnikai vagy társadalmi hátrányt is kódolhat, akkor is, ha a származás nem szerepel az adatok között.
+
+**Forrás:** [@russell2021, {}27.3. alfejezet; @buolamwini2018; @elementsofai, {}6. fejezet; @unesco2024]
+
+### L7.02 – Méltányosság (fairness) és annak mérései
+
+**Meghatározás:** A *méltányosság* az a követelmény, hogy egy MI-rendszer ne kezelje igazságtalanul az egyéneket vagy csoportokat. A méltányosságnak több, egymással versengő matematikai meghatározása létezik.
+
+**Kifejtés:** Néhány gyakori méltányossági mérce:
+
+- **Demográfiai paritás:** minden csoport azonos arányban kap kedvező döntést.
+- **Egyenlő esély:** a ténylegesen alkalmas emberek minden csoportban azonos eséllyel kapnak kedvező döntést.
+- **Kalibráció:** az „70% kockázat” becslés minden csoportban valóban 70%-ot jelent.
+
+@kleinberg2017, valamint @chouldechova2017 kimutatta, hogy ha a csoportok alaparányai különböznek, ezek a feltételek általában *nem teljesülhetnek egyszerre*. A méltányosság ezért nem pusztán technikai kérdés. Értékválasztás, amelyről társadalmi és szakmai vitában kell dönteni.
+
+**Példa:** Egy ösztöndíj-odaítélő rendszernél el kell dönteni, hogy az azonos arányú odaítélés vagy az azonos teljesítményű pályázók azonos esélye a méltányosabb.
+
+**Forrás:** [@russell2021, {}27.3. alfejezet; @kleinberg2017; @chouldechova2017]
+
+### L7.03 – Átláthatóság, magyarázhatóság (XAI)
+
+**Meghatározás:**
+
+- **Átláthatóság** (transparency): nyilvánosak és megismerhetők a rendszer működésére, adataira, céljaira és korlátaira vonatkozó információk.
+- **Magyarázható MI** (explainable AI, XAI): azoknak a módszereknek az összessége, amelyek egy MI-döntéshez ember számára érthető indoklást rendelnek.
+
+**Kifejtés:** A „fekete doboz” modellek (L5.10) döntéseit nehéz ellenőrizni és megtámadni. Az XAI-módszerek többféle módon próbálnak segíteni:
+
+- megmutatják, mely bemeneti jellemzők befolyásolták leginkább a döntést (pl. LIME, SHAP);
+- kiemelik a kép döntő részeit;
+- „mi lett volna, ha” magyarázatot adnak: mi kellett volna a kedvező döntéshez?
+
+Az ilyen magyarázatok gyakran csak közelítések, és lehetnek félrevezetők. Egy jól hangzó magyarázat nem bizonyítja, hogy a modell valóban így „gondolkodik”, és azt sem, hogy a fontosnak jelölt tényező oka lenne az eredménynek.
+
+**Példa:** Egy hitelelutasításhoz a rendszer magyarázatot fűz: „A döntést elsősorban a magas meglévő tartozás és a rövid munkaviszony befolyásolta.”
+
+**Forrás:** [@russell2021, {}27.3. alfejezet; @ribeiro2016; @long2020]
+
+### L7.04 – Elszámoltathatóság, felelősség
+
+**Meghatározás:** Az *elszámoltathatóság* (accountability) azt jelenti, hogy egy MI-rendszer működéséért és következményeiért meghatározható emberek vagy szervezetek felelnek. Nekik kell megindokolniuk a döntéseket, és vállalniuk a hibák következményeit.
+
+**Kifejtés:** Az MI-rendszerek fejlesztésében és használatában sokan vesznek részt: adatgyűjtők, fejlesztők, szolgáltatók, alkalmazó intézmények, felhasználók. Ezért könnyen kialakulhat a „felelősségi rés” (responsibility gap), amikor mindenki másra mutat. Az MI maga nem lehet felelős, mert nem jogalany és nem erkölcsi szereplő. A jó gyakorlat az, ha előre tisztázzák, ki dönt, ki ellenőriz, és ki felel. Emellett dokumentálják a rendszer működését, és biztosítják a panasztétel lehetőségét.
+
+**Példa:** Ha egy önvezető autó balesetet okoz, kérdés, hogy a gyártó, a szoftverfejlesztő, a tulajdonos vagy a felügyeletet ellátó sofőr felel-e. Ezt a jognak kell rendeznie.
+
+**Forrás:** [@russell2021, {}27.3. alfejezet; @unesco2024; @oecd2025, {}Shape]
+
+### L7.05 – Adatvédelem, megfigyelés, GDPR
+
+**Meghatározás:**
+
+- **Adatvédelem:** a személyes adatok gyűjtésének, tárolásának és felhasználásának szabályozása, az egyének magánszférájának védelme érdekében.
+- **GDPR:** az Európai Unió általános adatvédelmi rendelete, 2018 óta alkalmazandó. Közvetlenül szabályozza a személyes adatok kezelését az EU-ban.
+
+**Kifejtés:** Az MI-rendszerek gyakran rengeteg személyes adatot használnak: kattintásokat, helyadatokat, fotókat, hangfelvételeket, egészségügyi adatokat. A GDPR fő elvei:
+
+- **jogalap:** például hozzájárulás;
+- **célhoz kötöttség:** az adatot csak a megadott célra lehet használni;
+- **adattakarékosság:** csak a szükséges adatot szabad gyűjteni;
+- **az érintett jogai:** hozzáférés, helyesbítés, törlés.
+
+Az MI felerősíti a megfigyelés veszélyét, mert sok, külön-külön ártalmatlannak tűnő adatból érzékeny következtetésekre képes, például egészségi állapotra, politikai nézetre vagy szexuális irányultságra.
+
+**Példa:** Ha valaki egy chatbotba bemásolja egy ismerőse orvosi leleteit, az adatvédelmi szempontból aggályos, mert harmadik fél érzékeny adatát adja ki.
+
+**Forrás:** [@gdpr2016; @russell2021, {}27.3. alfejezet; @unesco2024]
+
+### L7.06 – Automatizált döntéshozatal, profilalkotás
+
+**Meghatározás:**
+
+- **Automatizált döntéshozatal:** emberekről szóló döntés emberi közreműködés nélkül, kizárólag algoritmus alapján születik.
+- **Profilalkotás:** személyes adatok automatizált elemzése, amely egy személy tulajdonságait, viselkedését vagy jövőbeli cselekedeteit értékeli vagy jósolja meg.
+
+**Kifejtés:** A GDPR 22. cikke szerint az embereknek joguk van ahhoz, hogy ne legyenek kizárólag automatizált döntés alanyai, ha az rájuk nézve joghatással vagy hasonlóan jelentős következménnyel jár. Ilyen döntés például egy hitelkérelem automatikus elutasítása vagy egy online álláspályázat kiszűrése. Kivételek vannak, de ilyenkor is biztosítani kell az emberi beavatkozás, a saját álláspont kifejtése és a döntés megtámadásának lehetőségét.
+
+**Példa:** Egy biztosító a vezetési stílust figyelő alkalmazás adataiból profilt készít, és ez alapján automatikusan emeli a díjat.
+
+**Forrás:** [@gdpr2016, {}4. és 22. cikk; @russell2021, {}27.3. alfejezet]
+
+### L7.07 – Deepfake, dezinformáció, manipuláció
+
+**Meghatározás:**
+
+- **Deepfake:** MI-vel készített vagy manipulált, valósághűnek tűnő kép, hang- vagy videófelvétel, amely valós személyt olyan helyzetben mutat, vagy olyat mondat vele, ami nem történt meg.
+- **Dezinformáció:** szándékosan terjesztett hamis információ.
+- **Félretájékoztatás** (misinformation): nem szándékosan terjedő téves információ.
+
+**Kifejtés:** A generatív MI olcsóvá és gyorssá tette a meggyőző hamisítványok készítését. Ennek több veszélye van:
+
+- **hamis politikai üzenetek;**
+- **csalás:** például egy rokon hangját utánzó telefonhívás;
+- **zaklatás és hírnévrontás:** például hozzájárulás nélküli intim képek;
+- **a „hazug osztaléka”** (liar's dividend): a valódi felvételekről is könnyebb azt állítani, hogy hamisak.
+
+Az EU AI Act előírja, hogy a deepfake tartalmakat meg kell jelölni. A védekezés alapja a forráskritika, a több forrásból való ellenőrzés és a médiaműveltség.
+
+**Példa:** Választások előtt egy politikus hangján készült hamis hangfelvétel terjed az interneten, amelyben a politikus soha el nem hangzott kijelentéseket tesz.
+
+**Forrás:** [@russell2021, {}27.3. alfejezet; @euaiact2024, {}50. cikk; @charmeu; @citadel; @saarland; @unesco2024]
+
+### L7.08 – Szerzői jog, szellemi tulajdon, tanítóadatok
+
+**Meghatározás:** A *szerzői jog* a szellemi alkotások (szövegek, képek, zenék) alkotóit védi. Az MI kapcsán két fő kérdés merül fel:
+
+- Jogszerű-e szerzői jogi védelem alatt álló művekkel tanítani a modelleket?
+- Kié az MI által előállított tartalom, és védi-e egyáltalán a szerzői jog?
+
+**Kifejtés:** A nagy modelleket gyakran az internetről gyűjtött, nagyrészt szerzői jogvédett anyagokon tanítják, sokszor az alkotók engedélye és díjazása nélkül. Erről több nagy per is folyik, például a New York Times pere az OpenAI és a Microsoft ellen (2023). Az EU-ban a szövegbányászatra vonatkozó szabályok szerint a jogtulajdonosok kifejezetten megtilthatják, hogy műveiket erre használják (opt-out). Sok jogrendszerben az MI által önállóan, érdemi emberi alkotói hozzájárulás nélkül előállított tartalom nem élvez szerzői jogi védelmet.
+
+**Példa:** Egy képgenerátor egy ismert, élő illusztrátor stílusában készít képeket, akinek a műveit a művész engedélye nélkül használták fel a tanításhoz.
+
+**Forrás:** [@russell2021, {}27.3. alfejezet; @ng_gai4e, {}3. modul; @unesco2024]
+
+### L7.09 – Munkaerőpiaci hatás, automatizáció
+
+**Meghatározás:** Az MI munkaerőpiaci hatása azt jelenti, hogyan változtatja meg az MI és az automatizáció a munkahelyek számát, a munkafeladatokat, a szükséges készségeket és a jövedelmek eloszlását.
+
+**Kifejtés:** A becslések nagyon eltérők. @frey2017 (első változat: 2013) szerint az amerikai munkahelyek 47%-a nagy automatizálási kockázatnak volt kitéve. Az OECD feladatszintű elemzései jóval kisebb arányt találtak. A kutatók ma inkább *feladatokban* gondolkodnak, nem egész foglalkozásokban: az MI egy munka egyes részeit veszi át vagy gyorsítja fel. A generatív MI a korábbi hullámokkal ellentétben a magasan képzett, szellemi munkákat is érinti, például az írást, a programozást és az elemzést. A történelmi tapasztalat szerint a technológia új munkákat is teremt, de az átmenet egyes csoportoknak nagyon nehéz lehet.
+
+**Példa:** Egy fordítóiroda munkatársai nem feltétlenül veszítik el az állásukat, de munkájuk egyre inkább a gépi fordítás ellenőrzéséből és javításából áll.
+
+**Forrás:** [@ng_ai4e, {}4. hét; @ng_gai4e, {}3. modul; @russell2021, {}27.4. alfejezet; @frey2017]
+
+### L7.10 – Környezeti hatás
+
+**Meghatározás:** Az MI környezeti hatása a modellek tanításához és futtatásához szükséges energia, víz (adatközpontok hűtése) és hardvergyártás (nyersanyagok, elektronikai hulladék) okozta terhelés.
+
+**Kifejtés:** A nagy modellek tanítása és a naponta több százmillió felhasználói kérés kiszolgálása hatalmas számítási kapacitást igényel. A Nemzetközi Energiaügynökség (IEA) becslése szerint az adatközpontok 2024-ben a világ villamosenergia-fogyasztásának mintegy 1,5%-át tették ki, és ez az arány az MI miatt gyorsan nő. Az egyes kérésekre jutó energia sokkal kisebb, mint a tanításé, de a hatalmas felhasználószám miatt összességében jelentős. A környezeti hatás az UNESCO keretrendszerében külön elvként szerepel („környezetileg fenntartható MI”).
+
+**Példa:** Egy kép generálása vagy egy hosszú beszélgetés egy nagy modellel több energiát fogyaszt, mint egy hagyományos internetes keresés.
+
+**Forrás:** [@unesco2024; @iea2025; @russell2021, {}27. fejezet]
+
+### L7.11 – Digitális egyenlőtlenség, hozzáférés
+
+**Meghatározás:** A *digitális egyenlőtlenség* (digital divide) azt jelenti, hogy az emberek és csoportok eltérő mértékben férnek hozzá a digitális technológiákhoz, illetve eltérő mértékben tudják azokat hasznosan használni.
+
+**Kifejtés:** Az MI korában az egyenlőtlenség több szinten jelentkezik:
+
+- **eszköz- és internet-hozzáférés;**
+- **fizetős előfizetések:** a jobb modellek gyakran pénzbe kerülnek;
+- **nyelvi egyenlőtlenség:** a kisebb nyelveken a modellek gyengébbek;
+- **készségek:** az MI-műveltség hiánya;
+- **reprezentáció:** kinek az adataiból és értékrendje szerint készülnek a rendszerek.
+
+Ha csak egyesek tudják jól használni az MI-t, az növelheti a meglévő társadalmi különbségeket. Az UNESCO és az OECD keretrendszerei ezért kiemelten kezelik a befogadást.
+
+**Példa:** Két diák közül az egyik fizetős, fejlett MI-asszisztenst használ a tanuláshoz, a másik csak egy korlátozott ingyenes változathoz fér hozzá.
+
+**Forrás:** [@unesco2024; @oecd2025; @russell2021, {}27. fejezet]
+
+### L7.12 – EU AI Act és kockázatalapú szabályozás
+
+**Meghatározás:** Az *EU AI Act* (az Európai Unió mesterséges intelligenciáról szóló rendelete, 2024/1689/EU) a világ első átfogó MI-szabályozása. 2024. augusztus 1-jén lépett hatályba, rendelkezéseit 2025-től kezdődően fokozatosan kell alkalmazni. A rendszereket kockázatuk szerint csoportosítja.
+
+**Kifejtés:** A négy kockázati szint:
+
+1. **Elfogadhatatlan kockázat (tilos):** például a társadalmi pontozás, a sebezhető helyzetű emberek manipulálása, valamint az érzelemfelismerés munkahelyen és oktatási intézményben (szűk egészségügyi és biztonsági kivételekkel).
+2. **Magas kockázat:** például az oktatásban (felvételi, vizsgáztatás), a munkaerő-felvételben, a hitelbírálatban vagy a kritikus infrastruktúrában használt rendszerek. Ezekre szigorú követelmények vonatkoznak: kockázatkezelés, adatminőség, dokumentáció, emberi felügyelet.
+3. **Korlátozott kockázat:** átláthatósági kötelezettségek. A felhasználónak tudnia kell, hogy chatbottal beszél, és a deepfake tartalmat jelölni kell.
+4. **Minimális kockázat:** például a spamszűrők és a videojátékok. Ezekre nincs külön kötelezettség.
+
+A rendelet az MI-műveltséget (L8.01) is előírja: az MI-t alkalmazó szervezeteknek gondoskodniuk kell munkatársaik megfelelő MI-műveltségéről.
+
+**Példa:** Egy egyetem MI-alapú felvételi pontozórendszere magas kockázatú. Egy hallgatói kérdésekre válaszoló chatbotnál elég jelezni, hogy a felhasználó géppel beszél.
+
+**Forrás:** [@euaiact2024; @oecd2025; @unesco2024]
+
+### L7.13 – MI-biztonság, igazítás (alignment), kontrollprobléma
+
+**Meghatározás:**
+
+- **MI-biztonság** (AI safety): az a kutatási terület, amely azt vizsgálja, hogyan előzhetők meg az MI-rendszerek okozta balesetek, visszaélések és súlyos károk.
+- **Igazítás** (alignment): annak biztosítása, hogy a rendszer céljai és viselkedése összhangban legyenek az emberi szándékokkal és értékekkel.
+- **Kontrollprobléma:** az a kérdés, hogyan tarthatók ellenőrzés alatt az egyre képesebb rendszerek.
+
+**Kifejtés:** Az igazítás nehézsége, hogy amit a rendszernek mondunk, nem mindig az, amit valóban akarunk. Stuart Russell ezt a „Midász király-problémának” nevezi: Midász azt kívánta, hogy minden arannyá váljon, amihez hozzányúl, és így az étele is arannyá változott. Egy rendszer egy rosszul megfogalmazott célt „túl jól” is teljesíthet, nem kívánt mellékhatásokkal. Az MI-biztonság a mai problémákkal, például a káros tartalmakkal, a visszaélésekkel és a megbízhatatlansággal is foglalkozik, de a jövőbeli, sokkal képesebb rendszerek kockázataival is. Utóbbiak mértékéről a kutatók között nagy a vita.
+
+**Példa:** Ha egy közösségi médiás ajánlórendszer célja egyszerűen „maximalizáld az eltöltött időt”, az felerősítheti a megosztó vagy szorongást keltő tartalmakat. Ezt a fejlesztők nem akarták, de a cél ebbe az irányba vitte a rendszert.
+
+**Forrás:** [@russell2021, {}1.5. alfejezet és 28. fejezet; @russell2019; @ng_gai4e, {}3. modul]
+
+### L7.14 – Emberközpontú MI, emberi felügyelet
+
+**Meghatározás:**
+
+- **Emberközpontú MI** (human-centred AI): az a szemlélet, amely szerint az MI-nek az emberi jóllétet, jogokat és autonómiát kell szolgálnia, és az embert kell támogatnia, nem pedig indokolatlanul helyettesítenie.
+- **Emberi felügyelet:** megfelelő hozzáértéssel és jogkörrel rendelkező emberek figyelemmel kísérik, értelmezik, és szükség esetén felülbírálják vagy leállítják az MI-rendszert.
+
+**Kifejtés:** Az emberközpontúság az UNESCO diákoknak szóló keretrendszerének egyik dimenziója. Az emberi felügyeletet az EU AI Act a magas kockázatú rendszereknél kötelezővé teszi (14. cikk). A felügyelet csak akkor valódi, ha a felügyelő:
+
+- érti a rendszer korlátait;
+- elég ideje és információja van;
+- tényleges joga van a döntés megváltoztatására.
+
+A puszta formális jóváhagyás („rákattintok, hogy elfogadom”) nem felügyelet. Az emberi felügyeletet gyengítheti az automatizációs torzítás (L8.09) is.
+
+**Példa:** Egy MI-alapú röntgenelemző program csak javaslatot tesz, a diagnózist a radiológus hozza meg. A radiológus megnézi a képet, és felülbírálhatja a gépet.
+
+**Forrás:** [@unesco2024; @euaiact2024, {}14. cikk; @russell2021, {}27. fejezet]
+
+---
+
+## L8 – MI-műveltség és felelős MI-használat
+
+### L8.01 – MI-műveltség (AI literacy)
+
+**Meghatározás:** @long2020 meghatározása szerint az *MI-műveltség* azoknak a kompetenciáknak az együttese, amelyek lehetővé teszik, hogy valaki kritikusan értékelje az MI-technológiákat, hatékonyan kommunikáljon és együttműködjön az MI-vel, és eszközként használja azt az interneten, otthon és a munkahelyén.
+
+**Kifejtés:** Az MI-műveltség nem programozói tudás. Mindenkinek szóló alapkészség, mint az írás-olvasás vagy a digitális kompetencia. @ng2021 négy dimenzióját különítik el:
+
+1. ismeret és megértés;
+2. használat és alkalmazás;
+3. értékelés és alkotás;
+4. etika.
+
+Az UNESCO és az OECD–EU keretrendszer hangsúlyozza, hogy a műveltség szemléletet is jelent: kritikus, felelős és emberközpontú hozzáállást. Az EU AI Act (4. cikk) az MI-t alkalmazó szervezetek számára elő is írja munkatársaik megfelelő MI-műveltségének biztosítását.
+
+**Példa:** Egy MI-műveltséggel rendelkező diák tudja, hogy a chatbot tévedhet, ellenőrzi a fontos állításokat, nem tölt fel személyes adatokat, és feltünteti, ha MI-t használt egy beadandóhoz.
+
+**Forrás:** [@long2020; @ng2021; @unesco2024; @oecd2025; @hornberger2023]
+
+### L8.02 – Az MI képességei és korlátai
+
+**Meghatározás:** Annak ismerete, hogy a mai MI-rendszerek miben erősek (mintafelismerés, szövegalkotás, összefoglalás, fordítás, nagy adatmennyiség gyors feldolgozása) és miben gyengék vagy megbízhatatlanok (tényszerű pontosság, friss információ, hosszú távú tervezés, valódi megértés, ritka helyzetek kezelése).
+
+**Kifejtés:** Long és Magerko keretében ez a „Mit tud az MI?” kérdéskör. A mai MI képességei *egyenetlenek*. Kutatók ezt „egyenetlen határvonalnak” (jagged frontier) nevezik: egy modell kiválóan megold egy nehéz feladatot, majd egy hasonlónak tűnő, egyszerűbbet elront. Ezért nem lehet egy-két jó vagy rossz tapasztalatból általánosítani. A korlátok ismerete segít eldönteni, mire érdemes használni az MI-t, és hol kell különösen óvatosnak lenni.
+
+**Példa:** Egy chatbot remekül megfogalmaz egy hivatalos e-mailt, de egy egyszerűnek tűnő logikai fejtörőt vagy egy szöveg szavainak megszámolását elronthatja.
+
+**Forrás:** [@long2020; @ng_ai4e, {}1. hét; @ng_gai4e, {}1. modul; @dellacqua2023]
+
+### L8.03 – Delegálás: mit bízzunk az MI-re és mit ne
+
+**Meghatározás:** A *delegálás* az Anthropic AI Fluency 4D-modelljének első eleme. Azt jelenti, hogy tudatosan eldöntjük, *egyáltalán*, *mikor* és *hogyan* vonjunk be MI-t egy feladatba, és mely részeket tartsunk meg emberi kézben.
+
+**Kifejtés:** A jó delegáláshoz ismerni kell:
+
+- **a feladatot:** mi a cél, mi a fontos benne;
+- **az MI képességeit és korlátait** (L8.02);
+- **a kockázatokat:** mi történik, ha az MI hibázik?
+
+Bizonyos feladatokat érdemes átadni, például egy vázlat elkészítését vagy egy szöveg átfogalmazását. Másokat nem, mert a tanulás maga a cél, vagy mert túl nagy a tét. Ilyen a vizsgadolgozat önálló megírása vagy egy klinikai döntés. A delegálás nem „mindent vagy semmit” döntés. Gyakran együttműködésről van szó: az ember és az MI felváltva dolgozik.
+
+**Példa:** Egy diák az MI-re bízza, hogy kikérdezze őt a tananyagból, de az esszé érvelését maga dolgozza ki, mert éppen ezt kell megtanulnia.
+
+**Forrás:** [@dakan2025, {}Delegation; @oecd2025, {}Engage, Manage]
+
+### L8.04 – Leírás: a cél, a kontextus és a formátum megadása
+
+**Meghatározás:** A *leírás* (description) a 4D-modell második eleme. Annak készsége, hogy világosan közöljük az MI-vel, mit szeretnénk elérni. Ez magában foglalja a feladatot, a hátteret, a kívánt formátumot, a stílust és az elvárt viselkedést.
+
+**Kifejtés:** A leírás tágabb a prompttervezésnél (L6.10). Nemcsak az egyes utasítások megfogalmazását jelenti, hanem azt is, hogy átadjuk a gondolkodásmódot és az elvárásokat. Például megmondjuk, ha azt szeretnénk, hogy az MI kérdezzen vissza, ha valami nem világos, vagy hogy jelezze, ha bizonytalan. Az MI nem lát bele a fejünkbe. Amit nem mondunk el, azt a legáltalánosabb módon fogja kitalálni.
+
+**Példa:** „Egy pszichológus hallgatónak írsz. Magyarázd el a kognitív disszonancia fogalmát egy hétköznapi példával, legfeljebb 150 szóban. Ha a fogalomnak több értelmezése van, jelezd.”
+
+**Forrás:** [@dakan2025, {}Description; @ng_gai4e, {}2. modul]
+
+### L8.05 – Ítélőképesség: a kimenet értékelése
+
+**Meghatározás:** Az *ítélőképesség* (discernment) a 4D-modell harmadik eleme. Azt jelenti, hogy pontosan meg tudjuk ítélni az MI kimenetének minőségét: igaz-e, releváns-e, teljes-e, megfelel-e a célnak, és nem tartalmaz-e torzítást vagy hibát.
+
+**Kifejtés:** Az MI válaszai gyakran gördülékenyek és magabiztosak, ezért könnyű összetéveszteni a jó stílust a helyes tartalommal. Az ítélőképesség azt jelenti, hogy nem a válasz formája, hanem a tartalma alapján döntünk. Ehhez szakmai tudás kell: minél jobban ismerjük a témát, annál könnyebben vesszük észre a hibákat. Ezért a tanulás nem válik feleslegessé az MI mellett. Az ítélőképesség a folyamatra is vonatkozik: jól értette-e az MI a feladatot, és jó irányba halad-e?
+
+**Példa:** Egy diák észreveszi, hogy az MI által írt összefoglaló a „korreláció” és az „okság” fogalmát összemossa, és kijavítja.
+
+**Forrás:** [@dakan2025, {}Discernment; @long2020; @ng2021, {}értékelés]
+
+### L8.06 – Gondosság: felelősségvállalás, átláthatóság, hivatkozás
+
+**Meghatározás:** A *gondosság* (diligence) a 4D-modell negyedik eleme. Azt jelenti, hogy felelősséget vállalunk azért, amit az MI segítségével létrehozunk és továbbadunk.
+
+**Kifejtés:** A gondosság három fő része:
+
+- **ellenőrzés:** mielőtt felhasználjuk vagy megosztjuk az MI kimenetét, ellenőrizzük;
+- **átláthatóság:** jelezzük, ha és ahogyan MI-t használtunk;
+- **hatások mérlegelése:** végiggondoljuk, kire és hogyan hat a munkánk.
+
+Az MI nem vállal felelősséget. Ha egy hibás állítást továbbadunk, az a mi hibánk. A tudományos kiadók szervezete, a COPE kimondja, hogy az MI nem lehet egy tudományos cikk szerzője, mert nem tud felelősséget vállalni a tartalomért.
+
+**Példa:** Egy diák a beadandója végén feltünteti: „A szöveg vázlatát ChatGPT segítségével készítettem, a hivatkozásokat és az érvelést magam ellenőriztem és dolgoztam ki.”
+
+**Forrás:** [@dakan2025, {}Diligence; @charmeu; @citadel; @saarland; @cope2023]
+
+### L8.07 – Forráskritika és tényellenőrzés MI-kimeneteknél
+
+**Meghatározás:** Az MI által adott információk eredetének, hitelességének és pontosságának ellenőrzése, megbízható, független forrásokkal való összevetés útján.
+
+**Kifejtés:** Az MI-válasz nem forrás, hanem kiindulópont. A tényellenőrzés lépései:
+
+1. Azonosítsuk a konkrét állításokat: számokat, neveket, idézeteket, hivatkozásokat.
+2. Keressük meg az eredeti forrást, ne csak az MI összefoglalóját olvassuk.
+3. Nézzük meg, mit mondanak más, független források. Ez az *oldalirányú olvasás* (lateral reading).
+4. Gondoljuk végig, ki a forrás szerzője, mikor és milyen céllal írta.
+
+Különösen fontos a hivatkozások ellenőrzése, mert az MI gyakran kitalál nem létező cikkeket (L6.16). Hasznos keret a *CRAAP-teszt*: frissesség, relevancia, hitelesség, pontosság, cél.
+
+**Példa:** Az MI azt állítja, hogy „egy 2019-es kutatás szerint a diákok 73%-a…”. A diák rákeres a tanulmányra, és kiderül, hogy az nem létezik, vagy egészen mást állít.
+
+**Forrás:** [@charmeu; @citadel; @saarland; @long2020; @oecd2025, {}Engage; @wineburg2019]
+
+### L8.08 – Akadémiai integritás, plágium, az MI-használat feltüntetése
+
+**Meghatározás:** Az *akadémiai integritás* a tanulásban és a kutatásban elvárt becsületesség, átláthatóság és felelősség. Az MI korában ide tartozik, hogy az MI-t csak a megengedett módon használjuk, és a használatát a szabályoknak megfelelően feltüntetjük.
+
+**Kifejtés:** Az MI által írt szöveg saját munkaként való beadása a legtöbb intézményben az akadémiai integritás megsértésének minősül, még ha nem is klasszikus plágium (nem egy másik ember szövegét másoljuk). Hogy mi megengedett, az intézményenként, kurzusonként, sőt feladatonként változhat: ötletelés, nyelvi javítás, vázlatkészítés vagy semmi. Ezért mindig tájékozódni kell a helyi szabályokról. Az MI-szövegeket „felismerő” detektorok megbízhatatlanok: gyakran tévesen jelölnek meg emberi szöveget, különösen nem anyanyelvi írók esetében. Ezért nem alkalmasak önálló bizonyítéknak.
+
+**Példa:** Egy kurzus szabálya megengedi az MI-t ötleteléshez és nyelvi javításhoz, de előírja, hogy a beadandó végén röviden le kell írni, mire és hogyan használták.
+
+**Forrás:** [@charmeu; @citadel; @unesco2024; @cope2023]
+
+### L8.09 – Automatizációs torzítás és túlzott bizalom
+
+**Meghatározás:** Az *automatizációs torzítás* (automation bias) az a hajlam, hogy az emberek túlzottan megbíznak az automatizált rendszerek javaslataiban, és akkor is elfogadják azokat, ha saját tudásuk vagy más információk ellentmondanak nekik.
+
+**Kifejtés:** @parasuraman1997 az automatizáció kétféle helytelen használatát különbözteti meg:
+
+- **Túlzott bizalom** (misuse): akkor is a gépre hagyatkozunk, amikor nem kellene.
+- **Indokolatlan elutasítás** (disuse): akkor sem használjuk, amikor hasznos lenne.
+
+Az automatizációs torzítás két formában jelenik meg:
+
+- **elmulasztási hiba:** nem vesszük észre a problémát, mert a gép nem jelezte;
+- **elkövetési hiba:** követjük a gép hibás javaslatát.
+
+A torzítást erősíti az időnyomás, a fáradtság és az, hogy a rendszer általában jól működik, így elszokunk az ellenőrzéstől. Az MI magabiztos, gördülékeny stílusa még tovább növelheti a túlzott bizalmat.
+
+**Példa:** Egy sofőr a navigáció utasítását követve egy lezárt útra hajt, pedig a táblák jól láthatók voltak.
+
+**Forrás:** [@parasuraman1997; @parasuraman2010; @euaiact2024, {}14. cikk]
+
+### L8.10 – Antropomorfizáció
+
+**Meghatározás:** Az *antropomorfizáció* emberi tulajdonságok, például gondolatok, érzések, szándékok vagy tudat tulajdonítása nem emberi dolgoknak, így MI-rendszereknek is.
+
+**Kifejtés:** Az emberek természetes hajlama, hogy mindenben elmét keressenek: beszélünk a növényeinkhez, és „makacsnak” nevezzük a rossz nyomtatót. @epley2007 elmélete szerint ez akkor erősebb, ha a dolog emberszerűen viselkedik, ha meg akarjuk érteni és jósolni a működését, és ha vágyunk a társas kapcsolatra. A chatbotok különösen erősen kiváltják az antropomorfizációt, mert emberi nyelven, első személyben, empatikusnak tűnő módon beszélnek (lásd ELIZA-hatás, L1.11). Ez kellemesebbé teheti a használatot, de túlzott bizalomhoz, érzelmi függéshez és a képességek félreértéséhez vezethet.
+
+**Példa:** Valaki megköszöni a chatbotnak a segítséget, és úgy érzi, megbántotta, amikor durván írt neki. A rendszer azonban nem érez sértettséget.
+
+**Forrás:** [@long2020, {}„Hogyan észlelik az emberek az MI-t?”; @epley2007; @weizenbaum1976]
+
+### L8.11 – Kognitív kiszervezés, deskilling
+
+**Meghatározás:**
+
+- **Kognitív kiszervezés** (cognitive offloading): szellemi feladatok, például emlékezés, számolás vagy tervezés áthárítása külső eszközökre.
+- **Deskilling** (készségvesztés): egy készség elsorvadása, mert rendszeresen gép végzi helyettünk.
+
+**Kifejtés:** A kiszervezés önmagában nem rossz. Jegyzetet, naptárt és számológépet is használunk, és ez felszabadítja a figyelmünket [@risko2016]. A probléma akkor kezdődik, ha olyan készséget szervezünk ki, amelyet éppen meg kellene tanulnunk, vagy amelyre később önállóan is szükségünk lesz. Ha mindig az MI írja meg a szöveget vagy oldja meg a feladatot, nem fejlődik az íráskészségünk és a gondolkodásunk. Ráadásul a hibákat sem vesszük észre, mert nincs mihez mérnünk őket. A tanulásban ezért érdemes az MI-t inkább gyakorlótársként, kérdezőként használni, mint a munka elvégzőjeként.
+
+**Példa:** Aki évek óta csak navigációval közlekedik, gyakran egy ismerős városban sem tud tájékozódni nélküle.
+
+**Forrás:** [@risko2016; @unesco2024; @oecd2025, {}Manage]
+
+### L8.12 – Ember–MI együttműködés, human-in-the-loop
+
+**Meghatározás:**
+
+- **Ember–MI együttműködés:** olyan munkamód, amelyben az ember és az MI a saját erősségeire építve együtt old meg egy feladatot.
+- **Human-in-the-loop** („ember a folyamatban”): olyan rendszerfelépítés, amelyben az ember a döntési folyamat meghatározott pontjain ellenőriz, jóváhagy vagy javít.
+
+**Kifejtés:** Az együttműködésnek több formája van:
+
+- **„kentaur” stílus:** az ember és az MI munkamegosztásban dolgozik, és egyértelmű, ki melyik részfeladatot végzi;
+- **„kiborg” stílus:** az ember és az MI folyamatosan, szorosan összefonódva dolgozik.
+
+A *human-in-the-loop* a felelős MI-alkalmazás fontos elve, különösen ott, ahol a tét nagy. Csak akkor működik, ha az ember valóban érti a feladatot, van ideje ellenőrizni, és joga van felülbírálni az MI-t (vö. L7.14). Másképp csak „gumibélyegzővé” válik, aki automatikusan jóváhagy mindent.
+
+**Példa:** Egy fordító a gépi fordítást használja kiindulásként, majd mondatról mondatra ellenőrzi és javítja. A végső szövegért ő felel.
+
+**Forrás:** [@oecd2025, {}Create, Manage; @unesco2024; @dellacqua2023]
+
+### L8.13 – Adatbiztonság a mindennapi használatban
+
+**Meghatározás:** Azoknak a gyakorlati szabályoknak az összessége, amelyek megakadályozzák, hogy MI-eszközök használatakor személyes, bizalmas vagy érzékeny adatok illetéktelen kezekbe kerüljenek.
+
+**Kifejtés:** Amit egy online MI-szolgáltatásba beírunk vagy feltöltünk, az a szolgáltató szerverére kerül. A beállításoktól függően tárolhatják, emberek átnézhetik, vagy felhasználhatják a modellek továbbtanításához. Alapszabályok:
+
+- Ne adjunk meg jelszót, személyi okmányszámot, bankkártyaadatot.
+- Mások személyes adatait, különösen egészségügyi vagy pszichológiai adatait ne töltsük fel.
+- Bizalmas dokumentumot csak az intézmény által jóváhagyott eszközbe tegyünk.
+- Ha szükséges, anonimizáljuk az adatokat.
+- Ismerjük meg és állítsuk be az adatvédelmi opciókat.
+
+**Példa:** Egy pszichológus hallgató a terepgyakorlaton készült interjút csak akkor elemezteti MI-vel, ha előtte minden nevet, helyszínt és azonosító részletet eltávolított belőle, és ezt a gyakorlatvezető jóváhagyta.
+
+**Forrás:** [@unesco2024; @oecd2025, {}Manage; @gdpr2016]
+
+### L8.14 – Laikus mentális modellek az MI működéséről
+
+**Meghatározás:** A *laikus mentális modellek* (népi elméletek, folk theories) azok a hétköznapi elképzelések, amelyeket az emberek az MI működéséről alakítanak ki, gyakran pontatlanul és tapasztalati alapon.
+
+**Kifejtés:** Az emberek magyarázatot keresnek arra, amit tapasztalnak. Ha nem ismerik a technikai részleteket, saját elméleteket gyártanak:
+
+- „a chatbot keres az interneten, és onnan idéz”;
+- „a telefonom lehallgat, ezért mutat ilyen hirdetéseket”;
+- „az MI egy hatalmas adatbázis, amelyben minden válasz el van tárolva”;
+- „az MI gondolkodik és érez, mint egy ember”.
+
+Ezek a modellek befolyásolják, hogyan használjuk az eszközöket, mennyire bízunk bennük, és milyen hibákat várunk vagy nem várunk tőlük. Long és Magerko kiemeli, hogy az MI-oktatás egyik célja a pontosabb mentális modellek kialakítása. Ehhez a tévképzetek felismerése és kijavítása is hozzátartozik.
+
+**Példa:** Ha valaki azt hiszi, hogy a chatbot mindig az interneten ellenőrzi a válaszát, nem fogja kétségbe vonni a kitalált hivatkozásokat. Ha tudja, hogy a modell valószínű szöveget generál, óvatosabb lesz.
+
+**Forrás:** [@long2020; @hornberger2023; @devito2017]

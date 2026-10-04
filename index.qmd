@@ -1,0 +1,39 @@
+# Előszó {.unnumbered}
+
+Ez a könyv a *Bevezetés a mesterséges intelligenciába* kurzushoz (pszichológia BA, 2026/27/1) készülő
+Moodle-kérdésbank előkészítő anyagait gyűjti össze.
+A kérdéseket később az R [`exams`](https://www.r-exams.org/) csomaggal állítjuk elő, és Moodle XML formátumban töltjük fel.
+
+## A fejezetek
+
+- **[Témakörök a kurzus weboldala alapján](temakorok.qmd)**: a kurzus
+  [weboldalának](https://abarik.github.io/bevezetes_a_mesterseges_intelligenciaba_2026_27_1/) átvizsgálásával
+  készült 8 témakör (`T1`–`T8`) és 91 fogalom.
+- **[Témakörök a szakirodalom alapján](temakorok_irodalom.qmd)**: hasonló bevezető egyetemi MI-kurzusok,
+  tankönyvek és MI-műveltségi keretrendszerek elemzéséből készült 8 témakör (`L1`–`L8`) és 103 fogalom,
+  lefedettségi mátrixszal és a weboldallal való összevetéssel.
+- **[Fogalmak kifejtve](temakorok_irodalom_kifejtve.qmd)**: a szakirodalmi témakörök mind a 103 fogalma
+  meghatározással, középiskolás szintű kifejtéssel, példával és forrással.
+- **[Kurzusösszefoglaló: bevezető fogalomtár](kurzusosszefoglalo_pai.qmd)**: egy pszichológia BA-s
+  bevezető MI-kurzus 10 tematikus egységének fogalomtára, minimumkompetenciákkal.
+- **[Kibővített fogalomtár](kurzusosszefoglalo_pai_2.qmd)**: az előző fogalomtár 10 témakörének bővített
+  változata, minden fogalomnál rövid hivatkozással, vizsgára javasolt minimumlistával.
+- **[MI–pszichológia BA fogalomtár](kurzusosszefoglalo_pai_3.qmd)**: 10 témakör 50 fogalma definícióval,
+  pszichológiai kapcsolattal, közelítő példával és forrással, idővonallal és ellenőrző kérdésekkel.
+- **[MI–pszichológia BA fogalomtár (bővített)](kurzusosszefoglalo_pai_4.qmd)**: egyetemi pszichológiai MI-kurzusok
+  és MI-vizsgatematikák alapján készült, hosszabb kifejtésű fogalomtár (a forrásszöveg hiányos, 58 szócikk).
+- **[Az „MI-ellenesség” típusai és történeti dokumentumai](MI-ellenesseg.qmd)** (Kitekintés): narratív–történeti
+  áttekintés az MI kritikájának 12 típusáról, a beavatkozási igény fokozatairól és a meghatározó dokumentumokról.
+
+## Azonosítók
+
+Minden fogalom egyedi azonosítót kapott:
+
+- `T1.01` …: a weboldal alapú fogalmak;
+- `L1.01` …: a szakirodalom alapú fogalmak.
+
+Ezek az azonosítók lesznek majd a kérdésfájlok névelőtagjai, a témakörök pedig a Moodle-kérdéskategóriák.
+
+## Hivatkozások
+
+A fejezetek szövegközi hivatkozásai APA-stílusúak. A teljes jegyzék a könyv végi [Hivatkozások](references.qmd) fejezetben található.

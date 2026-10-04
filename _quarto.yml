@@ -1,0 +1,49 @@
+project:
+  type: book
+  output-dir: _book
+
+lang: hu
+language:
+  toc-title-document: "Tartalom"
+  title-block-author-single: "Szerző"
+  title-block-published: "Utolsó módosítás"
+  search-no-results-text: "Nincs találat"
+
+book:
+  title: "MI-tesztek"
+  subtitle: "Témakörök és fogalmak a Moodle-kérdésbankhoz"
+  author: "Abari Kálmán"
+  date: today
+  date-format: "YYYY. MMMM D."
+  chapters:
+    - index.qmd
+    - part: "Témakörök és fogalmak"
+      chapters:
+        - temakorok.qmd
+        - temakorok_irodalom.qmd
+        - temakorok_irodalom_kifejtve.qmd
+        - kurzusosszefoglalo_pai.qmd
+        - kurzusosszefoglalo_pai_2.qmd
+        - kurzusosszefoglalo_pai_3.qmd
+        - kurzusosszefoglalo_pai_4.qmd
+    - part: "Kitekintés"
+      chapters:
+        - MI-ellenesseg.qmd
+    - references.qmd
+
+bibliography: references.bib
+csl: apa.csl
+link-citations: true
+nocite: |
+  @maslej2025
+
+format:
+  html:
+    theme:
+      light: cosmo
+      dark: darkly
+    toc: true
+    toc-depth: 3
+    number-sections: true
+    number-depth: 1
+    smooth-scroll: true

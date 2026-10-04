@@ -1,0 +1,672 @@
+# MI–pszichológia BA fogalomtár {#sec-kurzusosszefoglalo-pai-3}
+
+**Bevezető kurzushoz · 2026. októberi állapot**
+
+## A válogatás elve
+
+A fogalomtár 10 témakörben 50 fogalmat mutat be. A témakörök kiválasztása nemcsak technológiai logikát követ: összeveti a nem technikai közönségnek szánt *Elements of AI* tantervét (MI, problémamegoldás, valószínűség, gépi tanulás, neurális hálók, társadalmi hatások), a jelenlegi AWS AI Practitioner vizsgadoménjeit (MI/ML, generatív MI, alapmodellek, felelős MI, biztonság és irányítás), valamint a pszichológia szempontjából fontos kognitív, mérési és ember–gép-interakciós szakirodalmat [@elementsofai; @aws2026].
+
+Minden szócikk négy elemből áll:
+
+- **Definíció:** a fogalom szakmailag pontos, rövid meghatározása.
+- **Pszichológiai kapcsolat:** hova illeszkedik a BA-tananyagban.
+- **Közelítő példa:** számítástechnikai előképzettség nélkül is követhető helyzet.
+- **Forrás:** ellenőrizhető elsődleges, lektorált vagy intézményi hivatkozás.
+
+::: {.callout-important}
+## Olvasási alapelv
+
+Az emberhez hasonló kimenet nem bizonyít emberivel azonos belső folyamatot, megértést, érzelmet vagy tudatot. Mindig külön kell választani a feladatban mért teljesítményt, a megvalósító algoritmust és a fizikai implementációt.
+:::
+
+## Tématérkép
+
+| Témakör | Központi kérdés | BA-pszichológiai híd |
+|---|---|---|
+| 1. Történet és alapkérdések | Mit nevezünk MI-nek? | Intelligencia, operacionalizálás, tudománytörténet |
+| 2. Szimbolikus MI | Leírható-e a gondolkodás szabályokkal? | Problémamegoldás, fogalmak, szakértői tudás |
+| 3. Kognitív modellezés | Milyen szinteken magyarázunk? | Reprezentáció, információfeldolgozás, elméletalkotás |
+| 4. Gépi tanulás | Hogyan tanul a rendszer adatokból? | Tanulás, kategorizáció, generalizáció |
+| 5. Neurális hálók | Hogyan tanul egy elosztott háló? | Kapcsolatelvűség, észlelés, emlékezet |
+| 6. Nyelv és LLM-ek | Hogyan generál nyelvet egy modell? | Pszicholingvisztika, jelentés, kontextus |
+| 7. Generatív MI | Mitől újak a mai általános célú modellek? | Kreativitás, ember–gép kommunikáció |
+| 8. Értékelés és pszichometria | Honnan tudjuk, hogy jól működik? | Validitás, reliabilitás, mérési hiba |
+| 9. Ember–MI interakció | Mikor támaszkodunk jól a gépre? | Bizalom, torzítások, antropomorfizáció |
+| 10. Alkalmazás és etika | Mi használható felelősen a pszichológiában? | Felmérés, mentális egészség, adatvédelem |
+
+## 1. Történet és alapkérdések
+
+### 1.1 Mesterséges intelligencia (MI; AI)
+
+**Definíció.** Gyűjtőfogalom olyan gépi rendszerekre és kutatási módszerekre, amelyek észlelést, nyelvhasználatot, tanulást, következtetést, problémamegoldást vagy döntést valósítanak meg. Az „MI” nem egyetlen algoritmus, és nem feltétlenül emberutánzat.
+
+**Pszichológiai kapcsolat.** Az intelligenciához hasonlóan az MI is operacionalizálást igényel: milyen viselkedést, feladatot és teljesítménymutatót tekintünk intelligensnek?
+
+**Közelítő példa.** Egy arcfelismerő rendszer egy szűk feladatban felülmúlhat embereket, de ettől még nem tud interjút készíteni vagy erkölcsi dilemmát megérteni.
+
+**Forrás.** [@mccarthy2006]
+
+### 1.2 Dartmouth-projekt
+
+**Definíció.** Az 1955-ben írt javaslat alapján 1956-ban megtartott kutatási program, amely programadó módon használta az „artificial intelligence” nevet. A résztvevők azt feltételezték, hogy a tanulás és az intelligencia több jellemzője elég pontosan leírható gépi szimulációhoz.
+
+**Pszichológiai kapcsolat.** A mai kérdések — gépi nyelv, fogalomalkotás, kreativitás — már a terület indulásakor jelen voltak.
+
+**Közelítő példa.** Szemináriumi feladatként a Dartmouth-célok mellé rendelhető egy mai rendszer, majd külön jelölhető, hol van igazolt teljesítmény és hol csak antropomorf értelmezés.
+
+**Forrás.** [@mccarthy2006]
+
+### 1.3 Turing-teszt
+
+**Definíció.** Turing az elvont „Gondolkodhatnak-e a gépek?” kérdést viselkedéses imitációs játékkal helyettesítette: egy ember írásos kommunikációból próbálja megkülönböztetni a gépet az embertől. A teszt nyelvi viselkedést vizsgál, nem tudatot mér.
+
+**Pszichológiai kapcsolat.** Klasszikus operacionalizálási példa: egy elméleti konstruktumot megfigyelhető eljárással tesz vizsgálhatóvá. Kritikai kérdés, hogy a műveleti definíció lefedi-e a konstruktumot.
+
+**Közelítő példa.** Ha egy chatbot öt percig emberien válaszol, az siker lehet az imitációban, de nem bizonyít epizodikus emlékezetet, érzéseket vagy emberi jelentésalkotást.
+
+**Forrás.** [@turing1950]
+
+### 1.4 Szűk MI és általános MI
+
+**Definíció.** A **szűk MI** meghatározott feladatra vagy feladatcsaládra optimalizált rendszer. Az **általános mesterséges intelligencia** (AGI) hipotetikus, széles körben és rugalmasan alkalmazkodó rendszer lenne. A generatív vagy ágensszerű működés önmagában nem bizonyít AGI-t.
+
+**Pszichológiai kapcsolat.** Megfeleltethető a specifikus képesség és az általános kognitív működés közötti különbségnek.
+
+**Közelítő példa.** Egy kiváló mondatkiegészítő teljesítmény nem bizonyít testi tapasztalatot, tartós célokat, önéletrajzi emlékezetet és társas belátást.
+
+**Forrás.** [@aws2026, {}1. tartalmi terület]
+
+### 1.5 MI-tél és fellendülési ciklus
+
+**Definíció.** A korai lelkesedést többször követte finanszírozási és érdeklődési visszaesés, amikor a rendszerek nem teljesítették a túlzott várakozásokat. Ezeket az időszakokat MI-teleknek nevezik. A későbbi fellendülést többek között a számítási kapacitás, a nagy adatkészletek és új tanulási módszerek segítették.
+
+**Pszichológiai kapcsolat.** Hasonló egy új pszichológiai módszer hype-ciklusához: a kezdeti univerzális ígéreteket replikációk és korlátvizsgálatok árnyalják.
+
+**Közelítő példa.** A „hamarosan kivált minden terapeutát” állítás külön kezelendő attól, hogy egy konkrét chatbot egy nyolchetes vizsgálatban kis tünetcsökkenést mutatott.
+
+**Forrás.** [@haenlein2019]
+
+## 2. Szimbolikus MI
+
+### 2.1 Szimbolikus MI
+
+**Definíció.** Olyan megközelítés, amely explicit jelekkel, fogalmakkal, logikai állításokkal és szabályokkal reprezentálja a tudást. A problémamegoldás gyakran formális következtetés vagy keresés.
+
+**Pszichológiai kapcsolat.** Közel áll azokhoz a kognitív elméletekhez, amelyek a gondolkodást szabályok és mentális reprezentációk műveleteiként írják le.
+
+**Közelítő példa.** „HA legalább két hete fennálló lehangoltság, AKKOR kérdezz rá további tünetekre.” A szabály átlátható, de a valós helyzet összes kivételét nehéz előre kódolni.
+
+**Forrás.** [@newell1976]
+
+### 2.2 Fizikai szimbólumrendszer hipotézise
+
+**Definíció.** Newell és Simon erős tézise szerint egy fizikai szimbólumrendszer az általános intelligens cselekvéshez szükséges és elégséges eszközökkel rendelkezik.
+
+**Pszichológiai kapcsolat.** Elméleti állítás az emberi kognícióról is: felveti, hogy a gondolkodás lényegét szimbólumműveletek adják. A kapcsolatista és megtestesült elméletek ezt vitatják vagy kiegészítik.
+
+**Közelítő példa.** A logikai rejtvény jól leírható szimbólumokkal; az arcfelismerés vagy implicit tanulás kevésbé természetesen.
+
+**Forrás.** [@newell1976]
+
+### 2.3 Tudásreprezentáció
+
+**Definíció.** Annak módja, ahogyan egy rendszer tárgyakat, tulajdonságokat, kapcsolatokat, szabályokat vagy bizonytalanságot belső formában kódol. Lehet logikai állítás, háló, valószínűségi eloszlás vagy számszerű vektor.
+
+**Pszichológiai kapcsolat.** Közvetlen párja a mentális reprezentáció kérdésének: milyen formában tároljuk és alakítjuk át az információt?
+
+**Közelítő példa.** A „kutya” lehet jellemzőlista, prototípus, példányhalmaz vagy beágyazási vektor. Azonos válasz mögött eltérő reprezentáció állhat.
+
+**Forrás.** [@davis1993]
+
+### 2.4 Szakértői rendszer
+
+**Definíció.** Szűk szakterületen emberi szakértői döntést támogató rendszer, amely tudásbázist és következtető eljárást alkalmaz. A korai példák közé tartozik a fertőzésekkel foglalkozó MYCIN.
+
+**Pszichológiai kapcsolat.** Megmutatja az explicit és hallgatólagos szakértői tudás különbségét. A szakértők gyakran nem tudják minden döntési lépésüket szabállyá alakítani.
+
+**Közelítő példa.** Egy döntési protokoll következetesen alkalmazhat kritériumokat, de nem „általános pszichológus”; csak a kódolt területén használható.
+
+**Forrás.** [@shortliffe1976; történeti összefoglaló: @buchanan1984]
+
+### 2.5 ELIZA
+
+**Definíció.** Weizenbaum korai párbeszédprogramja kulcsszavakhoz és mintákhoz rendelt átalakítási szabályokkal működött. DOCTOR-szkriptje rogeriánus terapeutára emlékeztető visszakérdezéseket adott, emberi értelemben vett megértés nélkül.
+
+**Pszichológiai kapcsolat.** Fontos példa arra, hogy a nyelvi forma és a társas szerep gyorsan kiváltja az értelem- és empátiatulajdonítást.
+
+**Közelítő példa.** „Szomorú vagyok” → „Miért gondolja, hogy szomorú?” A válasz empatikusnak tűnik, noha egyszerű mintatranszformáció lehet.
+
+**Forrás.** [@weizenbaum1966]
+
+## 3. Kognitív modellezés
+
+### 3.1 Számításos modell
+
+**Definíció.** Formális leírás arról, hogyan képezhető le bemenet kimenetre meghatározott reprezentációk és műveletek segítségével. Lehet normatív — mit tenne az optimális rendszer — vagy leíró — mit tesz ténylegesen az ember.
+
+**Pszichológiai kapcsolat.** A verbális elméletet pontos, tesztelhető előrejelzésekké alakíthatja. A paraméter azonban nem automatikusan agyi mechanizmus vagy személyiségvonás.
+
+**Közelítő példa.** Egy modell tanulási rátával írja le, mennyire változik a választás jutalom után. Ellenőrizni kell, hogy más modell nem magyarázza-e ugyanilyen jól az adatot.
+
+**Forrás.** [@wilson2019]
+
+### 3.2 Marr három magyarázati szintje
+
+**Definíció.** A **komputációs szint** azt kérdezi, mi a rendszer célja és miért; az **algoritmikus-reprezentációs szint**, hogyan végzi el; az **implementációs szint**, milyen fizikai rendszer valósítja meg.
+
+**Pszichológiai kapcsolat.** Segít elkerülni, hogy az azonos teljesítményből azonos mechanizmusra következtessünk.
+
+**Közelítő példa.** Ember és gép felismerheti ugyanazt az arcot, miközben eltérő reprezentációt, algoritmust és fizikai hordozót használ.
+
+**Forrás.** [@marr1982; @peebles2015]
+
+### 3.3 Reprezentáció
+
+**Definíció.** Belső állapot vagy kód, amely valamilyen információt helyettesít a feldolgozásban. Értelmezése mindig függ attól, milyen műveletek végezhetők rajta és milyen viselkedést magyaráz.
+
+**Pszichológiai kapcsolat.** A kognitív pszichológia központi kérdése: milyen formában jelenik meg egy fogalom, emlék vagy perceptuális tárgy?
+
+**Közelítő példa.** Két rendszer azonos kategóriaválaszt adhat, de hibamintázatukból kiderülhet, hogy az egyik prototípust, a másik egyedi példányokat használ.
+
+**Forrás.** [@marr1982; @hardcastle2015]
+
+### 3.4 Algoritmus
+
+**Definíció.** Meghatározott eljárás vagy műveletsor, amely bemenetből kimenetet állít elő. Nem azonos a teljes programmal, a tanult modellel vagy a hardverrel.
+
+**Pszichológiai kapcsolat.** A helyes válasz nem árulja el önmagában a mentális stratégiát; ehhez reakcióidő, hibák és köztes állapotok is kellenek.
+
+**Közelítő példa.** Két ember ugyanazt a szorzást felidézéssel vagy felbontásos számolással oldhatja meg.
+
+**Forrás.** [@hardcastle2015]
+
+### 3.5 Kognitív architektúra
+
+**Definíció.** Általános elméleti keret, amely meghatározza egy kognitív rendszer alapvető reprezentációit, memóriáit, folyamatait és vezérlését. Több feladatot kíván azonos alapelvekből megmagyarázni.
+
+**Pszichológiai kapcsolat.** Olyan, mint egy integrált elmélet a munkamemória, hosszú távú emlékezet, figyelem és cselekvés együttműködéséről.
+
+**Közelítő példa.** Egy Stroop-feladat modellje egyetlen jelenséget ír le; egy architektúra ugyanazon alapmechanizmusokból többféle feladatot próbál felépíteni.
+
+**Forrás.** [@kotseruba2020]
+
+## 4. Gépi tanulás
+
+### 4.1 Gépi tanulás
+
+**Definíció.** Olyan módszerek összessége, amelyeknél egy rendszer teljesítménye tapasztalat — rendszerint adatok vagy visszajelzés — hatására javul egy meghatározott feladaton és mérőszám szerint.
+
+**Pszichológiai kapcsolat.** Akárcsak a tanuláslélektanban, itt is meg kell mondani, mi a tapasztalat, mi változik, és miből látszik a javulás.
+
+**Közelítő példa.** Depressziókockázat becslésénél a feladat a besorolás, a tapasztalat korábbi címkézett esetekből áll, a teljesítményt például szenzitivitással mérjük.
+
+**Forrás.** [@mitchell1997; @aws2026, {}1. tartalmi terület]
+
+### 4.2 Modell, betanítás és következtetés
+
+**Definíció.** A **modell** adatokból megtanult, paraméterezett leképezés. **Betanításkor** a paramétereket egy célfüggvény alapján módosítják; **következtetéskor** a kész modellt új bemenetre alkalmazzák.
+
+**Pszichológiai kapcsolat.** Hasonlít egy regressziós egyenlet becslésére, majd új személy pontszámának előrejelzésére.
+
+**Közelítő példa.** A kliensadatok tanítási felhasználásának adatvédelmi kérdése eltér attól, amikor a kész modell egy új klienst pontoz; mindkét fázist dokumentálni kell.
+
+**Forrás.** [@aws2026, {}1. tartalmi terület]
+
+### 4.3 Felügyelt tanulás
+
+**Definíció.** Bemenet–címke párokból történő tanulás, ahol minden tanítópéldához ismert célkimenet tartozik. Tipikus feladata a klasszifikáció és regresszió.
+
+**Pszichológiai kapcsolat.** A „helyes címke” sokszor emberi ítélet, ezért mérési hibát, értékelői eltérést és intézményi torzítást hordozhat.
+
+**Közelítő példa.** Ha klinikusok interjúszövegeket „kockázat/nincs kockázat” címkével látnak el, a modell az ő döntéseik mintázatát — hibáikkal együtt — tanulja.
+
+**Forrás.** [@aws2026, {}1. tartalmi terület: tanulási típusok]
+
+### 4.4 Felügyelet nélküli tanulás
+
+**Definíció.** Előre megadott helyes címke nélkül keres szerkezetet az adatokban, például klasztereket vagy alacsonyabb dimenziós reprezentációt.
+
+**Pszichológiai kapcsolat.** Használható tünetmintázatok feltárására, de a kapott csoportok nem automatikusan természetes pszichológiai típusok.
+
+**Közelítő példa.** Tünetadatokból három klaszter alakulhat ki, de az eredmény változhat a változók skálázásától és a választott algoritmustól; külső validálás kell.
+
+**Forrás.** [@aws2026, {}1. tartalmi terület: tanulási típusok]
+
+### 4.5 Megerősítéses tanulás
+
+**Definíció.** Egy ágens a környezetben cselekvéseket választ, jutalmat kap, és olyan stratégiát tanul, amely hosszú távon maximalizálja a jutalmat. A visszajelzés értékel, de nem feltétlenül mutatja meg a helyes lépést.
+
+**Pszichológiai kapcsolat.** Kapcsolható az instrumentális kondicionáláshoz és a jutalom-előrejelzési hibához, de a matematikai modell nem azonos a teljes emberi tanulással.
+
+**Közelítő példa.** Egy játékágens próbálkozásokból tanulja meg, mely jelenlegi lépések vezetnek későbbi sikerhez.
+
+**Forrás.** [@sutton2018]
+
+### 4.6 Generalizáció és túlillesztés
+
+**Definíció.** **Generalizáció** esetén a modell nem látott adatokon is jól teljesít. **Túlillesztéskor** a tanítóadat sajátos zaját is megtanulja, ezért azon kiváló, új adaton gyenge.
+
+**Pszichológiai kapcsolat.** Párhuzamos azzal, amikor egy pszichológiai skála egyetlen mintán jól működik, más populációban viszont nem.
+
+**Közelítő példa.** Egy főként fiatalokon tanult modell jó összpontszáma elfedheti, hogy idősebbeken hibás. Az összteljesítmény mellett alcsoportonkénti elemzés kell.
+
+**Forrás.** [@aws2026, {}4. tartalmi terület: torzítás, variancia, túlillesztés]
+
+## 5. Neurális hálók
+
+### 5.1 Mesterséges neuron
+
+**Definíció.** Több bemenet súlyozott összegéből és egy aktivációs szabályból kimenetet előállító egyszerű számítási egység. A McCulloch–Pitts-modell történeti hidat teremtett idegtudomány, logika és MI között.
+
+**Pszichológiai kapcsolat.** A mesterséges neuron biológiailag erősen leegyszerűsített absztrakció, nem az idegsejt digitális másolata.
+
+**Közelítő példa.** Több jel eltérő erősséggel támogat egy döntést; ha összhatásuk átlép egy küszöböt, az egység aktiválódik.
+
+**Forrás.** [@mcculloch1943]
+
+### 5.2 Perceptron
+
+**Definíció.** Rosenblatt tanuló, súlyozott kapcsolatokból álló modellje, amely egyszerű formájában lineárisan elválasztható kategóriákat tanul.
+
+**Pszichológiai kapcsolat.** Eredetileg az észlelési felismerés, generalizáció és emlékezeti szerveződés kérdései is motiválták.
+
+**Közelítő példa.** Két tünet súlyozott kombinációja elválaszthat két csoportot. Ha a határ nem írható le egyetlen egyenessel, az egyrétegű perceptron kevés.
+
+**Forrás.** [@rosenblatt1958]
+
+### 5.3 Súly és paraméter
+
+**Definíció.** A **súly** egy kapcsolat számszerű erőssége; a **paraméter** minden tanulható érték, amely befolyásolja a modell működését. Tanításkor ezek úgy változnak, hogy csökkenjen a cél és a kimenet eltérése.
+
+**Pszichológiai kapcsolat.** A regressziós együttható jó közelítő analógia, de nagy hálóban egyetlen súly önmagában ritkán kap pszichológiai jelentést.
+
+**Közelítő példa.** Egy bemeneti jel pozitív súlya növeli, negatív súlya csökkenti egy köztes egység aktivációját.
+
+**Forrás.** [@rumelhart1986]
+
+### 5.4 Rejtett réteg és mélytanulás
+
+**Definíció.** A rejtett rétegek a bemenet és kimenet közötti feldolgozási szintek. Mélytanuló háló több egymásra épülő rétegben tanul reprezentációkat.
+
+**Pszichológiai kapcsolat.** Kapcsolható a hierarchikus észleléshez, de a háló rétegeit nem szabad automatikusan anatómiai agyterületekkel azonosítani.
+
+**Közelítő példa.** Képeknél korai rétegek egyszerű élekre, későbbiek összetettebb alakzati mintákra válhatnak érzékennyé.
+
+**Forrás.** [@lecun2015]
+
+### 5.5 Visszaterjesztés (backpropagation)
+
+**Definíció.** Tanulási eljárás, amely a kimeneti hibából kiszámítja, hogyan járultak hozzá a súlyok a hibához, majd azokat kis lépésekben módosítja.
+
+**Pszichológiai kapcsolat.** A név és a hibából tanulás analógiája csábító, de az eljárás nem azonos az ember tudatos hibajavításával.
+
+**Közelítő példa.** Nemcsak azt jelzi, hogy a válasz rossz, hanem matematikailag meghatározza, mely kapcsolatok milyen irányú változtatása csökkentené a hibát.
+
+**Forrás.** [@rumelhart1986]
+
+### 5.6 Beágyazás (embedding)
+
+**Definíció.** Szó, mondat, kép vagy más objektum sokdimenziós számszerű vektorreprezentációja. Hasonló használati környezetű elemek gyakran közel kerülnek a tanult térben.
+
+**Pszichológiai kapcsolat.** Emlékeztet a szemantikus terekre. A geometriai közelség azonban adatmintázat, nem teljes emberi jelentés.
+
+**Közelítő példa.** A „szorongás” vektora közelebb lehet a „félelemhez”, mint az „asztalhoz”; társadalmi sztereotípiák is beépülhetnek ugyanebbe a térbe.
+
+**Forrás.** [@mikolov2013]
+
+## 6. Nyelv és nagy nyelvi modellek
+
+### 6.1 Természetesnyelv-feldolgozás (NLP)
+
+**Definíció.** Az emberi nyelv gépi elemzésének és előállításának területe. Feladata lehet osztályozás, információkinyerés, fordítás, összegzés, kérdés-válasz vagy generálás.
+
+**Pszichológiai kapcsolat.** Tömeges nyílt válaszok vagy interjúszövegek elemzését segítheti, de a konstrukcióvaliditás kérdését nem oldja meg.
+
+**Közelítő példa.** Egy rendszer „szorongást” jelezhet, miközben valójában a mondathosszt, életkort vagy iskolázottságot használja kerülő prediktorként.
+
+**Forrás.** [@aws2026, {}1. tartalmi terület: NLP-alkalmazások]
+
+### 6.2 Token és tokenizáció
+
+**Definíció.** A token a modell által feldolgozott szövegegység: lehet szó, szórész, írásjel vagy karaktercsoport. A tokenizáció a szöveget ilyen egységekre bontja.
+
+**Pszichológiai kapcsolat.** A token nem azonos pszichológiai szó- vagy morfémafogalommal; technikai kódolási egység.
+
+**Közelítő példa.** Egy magyar ragozott szó több tokenre eshet szét, ami befolyásolhatja a feldolgozási hosszúságot, költséget és nyelvi teljesítményt.
+
+**Forrás.** [@aws2026, {}2. tartalmi terület: tokenek és beágyazások]
+
+### 6.3 Figyelmi mechanizmus (attention)
+
+**Definíció.** Numerikus mechanizmus, amely kiszámítja, hogy egy elem feldolgozásakor a bemenet más elemei milyen súllyal számítsanak.
+
+**Pszichológiai kapcsolat.** A „figyelem” név metaforikus; nem automatikusan azonos a szelektív, megosztott vagy tudatos emberi figyelemmel.
+
+**Közelítő példa.** Egy névmás értelmezésekor a modell bizonyos korábbi szavakhoz nagyobb relevanciasúlyt rendelhet.
+
+**Forrás.** [@vaswani2017]
+
+### 6.4 Transzformer
+
+**Definíció.** Figyelmi mechanizmusokra épülő neurális architektúra, amely hatékonyan modellezi egy szekvencia elemei közötti kapcsolatokat. A modern LLM-ek alapvető architektúrája.
+
+**Pszichológiai kapcsolat.** Emberi nyelvi jelenségekkel összevethető, de teljesítménye nem teszi automatikusan az emberi nyelvfeldolgozás mechanisztikus elméletévé.
+
+**Közelítő példa.** Egy mondat távoli szavai közötti kapcsolatot közvetlen relevanciasúlyokkal kezelhet ahelyett, hogy kizárólag szó szerint, lépésenként haladna.
+
+**Forrás.** [@vaswani2017]
+
+### 6.5 Nyelvi modell és következőtoken-becslés
+
+**Definíció.** A nyelvi modell valószínűséget rendel szövegsorozatokhoz vagy következő tokenekhez. Autoregresszív generáláskor az addigi kontextusból ismételten választ következő tokent.
+
+**Pszichológiai kapcsolat.** A koherens nyelvi kimenet nem garantál tényszerű igazságot vagy emberi jelentésreprezentációt.
+
+**Közelítő példa.** „A kliens kitöltötte a …” után a „kérdőívet” valószínű folytatás. Ugyanez a mechanizmus hihető, de nem létező tanulmánycímet is alkothat.
+
+**Forrás.** [@brown2020]
+
+### 6.6 Nagy nyelvi modell (LLM)
+
+**Definíció.** Nagy méretű, széles szöveganyagon előtanított nyelvi modell, amely sokféle feladatra adaptálható. A „nagy” méretre, adatra és számításra utal, nem garantált általános intelligenciára.
+
+**Pszichológiai kapcsolat.** Nyelvi viselkedése kutatható kognitív feladatokkal, de teszteredményéből nem szabad emberi személyiséget vagy tudatot diagnosztizálni.
+
+**Közelítő példa.** Átfogalmazhat kérdőívtételt vagy készíthet interjúvázlatot, de ettől nem lesz pszichológus és nem vállal szakmai felelősséget.
+
+**Forrás.** [@brown2020; @bender2021]
+
+### 6.7 Prompt és kontextuson belüli tanulás
+
+**Definíció.** A prompt a modellnek adott utasítás és kontextus. Kontextuson belüli tanuláskor a modell a promptban szereplő példákhoz alkalmazkodik paramétereinek átírása nélkül.
+
+**Pszichológiai kapcsolat.** A prompt a mérési instrukcióhoz hasonló: megfogalmazása és példái szisztematikusan befolyásolhatják a választ.
+
+**Közelítő példa.** Két példával megmutatható, hogyan kódolja „érzelem/gondolat/viselkedés” szerint az interjúmondatokat. Kutatásban a promptot előre rögzíteni és validálni kell.
+
+**Forrás.** [@brown2020; @google2024]
+
+## 7. Generatív MI és alapmodellek
+
+### 7.1 Generatív MI
+
+**Definíció.** Olyan MI, amely a tanult adateloszlás mintázataiból új szöveget, képet, hangot, videót vagy kódot állít elő. Eltér a pusztán osztályozó rendszertől, amely előre megadott kategóriák közül választ.
+
+**Pszichológiai kapcsolat.** Felveti a kreativitás, szerzőség és eredetiség operacionalizálásának kérdését.
+
+**Közelítő példa.** Egy osztályozó eldönti, pozitív vagy negatív-e egy beszámoló; egy generatív modell összefoglalót ír róla. Az összefoglaló szakmai ellenőrzést igényel.
+
+**Forrás.** [@google2024; @aws2026, {}2. tartalmi terület]
+
+### 7.2 Alapmodell (foundation model)
+
+**Definíció.** Széles, többnyire önfelügyelt adaton nagy léptékben előtanított modell, amely sok későbbi feladatra adaptálható. Köztes technológiai alap, nem kész szakmai eszköz.
+
+**Pszichológiai kapcsolat.** Ugyanaz az alapmodell sok alkalmazásban jelenhet meg; így egy alapvető torzítás vagy biztonsági hiba több rendszerben továbböröklődhet.
+
+**Közelítő példa.** Egy általános nyelvi „motorra” tanulási segéd, ügyfélszolgálat és mentális jólléti alkalmazás is épülhet, eltérő kockázatokkal.
+
+**Forrás.** [@bommasani2021]
+
+### 7.3 Multimodális modell
+
+**Definíció.** Több adattípust — például szöveget, képet, hangot vagy videót — fogad, kapcsol össze vagy generál.
+
+**Pszichológiai kapcsolat.** Pszichológiai kutatásban több viselkedéses csatorna integrációját ígéri, de minden modalitás külön validitási és adatvédelmi problémát hordoz.
+
+**Közelítő példa.** Interjúszöveg, hangjellemzők és arckifejezések egyesíthetők; a több adat azonban nem automatikusan jobb vagy kulturálisan semleges mérés.
+
+**Forrás.** [@aws2026, {}2. tartalmi terület: multimodális modellek]
+
+### 7.4 Finomhangolás
+
+**Definíció.** Egy előtanított modell paramétereinek további módosítása kisebb, célfeladathoz vagy szakterülethez tartozó adatkészleten. Kevesebb adatot igényelhet, mint a nulláról tanítás.
+
+**Pszichológiai kapcsolat.** A célpopulációs validálást nem helyettesíti. A szaknyelvi adaptáció nem azonos klinikai érvényességgel.
+
+**Közelítő példa.** Pszichológiai absztraktokon finomhangolt modell jobban osztályozhat tanulmányokat, de kliensdiagnózisra ettől még nem lesz alkalmas.
+
+**Forrás.** [@aws2026, {}3. tartalmi terület: finomhangolás]
+
+### 7.5 Visszakereséssel bővített generálás (RAG)
+
+**Definíció.** A rendszer válaszadás előtt külső dokumentumokból releváns részleteket keres, majd ezeket a generáló modell kontextusába helyezi. Célja az aktuális vagy ellenőrizhető forrásokhoz kötés.
+
+**Pszichológiai kapcsolat.** A forráshoz kötés javíthatja az ellenőrizhetőséget, de nem garantál helyes visszakeresést, értelmezést vagy idézést.
+
+**Közelítő példa.** Egy kurzusasszisztens a hivatalos jegyzetből válaszol, de rossz bekezdést is kiválaszthat. A hivatkozás megléte nem azonos a helyességével.
+
+**Forrás.** [@aws2026, {}3. és 5. tartalmi terület: RAG, forráshoz kötés]
+
+### 7.6 MI-ágens
+
+**Definíció.** Olyan rendszer, amely célt követhet, lépéseket tervezhet, eszközöket használhat, külső rendszerekkel kommunikálhat és visszajelzés alapján folytathat munkafolyamatot. Az ágensszerűség nem jelent öntudatot.
+
+**Pszichológiai kapcsolat.** Külön kell választani a funkcionális célkövetést az emberi intenciótól és autonómiától.
+
+**Közelítő példa.** Egy kutatási ágens cikkeket keres és táblázatot készít. A tévesen elküldött levél nagyobb kár, mint egy hibás szövegválasz, ezért jóváhagyási pontok kellenek.
+
+**Forrás.** [@aws2026, {}2. tartalmi terület: ágensalapú MI]
+
+### 7.7 Hallucináció
+
+**Definíció.** Koherensnek tűnő, de tényszerűen hibás, forráshoz hűtlen vagy alaptalan generált tartalom. A szó technikai metafora, nem azonos a klinikai pszichológia perceptuális tünetével.
+
+**Pszichológiai kapcsolat.** A gördülékenység növeli az igaznak érzett állítások meggyőző erejét; ez kapcsolódik a feldolgozási fluencia és hitelesség kutatásához.
+
+**Közelítő példa.** Egy LLM hihető szerzőket, címet és DOI-t alkothat nem létező cikkhez. Minden hivatkozást eredeti adatbázisban kell megnyitni.
+
+**Forrás.** [@ji2023]
+
+## 8. Értékelés és pszichometria
+
+### 8.1 Tanító-, validációs és tesztadat
+
+**Definíció.** A tanítóadat a paraméterbecslésre, a validációs adat a modell- és beállításválasztásra, a tesztadat a végső általánosítási becslésre szolgál. A tesztinformáció tanításba szivárgása túl optimista eredményt okoz.
+
+**Pszichológiai kapcsolat.** Megfelel a feltáró modellépítés és a független megerősítő vizsgálat szétválasztásának.
+
+**Közelítő példa.** Ha ugyanazon személy szövegrészletei kerülnek tanító- és teszthalmazba, a modell személyt azonosíthat a konstruktum helyett.
+
+**Forrás.** [@hastie2009]
+
+### 8.2 Pontosság, precizitás, szenzitivitás és F1
+
+**Definíció.** A **pontosság** az összes helyes döntés aránya; a **precizitás** a pozitívnak jelöltek között a valódi pozitívak aránya; a **szenzitivitás/visszahívás** a valódi pozitívak megtalált aránya; az **F1** a precizitás és szenzitivitás harmonikus átlaga.
+
+**Pszichológiai kapcsolat.** A mérőszámot a téves pozitív és téves negatív döntések következménye alapján kell választani.
+
+**Közelítő példa.** Ritka kockázatnál a „mindenki negatív” modell magas pontosságú, mégis használhatatlan lehet, mert egyetlen veszélyeztetett személyt sem talál meg.
+
+**Forrás.** [@aws2026, {}1. tartalmi terület: teljesítménymutatók]
+
+### 8.3 Benchmark
+
+**Definíció.** Szabványosított feladat- és adatkészlet modellek összehasonlítására. Közös mércét ad, de nem garantál valós környezetben, más nyelven vagy más populáción azonos teljesítményt.
+
+**Pszichológiai kapcsolat.** Olyan, mint egy standardizált teszt: informatív, de csak a mintavett képességről és normakörnyezetről.
+
+**Közelítő példa.** Ha a benchmark tételei bekerültek a tanítóanyagba, a magas pontszám részben „tesztismeret” lehet.
+
+**Forrás.** [@raji2021]
+
+### 8.4 Reliabilitás és validitás
+
+**Definíció.** **Reliabilitás** a kimenet következetessége; **validitás** annak bizonyítéka, hogy a kimenet értelmezése valóban megfelelő az adott konstruktumhoz és felhasználási célhoz.
+
+**Pszichológiai kapcsolat.** Az MI nem mentesül a pszichometriai követelmények alól. A nagy prediktív pontosság sem feltétlenül bizonyít konstrukcióvaliditást.
+
+**Közelítő példa.** Ha apró promptváltoztatás eltérő személyiségpontszámot ad, reliabilitási gond; ha következetesen szókincset mér extraverzió helyett, validitási gond.
+
+**Forrás.** [@brickman2025]
+
+### 8.5 Magyarázhatóság és értelmezhetőség
+
+**Definíció.** A NIST szerint a **magyarázhatóság** a rendszer működési mechanizmusának reprezentációja; az **értelmezhetőség** a kimenet jelentése az adott funkcionális kontextusban. A transzparencia kapcsolódó, de külön fogalom.
+
+**Pszichológiai kapcsolat.** Egy felhasználóbarát magyarázat növelheti a bizalmat anélkül, hogy növelné a döntési pontosságot; ezért a magyarázat hatását empirikusan kell mérni.
+
+**Közelítő példa.** A kiemelt szavak mutathatják, mi járult hozzá egy kockázati pontszámhoz, de nem mondják meg, klinikailag mit jelent a pontszám és mennyi a hibahatára.
+
+**Forrás.** [@nist2023; @nist_airc2026]
+
+## 9. Ember–MI interakció
+
+### 9.1 Bizalomkalibráció
+
+**Definíció.** A felhasználó annyira támaszkodik a rendszerre, amennyire annak valós képességei és korlátai indokolják. A túlzott bizalom hibás használathoz, a túl alacsony bizalom hasznos eszköz elutasításához vezethet.
+
+**Pszichológiai kapcsolat.** A cél nem a bizalom maximalizálása, hanem teljesítményhez és kontextushoz igazítása.
+
+**Közelítő példa.** Egy 90%-os összpontosságú rendszerben sem érdemes mindig bízni, ha bizonyos alcsoportoknál vagy helyzetekben lényegesen gyengébb.
+
+**Forrás.** [@lee2004]
+
+### 9.2 Automatizációs torzítás
+
+**Definíció.** A kelleténél erősebb támaszkodás automatizált ajánlásra, akár pontosabb ellentétes információ mellett is. Befolyásolja a bizalom, kognitív terhelés, szakértelem és az ellenőrzés nehézsége.
+
+**Pszichológiai kapcsolat.** Kapcsolódik a horgonyzáshoz, tekintélyhatáshoz, figyelmi mulasztáshoz és metakognícióhoz.
+
+**Közelítő példa.** „Alacsony kockázat” gépi jelzés után a vizsgáló kevésbé kérdez rá figyelmeztető jelekre. Kötelező önálló első értékelés csökkentheti ezt.
+
+**Forrás.** [@romeo2026]
+
+### 9.3 Algoritmusaverzió és -preferencia
+
+**Definíció.** **Algoritmusaverzió** az algoritmikus tanács aránytalan elutasítása, különösen látható hiba után; **algoritmuspreferencia** az algoritmikus tanács előnyben részesítése. Mindkettő függ a feladattól, pontosságtól, kontrolltól és elvárásoktól.
+
+**Pszichológiai kapcsolat.** A gépet és embert azonos eseteken, azonos mércével kell összehasonlítani; az egyetlen látványos gépi hiba nem megfelelő viszonyítás.
+
+**Közelítő példa.** Egy klinikus elutasíthat egy összességében jobb modellt egy feltűnő hiba után, vagy „objektívnek” tekinthet egy gyenge modellt pusztán gépi volta miatt.
+
+**Forrás.** [@burton2020]
+
+### 9.4 ELIZA-hatás és antropomorfizáció
+
+**Definíció.** Hajlam arra, hogy nyelvi vagy társas jelzések mögé megértést, szándékot, személyiséget vagy érzelmet tulajdonítsunk akkor is, ha a működés ezt nem indokolja.
+
+**Pszichológiai kapcsolat.** A mentalizáció, társas észlelés és kötődés elméletei segítenek magyarázni, miért erős a hatás.
+
+**Közelítő példa.** „Sajnálom, hogy ezt éled át” együttérzésnek hat; az élmény a felhasználónál valódi, de nem bizonyít gépi érzést.
+
+**Forrás.** [@weizenbaum1966]
+
+### 9.5 Ember a folyamatban (human-in-the-loop)
+
+**Definíció.** Ember vesz részt címkézésben, visszajelzésben, jóváhagyásban, hibakezelésben vagy végső döntésben. A puszta jelenlét nem garancia: kell információ, idő, kompetencia és valódi felülbírálati jog.
+
+**Pszichológiai kapcsolat.** Az emberi felügyelet minőségét ugyanúgy mérni kell, mint a modellét; a „pszichológus jóváhagyta” nem elég, ha csak rutinszerűen kattintott.
+
+**Közelítő példa.** Érdemi felügyeletnél a klinikus látja a bizonytalanságot, önállóan mérlegel, dokumentálhatja az eltérést és leállíthatja a rendszert.
+
+**Forrás.** [@nist2023]
+
+## 10. Pszichológiai alkalmazás és etika
+
+### 10.1 Nyelvalapú pszichológiai értékelés
+
+**Definíció.** Írott vagy beszélt nyelvi mintákból pszichológiai konstruktum becslése. LLM használható jellemzőkinyeréssel, finomhangolással vagy promptolással, de minden konkrét alkalmazás külön validálást igényel.
+
+**Pszichológiai kapcsolat.** A skálahelyettesítés helyett új mérési módszerként kell kezelni: reliabilitás, konvergens és diszkrimináns validitás, csoportinvariancia és inkrementális validitás szükséges.
+
+**Közelítő példa.** Naplóbejegyzésből becsült jóllétet befolyásolhat kultúra, kor és iskolázottság. Egy kérdőívvel való korreláció még nem diagnózis.
+
+**Forrás.** [@brickman2025]
+
+### 10.2 Mentális egészségügyi chatbot
+
+**Definíció.** Szabályalapú, gépi tanulásos vagy LLM-alapú társalgási rendszer pszichoedukációra, önsegítésre, tünetkövetésre vagy támogatásra. A klinikai bizonyíték heterogén, különösen a nyílt végű generatív rendszereknél.
+
+**Pszichológiai kapcsolat.** „Hasznos kiegészítő” és „pszichoterápiát helyettesítő eszköz” eltérő állítás. Vizsgálni kell hatásosságot, ártalmat, kríziskezelést, terápiás kapcsolatot és hosszú távú hatást.
+
+**Közelítő példa.** Egy strukturált CBT-chatbot segíthet gondolatnaplóban, de nem feltétlenül ismer fel krízist és nem vállal szakmai felelősséget.
+
+**Forrás.** [@zhong2024; @apa2025advisory]
+
+### 10.3 Affektív számítástechnika és érzelemfelismerés
+
+**Definíció.** Az érzelmi jelzések észlelésével, modellezésével vagy érzelmileg illeszkedő gépi válaszokkal foglalkozó terület. Az arckifejezésből, hangból vagy szövegből következtetett érzelem nem közvetlen „érzelemolvasás”.
+
+**Pszichológiai kapcsolat.** A megfigyelhető viselkedés, az önbeszámoló és a belső állapot nem cserélhető fel. Kulturális, helyzeti és egyéni különbségek korlátozzák az univerzális címkézést.
+
+**Közelítő példa.** A mosoly jelenthet örömöt, udvariasságot, zavart vagy feszültséget; pusztán arcképből a kontextus nélkül nem állapítható meg biztosan.
+
+**Forrás.** [@barrett2019; @euaiact2024, {}5. cikk; @ec_aiact_art5]
+
+### 10.4 Algoritmikus torzítás és méltányosság
+
+**Definíció.** A káros torzítás szisztematikusan hátrányos kimeneteket hozhat létre egyéneknek vagy csoportoknak. A NIST rendszerszintű, számítási-statisztikai és emberi-kognitív torzításokat különít el; torzítás előítéletes szándék nélkül is kialakulhat.
+
+**Pszichológiai kapcsolat.** A reprezentativitás, mérési invariancia és tesztméltányosság klasszikus pszichometriai kérdései közvetlenül alkalmazhatók.
+
+**Közelítő példa.** Ha a képzési adatban egy dialektus alulreprezentált, a nyelvi értékelő ugyanazt a tünetet pontatlanabbul észlelheti az adott csoportban.
+
+**Forrás.** [@schwartz2022; @nist_airc2026]
+
+### 10.5 Adatvédelem, beleegyezés és adatirányítás
+
+**Definíció.** Az adatvédelem a személyes és különleges adatok jogszerű, célhoz kötött, arányos és biztonságos kezelését jelenti. Az adatirányítás magában foglalja az eredetet, hozzáférést, megőrzést, törlést, naplózást és felelősséget.
+
+**Pszichológiai kapcsolat.** A kliens- és kutatási adatok különösen érzékenyek. A beleegyezésnek ki kell terjednie arra is, ha külső MI-szolgáltató dolgozza fel az adatot vagy modellfejlesztésre használja.
+
+**Közelítő példa.** Az anonimizáltnak hitt interjú idézete személyes részletekből újraazonosítható lehet. Nyilvános chatbotba ezért nem szabad rutinszerűen kliensanyagot másolni.
+
+**Forrás.** [@gdpr2016; @aws2026, {}5. tartalmi terület]
+
+### 10.6 Felelős és megbízható MI
+
+**Definíció.** A NIST keretében a megbízható MI érvényes és megbízható, biztonságos, védett és reziliens, elszámoltatható és átlátható, magyarázható és értelmezhető, adatvédelmet támogató, valamint a káros torzításokat kezelő. Ezek között gyakran kompromisszum van.
+
+**Pszichológiai kapcsolat.** A felelős használat nem egyetlen etikai pipa, hanem teljes életciklus: célmeghatározás, adat, fejlesztés, validálás, bevezetés, monitorozás és incidenskezelés.
+
+**Közelítő példa.** Egy pontos kockázatbecslő sem elfogadható, ha titokban figyel, nem auditálható, egy csoportot aránytalanul károsít vagy nincs emberi jogorvoslat.
+
+**Forrás.** [@nist2023]
+
+### 10.7 EU MI-rendelet és pszichológiai relevancia
+
+**Definíció.** Az EU MI-rendelete kockázatalapú jogi keret. Kiemelten releváns, hogy munkahelyen és oktatási intézményben tiltja az érzelmek következtetésére szolgáló MI-t, kivéve meghatározott orvosi vagy biztonsági célokat; más alkalmazásoknál átláthatósági és magas kockázatú kötelezettségek merülhetnek fel.
+
+**Pszichológiai kapcsolat.** A pszichológiai fogalmak gépi operacionalizálása nemcsak tudományos, hanem alapjogi kérdés. Ami kutatási prototípusként érdekes, az kiválasztásban vagy oktatási értékelésben tiltott vagy szigorúan szabályozott lehet.
+
+**Közelítő példa.** Videóinterjúból „lelkesedést” vagy „érzelmi stabilitást” becslő állásfelvételi rendszer tudományosan vitatható és jogilag is súlyosan korlátozott.
+
+**Forrás.** [@euaiact2024, {}5. cikk; @ec_aiact_art5]
+
+## Idővonal röviden
+
+| Év | Mérföldkő | Jelentőség |
+|---:|---|---|
+| 1943 | McCulloch–Pitts-neuron | Logika és neuronmodell összekapcsolása |
+| 1950 | Turing imitációs játéka | A gépi intelligencia viselkedéses operacionalizálása |
+| 1955–1956 | Dartmouth-javaslat és projekt | Az MI elnevezése és kutatási programja |
+| 1958 | Perceptron | Tanuló kapcsolati modell |
+| 1966 | ELIZA | Korai párbeszéd és antropomorfizáció |
+| 1970-es évek | Szakértői rendszerek | Területspecifikus, szabályalapú döntéstámogatás |
+| 1982 | Marr három szintje | Funkció, algoritmus és implementáció elválasztása |
+| 1986 | Visszaterjesztés népszerűsítése | Többrétegű hálók hatékony tanítása |
+| 2012 után | Mélytanulási fellendülés | Nagy adat, számítás és mély hálók összekapcsolása |
+| 2017 | Transzformer | A mai nagy nyelvi modellek architekturális alapja |
+| 2020 | GPT-3 | Erős kontextuson belüli feladatalkalmazkodás |
+| 2021 | „Alapmodell” fogalom | Általános célú előtanított modellek közös kerete |
+| 2022 után | Generatív MI tömeges használata | Széles hozzáférés, új alkalmazások és új kockázatok |
+| 2024 | EU MI-rendelet | Kockázatalapú szabályozási keret |
+| 2025–2026 | Ágensek és multimodális rendszerek | Eszközhasználat, munkafolyamatok és növekvő autonómia |
+
+## BA-s ellenőrző kérdések
+
+Egy MI-rendszer értékelésekor érdemes mindig végigmenni ezen a nyolc kérdésen:
+
+1. **Mi a pontos feladat és mi nem az?**
+2. **Milyen adaton tanult, és kik hiányoznak az adatból?**
+3. **Mi volt a célcímke, és mennyire megbízható?**
+4. **Milyen független mintán és milyen mérőszámmal értékelték?**
+5. **Csoportonként és valós használati környezetben is működik?**
+6. **Mit jelent a kimenet pszichológiailag, és milyen döntésre validálták?**
+7. **Ki ellenőrizhet, bírálhat felül és viseli a felelősséget?**
+8. **Milyen adatvédelmi, etikai és jogi korlátok érvényesek?**
+
+## Kurzusba illesztési javaslat
+
+A 10 témakör tíz 90 perces alkalomként is tanítható. Minden órán érdemes egy történeti vagy technikai magfogalmat, egy pszichológiai elméleti kapcsolatot, egy konkrét alkalmazást és egy kritikai esetet összekapcsolni. A számonkérés ne csak definíciót kérjen: a hallgató tudja megkülönböztetni a teljesítményt a mechanizmustól, az előrejelzést a magyarázattól, a korrelációt a konstrukcióvaliditástól, valamint a döntéstámogatást az autonóm szakmai döntéstől.
