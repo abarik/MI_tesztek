@@ -135,6 +135,8 @@ Frey és Osborne 2013-as munkatanulmánya 702 amerikai foglalkozás számítóg�
 
 A későbbi feladatalapú vizsgálatok lényegesen alacsonyabb arányokat kaptak, mert egy foglalkozás nem azonos az azt alkotó feladatok összességével. Az OECD-hez kapcsolódó elemzés szerint az automatizálási kockázat országonként és munkakörönként erősen eltér, és sok esetben inkább a munkafeladatok átalakulása várható, nem a teljes foglalkozás megszűnése [@arntz2016]. Ez a vita jól mutatja, hogy egy nagy sajtóvisszhangot kiváltó kockázati becslést nem szabad biztos előrejelzésként kezelni.
 
+A munkaerőpiaci kritika 2026-ban új formát öltött. A Stanford Digital Economy Lab által kezdeményezett *We Must Act Now* nyilatkozat 16 Nobel-díjas közgazdász és több mint kétszáz kutató aláírásával arra figyelmeztet, hogy az MI a következő évtizedben az ipari forradalomnál nagyobb, de jóval gyorsabban lezajló gazdasági átalakulást hozhat, tömeges munkahelyvesztés és jelentős életszínvonal-növekedés lehetőségével egyaránt [@wemustact2026]. A dokumentum nem korlátozást, hanem kutatást, ösztönzőket és intézményépítést sürget, ezért a T2 típuson belül a B – reformista fokozatba tartozik.
+
 ### Konkrét MI-biztonsági problémák
 
 Amodei és szerzőtársai öt gyakorlati kutatási problémát különítettek el: a negatív mellékhatások elkerülését, a jutalmazási kiskapuk megakadályozását, a skálázható felügyeletet, a biztonságos felfedezést és az eloszláseltolódás kezelését. A tanulmány jelentősége, hogy a biztonsági diskurzust a távoli szuperintelligencia-forgatókönyvektől ma is vizsgálható gépi tanulási hibamódok felé mozdította [@amodei2016].
@@ -159,14 +161,24 @@ A tanulmány körüli Google–Timnit Gebru konfliktus önálló példája lett 
 |---|---|---|---|---|
 | 2013– | Stop Killer Robots [@skr_home] | Nemzetközi civil koalíció | Kötelező nemzetközi szabály és tiltás az érdemi emberi kontroll nélküli autonóm fegyverekre. | T6; E |
 | 2015 | Open Letter on Research Priorities for Robust and Beneficial AI [@fli2015] | Future of Life Institute | A képességnövelés mellett robusztussági, jogi, gazdasági és etikai kutatási program. | T5, T10; B |
+| 2015 | Autonomous Weapons: An Open Letter from AI & Robotics Researchers [@fli2015weapons] | Future of Life Institute, IJCAI 2015 | Az érdemi emberi irányítás nélküli támadó autonóm fegyverek tilalma. | T6; E |
 | 2017 | Asilomar AI Principles [@fli2017] | Future of Life Institute | 23 elv kutatásetikáról, értékillesztésről, felelősségről és hosszú távú kockázatról. | T3, T5, T10, T11; B–C |
+| 2017 | Nyílt levél az ENSZ-nek a halálos autonóm fegyverekről [@mittr2017] | 116 MI- és robotikai cégalapító, IJCAI 2017 | Az autonóm fegyverek mint a „hadviselés harmadik forradalma”; ENSZ-tilalom. | T6; E |
+| 2018 | Google-munkatársak levele a Project Maven ellen [@cnbc2018maven] | Kb. 3100 Google-munkatárs | A Pentagon drónos képelemző projektjének leállítása; „Google should not be in the business of war”. | T6, T11; E (vállalati szinten) |
+| 2018 | Toronto Declaration [@toronto2018] | Amnesty International, Access Now, RightsCon 2018 | Az egyenlőséghez és a diszkriminációmentességhez való jog védelme a gépi tanulásban. | T3; B–C |
+| 2018 | Lethal Autonomous Weapons Pledge [@fli2018pledge] | Future of Life Institute, IJCAI 2018 | Kb. 2400 magánszemély és 160 cég vállalja, hogy nem vesz részt halálos autonóm fegyverek fejlesztésében. | T6; E |
+| 2018 | Montréal Declaration for a Responsible Development of AI [@montreal2018] | Université de Montréal | 10 elv (jóllét, autonómia, magánszféra, szolidaritás, demokratikus részvétel, méltányosság, sokféleség, óvatosság, felelősség, fenntarthatóság). | T3, T4, T7, T11; B |
 | 2019 | Ethics Guidelines for Trustworthy AI [@hleg2019] | Európai Bizottság HLEG | Jogszerű, etikus és technikailag–társadalmilag robusztus MI. | T3–T5, T7, T11; B–C |
 | 2020 | Rome Call for AI Ethics [@romecall2020] | Pápai Életvédő Akadémia és partnerei | Átláthatóság, befogadás, felelősség, pártatlanság, megbízhatóság, biztonság és adatvédelem. | T3–T5, T11; B |
 | 2020 | AI Incident Database [@aiid] | Partnership on AI / Responsible AI Collaborative | Valós MI-incidensek gyűjtése a károk ismétlődésének megelőzésére. | T3–T5; A–B |
+| 2021–2022 | Reclaim Your Face európai polgári kezdeményezés [@reclaimyourface2021] | Civil koalíció (EDRi és partnerei) | A biometrikus tömegmegfigyelés tilalma az EU-ban. | T4, T3; E |
 | 2023 | Pause Giant AI Experiments [@fli2023] | Future of Life Institute | Legalább hat hónapos szünet a GPT-4-nél erősebb rendszerek tréningjében. | T5, T9–T11; D |
+| 2023 | Statement from the listed authors of Stochastic Parrots on the „AI pause” letter [@dair2023] | DAIR Institute | A Pause-levél kritikája; a jelen idejű károkra, átláthatóságra és elszámoltathatóságra összpontosító szabályozás. | T3, T11; B |
 | 2023 | Statement on AI Risk [@cais2023] | Center for AI Safety | Az MI okozta kihalás kockázata legyen globális prioritás. | T10; B–D |
 | 2023 | Bletchley Declaration [@ukgov2023] | AI Safety Summit, brit kormány | Nemzetközi együttműködés a frontier MI súlyos és katasztrofális kockázataira. | T5, T9–T11; B–C |
 | 2024 | Statement on AI Training [@newtonrex2024] | Ed Newton-Rex és alkotói támogatók | Az alkotások engedély nélküli modelltréningjének megtiltása. | T8; E |
+| 2025 | Global Call for AI Red Lines [@redlines2025] | ENSZ-közgyűlés, 300+ prominens aláíró | 2026 végéig kikényszeríthető nemzetközi megállapodás az MI „vörös vonalairól”. | T5, T6, T10; C–E |
+| 2026 | We Must Act Now: A Statement on AI's Transformation of the Economy [@wemustact2026] | Stanford Digital Economy Lab; 200+ közgazdász és MI-kutató | Kutatás és intézményépítés a transzformatív MI gazdasági hatásaira, köztük a tömeges munkahelyvesztés kockázatára. | T2; B |
 
 ### A 2015-ös „beneficial AI” levél
 
@@ -239,6 +251,10 @@ A Stop Killer Robots kampány 2013 óta működő nemzetközi civil koalíció. 
 
 A mozgalom érve egyszerre jogi, erkölcsi és technikai. A gépi észlelés hibázhat; a harctéri környezet kiszámíthatatlan; az algoritmus nem rendelkezik emberi erkölcsi ítélőképességgel; a felelősség pedig elmosódhat a fejlesztő, a gyártó, a parancsnok és a kezelő között. A kampány ezen túl a „digitális dehumanizációt” is kifogásolja: azt, hogy az ember gépileg feldolgozható adatmintává és célpontprofilokká redukálódik.
 
+A katonai MI elleni fellépés a kutatói közösségben is korán megjelent. A Future of Life Institute 2015-ös nyílt levele az érdemi emberi irányítás nélküli támadó autonóm fegyverek tilalmát kérte; ma kb. húszezer aláírója van, köztük mintegy háromezer MI- és robotikakutató [@fli2015weapons]. 2017-ben 116 MI- és robotikai cégalapító fordult az ENSZ-hez, a halálos autonóm fegyvereket a „hadviselés harmadik forradalmának” nevezve [@mittr2017]. 2018-ban kb. 2400 magánszemély és 160 cég vállalta, hogy nem vesz részt ilyen fegyverek fejlesztésében; a vállalás szerint emberi élet kioltásáról szóló döntést soha nem szabad gépre bízni [@fli2018pledge].
+
+Az ellenállás a vállalatokon belül is megjelent. 2018-ban kb. 3100 Google-munkatárs tiltakozott a Pentagon Project Maven nevű drónos képelemző programjában való részvétel ellen, azzal érvelve, hogy a Google-nak nem szabad „a háború üzletében” részt vennie [@cnbc2018maven]. 2026 februárjában több mint 300 Google- és 60 OpenAI-munkatárs nyílt levélben kérte cégvezetését, hogy az Anthropickal együtt tartsa fenn a tömeges belföldi megfigyelés és a teljesen automatizált fegyverek elleni vörös vonalakat [@techcrunch2026pentagon].
+
 Az Amnesty International külön petícióban is támogatja azt az elvet, hogy gép nem hozhat önálló döntést élet és halál kérdésében [@amnesty2025]. A katonai MI-ellenesség így a legerősebben tiltáspárti irányzatok egyike, ugyanakkor célja nem minden katonai algoritmus, hanem az autonóm erőalkalmazás és az emberi kontroll nélküli célkijelölés tiltása.
 
 **Besorolás:** T6; másodlagosan T3, T5 és T11.\
@@ -250,7 +266,9 @@ A diszkriminációs kritika sajátossága, hogy nem feltételezett általános i
 
 Az AI Now 2018-as jelentése szigorúbb szabályozást követelt az érzelem- és affektusfelismerésre, az arcfelismerésre és a közszféra automatizált döntéseire. A jelentés szerint az alapvető jogokat érintő rendszereknél nem elegendő a vállalati önszabályozás; független vizsgálatra, nyilvános elszámoltathatóságra és bizonyos esetekben telepítési tilalomra van szükség [@ainow2018].
 
-A közterületi arcfelismerés kritikája túlmutat a pontosságon. Egy minden demográfiai csoporton azonosan pontos rendszer is lehet aránytalan vagy jogsértő, ha folyamatos azonosítást és mozgáskövetést tesz lehetővé. Emiatt az irányzat egy része nem pusztán torzításcsökkentést, hanem a tömeges biometrikus megfigyelés moratóriumát vagy tilalmát követeli.
+Az emberi jogi irányzat korai programadó dokumentuma a 2018-as Toronto Declaration, amelyet az Amnesty International és az Access Now indított el: a gépi tanulási rendszerekben az egyenlőséghez és a diszkriminációmentességhez való jog védelmét, valamint az államok és a magánszereplők kötelezettségeit rögzíti [@toronto2018]. Ugyanebben az évben a Montréal Declaration tíz elvben – köztük a jóllét, az autonómia, a magánszféra, a demokratikus részvétel és a méltányosság elvében – foglalta össze a felelős MI-fejlesztés kereteit, nyilvános konzultációs folyamat eredményeként [@montreal2018].
+
+A közterületi arcfelismerés kritikája túlmutat a pontosságon. Egy minden demográfiai csoporton azonosan pontos rendszer is lehet aránytalan vagy jogsértő, ha folyamatos azonosítást és mozgáskövetést tesz lehetővé. Emiatt az irányzat egy része nem pusztán torzításcsökkentést, hanem a tömeges biometrikus megfigyelés moratóriumát vagy tilalmát követeli. Ennek európai példája a *Reclaim Your Face* polgári kezdeményezés (2021–2022): bár nem gyűjtötte össze a szükséges egymillió aláírást, a civil koalíció kampánya hatással volt az EU MI-rendeletének biometrikus azonosításra vonatkozó tárgyalásaira [@reclaimyourface2021].
 
 **Besorolás:** T3, T4 és T11.\
 **Beavatkozás:** B–E az alkalmazás kockázatától függően.
@@ -284,6 +302,8 @@ Az egzisztenciális irányzat legerősebb közéleti dokumentuma a Center for AI
 | Tipikus intézkedés | Jogorvoslat, audit, átláthatóság, alkalmazási tilalom | Alignment, képességteszt, tréningkontroll, moratórium |
 | Tipikus intézmény | AI Now, Algorithmic Justice League, szakszervezetek, jogvédők | Future of Life Institute, Center for AI Safety, alignment-kutatóhelyek |
 | Fő belső kritika | Alulértékelheti a ritka, de katasztrofális kimeneteket | Elterelheti a figyelmet a már bizonyított károkról és a jelenlegi hatalmi viszonyokról |
+
+A törésvonal nyílt levelekben is megjelent. A 2023-as Pause-levélre a *Stochastic Parrots* szerzői néhány nappal később nyilatkozatban reagáltak: szerintük a levél „félelemkeltése és MI-hype-ja” elfedi a már zajló károkat, a szabályozásnak pedig az átláthatóságra, az elszámoltathatóságra és a kizsákmányoló munkagyakorlatok megelőzésére kellene összpontosítania [@dair2023]. Egy másik, a nyílt modellek körül kialakult törésvonalat a Mozilla 2023-as közös nyilatkozata jelzi, amely szerint a nyíltság és a széles hozzáférés nem kockázat, hanem a biztonság feltétele [@mozilla2023]; ezzel szemben a frontier-biztonsági dokumentumok egy része – például a Bengio, Hinton és szerzőtársaik által jegyzett 2023-as konszenzusanyag – a legnagyobb képességű modellek szigorúbb ellenőrzését sürgeti [@bengio2023managing].
 
 A két irány nem szükségszerűen zárja ki egymást. Egy szabályozási rendszernek egyszerre kell kezelnie a ma mérhető diszkriminációt és a jövőbeli nagy képességű modellek bizonytalan, de potenciálisan nagy hatású kockázatait. A konfliktus inkább az erőforrások, a politikai figyelem és a probléma megfogalmazása körül alakul ki.
 

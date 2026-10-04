@@ -1,0 +1,1560 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="hu" xml:lang="hu"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.10.18">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>1&nbsp; Témakörök a kurzus weboldala alapján – MI-tesztek</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./temakorok_irodalom.html" rel="next">
+<link href="./index.html" rel="prev">
+<script src="site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-b85bc7c33db8c58e0ec93c3465666fed.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap-9d427fb9aa4e7f60cd390d7ae3c7ba90.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-dark-494993c62a01dd0104ea6b4a58da199b.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="site_libs/bootstrap/bootstrap-9d427fb9aa4e7f60cd390d7ae3c7ba90.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "Nincs találat",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<style>html{ scroll-behavior: smooth; }</style>
+
+
+</head>
+
+<body class="nav-sidebar floating quarto-light"><script id="quarto-html-before-body" type="application/javascript">
+    const toggleBodyColorMode = (bsSheetEl) => {
+      const mode = bsSheetEl.getAttribute("data-mode");
+      const bodyEl = window.document.querySelector("body");
+      if (mode === "dark") {
+        bodyEl.classList.add("quarto-dark");
+        bodyEl.classList.remove("quarto-light");
+      } else {
+        bodyEl.classList.add("quarto-light");
+        bodyEl.classList.remove("quarto-dark");
+      }
+    }
+    const toggleBodyColorPrimary = () => {
+      const bsSheetEl = window.document.querySelector("link#quarto-bootstrap:not([rel=disabled-stylesheet])");
+      if (bsSheetEl) {
+        toggleBodyColorMode(bsSheetEl);
+      }
+    }
+    const setColorSchemeToggle = (alternate) => {
+      const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
+      for (let i=0; i < toggles.length; i++) {
+        const toggle = toggles[i];
+        if (toggle) {
+          if (alternate) {
+            toggle.classList.add("alternate");
+          } else {
+            toggle.classList.remove("alternate");
+          }
+        }
+      }
+    };
+    const toggleColorMode = (alternate) => {
+      // Switch the stylesheets
+      const primaryStylesheets = window.document.querySelectorAll('link.quarto-color-scheme:not(.quarto-color-alternate)');
+      const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
+      manageTransitions('#quarto-margin-sidebar .nav-link', false);
+      if (alternate) {
+        // note: dark is layered on light, we don't disable primary!
+        enableStylesheet(alternateStylesheets);
+        for (const sheetNode of alternateStylesheets) {
+          if (sheetNode.id === "quarto-bootstrap") {
+            toggleBodyColorMode(sheetNode);
+          }
+        }
+      } else {
+        disableStylesheet(alternateStylesheets);
+        enableStylesheet(primaryStylesheets)
+        toggleBodyColorPrimary();
+      }
+      manageTransitions('#quarto-margin-sidebar .nav-link', true);
+      // Switch the toggles
+      setColorSchemeToggle(alternate)
+      // Hack to workaround the fact that safari doesn't
+      // properly recolor the scrollbar when toggling (#1455)
+      if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
+        manageTransitions("body", false);
+        window.scrollTo(0, 1);
+        setTimeout(() => {
+          window.scrollTo(0, 0);
+          manageTransitions("body", true);
+        }, 40);
+      }
+    }
+    const disableStylesheet = (stylesheets) => {
+      for (let i=0; i < stylesheets.length; i++) {
+        const stylesheet = stylesheets[i];
+        stylesheet.rel = 'disabled-stylesheet';
+      }
+    }
+    const enableStylesheet = (stylesheets) => {
+      for (let i=0; i < stylesheets.length; i++) {
+        const stylesheet = stylesheets[i];
+        if(stylesheet.rel !== 'stylesheet') { // for Chrome, which will still FOUC without this check
+          stylesheet.rel = 'stylesheet';
+        }
+      }
+    }
+    const manageTransitions = (selector, allowTransitions) => {
+      const els = window.document.querySelectorAll(selector);
+      for (let i=0; i < els.length; i++) {
+        const el = els[i];
+        if (allowTransitions) {
+          el.classList.remove('notransition');
+        } else {
+          el.classList.add('notransition');
+        }
+      }
+    }
+    const isFileUrl = () => {
+      return window.location.protocol === 'file:';
+    }
+    const hasAlternateSentinel = () => {
+      let styleSentinel = getColorSchemeSentinel();
+      if (styleSentinel !== null) {
+        return styleSentinel === "alternate";
+      } else {
+        return false;
+      }
+    }
+    const setStyleSentinel = (alternate) => {
+      const value = alternate ? "alternate" : "default";
+      if (!isFileUrl()) {
+        window.localStorage.setItem("quarto-color-scheme", value);
+      } else {
+        localAlternateSentinel = value;
+      }
+    }
+    const getColorSchemeSentinel = () => {
+      if (!isFileUrl()) {
+        const storageValue = window.localStorage.getItem("quarto-color-scheme");
+        return storageValue != null ? storageValue : localAlternateSentinel;
+      } else {
+        return localAlternateSentinel;
+      }
+    }
+    const toggleGiscusIfUsed = (isAlternate, darkModeDefault) => {
+      const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
+      const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
+      let newTheme = '';
+      if(authorPrefersDark) {
+        newTheme = isAlternate ? baseTheme : alternateTheme;
+      } else {
+        newTheme = isAlternate ? alternateTheme : baseTheme;
+      }
+      const changeGiscusTheme = () => {
+        // From: https://github.com/giscus/giscus/issues/336
+        const sendMessage = (message) => {
+          const iframe = document.querySelector('iframe.giscus-frame');
+          if (!iframe) return;
+          iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
+        }
+        sendMessage({
+          setConfig: {
+            theme: newTheme
+          }
+        });
+      }
+      const isGiscussLoaded = window.document.querySelector('iframe.giscus-frame') !== null;
+      if (isGiscussLoaded) {
+        changeGiscusTheme();
+      }
+    };
+    const authorPrefersDark = false;
+    const darkModeDefault = authorPrefersDark;
+      document.querySelector('link#quarto-text-highlighting-styles.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
+      document.querySelector('link#quarto-bootstrap.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
+    let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
+    // Dark / light mode switch
+    window.quartoToggleColorScheme = () => {
+      // Read the current dark / light value
+      let toAlternate = !hasAlternateSentinel();
+      toggleColorMode(toAlternate);
+      setStyleSentinel(toAlternate);
+      toggleGiscusIfUsed(toAlternate, darkModeDefault);
+      window.dispatchEvent(new Event('resize'));
+    };
+    // Switch to dark mode if need be
+    if (hasAlternateSentinel()) {
+      toggleColorMode(true);
+    } else {
+      toggleColorMode(false);
+    }
+  </script>
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./temakorok.html">Témakörök és fogalmak</a></li><li class="breadcrumb-item"><a href="./temakorok.html"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Témakörök a kurzus weboldala alapján</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">MI-tesztek</a> 
+        <div class="sidebar-tools-main">
+  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
+</div>
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Előszó</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
+ <span class="menu-text">Témakörök és fogalmak</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./temakorok.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Témakörök a kurzus weboldala alapján</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./temakorok_irodalom.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Témakörök a szakirodalom alapján</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./temakorok_irodalom_kifejtve.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Fogalmak kifejtve</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./kurzusosszefoglalo_pai.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Kurzusösszefoglaló: bevezető fogalomtár</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./kurzusosszefoglalo_pai_2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Kibővített fogalomtár</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./kurzusosszefoglalo_pai_3.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">MI–pszichológia BA fogalomtár</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./kurzusosszefoglalo_pai_4.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">MI–pszichológia BA fogalomtár (bővített)</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
+ <span class="menu-text">Kitekintés</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./MI-ellenesseg.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Az „MI-ellenesség” típusai és történeti dokumentumai</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./MI-kockazat-monitoring.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">MI-kockázatok, figyelmeztetések és cselekvési felhívások folyamatos monitorozása</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./references.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Hivatkozások</span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Tartalom</h2>
+   
+  <ul>
+  <li><a href="#t1-az-mi-alapjai-és-típusai" id="toc-t1-az-mi-alapjai-és-típusai" class="nav-link active" data-scroll-target="#t1-az-mi-alapjai-és-típusai">T1 – Az MI alapjai és típusai</a></li>
+  <li><a href="#t2-tanulási-paradigmák-és-feladattípusok" id="toc-t2-tanulási-paradigmák-és-feladattípusok" class="nav-link" data-scroll-target="#t2-tanulási-paradigmák-és-feladattípusok">T2 – Tanulási paradigmák és feladattípusok</a></li>
+  <li><a href="#t3-adatok-modellalkotás-és-modellértékelés" id="toc-t3-adatok-modellalkotás-és-modellértékelés" class="nav-link" data-scroll-target="#t3-adatok-modellalkotás-és-modellértékelés">T3 – Adatok, modellalkotás és modellértékelés</a></li>
+  <li><a href="#t4-neurális-hálózatok-és-nagy-nyelvi-modellek" id="toc-t4-neurális-hálózatok-és-nagy-nyelvi-modellek" class="nav-link" data-scroll-target="#t4-neurális-hálózatok-és-nagy-nyelvi-modellek">T4 – Neurális hálózatok és nagy nyelvi modellek</a></li>
+  <li><a href="#t5-generatív-mi-promptolás-és-mi-eszközök" id="toc-t5-generatív-mi-promptolás-és-mi-eszközök" class="nav-link" data-scroll-target="#t5-generatív-mi-promptolás-és-mi-eszközök">T5 – Generatív MI, promptolás és MI-eszközök</a></li>
+  <li><a href="#t6-megbízhatóság-értelmezés-és-forráskritika" id="toc-t6-megbízhatóság-értelmezés-és-forráskritika" class="nav-link" data-scroll-target="#t6-megbízhatóság-értelmezés-és-forráskritika">T6 – Megbízhatóság, értelmezés és forráskritika</a></li>
+  <li><a href="#t7-etika-adatvédelem-és-emberi-felügyelet" id="toc-t7-etika-adatvédelem-és-emberi-felügyelet" class="nav-link" data-scroll-target="#t7-etika-adatvédelem-és-emberi-felügyelet">T7 – Etika, adatvédelem és emberi felügyelet</a></li>
+  <li><a href="#t8-mi-a-pszichológiában-és-digitális-kompetencia" id="toc-t8-mi-a-pszichológiában-és-digitális-kompetencia" class="nav-link" data-scroll-target="#t8-mi-a-pszichológiában-és-digitális-kompetencia">T8 – MI a pszichológiában és digitális kompetencia</a></li>
+  <li><a href="#összesítés" id="toc-összesítés" class="nav-link" data-scroll-target="#összesítés">Összesítés</a></li>
+  <li><a href="#kihagyott-tartalmak-szándékosan" id="toc-kihagyott-tartalmak-szándékosan" class="nav-link" data-scroll-target="#kihagyott-tartalmak-szándékosan">Kihagyott tartalmak (szándékosan)</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./temakorok.html">Témakörök és fogalmak</a></li><li class="breadcrumb-item"><a href="./temakorok.html"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Témakörök a kurzus weboldala alapján</span></a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title"><span id="sec-temakorok" class="quarto-section-identifier"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Témakörök a kurzus weboldala alapján</span></span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<p><em>Bevezetés a mesterséges intelligenciába (2026/27/1)</em></p>
+<p>Forrás: <a href="https://abarik.github.io/bevezetes_a_mesterseges_intelligenciaba_2026_27_1/" class="uri">https://abarik.github.io/bevezetes_a_mesterseges_intelligenciaba_2026_27_1/</a> (átvizsgálva: 2026. október 3.)</p>
+<p>A témakörök a későbbi <code>exams</code> alapú kérdésbank szerkezetét adják. A Moodle-ben mindegyik témakör egy külön kérdéskategória lesz.</p>
+<ul>
+<li>Témakör-azonosító: <code>T1</code>–<code>T8</code>. Ez lesz a mappa- és kategórianév előtagja.</li>
+<li>Fogalom-azonosító: <code>T1.01</code>, <code>T1.02</code> stb. Ez lesz a kérdésfájlok névelőtagja.</li>
+<li>Rövidítések a „Forrás” oszlopban:
+<ul>
+<li><strong>F</strong> – 3. fejezet, Fogalmak (<code>alapfogalmak.html</code>), a szám a fogalom sorszáma</li>
+<li><strong>E</strong> – 4. fejezet, MI-eszközök (<code>eszkozok.html</code>)</li>
+<li><strong>FM</strong> – 7. fejezet, Felelős MI-használat (<code>felelos_mi.html</code>)</li>
+<li><strong>GN</strong> – 6. fejezet, Gemini Notebook (<code>gemini_notebook.html</code>)</li>
+<li><strong>D</strong> – 2. fejezet, A digitális technológia (<code>digit.html</code>)</li>
+<li><strong>V</strong> – D. függelék, Fogalmak videóhoz (<code>video_magyarazat.html</code>)</li>
+</ul></li>
+</ul>
+<hr>
+<section id="t1-az-mi-alapjai-és-típusai" class="level2">
+<h2 class="anchored" data-anchor-id="t1-az-mi-alapjai-és-típusai">T1 – Az MI alapjai és típusai</h2>
+<p>Mi az MI, milyen szintjei vannak, és hogyan viszonyul egymáshoz az algoritmus, a modell és a gépi tanulás.</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>ID</th>
+<th>Fogalom</th>
+<th>Forrás</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>T1.01</td>
+<td>Mesterséges intelligencia (MI, AI)</td>
+<td>F1, V</td>
+</tr>
+<tr class="even">
+<td>T1.02</td>
+<td>Szűk MI (ANI)</td>
+<td>F2</td>
+</tr>
+<tr class="odd">
+<td>T1.03</td>
+<td>Mesterséges általános intelligencia (AGI)</td>
+<td>F2, V</td>
+</tr>
+<tr class="even">
+<td>T1.04</td>
+<td>Algoritmus</td>
+<td>F3</td>
+</tr>
+<tr class="odd">
+<td>T1.05</td>
+<td>Modell</td>
+<td>F3, E</td>
+</tr>
+<tr class="even">
+<td>T1.06</td>
+<td>Gépi tanulás (ML)</td>
+<td>F4, V</td>
+</tr>
+<tr class="odd">
+<td>T1.07</td>
+<td>Szabályalapú rendszer vs.&nbsp;tanuló rendszer</td>
+<td>F1, F4</td>
+</tr>
+<tr class="even">
+<td>T1.08</td>
+<td>Skálázás és számítási kapacitás</td>
+<td>V</td>
+</tr>
+<tr class="odd">
+<td>T1.09</td>
+<td>Benchmark</td>
+<td>V</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="t2-tanulási-paradigmák-és-feladattípusok" class="level2">
+<h2 class="anchored" data-anchor-id="t2-tanulási-paradigmák-és-feladattípusok">T2 – Tanulási paradigmák és feladattípusok</h2>
+<p>A gépi tanulás fő formái, és hogy milyen típusú kérdésekre adnak választ.</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>ID</th>
+<th>Fogalom</th>
+<th>Forrás</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>T2.01</td>
+<td>Felügyelt tanulás</td>
+<td>F5</td>
+</tr>
+<tr class="even">
+<td>T2.02</td>
+<td>Felügyelet nélküli tanulás</td>
+<td>F6</td>
+</tr>
+<tr class="odd">
+<td>T2.03</td>
+<td>Megerősítéses tanulás (RL), ágens, jutalom</td>
+<td>F7</td>
+</tr>
+<tr class="even">
+<td>T2.04</td>
+<td>Klasszifikáció</td>
+<td>F8</td>
+</tr>
+<tr class="odd">
+<td>T2.05</td>
+<td>Regresszió</td>
+<td>F8</td>
+</tr>
+<tr class="even">
+<td>T2.06</td>
+<td>Klaszterezés</td>
+<td>F8</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="t3-adatok-modellalkotás-és-modellértékelés" class="level2">
+<h2 class="anchored" data-anchor-id="t3-adatok-modellalkotás-és-modellértékelés">T3 – Adatok, modellalkotás és modellértékelés</h2>
+<p>Hogyan tanul a modell az adatokból, és hogyan mérjük a teljesítményét.</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>ID</th>
+<th>Fogalom</th>
+<th>Forrás</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>T3.01</td>
+<td>Jellemző (prediktor, feature)</td>
+<td>F9</td>
+</tr>
+<tr class="even">
+<td>T3.02</td>
+<td>Célváltozó, címke (label)</td>
+<td>F9</td>
+</tr>
+<tr class="odd">
+<td>T3.03</td>
+<td>Tanítás (training)</td>
+<td>F10</td>
+</tr>
+<tr class="even">
+<td>T3.04</td>
+<td>Inferencia</td>
+<td>F10</td>
+</tr>
+<tr class="odd">
+<td>T3.05</td>
+<td>Paraméter</td>
+<td>F11</td>
+</tr>
+<tr class="even">
+<td>T3.06</td>
+<td>Hiperparaméter</td>
+<td>F11</td>
+</tr>
+<tr class="odd">
+<td>T3.07</td>
+<td>Veszteségfüggvény</td>
+<td>F12</td>
+</tr>
+<tr class="even">
+<td>T3.08</td>
+<td>Optimalizálás</td>
+<td>F12</td>
+</tr>
+<tr class="odd">
+<td>T3.09</td>
+<td>Tanító-, validációs és teszthalmaz</td>
+<td>F13</td>
+</tr>
+<tr class="even">
+<td>T3.10</td>
+<td>K-szoros keresztvalidáció</td>
+<td>F13</td>
+</tr>
+<tr class="odd">
+<td>T3.11</td>
+<td>Túlillesztés (overfitting)</td>
+<td>F14</td>
+</tr>
+<tr class="even">
+<td>T3.12</td>
+<td>Generalizáció</td>
+<td>F14</td>
+</tr>
+<tr class="odd">
+<td>T3.13</td>
+<td>Accuracy (találati arány)</td>
+<td>F15</td>
+</tr>
+<tr class="even">
+<td>T3.14</td>
+<td>Precision</td>
+<td>F15</td>
+</tr>
+<tr class="odd">
+<td>T3.15</td>
+<td>Recall / szenzitivitás</td>
+<td>F15</td>
+</tr>
+<tr class="even">
+<td>T3.16</td>
+<td>Specificitás</td>
+<td>F15</td>
+</tr>
+<tr class="odd">
+<td>T3.17</td>
+<td>F1-mutató</td>
+<td>F15</td>
+</tr>
+<tr class="even">
+<td>T3.18</td>
+<td>Téves pozitív és téves negatív döntés</td>
+<td>F15</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="t4-neurális-hálózatok-és-nagy-nyelvi-modellek" class="level2">
+<h2 class="anchored" data-anchor-id="t4-neurális-hálózatok-és-nagy-nyelvi-modellek">T4 – Neurális hálózatok és nagy nyelvi modellek</h2>
+<p>A modern nyelvi modellek felépítése a neurontól a finomhangolásig.</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>ID</th>
+<th>Fogalom</th>
+<th>Forrás</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>T4.01</td>
+<td>Mesterséges neurális hálózat, súly</td>
+<td>F16</td>
+</tr>
+<tr class="even">
+<td>T4.02</td>
+<td>Mélytanulás</td>
+<td>F16, V</td>
+</tr>
+<tr class="odd">
+<td>T4.03</td>
+<td>Természetesnyelv-feldolgozás (NLP)</td>
+<td>F17</td>
+</tr>
+<tr class="even">
+<td>T4.04</td>
+<td>Token és tokenizáció</td>
+<td>F18</td>
+</tr>
+<tr class="odd">
+<td>T4.05</td>
+<td>Beágyazás (embedding), vektortér</td>
+<td>F19</td>
+</tr>
+<tr class="even">
+<td>T4.06</td>
+<td>Figyelmi mechanizmus (attention)</td>
+<td>F20</td>
+</tr>
+<tr class="odd">
+<td>T4.07</td>
+<td>Transformer</td>
+<td>F20</td>
+</tr>
+<tr class="even">
+<td>T4.08</td>
+<td>Alapmodell (foundation model)</td>
+<td>F21</td>
+</tr>
+<tr class="odd">
+<td>T4.09</td>
+<td>Nagy nyelvi modell (LLM), következőtoken-becslés</td>
+<td>F22, V</td>
+</tr>
+<tr class="even">
+<td>T4.10</td>
+<td>Finomhangolás (fine-tuning)</td>
+<td>F25</td>
+</tr>
+<tr class="odd">
+<td>T4.11</td>
+<td>Igazítás (alignment)</td>
+<td>F25, V</td>
+</tr>
+<tr class="even">
+<td>T4.12</td>
+<td>RLHF</td>
+<td>F25</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="t5-generatív-mi-promptolás-és-mi-eszközök" class="level2">
+<h2 class="anchored" data-anchor-id="t5-generatív-mi-promptolás-és-mi-eszközök">T5 – Generatív MI, promptolás és MI-eszközök</h2>
+<p>Hogyan dolgozunk generatív rendszerekkel, és milyen eszköztípusok közül választhatunk.</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 9%">
+<col style="width: 73%">
+<col style="width: 16%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>ID</th>
+<th>Fogalom</th>
+<th>Forrás</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>T5.01</td>
+<td>Generatív mesterséges intelligencia</td>
+<td>F23, E, V</td>
+</tr>
+<tr class="even">
+<td>T5.02</td>
+<td>Prompt</td>
+<td>F24, V</td>
+</tr>
+<tr class="odd">
+<td>T5.03</td>
+<td>Kontextusablak, kontextus</td>
+<td>F24, V</td>
+</tr>
+<tr class="even">
+<td>T5.04</td>
+<td>Prompttervezés (feladat, formátum, közönség, korlát)</td>
+<td>F24, GN</td>
+</tr>
+<tr class="odd">
+<td>T5.05</td>
+<td>Ötelemű promptmodell</td>
+<td>GN</td>
+</tr>
+<tr class="even">
+<td>T5.06</td>
+<td>PPAE-hurok (Perceive, Plan, Act, Evaluate)</td>
+<td>GN</td>
+</tr>
+<tr class="odd">
+<td>T5.07</td>
+<td>Visszakereséssel támogatott generálás (RAG)</td>
+<td>F26, E</td>
+</tr>
+<tr class="even">
+<td>T5.08</td>
+<td>Multimodális MI</td>
+<td>F27, V</td>
+</tr>
+<tr class="odd">
+<td>T5.09</td>
+<td>MI-ágens / ágensalapú MI, számítógép-használat</td>
+<td>F28, E, V</td>
+</tr>
+<tr class="even">
+<td>T5.10</td>
+<td>Chatbot</td>
+<td>E</td>
+</tr>
+<tr class="odd">
+<td>T5.11</td>
+<td>MI-asszisztens / copilot</td>
+<td>E</td>
+</tr>
+<tr class="even">
+<td>T5.12</td>
+<td>Kereső- és válaszmotor</td>
+<td>E</td>
+</tr>
+<tr class="odd">
+<td>T5.13</td>
+<td>Forrásalapú asszisztens, forrásalapú megalapozottság</td>
+<td>E, GN</td>
+</tr>
+<tr class="even">
+<td>T5.14</td>
+<td>Specializált MI-eszköz</td>
+<td>E</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="t6-megbízhatóság-értelmezés-és-forráskritika" class="level2">
+<h2 class="anchored" data-anchor-id="t6-megbízhatóság-értelmezés-és-forráskritika">T6 – Megbízhatóság, értelmezés és forráskritika</h2>
+<p>Mikor és miért téved az MI, és hogyan ellenőrizzük a kimenetét.</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 9%">
+<col style="width: 74%">
+<col style="width: 16%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>ID</th>
+<th>Fogalom</th>
+<th>Forrás</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>T6.01</td>
+<td>Hallucináció / konfabuláció</td>
+<td>F29, FM, V</td>
+</tr>
+<tr class="even">
+<td>T6.02</td>
+<td>Antropomorfizálás (a „hallucináció” metafora korlátai)</td>
+<td>F29</td>
+</tr>
+<tr class="odd">
+<td>T6.03</td>
+<td>Értelmezhetőség</td>
+<td>F30</td>
+</tr>
+<tr class="even">
+<td>T6.04</td>
+<td>Magyarázható MI (XAI)</td>
+<td>F30</td>
+</tr>
+<tr class="odd">
+<td>T6.05</td>
+<td>Forráshierarchia (elsődleges forrás … MI-válasz)</td>
+<td>FM</td>
+</tr>
+<tr class="even">
+<td>T6.06</td>
+<td>Idézetek és hivatkozások ellenőrzése</td>
+<td>FM</td>
+</tr>
+<tr class="odd">
+<td>T6.07</td>
+<td>CRAAP–MI ellenőrzés</td>
+<td>FM</td>
+</tr>
+<tr class="even">
+<td>T6.08</td>
+<td>Pontosságnövelés: feladatbontás, visszakérdezés, ellenőrző prompt</td>
+<td>FM</td>
+</tr>
+<tr class="odd">
+<td>T6.09</td>
+<td>AI slop</td>
+<td>FM</td>
+</tr>
+<tr class="even">
+<td>T6.10</td>
+<td>Workslop</td>
+<td>FM</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="t7-etika-adatvédelem-és-emberi-felügyelet" class="level2">
+<h2 class="anchored" data-anchor-id="t7-etika-adatvédelem-és-emberi-felügyelet">T7 – Etika, adatvédelem és emberi felügyelet</h2>
+<p>A felelős MI-használat jogi, etikai és akadémiai keretei.</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 9%">
+<col style="width: 73%">
+<col style="width: 16%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>ID</th>
+<th>Fogalom</th>
+<th>Forrás</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>T7.01</td>
+<td>Algoritmikus torzítás (Gender Shades)</td>
+<td>F31</td>
+</tr>
+<tr class="even">
+<td>T7.02</td>
+<td>Méltányosság (fairness)</td>
+<td>F31</td>
+</tr>
+<tr class="odd">
+<td>T7.03</td>
+<td>Érzékeny adatok és adatvédelem</td>
+<td>F32, FM</td>
+</tr>
+<tr class="even">
+<td>T7.04</td>
+<td>Automatizált döntéshozatal, profilalkotás (GDPR 22. cikk)</td>
+<td>F32</td>
+</tr>
+<tr class="odd">
+<td>T7.05</td>
+<td>Pszeudonimizálás vs.&nbsp;anonimizálás</td>
+<td>FM</td>
+</tr>
+<tr class="even">
+<td>T7.06</td>
+<td>Adatosztályozási jelzőlámpa</td>
+<td>FM</td>
+</tr>
+<tr class="odd">
+<td>T7.07</td>
+<td>Shadow AI</td>
+<td>FM</td>
+</tr>
+<tr class="even">
+<td>T7.08</td>
+<td>Emberi felügyelet, human-in-the-loop</td>
+<td>F33, FM</td>
+</tr>
+<tr class="odd">
+<td>T7.09</td>
+<td>Automatizációs torzítás</td>
+<td>F33, FM</td>
+</tr>
+<tr class="even">
+<td>T7.10</td>
+<td>Kontrollvesztés és rekurzív önfejlesztés</td>
+<td>V</td>
+</tr>
+<tr class="odd">
+<td>T7.11</td>
+<td>EU AI Act</td>
+<td>FM, V</td>
+</tr>
+<tr class="even">
+<td>T7.12</td>
+<td>Akadémiai integritás, átláthatóság, MI és szerzőség (COPE)</td>
+<td>FM</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="t8-mi-a-pszichológiában-és-digitális-kompetencia" class="level2">
+<h2 class="anchored" data-anchor-id="t8-mi-a-pszichológiában-és-digitális-kompetencia">T8 – MI a pszichológiában és digitális kompetencia</h2>
+<p>Pszichológiai alkalmazások, módszertani csapdák és a digitális kompetencia kerete.</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>ID</th>
+<th>Fogalom</th>
+<th>Forrás</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>T8.01</td>
+<td>Digitális fenotipizálás</td>
+<td>F34</td>
+</tr>
+<tr class="even">
+<td>T8.02</td>
+<td>Affektív számítástechnika</td>
+<td>F34</td>
+</tr>
+<tr class="odd">
+<td>T8.03</td>
+<td>Predikció vs.&nbsp;magyarázat</td>
+<td>F35</td>
+</tr>
+<tr class="even">
+<td>T8.04</td>
+<td>Okság (prediktív pontosság ≠ oksági kapcsolat)</td>
+<td>F35</td>
+</tr>
+<tr class="odd">
+<td>T8.05</td>
+<td>Operacionalizáció és validitás MI-modelleknél</td>
+<td>F9, F17</td>
+</tr>
+<tr class="even">
+<td>T8.06</td>
+<td>DigComp 3.0 és az 5 kompetenciaterület</td>
+<td>D</td>
+</tr>
+<tr class="odd">
+<td>T8.07</td>
+<td>Jártassági szintek; tudás, készség, attitűd</td>
+<td>D</td>
+</tr>
+<tr class="even">
+<td>T8.08</td>
+<td>Explicit (AI-E) és implicit (AI-I) MI</td>
+<td>D</td>
+</tr>
+<tr class="odd">
+<td>T8.09</td>
+<td>MI-műveltség</td>
+<td>V, FM</td>
+</tr>
+<tr class="even">
+<td>T8.10</td>
+<td>Kognitív adósság</td>
+<td>V</td>
+</tr>
+</tbody>
+</table>
+<hr>
+</section>
+<section id="összesítés" class="level2">
+<h2 class="anchored" data-anchor-id="összesítés">Összesítés</h2>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 12%">
+<col style="width: 66%">
+<col style="width: 21%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Témakör</th>
+<th>Név</th>
+<th style="text-align: right;">Fogalmak száma</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>T1</td>
+<td>Az MI alapjai és típusai</td>
+<td style="text-align: right;">9</td>
+</tr>
+<tr class="even">
+<td>T2</td>
+<td>Tanulási paradigmák és feladattípusok</td>
+<td style="text-align: right;">6</td>
+</tr>
+<tr class="odd">
+<td>T3</td>
+<td>Adatok, modellalkotás és modellértékelés</td>
+<td style="text-align: right;">18</td>
+</tr>
+<tr class="even">
+<td>T4</td>
+<td>Neurális hálózatok és nagy nyelvi modellek</td>
+<td style="text-align: right;">12</td>
+</tr>
+<tr class="odd">
+<td>T5</td>
+<td>Generatív MI, promptolás és MI-eszközök</td>
+<td style="text-align: right;">14</td>
+</tr>
+<tr class="even">
+<td>T6</td>
+<td>Megbízhatóság, értelmezés és forráskritika</td>
+<td style="text-align: right;">10</td>
+</tr>
+<tr class="odd">
+<td>T7</td>
+<td>Etika, adatvédelem és emberi felügyelet</td>
+<td style="text-align: right;">12</td>
+</tr>
+<tr class="even">
+<td>T8</td>
+<td>MI a pszichológiában és digitális kompetencia</td>
+<td style="text-align: right;">10</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><strong>Összesen</strong></td>
+<td style="text-align: right;"><strong>91</strong></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="kihagyott-tartalmak-szándékosan" class="level2">
+<h2 class="anchored" data-anchor-id="kihagyott-tartalmak-szándékosan">Kihagyott tartalmak (szándékosan)</h2>
+<ul>
+<li><strong>Konkrét termékek</strong> (ChatGPT, Claude, Gemini, Perplexity, Elicit, Consensus, DeepL stb.) és a ChatGPT felületének elemei. Gyorsan elavulnak, ezért nem kerültek be önálló fogalomként. Ha kell, a T5 alá felvehető egy „eszközválasztás” alpont.</li>
+<li><strong>Aktuális hírek a videós függelékből</strong> (GPT‑6 Astra, ARC‑AGI pontszámok, New York-i moratórium, MI-szuverenitás, fair use, munkaerőpiaci hatás). Ezek inkább esetpéldák, mint vizsgafogalmak.</li>
+<li><strong>Gyakorlati útmutatók</strong> (B, E függelék) és kiselőadás-ötletek (A függelék). Ezekben munkafolyamatok vannak, nem definiálható fogalmak.</li>
+</ul>
+
+
+<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" data-line-spacing="2" role="list" style="display: none">
+<div id="ref-maslej2025" class="csl-entry" role="listitem">
+<span class="nocase">Maslej, N. és mtsai.</span> (2025). <em>The <span>AI</span> index 2025 annual report</em>. Stanford Institute for Human-Centered Artificial Intelligence. <a href="https://hai.stanford.edu/ai-index/2025-ai-index-report">https://hai.stanford.edu/ai-index/2025-ai-index-report</a>
+</div>
+</div>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    // Ensure there is a toggle, if there isn't float one in the top right
+    if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
+      const a = window.document.createElement('a');
+      a.classList.add('top-right');
+      a.classList.add('quarto-color-scheme-toggle');
+      a.href = "";
+      a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
+      const i = window.document.createElement("i");
+      i.classList.add('bi');
+      a.appendChild(i);
+      window.document.body.appendChild(a);
+    }
+    setColorSchemeToggle(hasAlternateSentinel())
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./index.html" class="pagination-link" aria-label="Előszó">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Előszó</span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./temakorok_irodalom.html" class="pagination-link" aria-label="Témakörök a szakirodalom alapján">
+        <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Témakörök a szakirodalom alapján</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+
+<script src="site_libs/quarto-html/zenscroll-min.js"></script>
+</body></html>

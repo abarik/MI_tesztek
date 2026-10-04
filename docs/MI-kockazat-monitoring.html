@@ -1,0 +1,1508 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="hu" xml:lang="hu"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.10.18">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>9&nbsp; MI-kockázatok, figyelmeztetések és cselekvési felhívások folyamatos monitorozása – MI-tesztek</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./references.html" rel="next">
+<link href="./MI-ellenesseg.html" rel="prev">
+<script src="site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-b85bc7c33db8c58e0ec93c3465666fed.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap-9d427fb9aa4e7f60cd390d7ae3c7ba90.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-dark-494993c62a01dd0104ea6b4a58da199b.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="site_libs/bootstrap/bootstrap-9d427fb9aa4e7f60cd390d7ae3c7ba90.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "Nincs találat",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<style>html{ scroll-behavior: smooth; }</style>
+<script src="site_libs/quarto-diagram/mermaid.min.js"></script>
+<script src="site_libs/quarto-diagram/mermaid-init.js"></script>
+<link href="site_libs/quarto-diagram/mermaid.css" rel="stylesheet">
+
+
+</head>
+
+<body class="nav-sidebar floating quarto-light"><script id="quarto-html-before-body" type="application/javascript">
+    const toggleBodyColorMode = (bsSheetEl) => {
+      const mode = bsSheetEl.getAttribute("data-mode");
+      const bodyEl = window.document.querySelector("body");
+      if (mode === "dark") {
+        bodyEl.classList.add("quarto-dark");
+        bodyEl.classList.remove("quarto-light");
+      } else {
+        bodyEl.classList.add("quarto-light");
+        bodyEl.classList.remove("quarto-dark");
+      }
+    }
+    const toggleBodyColorPrimary = () => {
+      const bsSheetEl = window.document.querySelector("link#quarto-bootstrap:not([rel=disabled-stylesheet])");
+      if (bsSheetEl) {
+        toggleBodyColorMode(bsSheetEl);
+      }
+    }
+    const setColorSchemeToggle = (alternate) => {
+      const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
+      for (let i=0; i < toggles.length; i++) {
+        const toggle = toggles[i];
+        if (toggle) {
+          if (alternate) {
+            toggle.classList.add("alternate");
+          } else {
+            toggle.classList.remove("alternate");
+          }
+        }
+      }
+    };
+    const toggleColorMode = (alternate) => {
+      // Switch the stylesheets
+      const primaryStylesheets = window.document.querySelectorAll('link.quarto-color-scheme:not(.quarto-color-alternate)');
+      const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
+      manageTransitions('#quarto-margin-sidebar .nav-link', false);
+      if (alternate) {
+        // note: dark is layered on light, we don't disable primary!
+        enableStylesheet(alternateStylesheets);
+        for (const sheetNode of alternateStylesheets) {
+          if (sheetNode.id === "quarto-bootstrap") {
+            toggleBodyColorMode(sheetNode);
+          }
+        }
+      } else {
+        disableStylesheet(alternateStylesheets);
+        enableStylesheet(primaryStylesheets)
+        toggleBodyColorPrimary();
+      }
+      manageTransitions('#quarto-margin-sidebar .nav-link', true);
+      // Switch the toggles
+      setColorSchemeToggle(alternate)
+      // Hack to workaround the fact that safari doesn't
+      // properly recolor the scrollbar when toggling (#1455)
+      if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
+        manageTransitions("body", false);
+        window.scrollTo(0, 1);
+        setTimeout(() => {
+          window.scrollTo(0, 0);
+          manageTransitions("body", true);
+        }, 40);
+      }
+    }
+    const disableStylesheet = (stylesheets) => {
+      for (let i=0; i < stylesheets.length; i++) {
+        const stylesheet = stylesheets[i];
+        stylesheet.rel = 'disabled-stylesheet';
+      }
+    }
+    const enableStylesheet = (stylesheets) => {
+      for (let i=0; i < stylesheets.length; i++) {
+        const stylesheet = stylesheets[i];
+        if(stylesheet.rel !== 'stylesheet') { // for Chrome, which will still FOUC without this check
+          stylesheet.rel = 'stylesheet';
+        }
+      }
+    }
+    const manageTransitions = (selector, allowTransitions) => {
+      const els = window.document.querySelectorAll(selector);
+      for (let i=0; i < els.length; i++) {
+        const el = els[i];
+        if (allowTransitions) {
+          el.classList.remove('notransition');
+        } else {
+          el.classList.add('notransition');
+        }
+      }
+    }
+    const isFileUrl = () => {
+      return window.location.protocol === 'file:';
+    }
+    const hasAlternateSentinel = () => {
+      let styleSentinel = getColorSchemeSentinel();
+      if (styleSentinel !== null) {
+        return styleSentinel === "alternate";
+      } else {
+        return false;
+      }
+    }
+    const setStyleSentinel = (alternate) => {
+      const value = alternate ? "alternate" : "default";
+      if (!isFileUrl()) {
+        window.localStorage.setItem("quarto-color-scheme", value);
+      } else {
+        localAlternateSentinel = value;
+      }
+    }
+    const getColorSchemeSentinel = () => {
+      if (!isFileUrl()) {
+        const storageValue = window.localStorage.getItem("quarto-color-scheme");
+        return storageValue != null ? storageValue : localAlternateSentinel;
+      } else {
+        return localAlternateSentinel;
+      }
+    }
+    const toggleGiscusIfUsed = (isAlternate, darkModeDefault) => {
+      const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
+      const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
+      let newTheme = '';
+      if(authorPrefersDark) {
+        newTheme = isAlternate ? baseTheme : alternateTheme;
+      } else {
+        newTheme = isAlternate ? alternateTheme : baseTheme;
+      }
+      const changeGiscusTheme = () => {
+        // From: https://github.com/giscus/giscus/issues/336
+        const sendMessage = (message) => {
+          const iframe = document.querySelector('iframe.giscus-frame');
+          if (!iframe) return;
+          iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
+        }
+        sendMessage({
+          setConfig: {
+            theme: newTheme
+          }
+        });
+      }
+      const isGiscussLoaded = window.document.querySelector('iframe.giscus-frame') !== null;
+      if (isGiscussLoaded) {
+        changeGiscusTheme();
+      }
+    };
+    const authorPrefersDark = false;
+    const darkModeDefault = authorPrefersDark;
+      document.querySelector('link#quarto-text-highlighting-styles.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
+      document.querySelector('link#quarto-bootstrap.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
+    let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
+    // Dark / light mode switch
+    window.quartoToggleColorScheme = () => {
+      // Read the current dark / light value
+      let toAlternate = !hasAlternateSentinel();
+      toggleColorMode(toAlternate);
+      setStyleSentinel(toAlternate);
+      toggleGiscusIfUsed(toAlternate, darkModeDefault);
+      window.dispatchEvent(new Event('resize'));
+    };
+    // Switch to dark mode if need be
+    if (hasAlternateSentinel()) {
+      toggleColorMode(true);
+    } else {
+      toggleColorMode(false);
+    }
+  </script>
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./MI-ellenesseg.html">Kitekintés</a></li><li class="breadcrumb-item"><a href="./MI-kockazat-monitoring.html"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">MI-kockázatok, figyelmeztetések és cselekvési felhívások folyamatos monitorozása</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">MI-tesztek</a> 
+        <div class="sidebar-tools-main">
+  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
+</div>
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Előszó</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
+ <span class="menu-text">Témakörök és fogalmak</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./temakorok.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Témakörök a kurzus weboldala alapján</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./temakorok_irodalom.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Témakörök a szakirodalom alapján</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./temakorok_irodalom_kifejtve.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Fogalmak kifejtve</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./kurzusosszefoglalo_pai.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Kurzusösszefoglaló: bevezető fogalomtár</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./kurzusosszefoglalo_pai_2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Kibővített fogalomtár</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./kurzusosszefoglalo_pai_3.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">MI–pszichológia BA fogalomtár</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./kurzusosszefoglalo_pai_4.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">MI–pszichológia BA fogalomtár (bővített)</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
+ <span class="menu-text">Kitekintés</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./MI-ellenesseg.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Az „MI-ellenesség” típusai és történeti dokumentumai</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./MI-kockazat-monitoring.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">MI-kockázatok, figyelmeztetések és cselekvési felhívások folyamatos monitorozása</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./references.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Hivatkozások</span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Tartalom</h2>
+   
+  <ul>
+  <li><a href="#vezetői-összefoglaló" id="toc-vezetői-összefoglaló" class="nav-link active" data-scroll-target="#vezetői-összefoglaló">Vezetői összefoglaló</a></li>
+  <li><a href="#prioritizált-forrástérkép-és-összehasonlítás" id="toc-prioritizált-forrástérkép-és-összehasonlítás" class="nav-link" data-scroll-target="#prioritizált-forrástérkép-és-összehasonlítás">Prioritizált forrástérkép és összehasonlítás</a></li>
+  <li><a href="#incidensadatbázisok-figyelmeztetések-és-nyílt-felhívások" id="toc-incidensadatbázisok-figyelmeztetések-és-nyílt-felhívások" class="nav-link" data-scroll-target="#incidensadatbázisok-figyelmeztetések-és-nyílt-felhívások">Incidensadatbázisok, figyelmeztetések és nyílt felhívások</a></li>
+  <li><a href="#wikipédia-mint-bibliográfiai-kapu" id="toc-wikipédia-mint-bibliográfiai-kapu" class="nav-link" data-scroll-target="#wikipédia-mint-bibliográfiai-kapu">Wikipédia mint bibliográfiai kapu</a></li>
+  <li><a href="#hírlevelek-aggregátorok-és-folyamatos-monitorozás" id="toc-hírlevelek-aggregátorok-és-folyamatos-monitorozás" class="nav-link" data-scroll-target="#hírlevelek-aggregátorok-és-folyamatos-monitorozás">Hírlevelek, aggregátorok és folyamatos monitorozás</a></li>
+  <li><a href="#beállítási-ütemterv-és-ajánlott-működési-rend" id="toc-beállítási-ütemterv-és-ajánlott-működési-rend" class="nav-link" data-scroll-target="#beállítási-ütemterv-és-ajánlott-működési-rend">Beállítási ütemterv és ajánlott működési rend</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./MI-ellenesseg.html">Kitekintés</a></li><li class="breadcrumb-item"><a href="./MI-kockazat-monitoring.html"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">MI-kockázatok, figyelmeztetések és cselekvési felhívások folyamatos monitorozása</span></a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title"><span id="sec-mi-kockazat-monitoring" class="quarto-section-identifier"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">MI-kockázatok, figyelmeztetések és cselekvési felhívások folyamatos monitorozása</span></span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Megjegyzés a forrásokhoz
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>A fejezet szövege egy generatív MI-asszisztenssel készült kutatási összefoglalóból származik. Az eredeti szöveg belső, nem feloldható keresési hivatkozásjelöléseit eltávolítottuk; a források URL-jei a táblázatokban és a szövegben linkként szerepelnek. A szövegben szereplő számadatokat (pl. aláírásszámok, indikátorok, frissítési dátumok) felhasználás előtt az eredeti oldalon érdemes ellenőrizni.</p>
+</div>
+</div>
+<section id="vezetői-összefoglaló" class="level2">
+<h2 class="anchored" data-anchor-id="vezetői-összefoglaló">Vezetői összefoglaló</h2>
+<p><strong>2026. október 4-i állapot szerint</strong> nincs egyetlen olyan webhely, amely egyszerre, megfelelő minőségben lefedné az MI-vel kapcsolatos valós káreseményeket, technikai sérülékenységeket, új kockázatokat, jogszabályokat, frontier-modellek biztonsági értékeléseit és a tudományos vagy társadalmi cselekvési felhívásokat. Egy komoly kutatási vagy intézményi monitoringrendszert ezért <strong>többrétegű forrásrendszerként</strong> érdemes felépíteni. Az AI Incident Database például a valós világban bekövetkezett károkat és „near harm” eseteket katalogizálja, míg az OECD AIM automatizált sajtómonitorozással keresi az incidenseket és veszélyeket; a MIT AI Risk Initiative ezzel szemben több mint 1700 kockázati tételt rendszerez és összekapcsolja a kockázat-, incidens- és governance-adatokat.</p>
+<p>A <strong>legjobb „mag” egy kutatóhely számára</strong> szerintem a következő:</p>
+<ol type="1">
+<li><strong>AI Incident Database (AIID)</strong> – konkrét, megtörtént MI-károk és majdnem bekövetkezett károk.</li>
+<li><strong>OECD AI Incidents and Hazards Monitor (AIM)</strong> – gyors, globális, sajtóalapú korai jelzőrendszer.</li>
+<li><strong>MIT AI Risk Initiative / AI Risk Repository / Navigator</strong> – tudományos kockázati taxonómia és összekapcsolt kutatási infrastruktúra.</li>
+<li><strong>EU AI Office + AI Act oldalai</strong> – európai szabályozási és végrehajtási változások.</li>
+<li><strong>ETO AGORA / Georgetown CSET</strong> – jogszabályok, standardok és governance-dokumentumok globális figyelése.</li>
+<li><strong>International AI Safety Report</strong> és az <strong>ENSZ Independent International Scientific Panel on AI</strong> – magas szintű tudományos szintézis.</li>
+<li><strong>Future of Life Institute (FLI)</strong> és <strong>Center for AI Safety (CAIS)</strong> – nagy léptékű/frontier MI-kockázatok, nyílt levelek, felhívások, szakpolitikai álláspontok.</li>
+<li><strong>OpenAI Safety / Preparedness</strong>, valamint más fejlesztők safety/system-card oldalai – elsődleges források arra, hogy a fejlesztők maguk milyen kockázatokat mérnek és jelentenek.</li>
+<li><strong>MITRE ATLAS + AVID</strong> – technikai, adversarial, security- és sérülékenységi kockázatok.</li>
+<li><strong>UNESCO, NIST, WHO, Council of Europe</strong> – etikai, emberi jogi, szabványosítási és szektorspecifikus kockázatok.</li>
+</ol>
+<p>A források <strong>hitelességét nem érdemes egyetlen skálán kezelni</strong>. Egy OECD-, EU-, ENSZ-, UNESCO- vagy NIST-oldal kiemelkedően hiteles annak megállapítására, hogy az adott szervezet mit fogadott el vagy milyen szakpolitikai keretet használ; ettől még nem feltétlenül a leggyorsabb incidensjelző. Az OpenAI saját safety oldala elsődleges és hiteles forrás arra, hogy <em>az OpenAI mit jelent saját rendszereiről</em>, de nem független értékelés. Az FLI és a CAIS komoly kutatási és advocacy-szervezetek, de normatív küldetésük miatt állításaikat célszerű független tudományos és kormányközi forrásokkal együtt olvasni. Az OECD AIM pedig kifejezetten figyelmeztet arra, hogy az automatizált, részben MI által előállított címkék és összefoglalók <strong>nem az OECD hivatalos álláspontjai</strong>.</p>
+<p>A jó monitoring tehát nem „egy hírlevélre való feliratkozás”, hanem:</p>
+<p><strong>incidensadat → szakirodalmi/taxonómiai ellenőrzés → eredeti intézményi dokumentum → jogi/policy ellenőrzés → független elemzés → archiválás és kutatási kódolás.</strong></p>
+</section>
+<section id="prioritizált-forrástérkép-és-összehasonlítás" class="level2">
+<h2 class="anchored" data-anchor-id="prioritizált-forrástérkép-és-összehasonlítás">Prioritizált forrástérkép és összehasonlítás</h2>
+<p>Az alábbi sorrend azt tükrözi, mennyire lenne hasznos az adott forrás egy <strong>MI-kockázatokat tudományosan figyelő európai kutatóhely</strong> számára. A „frissítés” oszlopnál nem minden szervezet vállal formális menetrendet; ahol nincs ilyen, „folyamatos/eseményvezérelt” jelölést használok.</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Name</th>
+<th>URL</th>
+<th>Type</th>
+<th>Scope</th>
+<th>Update frequency</th>
+<th>Credibility notes</th>
+<th>Use case</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>P1 — AI Incident Database (AIID)</strong></td>
+<td><a href="https://incidentdatabase.ai/">incidentdatabase.ai</a></td>
+<td>Kurált incidens-/near-harm adatbázis; <strong>ingyenes</strong></td>
+<td>Globális; valós világban bekövetkezett MI-károk és majdnem-károk; forrásriportok, taxonómiák</td>
+<td>Folyamatos; a vizsgálatkor 2026. okt. 1-i friss esetek is látszottak</td>
+<td>A Responsible AI Collaborative nonprofit projektje; különösen erős incidens-kutatásra, de a rekordokat és az eredeti forrást továbbra is ellenőrizni kell.</td>
+<td><strong>Első számú incidens-adatforrás</strong>, esettanulmányok, kódolható corpus, trendkutatás</td>
+</tr>
+<tr class="even">
+<td><strong>P2 — OECD AI Incidents and Hazards Monitor (AIM)</strong></td>
+<td><a href="https://oecd.ai/en/incidents">oecd.ai/en/incidents</a></td>
+<td>Automatizált incidens- és hazard-monitor; <strong>ingyenes</strong>, beta</td>
+<td>Globális sajtó; privacy, security, emberi jogok, gazdasági stb. károk</td>
+<td>Közel valós idejű / folyamatos; 2026. okt. 3-i esemény is szerepelt</td>
+<td>Kiemelkedő intézményi hitelesség, de az egyes összefoglalók/címkék MI-generáltak, és nem tekintendők OECD-álláspontnak.</td>
+<td><strong>Korai jelzőrendszer</strong>, új incident cluster-ek felismerése</td>
+</tr>
+<tr class="odd">
+<td><strong>P3 — MIT AI Risk Initiative / Risk Repository / Navigator</strong></td>
+<td><a href="https://airisk.mit.edu/">airisk.mit.edu</a></td>
+<td>Akadémiai risk repository, taxonómiák, incidensek és governance-adatok; <strong>ingyenes</strong></td>
+<td>Globális; technikai, társadalmi, biztonsági, diszkriminációs, misinformation stb. kockázatok</td>
+<td>„Living” adatbázis; rendszeres projektfrissítések</td>
+<td>MIT-alapú akadémiai infrastruktúra; több mint 1700 kockázati tétel és forráshivatkozás. Különösen jó taxonómiák operacionalizálására.</td>
+<td><strong>Kutatási fogalmi keret</strong>, kódolási séma, szisztematikus review</td>
+</tr>
+<tr class="even">
+<td><strong>P4 — European AI Office / EU AI Act</strong></td>
+<td><a href="https://digital-strategy.ec.europa.eu/en/policies/ai-office">AI Office</a> · <a href="https://digital-strategy.ec.europa.eu/en/policies/regulatory-framework-ai">AI Act</a></td>
+<td>Hivatalos szabályozási/végrehajtási portál; <strong>ingyenes</strong></td>
+<td>EU; AI Act, GPAI, enforcement, kockázatos rendszerek, iránymutatások</td>
+<td>Eseményvezérelt, gyakori policy-frissítések</td>
+<td><strong>Elsődleges uniós forrás</strong>; az AI Office feladata többek között a GPAI-szabályok végrehajtása, modellértékelések és információkérések.</td>
+<td>Magyar/EU intézménynél <strong>kötelező monitoringréteg</strong></td>
+</tr>
+<tr class="odd">
+<td><strong>P5 — ETO AGORA / Georgetown CSET</strong></td>
+<td><a href="https://agora.eto.tech/">agora.eto.tech</a></td>
+<td>AI Governance and Regulatory Archive; <strong>ingyenes</strong>, bulk data is elérhető</td>
+<td>USA + nemzetközi; törvények, szabályok, standardok, vállalati vállalások</td>
+<td>Rendszeres; több kollekció 2026 aug.–szept. frissítésű</td>
+<td>Georgetown CSET adat- és elemzőcsapat, Purdue/MIT/CMU együttműködéssel; dokumentumonként hivatalos forrást is mutat.</td>
+<td><strong>Policy watch</strong>, összehasonlító jogi/governance kutatás</td>
+</tr>
+<tr class="even">
+<td><strong>P6 — International AI Safety Report</strong></td>
+<td><a href="https://internationalaisafetyreport.org/">internationalaisafetyreport.org</a></td>
+<td>Nemzetközi tudományos szintézis; <strong>ingyenes</strong></td>
+<td>Frontier/general-purpose AI: capabilities, misuse, malfunction, systemic risks, mitigáció</td>
+<td>Éves főjelentés + köztes „key updates”</td>
+<td>A 2026-os jelentést 100+ független szakértő készítette, 30+ ország és nemzetközi szervezet által jelölt advisory panellel; nem ír elő egyetlen szabályozási álláspontot.</td>
+<td><strong>Legjobb magas szintű tudományos risk baseline-ok egyike</strong></td>
+</tr>
+<tr class="odd">
+<td><strong>P7 — UNESCO Global AI Ethics and Governance Observatory</strong></td>
+<td><a href="https://www.unesco.org/ethics-ai/en">unesco.org/ethics-ai/en</a></td>
+<td>Nemzetközi observatory, policy toolkit; <strong>ingyenes</strong></td>
+<td>Globális; etika, emberi jogok, governance, ország-readiness, GenAI</td>
+<td>Folyamatos, nem fix</td>
+<td>A UNESCO 2021-es AI Ethics Recommendation-jára épül, amelyet 193 ország fogadott el; országprofilok, RAM, impact assessment és szakértői anyagok.</td>
+<td><strong>Etikai, társadalmi és országközi összehasonlítás</strong></td>
+</tr>
+<tr class="even">
+<td><strong>P8 — UN Independent International Scientific Panel on AI</strong></td>
+<td><a href="https://www.un.org/independent-international-scientific-panel-ai/en/preliminary-report">un.org/…/preliminary-report</a></td>
+<td>ENSZ tudományos risk/opportunity assessment; <strong>ingyenes</strong></td>
+<td>Globális; társadalom, gazdaság, security, emberi jogok, gyermekek, governance</td>
+<td>Éves jelentések + tematikus briefek</td>
+<td>2026-os előzetes jelentése független szakértőket fog össze mind az öt ENSZ-régióból; központi megállapítása, hogy a biztosítékok nehezen tartanak lépést a képességnövekedéssel.</td>
+<td><strong>Globális, ENSZ-szintű tudományos early-warning háttér</strong></td>
+</tr>
+<tr class="odd">
+<td><strong>P9 — Future of Life Institute (FLI)</strong></td>
+<td><a href="https://futureoflife.org/">futureoflife.org</a> · <a href="https://futureoflife.org/ai-safety-index-summer-2026/">AI Safety Index</a></td>
+<td>Research + advocacy + index + open letters; <strong>ingyenes</strong></td>
+<td>Főleg frontier/extreme/large-scale AI risk, governance</td>
+<td>Index-kiadások + eseményvezérelt open letters + hírlevél</td>
+<td>A 2026 Summer AI Safety Index 9 vezető céget 37 indikátoron, 6 területen értékelt független expert panellel; <strong>érdekvédelmi/advocacy nézőpontját figyelembe kell venni</strong>.</td>
+<td>Safety-vállalások összevetése, <strong>felhívások és policy advocacy</strong></td>
+</tr>
+<tr class="even">
+<td><strong>P10 — Center for AI Safety (CAIS)</strong></td>
+<td><a href="https://safe.ai/">safe.ai</a></td>
+<td>Kutató- és advocacy intézet; statementek, kutatás, hírlevelek; <strong>ingyenes</strong></td>
+<td>Societal-scale/frontier risk, misuse, loss of control, governance, ML safety</td>
+<td>Kutatási és hírlevél-frissítések egész évben</td>
+<td>Kutató nonprofit; explicit küldetése a társadalmi léptékű MI-kockázatok csökkentése. A nézőpont ezért nem semleges, de a kutatási és szakmai relevanciája magas.</td>
+<td>Open letters/statements, frontier risk research, heti–néhány heti kuráció</td>
+</tr>
+<tr class="odd">
+<td><strong>P11 — OpenAI Safety / Preparedness</strong></td>
+<td><a href="https://openai.com/safety/">openai.com/safety</a> · <a href="https://openai.com/index/updating-our-preparedness-framework/">Preparedness Framework</a></td>
+<td>Fejlesztői elsődleges forrás; system/safety/preparedness anyagok; <strong>ingyenes</strong></td>
+<td>Saját frontier modellek; bio/chemical, cyber, autonomy, safeguards stb.</td>
+<td>Modellkiadáshoz és eseményekhez kötött</td>
+<td>Elsődleges forrás az OpenAI saját mérési és governance-gyakorlatára; <strong>nem független audit</strong>. A Preparedness Framework szerint frontier kiadásokhoz safety findings közzétételét tervezi.</td>
+<td>Modell-release monitoring; a vállalati kockázatkommunikáció összevetése független értékelésekkel</td>
+</tr>
+<tr class="even">
+<td><strong>P12 — UK AI Security Institute (AISI)</strong></td>
+<td><a href="https://www.aisi.gov.uk/">aisi.gov.uk</a></td>
+<td>Állami kutatóintézet; eval, trend report, technical safety; <strong>ingyenes</strong></td>
+<td>Advanced/frontier AI; national security, public safety, safeguards</td>
+<td>Folyamatos kutatási output</td>
+<td>A brit DSIT része; kormányok számára fejleszt tudományos megértést és értékelési infrastruktúrát advanced-AI kockázatokhoz.</td>
+<td>Frontier capability és security eval-monitoring</td>
+</tr>
+<tr class="odd">
+<td><strong>P13 — NIST AI Risk Management Framework</strong></td>
+<td><a href="https://www.nist.gov/publications/artificial-intelligence-risk-management-framework-generative-artificial-intelligence">NIST GenAI Profile</a></td>
+<td>Standard/risk-management framework; <strong>ingyenes</strong></td>
+<td>USA-központú, de nemzetközileg használható; teljes AI-lifecycle</td>
+<td>Verzió-/kiadásalapú, nem hírszerű</td>
+<td>Hivatalos amerikai szabványügyi szervezet; a GenAI Profile a govern–map–measure–manage gondolkodás operatív alapja. Az oldal 2026-ban is frissült.</td>
+<td>Saját intézményi <strong>risk register és kontrollrendszer</strong> felépítése</td>
+</tr>
+<tr class="even">
+<td><strong>P14 — MITRE ATLAS</strong></td>
+<td><a href="https://atlas.mitre.org/">atlas.mitre.org</a></td>
+<td>Living AI security threat knowledge base; <strong>ingyenes</strong></td>
+<td>Támadások, model misuse, agentic threats, AI-system security</td>
+<td>Folyamatos/living</td>
+<td>Empirikus támadásokra és realisztikus red-team eredményekre épít; 2026-ban agentic AI-t is lefed.</td>
+<td><strong>Cyber/AI-security threat intelligence</strong>, red teaming</td>
+</tr>
+<tr class="odd">
+<td><strong>P15 — AVID / AI Vulnerability Database</strong></td>
+<td><a href="https://avidml.org/database/">avidml.org/database</a></td>
+<td>Nyílt failure/vulnerability adatbázis; <strong>ingyenes/open source</strong></td>
+<td>GPAI, LLM-ek, API-k, developer tools, agents</td>
+<td>Folyamatos rekordok + időszakos blog</td>
+<td>Strukturált, reprodukálható evidence-re törekszik; report/vulnerability megkülönböztetés és Python SDK is rendelkezésre áll.</td>
+<td>Technikai hibák, evalok és sérülékenységek kutatása</td>
+</tr>
+<tr class="even">
+<td><strong>P16 — Council of Europe AI Convention</strong></td>
+<td><a href="https://www.coe.int/en/web/artificial-intelligence/the-framework-convention-on-artificial-intelligence">coe.int/…/framework-convention</a></td>
+<td>Nemzetközi jogi/treaty monitoring; <strong>ingyenes</strong></td>
+<td>Emberi jogok, demokrácia, jogállamiság; Európa + csatlakozó államok</td>
+<td>Ratifikációk/jogi fejlemények szerint</td>
+<td>Az első, MI-re vonatkozó nemzetközi jogilag kötelező keretegyezmény; kockázat- és hatásértékelést is előír.</td>
+<td>Human-rights és jogi kockázatmonitoring</td>
+</tr>
+<tr class="odd">
+<td><strong>P17 — WHO: AI for Health</strong></td>
+<td><a href="https://www.who.int/publications/b/70584">who.int/publications/b/70584</a></td>
+<td>Szektorspecifikus guidance; <strong>ingyenes</strong></td>
+<td>Egészségügyi GenAI/LMM: bias, privacy, misinformation, automation bias, cybersecurity</td>
+<td>Irányelv-/jelentésalapú, nem folyamatos tracker</td>
+<td>WHO elsődleges egészségügyi forrás; <strong>nem általános MI-kockázati oldal</strong>.</td>
+<td>Egészségpszichológiai, klinikai vagy mentális-egészség MI-kutatások</td>
+</tr>
+<tr class="even">
+<td><strong>P18 — IAPP Global AI Law and Policy Tracker</strong></td>
+<td><a href="https://iapp.org/resources/article/global-ai-legislation-tracker/">iapp.org/resources/article/global-ai-legislation-tracker</a></td>
+<td>Professzionális policy/legal tracker; <strong>részben tagi/MEMBER hozzáférés</strong></td>
+<td>Több joghatóság AI-jogalkotása</td>
+<td>Időszakos</td>
+<td>Nagyon jó compliance-orientált másodlagos forrás, de hivatalos jogszabályt mindig az eredeti jogforrásból kell ellenőrizni; több IAPP resource tagi hozzáférésű.</td>
+<td>Jogszabály-változások gyors áttekintése</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Gyakorlati prioritás:</strong> ha csak öt oldalt lehetne rendszeresen követni, egy magyar pszichológiai/MI-kutatóhely számára én az <strong>AIID + OECD AIM + MIT AI Risk Initiative + EU AI Office/AI Act + ETO AGORA</strong> kombinációt választanám. Ez együtt lefedi a <em>megtörtént károkat</em>, <em>korai hazard-jelzéseket</em>, <em>kockázati taxonómiát</em>, <em>EU-jogi változásokat</em> és <em>nemzetközi policy-fejleményeket</em>.</p>
+<p>Fontos különbség, hogy az <strong>AIID és az OECD AIM nem ugyanazt méri</strong>. Az AIID célja az MI-rendszerek alkalmazásából a valós világban ténylegesen megvalósult károk vagy közel-károk történeti katalogizálása. Az OECD AIM ennél szélesebb és gyorsabb, médiából automatikusan azonosít „incidents and hazards” eseményeket. Tudományos elemzésben ezért az OECD AIM kiváló <em>signal-detection</em> eszköz, az AIID pedig jobb kiindulópont a mélyebb incident corpushoz.</p>
+</section>
+<section id="incidensadatbázisok-figyelmeztetések-és-nyílt-felhívások" class="level2">
+<h2 class="anchored" data-anchor-id="incidensadatbázisok-figyelmeztetések-és-nyílt-felhívások">Incidensadatbázisok, figyelmeztetések és nyílt felhívások</h2>
+<p>A dedicated incident/near-miss monitoringot érdemes három külön rétegre bontani.</p>
+<p><strong>Valós társadalmi incidensek:</strong> az <strong>AI Incident Database</strong> a legerősebb általános célú kiindulópont. Saját megfogalmazása szerint az MI-rendszerek telepítése során realizálódott „harms or near harms” kollektív történetét indexeli. A projekt nemcsak keresőt, hanem értesítési funkciót és programozott feldolgozáshoz API-infrastruktúrát is fenntart; a dokumentációban új incidensekre és adott incidensek frissítésére vonatkozó e-mail subscription is szerepel.</p>
+<p><strong>Korai veszélyjelzés:</strong> az <strong>OECD AIM</strong> alkalmasabb lehet arra, hogy egy friss ügyet még azelőtt észrevegyünk, hogy abból stabil, manuálisan kurált incidensrekord lesz. Ugyanakkor ez a gyorsaság bizonytalansággal jár: médiaforrásokra épít, automatikus feldolgozást használ, és maga az OECD is jelzi az MI által generált tartalmak státuszát. Emiatt kutatási adatnak csak az eredeti cikk és lehetőség szerint az elsődleges dokumentum ellenőrzése után használnám.</p>
+<p><strong>Technikai near miss/failure:</strong> az <strong>AVID</strong> és a <strong>MITRE ATLAS</strong> más problémát old meg. Az AVID konkrét GPAI failure reportokat és visszatérő vulnerability-típusokat rendszerez, míg a MITRE ATLAS adversarial taktikákat, technikákat, mitigációkat és valós/red-team eseteket kezel. Ha például egy autonóm agent hibás eszközhasználata, prompt injection, model extraction vagy rendszerintegrációs sérülékenység érdekel, ezek informatívabbak lehetnek, mint egy általános társadalmi incident database.</p>
+<p>A <strong>nyílt leveleket és petíciókat külön adatfajtának</strong> kezelném. Nem ugyanazt jelentik, mint egy peer-reviewed kockázatbecslés vagy szabályozói figyelmeztetés: azt dokumentálják, hogy egy adott szakmai/társadalmi koalíció egy adott időpontban milyen problémát tartott sürgősnek.</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Felhívás</th>
+<th>Dátum és központi állítás</th>
+<th>Hivatalos forrás</th>
+<th>Értelmezés</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Pause Giant AI Experiments</strong> – FLI</td>
+<td>2023. március 22.; legalább hat hónapos szünetet kért a GPT-4-nél erősebb rendszerek tréningjére</td>
+<td><a href="https://futureoflife.org/open-letter/pause-giant-ai-experiments/">futureoflife.org/open-letter/pause-giant-ai-experiments</a></td>
+<td>A 2023-as MI-kockázati vita egyik meghatározó dokumentuma; a jelenlegi oldalon több tízezer aláírás szerepel.</td>
+</tr>
+<tr class="even">
+<td><strong>Statement from the listed authors of Stochastic Parrots on the „AI pause” letter</strong> – DAIR</td>
+<td>2023. március 31.; a károk „valósak és jelenleg is zajlanak”, ezért a szabályozás az átláthatóságra, elszámoltathatóságra és a kizsákmányoló munkagyakorlatok megelőzésére összpontosítson</td>
+<td><a href="https://www.dair-institute.org/blog/letter-statement-March2023/">dair-institute.org</a></td>
+<td>Közvetlen ellenpontja a Pause-levélnek: a jelen idejű károkat állítja szembe a „longtermista” kockázati narratívával <span class="citation" data-cites="dair2023">(<a href="references.html#ref-dair2023" role="doc-biblioref">Gebru és mtsai., 2023</a>)</span>.</td>
+</tr>
+<tr class="odd">
+<td><strong>Statement on AI Extinction Risk</strong> – CAIS</td>
+<td>2023. május 30.; az MI-ből eredő kihalási kockázat mérséklését a pandémiákhoz és nukleáris háborúhoz hasonló globális prioritásként pozicionálta</td>
+<td><a href="https://safe.ai/work/statement-on-ai-extinction-risk">safe.ai/work/statement-on-ai-extinction-risk</a></td>
+<td>Rendkívül rövid consensus-signaling statement; aláírói között Hinton, Bengio és vezető AI-laborok akkori vezetői is szerepelnek.</td>
+</tr>
+<tr class="even">
+<td><strong>Managing AI Risks in an Era of Rapid Progress</strong> – Bengio, Hinton és mtsai</td>
+<td>2023. október 26.; nagy léptékű társadalmi károk, visszaélések és visszafordíthatatlan kontrollvesztés; K+F- és governance-prioritások</td>
+<td><a href="https://arxiv.org/abs/2310.17688">arxiv.org/abs/2310.17688</a></td>
+<td>25 szerzős tudományos konszenzusdokumentum, 2024-ben a <em>Science</em>-ben is megjelent; félúton a nyílt levél és a szakcikk között <span class="citation" data-cites="bengio2023managing">(<a href="references.html#ref-bengio2023managing" role="doc-biblioref"><span class="nocase">Bengio és mtsai.</span>, 2023</a>)</span>.</td>
+</tr>
+<tr class="odd">
+<td><strong>Joint Statement on AI Safety and Openness</strong> – Mozilla</td>
+<td>2023. október; a nyíltság, átláthatóság és széles hozzáférés globális prioritás; „openness is an antidote, not a poison”</td>
+<td><a href="https://open.mozilla.org/">open.mozilla.org</a></td>
+<td>Kb. 150 aláíró (köztük LeCun, Ng); a zárt frontier-biztonsági megközelítés ellenpontja <span class="citation" data-cites="mozilla2023">(<a href="references.html#ref-mozilla2023" role="doc-biblioref">Mozilla, 2023</a>)</span>.</td>
+</tr>
+<tr class="even">
+<td><strong>IDAIS-nyilatkozatok</strong> – International Dialogues on AI Safety</td>
+<td>2023–2026 (Oxford, Peking, Velence, Sanghaj, London); a pekingi konszenzus „vörös vonalai” tiltanák az önreplikáló, önfejlesztő, hatalomra törő vagy megtévesztő rendszereket és a tömegpusztító fegyvereket, kibertámadásokat segítő MI-t</td>
+<td><a href="https://idais.ai/">idais.ai</a></td>
+<td>Ritka nyugati–kínai tudományos konszenzus a frontier-kockázatokról <span class="citation" data-cites="idais2024">(<a href="references.html#ref-idais2024" role="doc-biblioref">International Dialogues on AI Safety, 2024</a>)</span>.</td>
+</tr>
+<tr class="odd">
+<td><strong>A Safe Harbor for AI Evaluation and Red Teaming</strong></td>
+<td>2024. március; jogi és technikai védelmet kér a jóhiszemű, független MI-tesztelésnek</td>
+<td><a href="https://knightcolumbia.org/content/a-safe-harbor-for-ai-evaluation-and-red-teaming">knightcolumbia.org</a></td>
+<td>250–300+ kutató és jogász; a független értékelés hozzáférési feltételeiről szól <span class="citation" data-cites="longpre2024">(<a href="references.html#ref-longpre2024" role="doc-biblioref">Longpre és mtsai., 2024</a>)</span>.</td>
+</tr>
+<tr class="even">
+<td><strong>Artist Rights Alliance – nyílt levél</strong></td>
+<td>2024. április; a zenészek hangjának és stílusának „ragadozó” MI-felhasználása ellen</td>
+<td><a href="https://fortune.com/2024/04/02/singers-pump-breaks-billie-eilish-bonjovi-sign-open-letter">fortune.com</a></td>
+<td>200+ zenész (köztük Billie Eilish, Nicki Minaj, Bon Jovi); alkotói–szerzői jogi típus <span class="citation" data-cites="fortune2024artists">(<a href="references.html#ref-fortune2024artists" role="doc-biblioref">Fortune, 2024</a>)</span>.</td>
+</tr>
+<tr class="odd">
+<td><strong>Right to Warn</strong></td>
+<td>2024. június; AI-cégek jelenlegi és volt munkatársainak kockázatközlési/whistleblower jogai</td>
+<td><a href="https://righttowarn.ai/">righttowarn.ai</a></td>
+<td>Különösen releváns az intézményi transzparencia, belső kockázatjelzés és munkavállalói védelem szempontjából.</td>
+</tr>
+<tr class="even">
+<td><strong>400+ hollywoodi alkotó levele a Fehér Háznak</strong></td>
+<td>2025. március; a szerzői jogi védelem MI-tréning érdekében történő gyengítése ellen</td>
+<td><a href="https://euronews.com/culture/2025/03/21/more-than-400-artists-send-letter-to-trump-over-ai-companies-exploiting-copyrighted-works">euronews.com</a></td>
+<td>Válasz az OpenAI és a Google fair use-javaslataira az amerikai AI Action Plan konzultációján <span class="citation" data-cites="euronews2025hollywood">(<a href="references.html#ref-euronews2025hollywood" role="doc-biblioref">Euronews, 2025</a>)</span>.</td>
+</tr>
+<tr class="odd">
+<td><strong>Not For Private Gain</strong></td>
+<td>2025. április; a kaliforniai és delaware-i főügyészt kéri, hogy akadályozza meg az OpenAI kivonását a nonprofit irányítás alól</td>
+<td><a href="https://siliconangle.com/2025/04/23/former-openai-staff-ai-experts-ask-attorneys-general-block-profit-conversation/">siliconangle.com</a></td>
+<td>Volt OpenAI-munkatársak, Hinton, Russell, Lessig; intézményi és governance-kockázat <span class="citation" data-cites="notforprivategain2025">(<a href="references.html#ref-notforprivategain2025" role="doc-biblioref">SiliconANGLE, 2025</a>)</span>.</td>
+</tr>
+<tr class="even">
+<td><strong>Statement on Superintelligence</strong> – FLI</td>
+<td>2025. szeptember 22.; a superintelligence fejlesztésének tiltását szorgalmazza addig, amíg nincs széles tudományos biztonsági konszenzus és erős társadalmi támogatottság</td>
+<td><a href="https://superintelligence-statement.org/">superintelligence-statement.org</a></td>
+<td>Erősen normatív policy/advocacy dokumentum; nem kockázatbecslési jelentésként kezelendő.</td>
+</tr>
+<tr class="odd">
+<td><strong>Global Call for AI Red Lines</strong></td>
+<td>2025. szeptember 22. (ENSZ-közgyűlés); 2026 végéig kikényszeríthető nemzetközi megállapodást sürget az MI „vörös vonalairól”</td>
+<td><a href="https://red-lines.ai/">red-lines.ai</a></td>
+<td>12 Nobel-díjas, 10 volt állam-/kormányfő és miniszter, 300+ prominens aláíró, köztük Kőrösi Csaba <span class="citation" data-cites="redlines2025">(<a href="references.html#ref-redlines2025" role="doc-biblioref">Global Call for AI Red Lines, 2025</a>)</span>.</td>
+</tr>
+<tr class="even">
+<td><strong>Google- és OpenAI-munkatársak levele az Anthropic Pentagon-vitájában</strong></td>
+<td>2026. február 27.; a cégvezetéseket kéri, hogy tartsák fenn a vörös vonalakat a tömeges belföldi megfigyelés és a teljesen automatizált fegyverek ellen</td>
+<td><a href="https://techcrunch.com/2026/02/27/employees-at-google-and-openai-support-anthropics-pentagon-stand-in-open-letter/">techcrunch.com</a></td>
+<td>300+ Google- és 60+ OpenAI-munkatárs; munkavállalói ellenállás katonai felhasználással szemben <span class="citation" data-cites="techcrunch2026pentagon">(<a href="references.html#ref-techcrunch2026pentagon" role="doc-biblioref">TechCrunch, 2026a</a>)</span>.</td>
+</tr>
+<tr class="odd">
+<td><strong>Pro-Human AI Declaration</strong> – FLI</td>
+<td>2026. március 24.; az MI emberi képességeket erősítő, emberi méltóságot és szabadságot védő irányát támogatja</td>
+<td><a href="https://humanstatement.org/">humanstatement.org</a></td>
+<td>Jó forrás a 2026-os „calls to action” és társadalmi narratívák kutatásához.</td>
+</tr>
+<tr class="even">
+<td><strong>We Must Act Now: A Statement on AI’s Transformation of the Economy</strong> – Stanford Digital Economy Lab</td>
+<td>2026. július 13.; három pont: (1) az MI 10 éven belül radikálisan erősebb lehet; (2) ez az ipari forradalomnál nagyobb, de sokkal gyorsabb gazdasági átalakulást hozhat – tömeges munkahelyvesztés és életszínvonal-növekedés lehetőségével; (3) a közgazdászoknak, döntéshozóknak és technológiai vezetőknek most kell kutatniuk és intézményeket építeniük</td>
+<td><a href="https://www.wemustactnow.ai/">wemustactnow.ai</a></td>
+<td>200+ közgazdász és MI-kutató, köztük 16 Nobel-díjas (Stiglitz, Krugman, Bernanke); az első kifejezetten gazdasági–munkaerőpiaci felhívás a listán <span class="citation" data-cites="wemustact2026">(<a href="references.html#ref-wemustact2026" role="doc-biblioref">Brynjolfsson és mtsai., 2026</a>)</span>.</td>
+</tr>
+<tr class="odd">
+<td><strong>Pacing the Frontier</strong></td>
+<td>2026. július 28.; a frontier-laborok közel lehetnek az MI-kutatás automatizálásához, ezért az USA támogasson nemzetközi erőfeszítést a fejlesztési tempó szabályozhatóságáért</td>
+<td><a href="https://www.transparencycoalition.ai/news/more-than-1300-tech-employees-sign-open-letter-asking-for-ai-to-be-regulated">transparencycoalition.ai</a></td>
+<td>1300+ frontier-labormunkatárs (köztük Dario Amodei, Jakub Pachocki); nem azonnali szünetet, hanem a lassítás <em>lehetőségét</em> kéri <span class="citation" data-cites="pacing2026">(<a href="references.html#ref-pacing2026" role="doc-biblioref">Transparency Coalition, 2026</a>)</span>.</td>
+</tr>
+<tr class="even">
+<td><strong>A call for collective action on cyber defense</strong> – OpenAI és társaláírók</td>
+<td>2026. augusztus 28.; a levél szerint „csak korlátozott ideig” van lehetőség a kibervédelem megerősítésére, mert az MI-vel támogatott kibertámadások a következő hónapokban elterjedtebbé és kifinomultabbá válnak; kibervédelmi célú MI-t, finanszírozást és összehangolt fellépést sürget szervezetektől, biztonsági cégektől, kormányoktól és frontier MI-vállalatoktól</td>
+<td><a href="https://openai.com/collective-cyberdefense/">openai.com/collective-cyberdefense</a></td>
+<td>Iparági, fejlesztők által kezdeményezett felhívás; a magyar nyelvű oldalon 2026. október 4-én 116 aláíró szervezet szerepelt, köztük Anthropic, AWS, Google, Microsoft, IBM és vezető kiberbiztonsági cégek <span class="citation" data-cites="openai2026cyber">(<a href="references.html#ref-openai2026cyber" role="doc-biblioref">OpenAI, 2026</a>)</span>. Nem moratóriumot vagy tilalmat, hanem az MI védelmi célú gyors bevezetését kéri.</td>
+</tr>
+<tr class="odd">
+<td><strong>Fields-érmesek nyilatkozata az MI és a matematika viszonyáról</strong></td>
+<td>2026. szeptember 11.; a laborok matematikai „benchmark-versenye” rontja a szerzőség megjelölését, az ellenőrzést és a megértést</td>
+<td><a href="https://techcrunch.com/2026/09/11/openais-feud-with-mathematicians-is-only-escalating/">techcrunch.com</a></td>
+<td>25 Fields-érmes (köztük Tao, Scholze, Viazovska); a tudományos integritás új kockázati típusa <span class="citation" data-cites="techcrunch2026fields">(<a href="references.html#ref-techcrunch2026fields" role="doc-biblioref">TechCrunch, 2026b</a>)</span>.</td>
+</tr>
+</tbody>
+</table>
+<p>A táblázat időrendje egy <strong>műfaji elmozdulást</strong> is mutat. A 2023-as levelek még elsősorban a fejlesztés lassítását vagy a kihalási kockázat elismerését kérték, és már akkor megjelentek a jelen idejű károkat hangsúlyozó ellenpontok <span class="citation" data-cites="dair2023 mozilla2023">(<a href="references.html#ref-dair2023" role="doc-biblioref">Gebru és mtsai., 2023</a>; <a href="references.html#ref-mozilla2023" role="doc-biblioref">Mozilla, 2023</a>)</span>. 2024–2025-ben a kutatói hozzáférés, a szerzői jog és a vállalati governance került előtérbe <span class="citation" data-cites="longpre2024 fortune2024artists notforprivategain2025">(<a href="references.html#ref-fortune2024artists" role="doc-biblioref">Fortune, 2024</a>; <a href="references.html#ref-longpre2024" role="doc-biblioref">Longpre és mtsai., 2024</a>; <a href="references.html#ref-notforprivategain2025" role="doc-biblioref">SiliconANGLE, 2025</a>)</span>, 2025-től pedig a nemzetközi „vörös vonalak” <span class="citation" data-cites="redlines2025">(<a href="references.html#ref-redlines2025" role="doc-biblioref">Global Call for AI Red Lines, 2025</a>)</span>. 2026-ban a felhívások egyre inkább maguktól a frontier-laborok munkatársaitól, illetve tudományterületek elitjétől érkeznek, és tematikusan is kiszélesedtek: a fejlesztési tempó szabályozhatóságától <span class="citation" data-cites="pacing2026">(<a href="references.html#ref-pacing2026" role="doc-biblioref">Transparency Coalition, 2026</a>)</span> a gazdasági átalakuláson <span class="citation" data-cites="wemustact2026">(<a href="references.html#ref-wemustact2026" role="doc-biblioref">Brynjolfsson és mtsai., 2026</a>)</span> és a kibervédelmen át a tudományos integritásig <span class="citation" data-cites="techcrunch2026fields">(<a href="references.html#ref-techcrunch2026fields" role="doc-biblioref">TechCrunch, 2026b</a>)</span>.</p>
+<p>A <strong>2026-os kibervédelmi felhívás</strong> azért érdemel külön figyelmet, mert eltér a korábbi nyílt levelek mintázatától. Nem civil vagy kutatói koalíció kéri a fejlesztés lassítását, hanem egy frontier MI-fejlesztő kezdeményezésére vezető MI-laborok, felhőszolgáltatók, kiberbiztonsági cégek és pénzügyi intézmények sürgetik az MI <em>gyorsabb</em> bevezetését a védekezés oldalán. Négy szereplői kört szólít meg (minden szervezet; kiberbiztonsági vállalatok és technológiai partnerek; kormányok; élvonalbeli MI-vállalatok), és kiemelten kezeli a forráshiányos kritikusinfrastruktúra-üzemeltetőket: kórházakat, víziközműveket, helyi önkormányzatokat <span class="citation" data-cites="openai2026cyber">(<a href="references.html#ref-openai2026cyber" role="doc-biblioref">OpenAI, 2026</a>)</span>. Monitoring szempontból kettős adat: egyszerre figyelmeztetés az MI-vel felerősített kiberfenyegetésekre és iparági önszabályozási, piacépítő dokumentum, ezért állításait a <strong>Technical Failure &amp; Security Watch</strong> független forrásaival (MITRE ATLAS, AVID, UK AISI) érdemes összevetni.</p>
+<p>A <strong>2023-as FLI-levél hivatkozásjegyzéke önmagában is hasznos történeti bibliográfia</strong>: szerepel benne többek között Bender és munkatársai <em>On the Dangers of Stochastic Parrots</em> <span class="citation" data-cites="bender2021">(<a href="references.html#ref-bender2021" role="doc-biblioref">Bender és mtsai., 2021</a>)</span>, Bostrom <em>Superintelligence</em> <span class="citation" data-cites="bostrom2014">(<a href="references.html#ref-bostrom2014" role="doc-biblioref">Bostrom, 2014</a>)</span>, Russell <em>Human Compatible</em> <span class="citation" data-cites="russell2019">(<a href="references.html#ref-russell2019" role="doc-biblioref">Russell, 2019</a>)</span>, Weidinger és munkatársai nyelvimodell-kockázati taxonómiája, Hendrycks és Mazeika x-risk elemzése, valamint Bubeck és munkatársai GPT-4-vizsgálata és az OpenAI GPT-4 Technical Report. Ez jó példa arra, miért érdemes egy felhívásnál nemcsak az aláírókat, hanem az <strong>alátámasztó referencialáncot</strong> is archiválni.</p>
+<p>Ezzel párhuzamosan érdemes a <strong>vállalati safety oldalak</strong> változásait is rögzíteni. Az OpenAI 2025-ös frissített Preparedness Frameworkje például a biológiai/kémiai, kiberbiztonsági és AI self-improvement képességeket külön „Tracked Categories” kategóriákban kezeli, további kutatási területként pedig többek között hosszú távú autonómiát, sandbagginget és safeguards-underminingot nevez meg. A dokumentum kifejezetten living frameworkként írja le magát, ezért longitudinális kutatáshoz az egyes verziók archiválása informatívabb lehet, mint pusztán a legfrissebb oldal követése.</p>
+</section>
+<section id="wikipédia-mint-bibliográfiai-kapu" class="level2">
+<h2 class="anchored" data-anchor-id="wikipédia-mint-bibliográfiai-kapu">Wikipédia mint bibliográfiai kapu</h2>
+<p>A Wikipédiát <strong>nem végső bizonyítékként, hanem discovery layerként</strong> javaslom. Előnye, hogy egy helyre hozza a terminológiát, a történeti vitát, az ellenérveket és gyakran a releváns elsődleges forrásokat. Kutatási jelentésben azonban az állítást lehetőleg az eredeti tanulmányra, jogszabályra, jelentésre vagy nyílt levélre kell visszavezetni.</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Wikipedia page</th>
+<th>URL</th>
+<th>Mire jó?</th>
+<th>Kulcsreferenciák / mit érdemes továbbkövetni?</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>AI safety</strong></td>
+<td><a href="https://en.wikipedia.org/wiki/AI_safety">en.wikipedia.org/wiki/AI_safety</a></td>
+<td>Átfogó fogalmi belépő az accident, misuse, robustness, alignment, governance témákhoz</td>
+<td>A lap külön kezeli a jelenlegi károkat és advanced-AI problémákat; a bibliográfiát NIST/AI RMF, bias/fairness, cybersecurity és alignment irányban érdemes tovább bontani.</td>
+</tr>
+<tr class="even">
+<td><strong>Existential risk from artificial intelligence</strong></td>
+<td><a href="https://en.wikipedia.org/wiki/Existential_risk_from_artificial_intelligence">en.wikipedia.org/wiki/Existential_risk_from_artificial_intelligence</a></td>
+<td>A catastrophic/x-risk vita pro és kontra áttekintése</td>
+<td>Bostrom, CAIS statement, alignment/control szakirodalom, illetve a szkeptikus álláspontok. Értéke éppen abban van, hogy a nézetkülönbségeket is feltárja.</td>
+</tr>
+<tr class="odd">
+<td><strong>Pause Giant AI Experiments: An Open Letter</strong></td>
+<td><a href="https://en.wikipedia.org/wiki/Pause_Giant_AI_Experiments:_An_Open_Letter">Wikipedia</a></td>
+<td>A 2023-as levél történeti kontextusa, fogadtatása</td>
+<td>Elsődlegesen az eredeti FLI-levelet kell követni; az FLI eredeti oldalának bibliográfiájában Bender, Bostrom, Russell, Weidinger, Bubeck és az OpenAI GPT-4 Technical Report is megtalálható.</td>
+</tr>
+<tr class="even">
+<td><strong>Statement on AI Extinction Risk</strong></td>
+<td><a href="https://en.wikipedia.org/wiki/Statement_on_AI_Extinction_Risk">Wikipedia</a></td>
+<td>A CAIS statement, aláírók és kritikák kontextusa</td>
+<td>Az elsődleges CAIS statement mellett a lap médiakritikákat és regulatory-capture/PR ellenérveket is dokumentál; ez módszertanilag hasznos a narratívák kiegyensúlyozására.</td>
+</tr>
+<tr class="odd">
+<td><strong>Artificial Intelligence Act</strong></td>
+<td><a href="https://en.wikipedia.org/wiki/Artificial_Intelligence_Act">en.wikipedia.org/wiki/Artificial_Intelligence_Act</a></td>
+<td>Gyors történeti és strukturális áttekintés az EU AI Actről</td>
+<td>A legfontosabb referenciája az <strong>EU 2024/1689 rendelet</strong> <span class="citation" data-cites="euaiact2024">(<a href="references.html#ref-euaiact2024" role="doc-biblioref">EU AI Act, 2024</a>)</span>, illetve az Európai Bizottság AI Act/AI Office oldalai; jogi állításnál mindig ezek élvezzenek elsőbbséget.</td>
+</tr>
+<tr class="even">
+<td><strong>Regulation of artificial intelligence</strong></td>
+<td><a href="https://en.wikipedia.org/wiki/Regulation_of_artificial_intelligence">en.wikipedia.org/wiki/Regulation_of_artificial_intelligence</a></td>
+<td>Nemzetközi szabályozási térkép és terminológia</td>
+<td>Innen célszerű továbbmenni OECD, EU, Council of Europe, NIST, UNESCO és nemzeti elsődleges források felé.</td>
+</tr>
+</tbody>
+</table>
+<p>Kutatásmódszertanilag a Wikipedia különösen jó lehet <strong>„reference snowballingra”</strong>: azonosítasz egy témát, például <em>automation bias</em>, <em>AI deception</em>, <em>loss of control</em>, <em>deepfake misinformation</em> vagy <em>algorithmic discrimination</em>, majd a Wikipédia-referenciákból az eredeti szakirodalomhoz lépsz. Az állítások rögzítésénél viszont az eredeti forrást tárolod DOI-val/URL-lel, nem a Wikipédiát.</p>
+<p>A Wikipédia további előnye, hogy megmutatja, <strong>hol nincs tudományos konszenzus</strong>. Ez AI-risk kutatásnál különösen fontos: az existential-risk és a frontier-safety diskurzus jelentős állításai vitatottak, ezért egy monitoringrendszernek nemcsak a figyelmeztetéseket, hanem azok kritikáit és alternatív kockázati kereteit is gyűjtenie kell. A <em>Statement on AI Extinction Risk</em> Wikipédia-oldala például kifejezetten jelzi a PR- és regulatory-capture kritikákat is.</p>
+</section>
+<section id="hírlevelek-aggregátorok-és-folyamatos-monitorozás" class="level2">
+<h2 class="anchored" data-anchor-id="hírlevelek-aggregátorok-és-folyamatos-monitorozás">Hírlevelek, aggregátorok és folyamatos monitorozás</h2>
+<p>A médiaréteget <strong>nem elsődleges bizonyítékként</strong>, hanem discovery és prioritization rétegként használnám. Különösen értékes egy olyan hírlevél, amelyből 30–50 forrás átnézése helyett hetente néhány magas relevanciájú tételhez lehet eljutni.</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Forrás</th>
+<th>URL</th>
+<th>Tartalom és gyakoriság</th>
+<th>Fizetőfal / értékelés</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>CAIS AI Safety Newsletter</strong></td>
+<td><a href="https://safe.ai/newsletter">safe.ai/newsletter</a></td>
+<td>AI safety research, policy és industry; külön AI Safety, AI Frontiers és ML Safety feedek. A 2026-os archívumban rendszeresen, jellemzően néhány hetente jelentek meg kiadások.</td>
+<td><strong>Nincs paywall</strong>, CAIS ezt explicit jelzi. Erős safety-orientáció, ezért érdemes más nézőponttal párosítani.</td>
+</tr>
+<tr class="even">
+<td><strong>Future of Life Institute newsletter + Open Letter RSS</strong></td>
+<td><a href="https://futureoflife.org/open-letter/">FLI Open Letters</a> · <a href="https://futureoflife.org/open-letter/feed/">RSS</a></td>
+<td>FLI kutatás, policy és cselekvési felhívások; az open-letter archívumhoz külön RSS feed érhető el.</td>
+<td>Ingyenes; advocacy-orientáció miatt triangulálandó.</td>
+</tr>
+<tr class="odd">
+<td><strong>Tech Policy Press</strong></td>
+<td><a href="https://www.techpolicy.press/">techpolicy.press</a> · <a href="https://www.techpolicy.press/newsletter/">Newsletter</a></td>
+<td>Nonprofit tech-policy média; AI governance, democracy, surveillance, law, harms; hírlevele heti, esetenként gyakoribb. 2026 októberében is aktívan frissült.</td>
+<td>Alapvetően <strong>ingyenes</strong>, RSS is elérhető; kiváló policy discovery, de news/analysis, nem elsődleges jogforrás.</td>
+</tr>
+<tr class="even">
+<td><strong>MIT AI Risk Initiative updates</strong></td>
+<td><a href="https://airisk.mit.edu/">airisk.mit.edu</a></td>
+<td>Risk Repository, incident tracker, governance mapping, kutatási összefoglalók és newsletter</td>
+<td>Ingyenes; magas akadémiai érték, kisebb hírzaj.</td>
+</tr>
+<tr class="odd">
+<td><strong>ETO / AGORA updates</strong></td>
+<td><a href="https://agora.eto.tech/">agora.eto.tech</a></td>
+<td>Governance archive frissítések, CSET/ETO analysis, letölthető adatok</td>
+<td>Ingyenes; különösen jó jogi/policy monitorhoz.</td>
+</tr>
+<tr class="even">
+<td><strong>OECD.AI</strong></td>
+<td><a href="https://oecd.ai/">oecd.ai</a></td>
+<td>Incidensek, policy-adatok, kutatások és nemzetközi governance</td>
+<td>Ingyenes; magas hitelességű multilaterális policy layer.</td>
+</tr>
+<tr class="odd">
+<td><strong>AI as Normal Technology</strong> — korábban <em>AI Snake Oil</em></td>
+<td>Arvind Narayanan Princeton-oldaláról elérhető newsletter</td>
+<td>Kritikus/szkeptikus ellenpont a túlzó AI-állításokhoz; társadalmi hatások, evaluation, megbízhatóság</td>
+<td>A Princeton-professzor Arvind Narayanan és Sayash Kapoor munkája; kifejezetten hasznos az x-risk-orientált források mellé <strong>nézőpont-kiegyensúlyozásra</strong>.</td>
+</tr>
+</tbody>
+</table>
+<p>Egy különösen hasznos elv az <strong>„ideológiai redundancia” elkerülése</strong>. Ha valaki kizárólag FLI-, CAIS- és frontier-safety hírleveleket követ, könnyen túlreprezentálódhatnak az egzisztenciális és loss-of-control kockázatok. Ha viszont csak EU/UNESCO/NIST forrásokat követ, lemaradhat a gyorsan kialakuló frontier-capability és technikai safety problémákról. Ezért egy kutatóhely monitoringcsatornájában egyszerre legyen:</p>
+<p><strong>empirikus incidensforrás + hivatalos szabályozó + akadémiai taxonómia + frontier-safety intézet + kritikus/szkeptikus elemző + elsődleges modellfejlesztői forrás.</strong></p>
+<p>A gyakorlatban az alábbi monitoringrendszert javaslom.</p>
+<p><strong>Napi automatizált réteg.</strong> Az AIID új incidens-értesítéseit/API-ját, az OECD AIM-et, az EU Digital Strategy RSS-t és az OpenAI hivatalos News RSS-t érdemes egy közös feedbe húzni. Az AIID dokumentációja támogat új incidentekhez kapcsolódó notificationöket; az Európai Bizottság Digital Strategy oldalának van RSS feedje, és az OpenAI News hivatalos RSS-feedje is elérhető.</p>
+<p>Javasolt kulcsszavas szűrők:</p>
+<p><code>AI incident</code>, <code>AI harm</code>, <code>near miss</code>, <code>frontier AI</code>, <code>system card</code>, <code>safety framework</code>, <code>preparedness</code>, <code>model evaluation</code>, <code>misalignment</code>, <code>deception</code>, <code>autonomous agent</code>, <code>cyber</code>, <code>biosecurity</code>, <code>AI Act</code>, <code>GPAI</code>, <code>fundamental rights</code>, <code>mental health</code>, <code>children</code>, <code>manipulation</code>, <code>persuasion</code>, <code>algorithmic discrimination</code>, <code>deepfake</code>.</p>
+<p>Egy <strong>pszichológiai kutatóhely</strong> számára külön alcsatornát alakítanék ki az alábbiakra:</p>
+<p><code>AI companion</code>, <code>emotional dependency</code>, <code>anthropomorphism</code>, <code>AI trust</code>, <code>automation bias</code>, <code>human-AI interaction</code>, <code>persuasion</code>, <code>mental health chatbot</code>, <code>gamification</code>, <code>engagement</code>, <code>addiction</code>, <code>dark patterns</code>, <code>children and AI</code>, <code>AI-mediated decision making</code>.</p>
+<p>Ez azért indokolt, mert az általános AI-risk adatbázisok security- és policy-tartalma mellett a WHO és az ENSZ legújabb kereteiben is megjelennek a mentális egészséghez, autonómiához, gyermekbiztonsághoz, misinformationhöz és automation biashoz kapcsolódó problémák.</p>
+<p><strong>Heti kuráció.</strong> Hetente egy kutató vagy research assistant 30–45 percben tekintse át az új tételeket, és csak a relevánsakat vigye át a tartós adatbázisba. Minimum metaadatok:</p>
+<p><code>date_detected | event_date | source_type | primary_source | secondary_source | risk_category | affected_population | AI_system | geography | severity | evidence_strength | regulatory_relevance | research_relevance | follow_up_date</code></p>
+<p>Különösen fontos az <strong><code>event_date</code> és <code>publication_date</code> szétválasztása</strong>. Egy régi incidens hónapokkal később kerülhet a sajtóba vagy adatbázisba; kockázati trendet ezért nem szabad pusztán a publikációs dátumból számolni.</p>
+<p><strong>Havi validáció.</strong> Minden „high severity” tételnél legalább két független forrást, illetve ahol lehetséges egy elsődleges dokumentumot kell keresni. A <code>source_status</code> mezőben például különítsük el: <code>official</code>, <code>academic</code>, <code>developer self-report</code>, <code>curated database</code>, <code>media</code>, <code>advocacy</code>, <code>Wikipedia/discovery</code>.</p>
+<p><strong>Negyedéves synthesis.</strong> A kutatóhely készítsen egy 2–5 oldalas belső <em>AI Risk Watch</em> összefoglalót: új incident-csoportok, új jogszabályok, új model-safety eredmények, pszichológiai/human-factors fejlemények és fontos open letters. A MIT Risk Repository taxonómiája jó kiindulópont ahhoz, hogy a negyedévek között ugyanazzal a kategóriarendszerrel lehessen összehasonlítani az eseményeket.</p>
+<p><strong>X/Twitter monitoring.</strong> Két privát listát érdemes fenntartani: egy <code>Official / Regulators</code> listát az EU AI Office, OECD, UNESCO, NIST, UK AISI, WHO és releváns kormányzati intézmények hivatalos fiókjaival; valamint egy <code>Research / Safety / Critique</code> listát MIT AI Risk, CAIS, FLI, CSET/ETO és releváns kutatók hivatalos fiókjaival. Az X-bejegyzés csak <strong>jelzésként</strong> szolgáljon; archiválandó állítást mindig az eredeti intézményi weboldalról vagy publikációból vegyetek.</p>
+<p><strong>API és gépi adatgyűjtés.</strong> Elsőként az AIID-vel érdemes kísérletezni, mert dokumentált API- és notification-infrastruktúrája van. Az ETO AGORA tömegesen letölthető adatot kínál, a MIT AI Risk Repository adatbázisa pedig másolható/letölthető kutatási célra. Ez lehetővé teszi, hogy később Python/R-alapú saját dashboard készüljön.</p>
+<p>Egy egyszerű intézményi pipeline így nézne ki:</p>
+<p><strong>RSS/API/newsletter → automatikus deduplikáció → emberi relevanciaértékelés → elsődleges forrás ellenőrzése → MIT/OECD-alapú risk coding → Zotero/adatbázis → negyedéves dashboard/report.</strong></p>
+</section>
+<section id="beállítási-ütemterv-és-ajánlott-működési-rend" class="level2">
+<h2 class="anchored" data-anchor-id="beállítási-ütemterv-és-ajánlott-működési-rend">Beállítási ütemterv és ajánlott működési rend</h2>
+<div class="cell" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class="figure"><p></p>
+<div>
+<pre class="mermaid mermaid-js">timeline
+    title MI-kockázat-monitoring rendszer felállítása
+    Első nap : AIID és OECD AIM könyvjelzőzés
+              : EU és OpenAI RSS felvétele
+              : FLI és CAIS hírlevelek
+    Első hét : MIT Risk és AGORA taxonómia kialakítása
+              : X Official és Research listák
+              : közös incident-adatlap létrehozása
+    Második hét : AIID API / értesítések tesztelése
+                 : kulcsszavas pszichológiai szűrők
+                 : severity és evidence kódolás
+    Első hónap : források deduplikálása
+                : első havi risk review
+                : monitoring-szabályok finomítása
+    Folyamatos : napi automatikus figyelés
+               : heti emberi triázs
+               : negyedéves AI Risk Watch jelentés
+</pre>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+<p>A legfontosabb tervezési döntés az, hogy <strong>ne egy homogén „AI risks” feedet építsetek</strong>, hanem legalább öt, egymástól elkülönülő jelzéstípust:</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Monitoring stream</th>
+<th>Elsődleges források</th>
+<th>Mire válaszol?</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Incident Watch</strong></td>
+<td>AIID, OECD AIM</td>
+<td>„Mi történt ténylegesen?”</td>
+</tr>
+<tr class="even">
+<td><strong>Technical Failure &amp; Security Watch</strong></td>
+<td>AVID, MITRE ATLAS, UK AISI</td>
+<td>„Milyen új technikai hibák/támadási módok jelentek meg?”</td>
+</tr>
+<tr class="odd">
+<td><strong>Risk Science Watch</strong></td>
+<td>MIT AI Risk, International AI Safety Report, UN Panel</td>
+<td>„Mit mond a tudomány a kockázatok nagyságáról és mechanizmusáról?”</td>
+</tr>
+<tr class="even">
+<td><strong>Policy &amp; Regulation Watch</strong></td>
+<td>EU AI Office, ETO AGORA, OECD, UNESCO, CoE, NIST</td>
+<td>„Milyen új szabályok, standardok és intézményi válaszok születnek?”</td>
+</tr>
+<tr class="odd">
+<td><strong>Warnings &amp; Calls to Action Watch</strong></td>
+<td>FLI, CAIS, Right to Warn, iparági felhívások (pl. OpenAI kibervédelmi levél), open letters</td>
+<td>„Kik, milyen kockázat miatt és milyen intézkedést sürgetnek?”</td>
+</tr>
+<tr class="even">
+<td><strong>Developer Safety Watch</strong></td>
+<td>OpenAI és más modellfejlesztők system/model/safety cardjai</td>
+<td>„Mit állítanak maguk a fejlesztők saját rendszereik képességeiről és biztosítékairól?”</td>
+</tr>
+</tbody>
+</table>
+<p>Ez a szétválasztás azért lényeges, mert például <strong>egy nyílt levél aláíróinak száma nem bizonyítja a kockázat nagyságát</strong>, egy vállalati safety framework pedig nem bizonyítja önmagában, hogy az abban leírt biztosítékok a valós világban hatékonyak. Hasonlóképpen egy sajtómonitorban megjelenő incident még nem feltétlenül bizonyított kauzális MI-kár. A legerősebb kutatási állítások akkor születnek, amikor <strong>a különböző forrástípusok konvergálnak</strong>: például valós incidens + reprodukálható technikai evidence + független kutatás + intézményi reakció. Az International AI Safety Report is hangsúlyozza, hogy számos technikai biztosíték valós hatékonyságával kapcsolatban még jelentős bizonytalanság áll fenn.</p>
+<p>A kutatóhelyen ezért egy egyszerű <strong>evidence-strength skálát</strong> is érdemes alkalmazni:</p>
+<ul>
+<li><strong>E0 – jelzés:</strong> közösségi média / nem ellenőrzött állítás</li>
+<li><strong>E1 – sajtó:</strong> egy vagy több reputábilis sajtóforrás</li>
+<li><strong>E2 – dokumentált incident:</strong> AIID/OECD/hatósági vagy vállalati incident report</li>
+<li><strong>E3 – reprodukálható evidence:</strong> AVID/MITRE/evaluation/publikált technikai vizsgálat</li>
+<li><strong>E4 – független tudományos evidencia:</strong> több tanulmány vagy szintézis</li>
+<li><strong>E5 – intézményesen megerősített:</strong> hatósági vizsgálat, bírósági döntés, hivatalos audit stb.</li>
+</ul>
+<p>Ez <strong>saját javasolt kutatásmódszertani skála</strong>, nem valamelyik felsorolt intézmény hivatalos standardja. Előnye, hogy megakadályozza: egy erősen terjedő, de gyenge bizonyítékú AI-risk történet ugyanakkora súlyt kapjon, mint egy függetlenül dokumentált incidens.</p>
+<p>Különösen a te korábbi <strong>MI × gamifikáció × pszichológia</strong> kutatási irányodhoz egy önálló <em>Human Factors AI Risk</em> címkerendszert építenék a nagy általános taxonómia alá. Ebbe tartozhatna például az <strong>automation bias, túlzott MI-bizalom, autonómiavesztés, manipuláció/persuasion, antropomorfizáció, érzelmi dependencia, mentális terhelés, engagement-maximalizáció, dark patterns, compulsive use, gyermekek sérülékenysége, fairness, privacy, dropout/avoidance és ember–MI döntési felelősség</strong>. Ez összeköti az általános AI-safety infrastruktúrát azzal a pszichológiai kutatási programmal, amelyben nemcsak azt kérdezitek, hogy egy rendszer „működik-e”, hanem azt is, hogy <strong>hogyan változtatja meg az ember motivációját, bizalmát, autonómiáját, döntéseit és viselkedését</strong>. Az UNESCO Observatory emberközpontú etikai/governance fókusza, a WHO egészségügyi autonómia- és automation-bias kerete, valamint az ENSZ 2026-os paneljének emberi jogi, autonómia-, gyermekbiztonsági és társadalmi fókusza ehhez különösen jól használható külső referenciaréteg.</p>
+<p><strong>Összességében tehát nem egy „AI risk website”-ot, hanem egy kutatási megfigyelőrendszert érdemes létrehozni:</strong> az AIID és OECD adja a szenzorokat, a MIT AI Risk a taxonómiai gerincet, az EU/ETO/OECD/UNESCO a policy-réteget, az International AI Safety Report és az ENSZ-panel a tudományos szintézist, a MITRE/AVID a technikai részleteket, az FLI/CAIS a figyelmeztetési és advocacy-diskurzust, az OpenAI és más laborok pedig a fejlesztői elsődleges adatokat. Így a rendszer nemcsak azt érzékeli, hogy <strong>„valaki figyelmeztetett valamire”</strong>, hanem azt is, hogy <em>mi történt, milyen evidencia van mögötte, mely kockázati kategóriába tartozik, milyen szabályozói reakció követte, és mennyire erős a bizonyíték</em>.</p>
+
+
+<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" data-line-spacing="2" role="list" style="display: none">
+<div id="ref-bender2021" class="csl-entry" role="listitem">
+Bender, E. M., Gebru, T., McMillan-Major, A., &amp; Shmitchell, S. (2021). On the dangers of stochastic parrots: Can language models be too big? <em>Proceedings of the 2021 ACM Conference on Fairness, Accountability, and Transparency</em>, 610–623. <a href="https://doi.org/10.1145/3442188.3445922">https://doi.org/10.1145/3442188.3445922</a>
+</div>
+<div id="ref-bengio2023managing" class="csl-entry" role="listitem">
+<span class="nocase">Bengio, Y., Hinton, G., Yao, A., Song, D., Abbeel, P., Harari, Y. N., és mtsai.</span> (2023). <em>Managing <span>AI</span> risks in an era of rapid progress</em>. <a href="https://arxiv.org/abs/2310.17688">https://arxiv.org/abs/2310.17688</a>
+</div>
+<div id="ref-bostrom2014" class="csl-entry" role="listitem">
+Bostrom, N. (2014). <em>Superintelligence: Paths, dangers, strategies</em>. Oxford University Press.
+</div>
+<div id="ref-wemustact2026" class="csl-entry" role="listitem">
+Brynjolfsson, E., Agrawal, A., Korinek, A., &amp; Cunningham, T. (2026, július 13). <em>We must act now: A statement on <span>AI’s</span> transformation of the economy</em>. <a href="https://www.wemustactnow.ai/">https://www.wemustactnow.ai/</a>
+</div>
+<div id="ref-euronews2025hollywood" class="csl-entry" role="listitem">
+Euronews. (2025, március 21). <em>More than 400 artists send letter to <span>Trump</span> over <span>AI</span> companies exploiting copyrighted works</em>. <a href="https://euronews.com/culture/2025/03/21/more-than-400-artists-send-letter-to-trump-over-ai-companies-exploiting-copyrighted-works">https://euronews.com/culture/2025/03/21/more-than-400-artists-send-letter-to-trump-over-ai-companies-exploiting-copyrighted-works</a>
+</div>
+<div id="ref-fortune2024artists" class="csl-entry" role="listitem">
+Fortune. (2024, április 2). <em>Billie Eilish, <span>Bon Jovi</span> and 200 other artists sign open letter against <span>„predatory”</span> use of <span>AI</span> in music</em>. <a href="https://fortune.com/2024/04/02/singers-pump-breaks-billie-eilish-bonjovi-sign-open-letter">https://fortune.com/2024/04/02/singers-pump-breaks-billie-eilish-bonjovi-sign-open-letter</a>
+</div>
+<div id="ref-dair2023" class="csl-entry" role="listitem">
+Gebru, T., Bender, E. M., McMillan-Major, A., &amp; Mitchell, M. (2023, március 31). <em>Statement from the listed authors of <span>Stochastic Parrots</span> on the <span>„<span>AI</span> pause”</span> letter</em>. <a href="https://www.dair-institute.org/blog/letter-statement-March2023/">https://www.dair-institute.org/blog/letter-statement-March2023/</a>
+</div>
+<div id="ref-redlines2025" class="csl-entry" role="listitem">
+Global Call for AI Red Lines. (2025, szeptember 22). <em>Global call for <span>AI</span> red lines</em>. <a href="https://red-lines.ai/">https://red-lines.ai/</a>
+</div>
+<div id="ref-idais2024" class="csl-entry" role="listitem">
+International Dialogues on AI Safety. (2024). <em><span>IDAIS-Beijing</span> consensus statement on red lines in <span>AI</span> development</em>. <a href="https://idais.ai/">https://idais.ai/</a>
+</div>
+<div id="ref-longpre2024" class="csl-entry" role="listitem">
+Longpre, S., Kapoor, S., Klyman, K., Ramaswami, A., Bommasani, R., Narayanan, A., Liang, P., &amp; Henderson, P. (2024, március). <em>A safe harbor for <span>AI</span> evaluation and red teaming</em>. <a href="https://knightcolumbia.org/content/a-safe-harbor-for-ai-evaluation-and-red-teaming">https://knightcolumbia.org/content/a-safe-harbor-for-ai-evaluation-and-red-teaming</a>
+</div>
+<div id="ref-maslej2025" class="csl-entry" role="listitem">
+<span class="nocase">Maslej, N. és mtsai.</span> (2025). <em>The <span>AI</span> index 2025 annual report</em>. Stanford Institute for Human-Centered Artificial Intelligence. <a href="https://hai.stanford.edu/ai-index/2025-ai-index-report">https://hai.stanford.edu/ai-index/2025-ai-index-report</a>
+</div>
+<div id="ref-mozilla2023" class="csl-entry" role="listitem">
+Mozilla. (2023). <em>Joint statement on <span>AI</span> safety and openness</em>. <a href="https://open.mozilla.org/">https://open.mozilla.org/</a>
+</div>
+<div id="ref-openai2026cyber" class="csl-entry" role="listitem">
+OpenAI. (2026, augusztus 28). <em>A call for collective action on cyber defense</em>. <a href="https://openai.com/collective-cyberdefense/">https://openai.com/collective-cyberdefense/</a>
+</div>
+<div id="ref-euaiact2024" class="csl-entry" role="listitem">
+Regulation (<span>EU</span>) 2024/1689 of the <span>European Parliament</span> and of the <span>Council</span> of 13 <span>June</span> 2024 laying down harmonised rules on artificial intelligence (<span>Artificial Intelligence Act</span>) (2024). <a href="https://eur-lex.europa.eu/eli/reg/2024/1689/oj">https://eur-lex.europa.eu/eli/reg/2024/1689/oj</a>
+</div>
+<div id="ref-russell2019" class="csl-entry" role="listitem">
+Russell, S. (2019). <em>Human compatible: Artificial intelligence and the problem of control</em>. Viking.
+</div>
+<div id="ref-notforprivategain2025" class="csl-entry" role="listitem">
+SiliconANGLE. (2025, április 23). <em>Former <span>OpenAI</span> staff, <span>AI</span> experts ask attorneys general to block profit conversion</em>. <a href="https://siliconangle.com/2025/04/23/former-openai-staff-ai-experts-ask-attorneys-general-block-profit-conversation/">https://siliconangle.com/2025/04/23/former-openai-staff-ai-experts-ask-attorneys-general-block-profit-conversation/</a>
+</div>
+<div id="ref-techcrunch2026pentagon" class="csl-entry" role="listitem">
+TechCrunch. (2026a, február 27). <em>Employees at <span>Google</span> and <span>OpenAI</span> support <span>Anthropic’s</span> <span>Pentagon</span> stand in open letter</em>. <a href="https://techcrunch.com/2026/02/27/employees-at-google-and-openai-support-anthropics-pentagon-stand-in-open-letter/">https://techcrunch.com/2026/02/27/employees-at-google-and-openai-support-anthropics-pentagon-stand-in-open-letter/</a>
+</div>
+<div id="ref-techcrunch2026fields" class="csl-entry" role="listitem">
+TechCrunch. (2026b, szeptember 11). <em><span>OpenAI’s</span> feud with mathematicians is only escalating</em>. <a href="https://techcrunch.com/2026/09/11/openais-feud-with-mathematicians-is-only-escalating/">https://techcrunch.com/2026/09/11/openais-feud-with-mathematicians-is-only-escalating/</a>
+</div>
+<div id="ref-pacing2026" class="csl-entry" role="listitem">
+Transparency Coalition. (2026). <em>More than 1,300 tech employees sign open letter asking for <span>AI</span> to be regulated</em>. <a href="https://www.transparencycoalition.ai/news/more-than-1300-tech-employees-sign-open-letter-asking-for-ai-to-be-regulated">https://www.transparencycoalition.ai/news/more-than-1300-tech-employees-sign-open-letter-asking-for-ai-to-be-regulated</a>
+</div>
+</div>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    // Ensure there is a toggle, if there isn't float one in the top right
+    if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
+      const a = window.document.createElement('a');
+      a.classList.add('top-right');
+      a.classList.add('quarto-color-scheme-toggle');
+      a.href = "";
+      a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
+      const i = window.document.createElement("i");
+      i.classList.add('bi');
+      a.appendChild(i);
+      window.document.body.appendChild(a);
+    }
+    setColorSchemeToggle(hasAlternateSentinel())
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./MI-ellenesseg.html" class="pagination-link" aria-label="Az „MI-ellenesség” típusai és történeti dokumentumai">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Az „MI-ellenesség” típusai és történeti dokumentumai</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./references.html" class="pagination-link" aria-label="Hivatkozások">
+        <span class="nav-page-text">Hivatkozások</span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+
+<script src="site_libs/quarto-html/zenscroll-min.js"></script>
+</body></html>

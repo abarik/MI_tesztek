@@ -24,6 +24,8 @@ A kérdéseket később az R [`exams`](https://www.r-exams.org/) csomaggal áll�
   és MI-vizsgatematikák alapján készült, hosszabb kifejtésű fogalomtár (a forrásszöveg hiányos, 58 szócikk).
 - **[Az „MI-ellenesség” típusai és történeti dokumentumai](MI-ellenesseg.qmd)** (Kitekintés): narratív–történeti
   áttekintés az MI kritikájának 12 típusáról, a beavatkozási igény fokozatairól és a meghatározó dokumentumokról.
+- **[MI-kockázatok folyamatos monitorozása](MI-kockazat-monitoring.qmd)** (Kitekintés): forrástérkép
+  incidensadatbázisokról, szabályozói oldalakról, nyílt felhívásokról és hírlevelekről, javasolt monitoringrenddel.
 
 ## Azonosítók
 

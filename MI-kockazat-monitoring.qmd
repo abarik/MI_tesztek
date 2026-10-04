@@ -1,0 +1,218 @@
+# MI-kockázatok, figyelmeztetések és cselekvési felhívások folyamatos monitorozása {#sec-mi-kockazat-monitoring}
+
+::: {.callout-note}
+## Megjegyzés a forrásokhoz
+
+A fejezet szövege egy generatív MI-asszisztenssel készült kutatási összefoglalóból származik. Az eredeti szöveg belső, nem feloldható keresési hivatkozásjelöléseit eltávolítottuk; a források URL-jei a táblázatokban és a szövegben linkként szerepelnek. A szövegben szereplő számadatokat (pl. aláírásszámok, indikátorok, frissítési dátumok) felhasználás előtt az eredeti oldalon érdemes ellenőrizni.
+:::
+
+## Vezetői összefoglaló
+
+**2026. október 4-i állapot szerint** nincs egyetlen olyan webhely, amely egyszerre, megfelelő minőségben lefedné az MI-vel kapcsolatos valós káreseményeket, technikai sérülékenységeket, új kockázatokat, jogszabályokat, frontier-modellek biztonsági értékeléseit és a tudományos vagy társadalmi cselekvési felhívásokat. Egy komoly kutatási vagy intézményi monitoringrendszert ezért **többrétegű forrásrendszerként** érdemes felépíteni. Az AI Incident Database például a valós világban bekövetkezett károkat és „near harm” eseteket katalogizálja, míg az OECD AIM automatizált sajtómonitorozással keresi az incidenseket és veszélyeket; a MIT AI Risk Initiative ezzel szemben több mint 1700 kockázati tételt rendszerez és összekapcsolja a kockázat-, incidens- és governance-adatokat.
+
+A **legjobb „mag” egy kutatóhely számára** szerintem a következő:
+
+1. **AI Incident Database (AIID)** – konkrét, megtörtént MI-károk és majdnem bekövetkezett károk.
+2. **OECD AI Incidents and Hazards Monitor (AIM)** – gyors, globális, sajtóalapú korai jelzőrendszer.
+3. **MIT AI Risk Initiative / AI Risk Repository / Navigator** – tudományos kockázati taxonómia és összekapcsolt kutatási infrastruktúra.
+4. **EU AI Office + AI Act oldalai** – európai szabályozási és végrehajtási változások.
+5. **ETO AGORA / Georgetown CSET** – jogszabályok, standardok és governance-dokumentumok globális figyelése.
+6. **International AI Safety Report** és az **ENSZ Independent International Scientific Panel on AI** – magas szintű tudományos szintézis.
+7. **Future of Life Institute (FLI)** és **Center for AI Safety (CAIS)** – nagy léptékű/frontier MI-kockázatok, nyílt levelek, felhívások, szakpolitikai álláspontok.
+8. **OpenAI Safety / Preparedness**, valamint más fejlesztők safety/system-card oldalai – elsődleges források arra, hogy a fejlesztők maguk milyen kockázatokat mérnek és jelentenek.
+9. **MITRE ATLAS + AVID** – technikai, adversarial, security- és sérülékenységi kockázatok.
+10. **UNESCO, NIST, WHO, Council of Europe** – etikai, emberi jogi, szabványosítási és szektorspecifikus kockázatok.
+
+A források **hitelességét nem érdemes egyetlen skálán kezelni**. Egy OECD-, EU-, ENSZ-, UNESCO- vagy NIST-oldal kiemelkedően hiteles annak megállapítására, hogy az adott szervezet mit fogadott el vagy milyen szakpolitikai keretet használ; ettől még nem feltétlenül a leggyorsabb incidensjelző. Az OpenAI saját safety oldala elsődleges és hiteles forrás arra, hogy *az OpenAI mit jelent saját rendszereiről*, de nem független értékelés. Az FLI és a CAIS komoly kutatási és advocacy-szervezetek, de normatív küldetésük miatt állításaikat célszerű független tudományos és kormányközi forrásokkal együtt olvasni. Az OECD AIM pedig kifejezetten figyelmeztet arra, hogy az automatizált, részben MI által előállított címkék és összefoglalók **nem az OECD hivatalos álláspontjai**.
+
+A jó monitoring tehát nem „egy hírlevélre való feliratkozás”, hanem:
+
+**incidensadat → szakirodalmi/taxonómiai ellenőrzés → eredeti intézményi dokumentum → jogi/policy ellenőrzés → független elemzés → archiválás és kutatási kódolás.**
+
+## Prioritizált forrástérkép és összehasonlítás
+
+Az alábbi sorrend azt tükrözi, mennyire lenne hasznos az adott forrás egy **MI-kockázatokat tudományosan figyelő európai kutatóhely** számára. A „frissítés” oszlopnál nem minden szervezet vállal formális menetrendet; ahol nincs ilyen, „folyamatos/eseményvezérelt” jelölést használok.
+
+| Name | URL | Type | Scope | Update frequency | Credibility notes | Use case |
+|---|---|---|---|---|---|---|
+| **P1 — AI Incident Database (AIID)** | [incidentdatabase.ai](https://incidentdatabase.ai/) | Kurált incidens-/near-harm adatbázis; **ingyenes** | Globális; valós világban bekövetkezett MI-károk és majdnem-károk; forrásriportok, taxonómiák | Folyamatos; a vizsgálatkor 2026. okt. 1-i friss esetek is látszottak | A Responsible AI Collaborative nonprofit projektje; különösen erős incidens-kutatásra, de a rekordokat és az eredeti forrást továbbra is ellenőrizni kell. | **Első számú incidens-adatforrás**, esettanulmányok, kódolható corpus, trendkutatás |
+| **P2 — OECD AI Incidents and Hazards Monitor (AIM)** | [oecd.ai/en/incidents](https://oecd.ai/en/incidents) | Automatizált incidens- és hazard-monitor; **ingyenes**, beta | Globális sajtó; privacy, security, emberi jogok, gazdasági stb. károk | Közel valós idejű / folyamatos; 2026. okt. 3-i esemény is szerepelt | Kiemelkedő intézményi hitelesség, de az egyes összefoglalók/címkék MI-generáltak, és nem tekintendők OECD-álláspontnak. | **Korai jelzőrendszer**, új incident cluster-ek felismerése |
+| **P3 — MIT AI Risk Initiative / Risk Repository / Navigator** | [airisk.mit.edu](https://airisk.mit.edu/) | Akadémiai risk repository, taxonómiák, incidensek és governance-adatok; **ingyenes** | Globális; technikai, társadalmi, biztonsági, diszkriminációs, misinformation stb. kockázatok | „Living” adatbázis; rendszeres projektfrissítések | MIT-alapú akadémiai infrastruktúra; több mint 1700 kockázati tétel és forráshivatkozás. Különösen jó taxonómiák operacionalizálására. | **Kutatási fogalmi keret**, kódolási séma, szisztematikus review |
+| **P4 — European AI Office / EU AI Act** | [AI Office](https://digital-strategy.ec.europa.eu/en/policies/ai-office) · [AI Act](https://digital-strategy.ec.europa.eu/en/policies/regulatory-framework-ai) | Hivatalos szabályozási/végrehajtási portál; **ingyenes** | EU; AI Act, GPAI, enforcement, kockázatos rendszerek, iránymutatások | Eseményvezérelt, gyakori policy-frissítések | **Elsődleges uniós forrás**; az AI Office feladata többek között a GPAI-szabályok végrehajtása, modellértékelések és információkérések. | Magyar/EU intézménynél **kötelező monitoringréteg** |
+| **P5 — ETO AGORA / Georgetown CSET** | [agora.eto.tech](https://agora.eto.tech/) | AI Governance and Regulatory Archive; **ingyenes**, bulk data is elérhető | USA + nemzetközi; törvények, szabályok, standardok, vállalati vállalások | Rendszeres; több kollekció 2026 aug.–szept. frissítésű | Georgetown CSET adat- és elemzőcsapat, Purdue/MIT/CMU együttműködéssel; dokumentumonként hivatalos forrást is mutat. | **Policy watch**, összehasonlító jogi/governance kutatás |
+| **P6 — International AI Safety Report** | [internationalaisafetyreport.org](https://internationalaisafetyreport.org/) | Nemzetközi tudományos szintézis; **ingyenes** | Frontier/general-purpose AI: capabilities, misuse, malfunction, systemic risks, mitigáció | Éves főjelentés + köztes „key updates” | A 2026-os jelentést 100+ független szakértő készítette, 30+ ország és nemzetközi szervezet által jelölt advisory panellel; nem ír elő egyetlen szabályozási álláspontot. | **Legjobb magas szintű tudományos risk baseline-ok egyike** |
+| **P7 — UNESCO Global AI Ethics and Governance Observatory** | [unesco.org/ethics-ai/en](https://www.unesco.org/ethics-ai/en) | Nemzetközi observatory, policy toolkit; **ingyenes** | Globális; etika, emberi jogok, governance, ország-readiness, GenAI | Folyamatos, nem fix | A UNESCO 2021-es AI Ethics Recommendation-jára épül, amelyet 193 ország fogadott el; országprofilok, RAM, impact assessment és szakértői anyagok. | **Etikai, társadalmi és országközi összehasonlítás** |
+| **P8 — UN Independent International Scientific Panel on AI** | [un.org/.../preliminary-report](https://www.un.org/independent-international-scientific-panel-ai/en/preliminary-report) | ENSZ tudományos risk/opportunity assessment; **ingyenes** | Globális; társadalom, gazdaság, security, emberi jogok, gyermekek, governance | Éves jelentések + tematikus briefek | 2026-os előzetes jelentése független szakértőket fog össze mind az öt ENSZ-régióból; központi megállapítása, hogy a biztosítékok nehezen tartanak lépést a képességnövekedéssel. | **Globális, ENSZ-szintű tudományos early-warning háttér** |
+| **P9 — Future of Life Institute (FLI)** | [futureoflife.org](https://futureoflife.org/) · [AI Safety Index](https://futureoflife.org/ai-safety-index-summer-2026/) | Research + advocacy + index + open letters; **ingyenes** | Főleg frontier/extreme/large-scale AI risk, governance | Index-kiadások + eseményvezérelt open letters + hírlevél | A 2026 Summer AI Safety Index 9 vezető céget 37 indikátoron, 6 területen értékelt független expert panellel; **érdekvédelmi/advocacy nézőpontját figyelembe kell venni**. | Safety-vállalások összevetése, **felhívások és policy advocacy** |
+| **P10 — Center for AI Safety (CAIS)** | [safe.ai](https://safe.ai/) | Kutató- és advocacy intézet; statementek, kutatás, hírlevelek; **ingyenes** | Societal-scale/frontier risk, misuse, loss of control, governance, ML safety | Kutatási és hírlevél-frissítések egész évben | Kutató nonprofit; explicit küldetése a társadalmi léptékű MI-kockázatok csökkentése. A nézőpont ezért nem semleges, de a kutatási és szakmai relevanciája magas. | Open letters/statements, frontier risk research, heti–néhány heti kuráció |
+| **P11 — OpenAI Safety / Preparedness** | [openai.com/safety](https://openai.com/safety/) · [Preparedness Framework](https://openai.com/index/updating-our-preparedness-framework/) | Fejlesztői elsődleges forrás; system/safety/preparedness anyagok; **ingyenes** | Saját frontier modellek; bio/chemical, cyber, autonomy, safeguards stb. | Modellkiadáshoz és eseményekhez kötött | Elsődleges forrás az OpenAI saját mérési és governance-gyakorlatára; **nem független audit**. A Preparedness Framework szerint frontier kiadásokhoz safety findings közzétételét tervezi. | Modell-release monitoring; a vállalati kockázatkommunikáció összevetése független értékelésekkel |
+| **P12 — UK AI Security Institute (AISI)** | [aisi.gov.uk](https://www.aisi.gov.uk/) | Állami kutatóintézet; eval, trend report, technical safety; **ingyenes** | Advanced/frontier AI; national security, public safety, safeguards | Folyamatos kutatási output | A brit DSIT része; kormányok számára fejleszt tudományos megértést és értékelési infrastruktúrát advanced-AI kockázatokhoz. | Frontier capability és security eval-monitoring |
+| **P13 — NIST AI Risk Management Framework** | [NIST GenAI Profile](https://www.nist.gov/publications/artificial-intelligence-risk-management-framework-generative-artificial-intelligence) | Standard/risk-management framework; **ingyenes** | USA-központú, de nemzetközileg használható; teljes AI-lifecycle | Verzió-/kiadásalapú, nem hírszerű | Hivatalos amerikai szabványügyi szervezet; a GenAI Profile a govern–map–measure–manage gondolkodás operatív alapja. Az oldal 2026-ban is frissült. | Saját intézményi **risk register és kontrollrendszer** felépítése |
+| **P14 — MITRE ATLAS** | [atlas.mitre.org](https://atlas.mitre.org/) | Living AI security threat knowledge base; **ingyenes** | Támadások, model misuse, agentic threats, AI-system security | Folyamatos/living | Empirikus támadásokra és realisztikus red-team eredményekre épít; 2026-ban agentic AI-t is lefed. | **Cyber/AI-security threat intelligence**, red teaming |
+| **P15 — AVID / AI Vulnerability Database** | [avidml.org/database](https://avidml.org/database/) | Nyílt failure/vulnerability adatbázis; **ingyenes/open source** | GPAI, LLM-ek, API-k, developer tools, agents | Folyamatos rekordok + időszakos blog | Strukturált, reprodukálható evidence-re törekszik; report/vulnerability megkülönböztetés és Python SDK is rendelkezésre áll. | Technikai hibák, evalok és sérülékenységek kutatása |
+| **P16 — Council of Europe AI Convention** | [coe.int/.../framework-convention](https://www.coe.int/en/web/artificial-intelligence/the-framework-convention-on-artificial-intelligence) | Nemzetközi jogi/treaty monitoring; **ingyenes** | Emberi jogok, demokrácia, jogállamiság; Európa + csatlakozó államok | Ratifikációk/jogi fejlemények szerint | Az első, MI-re vonatkozó nemzetközi jogilag kötelező keretegyezmény; kockázat- és hatásértékelést is előír. | Human-rights és jogi kockázatmonitoring |
+| **P17 — WHO: AI for Health** | [who.int/publications/b/70584](https://www.who.int/publications/b/70584) | Szektorspecifikus guidance; **ingyenes** | Egészségügyi GenAI/LMM: bias, privacy, misinformation, automation bias, cybersecurity | Irányelv-/jelentésalapú, nem folyamatos tracker | WHO elsődleges egészségügyi forrás; **nem általános MI-kockázati oldal**. | Egészségpszichológiai, klinikai vagy mentális-egészség MI-kutatások |
+| **P18 — IAPP Global AI Law and Policy Tracker** | [iapp.org/resources/article/global-ai-legislation-tracker](https://iapp.org/resources/article/global-ai-legislation-tracker/) | Professzionális policy/legal tracker; **részben tagi/MEMBER hozzáférés** | Több joghatóság AI-jogalkotása | Időszakos | Nagyon jó compliance-orientált másodlagos forrás, de hivatalos jogszabályt mindig az eredeti jogforrásból kell ellenőrizni; több IAPP resource tagi hozzáférésű. | Jogszabály-változások gyors áttekintése |
+
+**Gyakorlati prioritás:** ha csak öt oldalt lehetne rendszeresen követni, egy magyar pszichológiai/MI-kutatóhely számára én az **AIID + OECD AIM + MIT AI Risk Initiative + EU AI Office/AI Act + ETO AGORA** kombinációt választanám. Ez együtt lefedi a *megtörtént károkat*, *korai hazard-jelzéseket*, *kockázati taxonómiát*, *EU-jogi változásokat* és *nemzetközi policy-fejleményeket*.
+
+Fontos különbség, hogy az **AIID és az OECD AIM nem ugyanazt méri**. Az AIID célja az MI-rendszerek alkalmazásából a valós világban ténylegesen megvalósult károk vagy közel-károk történeti katalogizálása. Az OECD AIM ennél szélesebb és gyorsabb, médiából automatikusan azonosít „incidents and hazards” eseményeket. Tudományos elemzésben ezért az OECD AIM kiváló *signal-detection* eszköz, az AIID pedig jobb kiindulópont a mélyebb incident corpushoz.
+
+## Incidensadatbázisok, figyelmeztetések és nyílt felhívások
+
+A dedicated incident/near-miss monitoringot érdemes három külön rétegre bontani.
+
+**Valós társadalmi incidensek:** az **AI Incident Database** a legerősebb általános célú kiindulópont. Saját megfogalmazása szerint az MI-rendszerek telepítése során realizálódott „harms or near harms” kollektív történetét indexeli. A projekt nemcsak keresőt, hanem értesítési funkciót és programozott feldolgozáshoz API-infrastruktúrát is fenntart; a dokumentációban új incidensekre és adott incidensek frissítésére vonatkozó e-mail subscription is szerepel.
+
+**Korai veszélyjelzés:** az **OECD AIM** alkalmasabb lehet arra, hogy egy friss ügyet még azelőtt észrevegyünk, hogy abból stabil, manuálisan kurált incidensrekord lesz. Ugyanakkor ez a gyorsaság bizonytalansággal jár: médiaforrásokra épít, automatikus feldolgozást használ, és maga az OECD is jelzi az MI által generált tartalmak státuszát. Emiatt kutatási adatnak csak az eredeti cikk és lehetőség szerint az elsődleges dokumentum ellenőrzése után használnám.
+
+**Technikai near miss/failure:** az **AVID** és a **MITRE ATLAS** más problémát old meg. Az AVID konkrét GPAI failure reportokat és visszatérő vulnerability-típusokat rendszerez, míg a MITRE ATLAS adversarial taktikákat, technikákat, mitigációkat és valós/red-team eseteket kezel. Ha például egy autonóm agent hibás eszközhasználata, prompt injection, model extraction vagy rendszerintegrációs sérülékenység érdekel, ezek informatívabbak lehetnek, mint egy általános társadalmi incident database.
+
+A **nyílt leveleket és petíciókat külön adatfajtának** kezelném. Nem ugyanazt jelentik, mint egy peer-reviewed kockázatbecslés vagy szabályozói figyelmeztetés: azt dokumentálják, hogy egy adott szakmai/társadalmi koalíció egy adott időpontban milyen problémát tartott sürgősnek.
+
+| Felhívás | Dátum és központi állítás | Hivatalos forrás | Értelmezés |
+|---|---|---|---|
+| **Pause Giant AI Experiments** – FLI | 2023. március 22.; legalább hat hónapos szünetet kért a GPT-4-nél erősebb rendszerek tréningjére | [futureoflife.org/open-letter/pause-giant-ai-experiments](https://futureoflife.org/open-letter/pause-giant-ai-experiments/) | A 2023-as MI-kockázati vita egyik meghatározó dokumentuma; a jelenlegi oldalon több tízezer aláírás szerepel. |
+| **Statement from the listed authors of Stochastic Parrots on the „AI pause” letter** – DAIR | 2023. március 31.; a károk „valósak és jelenleg is zajlanak”, ezért a szabályozás az átláthatóságra, elszámoltathatóságra és a kizsákmányoló munkagyakorlatok megelőzésére összpontosítson | [dair-institute.org](https://www.dair-institute.org/blog/letter-statement-March2023/) | Közvetlen ellenpontja a Pause-levélnek: a jelen idejű károkat állítja szembe a „longtermista” kockázati narratívával [@dair2023]. |
+| **Statement on AI Extinction Risk** – CAIS | 2023. május 30.; az MI-ből eredő kihalási kockázat mérséklését a pandémiákhoz és nukleáris háborúhoz hasonló globális prioritásként pozicionálta | [safe.ai/work/statement-on-ai-extinction-risk](https://safe.ai/work/statement-on-ai-extinction-risk) | Rendkívül rövid consensus-signaling statement; aláírói között Hinton, Bengio és vezető AI-laborok akkori vezetői is szerepelnek. |
+| **Managing AI Risks in an Era of Rapid Progress** – Bengio, Hinton és mtsai | 2023. október 26.; nagy léptékű társadalmi károk, visszaélések és visszafordíthatatlan kontrollvesztés; K+F- és governance-prioritások | [arxiv.org/abs/2310.17688](https://arxiv.org/abs/2310.17688) | 25 szerzős tudományos konszenzusdokumentum, 2024-ben a *Science*-ben is megjelent; félúton a nyílt levél és a szakcikk között [@bengio2023managing]. |
+| **Joint Statement on AI Safety and Openness** – Mozilla | 2023. október; a nyíltság, átláthatóság és széles hozzáférés globális prioritás; „openness is an antidote, not a poison” | [open.mozilla.org](https://open.mozilla.org/) | Kb. 150 aláíró (köztük LeCun, Ng); a zárt frontier-biztonsági megközelítés ellenpontja [@mozilla2023]. |
+| **IDAIS-nyilatkozatok** – International Dialogues on AI Safety | 2023–2026 (Oxford, Peking, Velence, Sanghaj, London); a pekingi konszenzus „vörös vonalai” tiltanák az önreplikáló, önfejlesztő, hatalomra törő vagy megtévesztő rendszereket és a tömegpusztító fegyvereket, kibertámadásokat segítő MI-t | [idais.ai](https://idais.ai/) | Ritka nyugati–kínai tudományos konszenzus a frontier-kockázatokról [@idais2024]. |
+| **A Safe Harbor for AI Evaluation and Red Teaming** | 2024. március; jogi és technikai védelmet kér a jóhiszemű, független MI-tesztelésnek | [knightcolumbia.org](https://knightcolumbia.org/content/a-safe-harbor-for-ai-evaluation-and-red-teaming) | 250–300+ kutató és jogász; a független értékelés hozzáférési feltételeiről szól [@longpre2024]. |
+| **Artist Rights Alliance – nyílt levél** | 2024. április; a zenészek hangjának és stílusának „ragadozó” MI-felhasználása ellen | [fortune.com](https://fortune.com/2024/04/02/singers-pump-breaks-billie-eilish-bonjovi-sign-open-letter) | 200+ zenész (köztük Billie Eilish, Nicki Minaj, Bon Jovi); alkotói–szerzői jogi típus [@fortune2024artists]. |
+| **Right to Warn** | 2024. június; AI-cégek jelenlegi és volt munkatársainak kockázatközlési/whistleblower jogai | [righttowarn.ai](https://righttowarn.ai/) | Különösen releváns az intézményi transzparencia, belső kockázatjelzés és munkavállalói védelem szempontjából. |
+| **400+ hollywoodi alkotó levele a Fehér Háznak** | 2025. március; a szerzői jogi védelem MI-tréning érdekében történő gyengítése ellen | [euronews.com](https://euronews.com/culture/2025/03/21/more-than-400-artists-send-letter-to-trump-over-ai-companies-exploiting-copyrighted-works) | Válasz az OpenAI és a Google fair use-javaslataira az amerikai AI Action Plan konzultációján [@euronews2025hollywood]. |
+| **Not For Private Gain** | 2025. április; a kaliforniai és delaware-i főügyészt kéri, hogy akadályozza meg az OpenAI kivonását a nonprofit irányítás alól | [siliconangle.com](https://siliconangle.com/2025/04/23/former-openai-staff-ai-experts-ask-attorneys-general-block-profit-conversation/) | Volt OpenAI-munkatársak, Hinton, Russell, Lessig; intézményi és governance-kockázat [@notforprivategain2025]. |
+| **Statement on Superintelligence** – FLI | 2025. szeptember 22.; a superintelligence fejlesztésének tiltását szorgalmazza addig, amíg nincs széles tudományos biztonsági konszenzus és erős társadalmi támogatottság | [superintelligence-statement.org](https://superintelligence-statement.org/) | Erősen normatív policy/advocacy dokumentum; nem kockázatbecslési jelentésként kezelendő. |
+| **Global Call for AI Red Lines** | 2025. szeptember 22. (ENSZ-közgyűlés); 2026 végéig kikényszeríthető nemzetközi megállapodást sürget az MI „vörös vonalairól” | [red-lines.ai](https://red-lines.ai/) | 12 Nobel-díjas, 10 volt állam-/kormányfő és miniszter, 300+ prominens aláíró, köztük Kőrösi Csaba [@redlines2025]. |
+| **Google- és OpenAI-munkatársak levele az Anthropic Pentagon-vitájában** | 2026. február 27.; a cégvezetéseket kéri, hogy tartsák fenn a vörös vonalakat a tömeges belföldi megfigyelés és a teljesen automatizált fegyverek ellen | [techcrunch.com](https://techcrunch.com/2026/02/27/employees-at-google-and-openai-support-anthropics-pentagon-stand-in-open-letter/) | 300+ Google- és 60+ OpenAI-munkatárs; munkavállalói ellenállás katonai felhasználással szemben [@techcrunch2026pentagon]. |
+| **Pro-Human AI Declaration** – FLI | 2026. március 24.; az MI emberi képességeket erősítő, emberi méltóságot és szabadságot védő irányát támogatja | [humanstatement.org](https://humanstatement.org/) | Jó forrás a 2026-os „calls to action” és társadalmi narratívák kutatásához. |
+| **We Must Act Now: A Statement on AI's Transformation of the Economy** – Stanford Digital Economy Lab | 2026. július 13.; három pont: (1) az MI 10 éven belül radikálisan erősebb lehet; (2) ez az ipari forradalomnál nagyobb, de sokkal gyorsabb gazdasági átalakulást hozhat – tömeges munkahelyvesztés és életszínvonal-növekedés lehetőségével; (3) a közgazdászoknak, döntéshozóknak és technológiai vezetőknek most kell kutatniuk és intézményeket építeniük | [wemustactnow.ai](https://www.wemustactnow.ai/) | 200+ közgazdász és MI-kutató, köztük 16 Nobel-díjas (Stiglitz, Krugman, Bernanke); az első kifejezetten gazdasági–munkaerőpiaci felhívás a listán [@wemustact2026]. |
+| **Pacing the Frontier** | 2026. július 28.; a frontier-laborok közel lehetnek az MI-kutatás automatizálásához, ezért az USA támogasson nemzetközi erőfeszítést a fejlesztési tempó szabályozhatóságáért | [transparencycoalition.ai](https://www.transparencycoalition.ai/news/more-than-1300-tech-employees-sign-open-letter-asking-for-ai-to-be-regulated) | 1300+ frontier-labormunkatárs (köztük Dario Amodei, Jakub Pachocki); nem azonnali szünetet, hanem a lassítás *lehetőségét* kéri [@pacing2026]. |
+| **A call for collective action on cyber defense** – OpenAI és társaláírók | 2026. augusztus 28.; a levél szerint „csak korlátozott ideig” van lehetőség a kibervédelem megerősítésére, mert az MI-vel támogatott kibertámadások a következő hónapokban elterjedtebbé és kifinomultabbá válnak; kibervédelmi célú MI-t, finanszírozást és összehangolt fellépést sürget szervezetektől, biztonsági cégektől, kormányoktól és frontier MI-vállalatoktól | [openai.com/collective-cyberdefense](https://openai.com/collective-cyberdefense/) | Iparági, fejlesztők által kezdeményezett felhívás; a magyar nyelvű oldalon 2026. október 4-én 116 aláíró szervezet szerepelt, köztük Anthropic, AWS, Google, Microsoft, IBM és vezető kiberbiztonsági cégek [@openai2026cyber]. Nem moratóriumot vagy tilalmat, hanem az MI védelmi célú gyors bevezetését kéri. |
+| **Fields-érmesek nyilatkozata az MI és a matematika viszonyáról** | 2026. szeptember 11.; a laborok matematikai „benchmark-versenye” rontja a szerzőség megjelölését, az ellenőrzést és a megértést | [techcrunch.com](https://techcrunch.com/2026/09/11/openais-feud-with-mathematicians-is-only-escalating/) | 25 Fields-érmes (köztük Tao, Scholze, Viazovska); a tudományos integritás új kockázati típusa [@techcrunch2026fields]. |
+
+A táblázat időrendje egy **műfaji elmozdulást** is mutat. A 2023-as levelek még elsősorban a fejlesztés lassítását vagy a kihalási kockázat elismerését kérték, és már akkor megjelentek a jelen idejű károkat hangsúlyozó ellenpontok [@dair2023; @mozilla2023]. 2024–2025-ben a kutatói hozzáférés, a szerzői jog és a vállalati governance került előtérbe [@longpre2024; @fortune2024artists; @notforprivategain2025], 2025-től pedig a nemzetközi „vörös vonalak” [@redlines2025]. 2026-ban a felhívások egyre inkább maguktól a frontier-laborok munkatársaitól, illetve tudományterületek elitjétől érkeznek, és tematikusan is kiszélesedtek: a fejlesztési tempó szabályozhatóságától [@pacing2026] a gazdasági átalakuláson [@wemustact2026] és a kibervédelmen át a tudományos integritásig [@techcrunch2026fields].
+
+A **2026-os kibervédelmi felhívás** azért érdemel külön figyelmet, mert eltér a korábbi nyílt levelek mintázatától. Nem civil vagy kutatói koalíció kéri a fejlesztés lassítását, hanem egy frontier MI-fejlesztő kezdeményezésére vezető MI-laborok, felhőszolgáltatók, kiberbiztonsági cégek és pénzügyi intézmények sürgetik az MI *gyorsabb* bevezetését a védekezés oldalán. Négy szereplői kört szólít meg (minden szervezet; kiberbiztonsági vállalatok és technológiai partnerek; kormányok; élvonalbeli MI-vállalatok), és kiemelten kezeli a forráshiányos kritikusinfrastruktúra-üzemeltetőket: kórházakat, víziközműveket, helyi önkormányzatokat [@openai2026cyber]. Monitoring szempontból kettős adat: egyszerre figyelmeztetés az MI-vel felerősített kiberfenyegetésekre és iparági önszabályozási, piacépítő dokumentum, ezért állításait a **Technical Failure & Security Watch** független forrásaival (MITRE ATLAS, AVID, UK AISI) érdemes összevetni.
+
+A **2023-as FLI-levél hivatkozásjegyzéke önmagában is hasznos történeti bibliográfia**: szerepel benne többek között Bender és munkatársai *On the Dangers of Stochastic Parrots* [@bender2021], Bostrom *Superintelligence* [@bostrom2014], Russell *Human Compatible* [@russell2019], Weidinger és munkatársai nyelvimodell-kockázati taxonómiája, Hendrycks és Mazeika x-risk elemzése, valamint Bubeck és munkatársai GPT-4-vizsgálata és az OpenAI GPT-4 Technical Report. Ez jó példa arra, miért érdemes egy felhívásnál nemcsak az aláírókat, hanem az **alátámasztó referencialáncot** is archiválni.
+
+Ezzel párhuzamosan érdemes a **vállalati safety oldalak** változásait is rögzíteni. Az OpenAI 2025-ös frissített Preparedness Frameworkje például a biológiai/kémiai, kiberbiztonsági és AI self-improvement képességeket külön „Tracked Categories” kategóriákban kezeli, további kutatási területként pedig többek között hosszú távú autonómiát, sandbagginget és safeguards-underminingot nevez meg. A dokumentum kifejezetten living frameworkként írja le magát, ezért longitudinális kutatáshoz az egyes verziók archiválása informatívabb lehet, mint pusztán a legfrissebb oldal követése.
+
+## Wikipédia mint bibliográfiai kapu
+
+A Wikipédiát **nem végső bizonyítékként, hanem discovery layerként** javaslom. Előnye, hogy egy helyre hozza a terminológiát, a történeti vitát, az ellenérveket és gyakran a releváns elsődleges forrásokat. Kutatási jelentésben azonban az állítást lehetőleg az eredeti tanulmányra, jogszabályra, jelentésre vagy nyílt levélre kell visszavezetni.
+
+| Wikipedia page | URL | Mire jó? | Kulcsreferenciák / mit érdemes továbbkövetni? |
+|---|---|---|---|
+| **AI safety** | [en.wikipedia.org/wiki/AI_safety](https://en.wikipedia.org/wiki/AI_safety) | Átfogó fogalmi belépő az accident, misuse, robustness, alignment, governance témákhoz | A lap külön kezeli a jelenlegi károkat és advanced-AI problémákat; a bibliográfiát NIST/AI RMF, bias/fairness, cybersecurity és alignment irányban érdemes tovább bontani. |
+| **Existential risk from artificial intelligence** | [en.wikipedia.org/wiki/Existential_risk_from_artificial_intelligence](https://en.wikipedia.org/wiki/Existential_risk_from_artificial_intelligence) | A catastrophic/x-risk vita pro és kontra áttekintése | Bostrom, CAIS statement, alignment/control szakirodalom, illetve a szkeptikus álláspontok. Értéke éppen abban van, hogy a nézetkülönbségeket is feltárja. |
+| **Pause Giant AI Experiments: An Open Letter** | [Wikipedia](https://en.wikipedia.org/wiki/Pause_Giant_AI_Experiments:_An_Open_Letter) | A 2023-as levél történeti kontextusa, fogadtatása | Elsődlegesen az eredeti FLI-levelet kell követni; az FLI eredeti oldalának bibliográfiájában Bender, Bostrom, Russell, Weidinger, Bubeck és az OpenAI GPT-4 Technical Report is megtalálható. |
+| **Statement on AI Extinction Risk** | [Wikipedia](https://en.wikipedia.org/wiki/Statement_on_AI_Extinction_Risk) | A CAIS statement, aláírók és kritikák kontextusa | Az elsődleges CAIS statement mellett a lap médiakritikákat és regulatory-capture/PR ellenérveket is dokumentál; ez módszertanilag hasznos a narratívák kiegyensúlyozására. |
+| **Artificial Intelligence Act** | [en.wikipedia.org/wiki/Artificial_Intelligence_Act](https://en.wikipedia.org/wiki/Artificial_Intelligence_Act) | Gyors történeti és strukturális áttekintés az EU AI Actről | A legfontosabb referenciája az **EU 2024/1689 rendelet** [@euaiact2024], illetve az Európai Bizottság AI Act/AI Office oldalai; jogi állításnál mindig ezek élvezzenek elsőbbséget. |
+| **Regulation of artificial intelligence** | [en.wikipedia.org/wiki/Regulation_of_artificial_intelligence](https://en.wikipedia.org/wiki/Regulation_of_artificial_intelligence) | Nemzetközi szabályozási térkép és terminológia | Innen célszerű továbbmenni OECD, EU, Council of Europe, NIST, UNESCO és nemzeti elsődleges források felé. |
+
+Kutatásmódszertanilag a Wikipedia különösen jó lehet **„reference snowballingra”**: azonosítasz egy témát, például *automation bias*, *AI deception*, *loss of control*, *deepfake misinformation* vagy *algorithmic discrimination*, majd a Wikipédia-referenciákból az eredeti szakirodalomhoz lépsz. Az állítások rögzítésénél viszont az eredeti forrást tárolod DOI-val/URL-lel, nem a Wikipédiát.
+
+A Wikipédia további előnye, hogy megmutatja, **hol nincs tudományos konszenzus**. Ez AI-risk kutatásnál különösen fontos: az existential-risk és a frontier-safety diskurzus jelentős állításai vitatottak, ezért egy monitoringrendszernek nemcsak a figyelmeztetéseket, hanem azok kritikáit és alternatív kockázati kereteit is gyűjtenie kell. A *Statement on AI Extinction Risk* Wikipédia-oldala például kifejezetten jelzi a PR- és regulatory-capture kritikákat is.
+
+## Hírlevelek, aggregátorok és folyamatos monitorozás
+
+A médiaréteget **nem elsődleges bizonyítékként**, hanem discovery és prioritization rétegként használnám. Különösen értékes egy olyan hírlevél, amelyből 30–50 forrás átnézése helyett hetente néhány magas relevanciájú tételhez lehet eljutni.
+
+| Forrás | URL | Tartalom és gyakoriság | Fizetőfal / értékelés |
+|---|---|---|---|
+| **CAIS AI Safety Newsletter** | [safe.ai/newsletter](https://safe.ai/newsletter) | AI safety research, policy és industry; külön AI Safety, AI Frontiers és ML Safety feedek. A 2026-os archívumban rendszeresen, jellemzően néhány hetente jelentek meg kiadások. | **Nincs paywall**, CAIS ezt explicit jelzi. Erős safety-orientáció, ezért érdemes más nézőponttal párosítani. |
+| **Future of Life Institute newsletter + Open Letter RSS** | [FLI Open Letters](https://futureoflife.org/open-letter/) · [RSS](https://futureoflife.org/open-letter/feed/) | FLI kutatás, policy és cselekvési felhívások; az open-letter archívumhoz külön RSS feed érhető el. | Ingyenes; advocacy-orientáció miatt triangulálandó. |
+| **Tech Policy Press** | [techpolicy.press](https://www.techpolicy.press/) · [Newsletter](https://www.techpolicy.press/newsletter/) | Nonprofit tech-policy média; AI governance, democracy, surveillance, law, harms; hírlevele heti, esetenként gyakoribb. 2026 októberében is aktívan frissült. | Alapvetően **ingyenes**, RSS is elérhető; kiváló policy discovery, de news/analysis, nem elsődleges jogforrás. |
+| **MIT AI Risk Initiative updates** | [airisk.mit.edu](https://airisk.mit.edu/) | Risk Repository, incident tracker, governance mapping, kutatási összefoglalók és newsletter | Ingyenes; magas akadémiai érték, kisebb hírzaj. |
+| **ETO / AGORA updates** | [agora.eto.tech](https://agora.eto.tech/) | Governance archive frissítések, CSET/ETO analysis, letölthető adatok | Ingyenes; különösen jó jogi/policy monitorhoz. |
+| **OECD.AI** | [oecd.ai](https://oecd.ai/) | Incidensek, policy-adatok, kutatások és nemzetközi governance | Ingyenes; magas hitelességű multilaterális policy layer. |
+| **AI as Normal Technology** — korábban *AI Snake Oil* | Arvind Narayanan Princeton-oldaláról elérhető newsletter | Kritikus/szkeptikus ellenpont a túlzó AI-állításokhoz; társadalmi hatások, evaluation, megbízhatóság | A Princeton-professzor Arvind Narayanan és Sayash Kapoor munkája; kifejezetten hasznos az x-risk-orientált források mellé **nézőpont-kiegyensúlyozásra**. |
+
+Egy különösen hasznos elv az **„ideológiai redundancia” elkerülése**. Ha valaki kizárólag FLI-, CAIS- és frontier-safety hírleveleket követ, könnyen túlreprezentálódhatnak az egzisztenciális és loss-of-control kockázatok. Ha viszont csak EU/UNESCO/NIST forrásokat követ, lemaradhat a gyorsan kialakuló frontier-capability és technikai safety problémákról. Ezért egy kutatóhely monitoringcsatornájában egyszerre legyen:
+
+**empirikus incidensforrás + hivatalos szabályozó + akadémiai taxonómia + frontier-safety intézet + kritikus/szkeptikus elemző + elsődleges modellfejlesztői forrás.**
+
+A gyakorlatban az alábbi monitoringrendszert javaslom.
+
+**Napi automatizált réteg.** Az AIID új incidens-értesítéseit/API-ját, az OECD AIM-et, az EU Digital Strategy RSS-t és az OpenAI hivatalos News RSS-t érdemes egy közös feedbe húzni. Az AIID dokumentációja támogat új incidentekhez kapcsolódó notificationöket; az Európai Bizottság Digital Strategy oldalának van RSS feedje, és az OpenAI News hivatalos RSS-feedje is elérhető.
+
+Javasolt kulcsszavas szűrők:
+
+`AI incident`, `AI harm`, `near miss`, `frontier AI`, `system card`, `safety framework`, `preparedness`, `model evaluation`, `misalignment`, `deception`, `autonomous agent`, `cyber`, `biosecurity`, `AI Act`, `GPAI`, `fundamental rights`, `mental health`, `children`, `manipulation`, `persuasion`, `algorithmic discrimination`, `deepfake`.
+
+Egy **pszichológiai kutatóhely** számára külön alcsatornát alakítanék ki az alábbiakra:
+
+`AI companion`, `emotional dependency`, `anthropomorphism`, `AI trust`, `automation bias`, `human-AI interaction`, `persuasion`, `mental health chatbot`, `gamification`, `engagement`, `addiction`, `dark patterns`, `children and AI`, `AI-mediated decision making`.
+
+Ez azért indokolt, mert az általános AI-risk adatbázisok security- és policy-tartalma mellett a WHO és az ENSZ legújabb kereteiben is megjelennek a mentális egészséghez, autonómiához, gyermekbiztonsághoz, misinformationhöz és automation biashoz kapcsolódó problémák.
+
+**Heti kuráció.** Hetente egy kutató vagy research assistant 30–45 percben tekintse át az új tételeket, és csak a relevánsakat vigye át a tartós adatbázisba. Minimum metaadatok:
+
+`date_detected | event_date | source_type | primary_source | secondary_source | risk_category | affected_population | AI_system | geography | severity | evidence_strength | regulatory_relevance | research_relevance | follow_up_date`
+
+Különösen fontos az **`event_date` és `publication_date` szétválasztása**. Egy régi incidens hónapokkal később kerülhet a sajtóba vagy adatbázisba; kockázati trendet ezért nem szabad pusztán a publikációs dátumból számolni.
+
+**Havi validáció.** Minden „high severity” tételnél legalább két független forrást, illetve ahol lehetséges egy elsődleges dokumentumot kell keresni. A `source_status` mezőben például különítsük el: `official`, `academic`, `developer self-report`, `curated database`, `media`, `advocacy`, `Wikipedia/discovery`.
+
+**Negyedéves synthesis.** A kutatóhely készítsen egy 2–5 oldalas belső *AI Risk Watch* összefoglalót: új incident-csoportok, új jogszabályok, új model-safety eredmények, pszichológiai/human-factors fejlemények és fontos open letters. A MIT Risk Repository taxonómiája jó kiindulópont ahhoz, hogy a negyedévek között ugyanazzal a kategóriarendszerrel lehessen összehasonlítani az eseményeket.
+
+**X/Twitter monitoring.** Két privát listát érdemes fenntartani: egy `Official / Regulators` listát az EU AI Office, OECD, UNESCO, NIST, UK AISI, WHO és releváns kormányzati intézmények hivatalos fiókjaival; valamint egy `Research / Safety / Critique` listát MIT AI Risk, CAIS, FLI, CSET/ETO és releváns kutatók hivatalos fiókjaival. Az X-bejegyzés csak **jelzésként** szolgáljon; archiválandó állítást mindig az eredeti intézményi weboldalról vagy publikációból vegyetek.
+
+**API és gépi adatgyűjtés.** Elsőként az AIID-vel érdemes kísérletezni, mert dokumentált API- és notification-infrastruktúrája van. Az ETO AGORA tömegesen letölthető adatot kínál, a MIT AI Risk Repository adatbázisa pedig másolható/letölthető kutatási célra. Ez lehetővé teszi, hogy később Python/R-alapú saját dashboard készüljön.
+
+Egy egyszerű intézményi pipeline így nézne ki:
+
+**RSS/API/newsletter → automatikus deduplikáció → emberi relevanciaértékelés → elsődleges forrás ellenőrzése → MIT/OECD-alapú risk coding → Zotero/adatbázis → negyedéves dashboard/report.**
+
+## Beállítási ütemterv és ajánlott működési rend
+
+```{mermaid}
+timeline
+    title MI-kockázat-monitoring rendszer felállítása
+    Első nap : AIID és OECD AIM könyvjelzőzés
+              : EU és OpenAI RSS felvétele
+              : FLI és CAIS hírlevelek
+    Első hét : MIT Risk és AGORA taxonómia kialakítása
+              : X Official és Research listák
+              : közös incident-adatlap létrehozása
+    Második hét : AIID API / értesítések tesztelése
+                 : kulcsszavas pszichológiai szűrők
+                 : severity és evidence kódolás
+    Első hónap : források deduplikálása
+                : első havi risk review
+                : monitoring-szabályok finomítása
+    Folyamatos : napi automatikus figyelés
+               : heti emberi triázs
+               : negyedéves AI Risk Watch jelentés
+```
+
+A legfontosabb tervezési döntés az, hogy **ne egy homogén „AI risks” feedet építsetek**, hanem legalább öt, egymástól elkülönülő jelzéstípust:
+
+| Monitoring stream | Elsődleges források | Mire válaszol? |
+|---|---|---|
+| **Incident Watch** | AIID, OECD AIM | „Mi történt ténylegesen?” |
+| **Technical Failure & Security Watch** | AVID, MITRE ATLAS, UK AISI | „Milyen új technikai hibák/támadási módok jelentek meg?” |
+| **Risk Science Watch** | MIT AI Risk, International AI Safety Report, UN Panel | „Mit mond a tudomány a kockázatok nagyságáról és mechanizmusáról?” |
+| **Policy & Regulation Watch** | EU AI Office, ETO AGORA, OECD, UNESCO, CoE, NIST | „Milyen új szabályok, standardok és intézményi válaszok születnek?” |
+| **Warnings & Calls to Action Watch** | FLI, CAIS, Right to Warn, iparági felhívások (pl. OpenAI kibervédelmi levél), open letters | „Kik, milyen kockázat miatt és milyen intézkedést sürgetnek?” |
+| **Developer Safety Watch** | OpenAI és más modellfejlesztők system/model/safety cardjai | „Mit állítanak maguk a fejlesztők saját rendszereik képességeiről és biztosítékairól?” |
+
+Ez a szétválasztás azért lényeges, mert például **egy nyílt levél aláíróinak száma nem bizonyítja a kockázat nagyságát**, egy vállalati safety framework pedig nem bizonyítja önmagában, hogy az abban leírt biztosítékok a valós világban hatékonyak. Hasonlóképpen egy sajtómonitorban megjelenő incident még nem feltétlenül bizonyított kauzális MI-kár. A legerősebb kutatási állítások akkor születnek, amikor **a különböző forrástípusok konvergálnak**: például valós incidens + reprodukálható technikai evidence + független kutatás + intézményi reakció. Az International AI Safety Report is hangsúlyozza, hogy számos technikai biztosíték valós hatékonyságával kapcsolatban még jelentős bizonytalanság áll fenn.
+
+A kutatóhelyen ezért egy egyszerű **evidence-strength skálát** is érdemes alkalmazni:
+
+- **E0 – jelzés:** közösségi média / nem ellenőrzött állítás
+- **E1 – sajtó:** egy vagy több reputábilis sajtóforrás
+- **E2 – dokumentált incident:** AIID/OECD/hatósági vagy vállalati incident report
+- **E3 – reprodukálható evidence:** AVID/MITRE/evaluation/publikált technikai vizsgálat
+- **E4 – független tudományos evidencia:** több tanulmány vagy szintézis
+- **E5 – intézményesen megerősített:** hatósági vizsgálat, bírósági döntés, hivatalos audit stb.
+
+Ez **saját javasolt kutatásmódszertani skála**, nem valamelyik felsorolt intézmény hivatalos standardja. Előnye, hogy megakadályozza: egy erősen terjedő, de gyenge bizonyítékú AI-risk történet ugyanakkora súlyt kapjon, mint egy függetlenül dokumentált incidens.
+
+Különösen a te korábbi **MI × gamifikáció × pszichológia** kutatási irányodhoz egy önálló *Human Factors AI Risk* címkerendszert építenék a nagy általános taxonómia alá. Ebbe tartozhatna például az **automation bias, túlzott MI-bizalom, autonómiavesztés, manipuláció/persuasion, antropomorfizáció, érzelmi dependencia, mentális terhelés, engagement-maximalizáció, dark patterns, compulsive use, gyermekek sérülékenysége, fairness, privacy, dropout/avoidance és ember–MI döntési felelősség**. Ez összeköti az általános AI-safety infrastruktúrát azzal a pszichológiai kutatási programmal, amelyben nemcsak azt kérdezitek, hogy egy rendszer „működik-e”, hanem azt is, hogy **hogyan változtatja meg az ember motivációját, bizalmát, autonómiáját, döntéseit és viselkedését**. Az UNESCO Observatory emberközpontú etikai/governance fókusza, a WHO egészségügyi autonómia- és automation-bias kerete, valamint az ENSZ 2026-os paneljének emberi jogi, autonómia-, gyermekbiztonsági és társadalmi fókusza ehhez különösen jól használható külső referenciaréteg.
+
+**Összességében tehát nem egy „AI risk website”-ot, hanem egy kutatási megfigyelőrendszert érdemes létrehozni:** az AIID és OECD adja a szenzorokat, a MIT AI Risk a taxonómiai gerincet, az EU/ETO/OECD/UNESCO a policy-réteget, az International AI Safety Report és az ENSZ-panel a tudományos szintézist, a MITRE/AVID a technikai részleteket, az FLI/CAIS a figyelmeztetési és advocacy-diskurzust, az OpenAI és más laborok pedig a fejlesztői elsődleges adatokat. Így a rendszer nemcsak azt érzékeli, hogy **„valaki figyelmeztetett valamire”**, hanem azt is, hogy *mi történt, milyen evidencia van mögötte, mely kockázati kategóriába tartozik, milyen szabályozói reakció követte, és mennyire erős a bizonyíték*.

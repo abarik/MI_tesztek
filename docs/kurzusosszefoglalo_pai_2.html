@@ -1,0 +1,1488 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="hu" xml:lang="hu"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.10.18">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>5&nbsp; Kibővített fogalomtár – MI-tesztek</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./kurzusosszefoglalo_pai_3.html" rel="next">
+<link href="./kurzusosszefoglalo_pai.html" rel="prev">
+<script src="site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-b85bc7c33db8c58e0ec93c3465666fed.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap-9d427fb9aa4e7f60cd390d7ae3c7ba90.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-dark-494993c62a01dd0104ea6b4a58da199b.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="site_libs/bootstrap/bootstrap-9d427fb9aa4e7f60cd390d7ae3c7ba90.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "Nincs találat",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<style>html{ scroll-behavior: smooth; }</style>
+
+
+</head>
+
+<body class="nav-sidebar floating quarto-light"><script id="quarto-html-before-body" type="application/javascript">
+    const toggleBodyColorMode = (bsSheetEl) => {
+      const mode = bsSheetEl.getAttribute("data-mode");
+      const bodyEl = window.document.querySelector("body");
+      if (mode === "dark") {
+        bodyEl.classList.add("quarto-dark");
+        bodyEl.classList.remove("quarto-light");
+      } else {
+        bodyEl.classList.add("quarto-light");
+        bodyEl.classList.remove("quarto-dark");
+      }
+    }
+    const toggleBodyColorPrimary = () => {
+      const bsSheetEl = window.document.querySelector("link#quarto-bootstrap:not([rel=disabled-stylesheet])");
+      if (bsSheetEl) {
+        toggleBodyColorMode(bsSheetEl);
+      }
+    }
+    const setColorSchemeToggle = (alternate) => {
+      const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
+      for (let i=0; i < toggles.length; i++) {
+        const toggle = toggles[i];
+        if (toggle) {
+          if (alternate) {
+            toggle.classList.add("alternate");
+          } else {
+            toggle.classList.remove("alternate");
+          }
+        }
+      }
+    };
+    const toggleColorMode = (alternate) => {
+      // Switch the stylesheets
+      const primaryStylesheets = window.document.querySelectorAll('link.quarto-color-scheme:not(.quarto-color-alternate)');
+      const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
+      manageTransitions('#quarto-margin-sidebar .nav-link', false);
+      if (alternate) {
+        // note: dark is layered on light, we don't disable primary!
+        enableStylesheet(alternateStylesheets);
+        for (const sheetNode of alternateStylesheets) {
+          if (sheetNode.id === "quarto-bootstrap") {
+            toggleBodyColorMode(sheetNode);
+          }
+        }
+      } else {
+        disableStylesheet(alternateStylesheets);
+        enableStylesheet(primaryStylesheets)
+        toggleBodyColorPrimary();
+      }
+      manageTransitions('#quarto-margin-sidebar .nav-link', true);
+      // Switch the toggles
+      setColorSchemeToggle(alternate)
+      // Hack to workaround the fact that safari doesn't
+      // properly recolor the scrollbar when toggling (#1455)
+      if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
+        manageTransitions("body", false);
+        window.scrollTo(0, 1);
+        setTimeout(() => {
+          window.scrollTo(0, 0);
+          manageTransitions("body", true);
+        }, 40);
+      }
+    }
+    const disableStylesheet = (stylesheets) => {
+      for (let i=0; i < stylesheets.length; i++) {
+        const stylesheet = stylesheets[i];
+        stylesheet.rel = 'disabled-stylesheet';
+      }
+    }
+    const enableStylesheet = (stylesheets) => {
+      for (let i=0; i < stylesheets.length; i++) {
+        const stylesheet = stylesheets[i];
+        if(stylesheet.rel !== 'stylesheet') { // for Chrome, which will still FOUC without this check
+          stylesheet.rel = 'stylesheet';
+        }
+      }
+    }
+    const manageTransitions = (selector, allowTransitions) => {
+      const els = window.document.querySelectorAll(selector);
+      for (let i=0; i < els.length; i++) {
+        const el = els[i];
+        if (allowTransitions) {
+          el.classList.remove('notransition');
+        } else {
+          el.classList.add('notransition');
+        }
+      }
+    }
+    const isFileUrl = () => {
+      return window.location.protocol === 'file:';
+    }
+    const hasAlternateSentinel = () => {
+      let styleSentinel = getColorSchemeSentinel();
+      if (styleSentinel !== null) {
+        return styleSentinel === "alternate";
+      } else {
+        return false;
+      }
+    }
+    const setStyleSentinel = (alternate) => {
+      const value = alternate ? "alternate" : "default";
+      if (!isFileUrl()) {
+        window.localStorage.setItem("quarto-color-scheme", value);
+      } else {
+        localAlternateSentinel = value;
+      }
+    }
+    const getColorSchemeSentinel = () => {
+      if (!isFileUrl()) {
+        const storageValue = window.localStorage.getItem("quarto-color-scheme");
+        return storageValue != null ? storageValue : localAlternateSentinel;
+      } else {
+        return localAlternateSentinel;
+      }
+    }
+    const toggleGiscusIfUsed = (isAlternate, darkModeDefault) => {
+      const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
+      const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
+      let newTheme = '';
+      if(authorPrefersDark) {
+        newTheme = isAlternate ? baseTheme : alternateTheme;
+      } else {
+        newTheme = isAlternate ? alternateTheme : baseTheme;
+      }
+      const changeGiscusTheme = () => {
+        // From: https://github.com/giscus/giscus/issues/336
+        const sendMessage = (message) => {
+          const iframe = document.querySelector('iframe.giscus-frame');
+          if (!iframe) return;
+          iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
+        }
+        sendMessage({
+          setConfig: {
+            theme: newTheme
+          }
+        });
+      }
+      const isGiscussLoaded = window.document.querySelector('iframe.giscus-frame') !== null;
+      if (isGiscussLoaded) {
+        changeGiscusTheme();
+      }
+    };
+    const authorPrefersDark = false;
+    const darkModeDefault = authorPrefersDark;
+      document.querySelector('link#quarto-text-highlighting-styles.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
+      document.querySelector('link#quarto-bootstrap.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
+    let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
+    // Dark / light mode switch
+    window.quartoToggleColorScheme = () => {
+      // Read the current dark / light value
+      let toAlternate = !hasAlternateSentinel();
+      toggleColorMode(toAlternate);
+      setStyleSentinel(toAlternate);
+      toggleGiscusIfUsed(toAlternate, darkModeDefault);
+      window.dispatchEvent(new Event('resize'));
+    };
+    // Switch to dark mode if need be
+    if (hasAlternateSentinel()) {
+      toggleColorMode(true);
+    } else {
+      toggleColorMode(false);
+    }
+  </script>
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./temakorok.html">Témakörök és fogalmak</a></li><li class="breadcrumb-item"><a href="./kurzusosszefoglalo_pai_2.html"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Kibővített fogalomtár</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">MI-tesztek</a> 
+        <div class="sidebar-tools-main">
+  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
+</div>
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Előszó</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
+ <span class="menu-text">Témakörök és fogalmak</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./temakorok.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Témakörök a kurzus weboldala alapján</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./temakorok_irodalom.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Témakörök a szakirodalom alapján</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./temakorok_irodalom_kifejtve.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Fogalmak kifejtve</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./kurzusosszefoglalo_pai.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Kurzusösszefoglaló: bevezető fogalomtár</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./kurzusosszefoglalo_pai_2.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Kibővített fogalomtár</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./kurzusosszefoglalo_pai_3.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">MI–pszichológia BA fogalomtár</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./kurzusosszefoglalo_pai_4.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">MI–pszichológia BA fogalomtár (bővített)</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
+ <span class="menu-text">Kitekintés</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./MI-ellenesseg.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Az „MI-ellenesség” típusai és történeti dokumentumai</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./MI-kockazat-monitoring.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">MI-kockázatok, figyelmeztetések és cselekvési felhívások folyamatos monitorozása</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./references.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Hivatkozások</span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Tartalom</h2>
+   
+  <ul>
+  <li><a href="#történet-és-alapfogalmak" id="toc-történet-és-alapfogalmak" class="nav-link active" data-scroll-target="#történet-és-alapfogalmak">1. Történet és alapfogalmak</a></li>
+  <li><a href="#tanulási-paradigmák-és-feladattípusok" id="toc-tanulási-paradigmák-és-feladattípusok" class="nav-link" data-scroll-target="#tanulási-paradigmák-és-feladattípusok">2. Tanulási paradigmák és feladattípusok</a></li>
+  <li><a href="#adatok-modellalkotás-és-értékelés" id="toc-adatok-modellalkotás-és-értékelés" class="nav-link" data-scroll-target="#adatok-modellalkotás-és-értékelés">3. Adatok, modellalkotás és értékelés</a></li>
+  <li><a href="#neurális-hálózatok-és-nyelvi-modellek" id="toc-neurális-hálózatok-és-nyelvi-modellek" class="nav-link" data-scroll-target="#neurális-hálózatok-és-nyelvi-modellek">4. Neurális hálózatok és nyelvi modellek</a></li>
+  <li><a href="#generatív-mi-promptolás-és-eszközök" id="toc-generatív-mi-promptolás-és-eszközök" class="nav-link" data-scroll-target="#generatív-mi-promptolás-és-eszközök">5. Generatív MI, promptolás és eszközök</a></li>
+  <li><a href="#megbízhatóság-értelmezés-és-forráskritika" id="toc-megbízhatóság-értelmezés-és-forráskritika" class="nav-link" data-scroll-target="#megbízhatóság-értelmezés-és-forráskritika">6. Megbízhatóság, értelmezés és forráskritika</a></li>
+  <li><a href="#etika-adatvédelem-és-emberi-felügyelet" id="toc-etika-adatvédelem-és-emberi-felügyelet" class="nav-link" data-scroll-target="#etika-adatvédelem-és-emberi-felügyelet">7. Etika, adatvédelem és emberi felügyelet</a></li>
+  <li><a href="#mi-a-pszichológiában-és-digitális-kompetencia" id="toc-mi-a-pszichológiában-és-digitális-kompetencia" class="nav-link" data-scroll-target="#mi-a-pszichológiában-és-digitális-kompetencia">8. MI a pszichológiában és digitális kompetencia</a></li>
+  <li><a href="#embermi-interakció-és-társas-következmények" id="toc-embermi-interakció-és-társas-következmények" class="nav-link" data-scroll-target="#embermi-interakció-és-társas-következmények">9. Ember–MI interakció és társas következmények</a></li>
+  <li><a href="#felelős-mi-használat-a-tanulásban-és-kutatásban" id="toc-felelős-mi-használat-a-tanulásban-és-kutatásban" class="nav-link" data-scroll-target="#felelős-mi-használat-a-tanulásban-és-kutatásban">10. Felelős MI-használat a tanulásban és kutatásban</a></li>
+  <li><a href="#kurzushoz-javasolt-minimumlista" id="toc-kurzushoz-javasolt-minimumlista" class="nav-link" data-scroll-target="#kurzushoz-javasolt-minimumlista">Kurzushoz javasolt minimumlista</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./temakorok.html">Témakörök és fogalmak</a></li><li class="breadcrumb-item"><a href="./kurzusosszefoglalo_pai_2.html"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Kibővített fogalomtár</span></a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title"><span id="sec-kurzusosszefoglalo-pai-2" class="quarto-section-identifier"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Kibővített fogalomtár</span></span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<p><em>Kibővített MI–pszichológia BA fogalomtár</em></p>
+<p>Az alábbi változat <strong>megtartja a korábbi 10 témakört</strong>, de a megadott 8 kurzustémakör és 91 fogalom alapján bővíti őket. Minden fogalom után közvetlenül szerepel legalább egy rövid, visszakereshető szakirodalmi vagy normatív hivatkozás; a teljes hivatkozásjegyzék a könyv végén, a <a href="./references.html">Hivatkozások</a> fejezetben található.</p>
+<p>A felépítés három elvet követ:</p>
+<ol type="1">
+<li>az MI technikai alapjai a pszichológia BA számára szükséges mélységben;<br>
+</li>
+<li>a generatív MI gyakorlati, kritikai és tudományos használata;<br>
+</li>
+<li>a pszichológiai alkalmazásokban kiemelten fontos validitás, emberi felügyelet, adatvédelem és méltányosság.</li>
+</ol>
+<p>Az MI-műveltség ezért nem egyszerűen eszközhasználat, hanem technikai, kritikai és kommunikációs-kognitív kompetenciák együttese <span class="citation" data-cites="polomoshnov2026">(<a href="references.html#ref-polomoshnov2026" role="doc-biblioref">Polomoshnov és mtsai., 2026</a>)</span>.</p>
+<section id="történet-és-alapfogalmak" class="level2">
+<h2 class="anchored" data-anchor-id="történet-és-alapfogalmak">1. Történet és alapfogalmak</h2>
+<ul>
+<li><p><strong>Mesterséges intelligencia (MI, AI):</strong> Olyan számítógépes rendszerek és módszerek gyűjtőneve, amelyek emberi intelligenciához kapcsolt feladatokban — például észlelésben, nyelvi feldolgozásban, tanulásban, következtetésben vagy döntéstámogatásban — végeznek teljesítményt. A fogalom nem jelenti azt, hogy a rendszer tudatos, érti a világot vagy emberi szándékokkal rendelkezik <span class="citation" data-cites="russell2021">(<a href="references.html#ref-russell2021" role="doc-biblioref">Russell &amp; Norvig, 2021</a>)</span>.</p></li>
+<li><p><strong>Turing-teszt:</strong> Alan Turing által javasolt viselkedéses próba: ha a kérdező szöveges beszélgetésben nem tudja megbízhatóan megkülönböztetni a gépet az embertől, a gép intelligensnek tűnő viselkedést mutat. Történetileg fontos, de a modern MI megbízhatóságának, igazságosságának vagy tudatosságának nem elégséges tesztje <span class="citation" data-cites="turing1950">(<a href="references.html#ref-turing1950" role="doc-biblioref">Turing, 1950</a>)</span>.</p></li>
+<li><p><strong>Dartmouth-konferencia:</strong> Az 1956-os kutatási projekt, amelyhez az „artificial intelligence” elnevezés megszületését kötik. A korai kutatók azt feltételezték, hogy a tanulás és intelligencia egyes aspektusai rövid idő alatt formalizálhatók és géppel szimulálhatók <span class="citation" data-cites="mccarthy2006">(<a href="references.html#ref-mccarthy2006" role="doc-biblioref">McCarthy és mtsai., 1955/2006</a>)</span>.</p></li>
+<li><p><strong>Szimbolikus vagy szabályalapú MI:</strong> Explicit szabályokra, fogalmi reprezentációkra és logikai következtetésre építő rendszer. Például: „ha X tünet és Y kockázati tényező jelen van, akkor javasolt Z további vizsgálat”. Előnye az átláthatóság; korlátja, hogy nehezen kezeli a zajos, hiányos, bizonytalan vagy gyorsan változó információt <span class="citation" data-cites="russell2021">(<a href="references.html#ref-russell2021" role="doc-biblioref">Russell &amp; Norvig, 2021</a>)</span>.</p></li>
+<li><p><strong>Tanuló rendszer:</strong> Olyan rendszer, amely nem kizárólag előre megírt szabályokat követ, hanem adatokból becsüli meg a bemenetek és kimenetek közötti összefüggéseket. A „tanulás” itt optimalizálási folyamatot jelent, nem emberi értelemben vett megértést vagy tapasztalati tudást <span class="citation" data-cites="mitchell1997">(<a href="references.html#ref-mitchell1997" role="doc-biblioref">T. M. Mitchell, 1997</a>)</span>.</p></li>
+<li><p><strong>Algoritmus:</strong> Véges, egyértelmű lépéssorozat egy feladat megoldására. Például algoritmus lehet a legrövidebb út megkeresése, az adatok rendezése vagy egy neurális hálózat paramétereinek frissítése <span class="citation" data-cites="cormen2022">(<a href="references.html#ref-cormen2022" role="doc-biblioref">Cormen és mtsai., 2022</a>)</span>.</p></li>
+<li><p><strong>Modell:</strong> A valóság egy adott célra kialakított, egyszerűsített matematikai vagy számítógépes reprezentációja, amely bemenetből becslést, osztályozást, rangsort vagy generált kimenetet állít elő. A modell nem maga a vizsgált pszichológiai jelenség <span class="citation" data-cites="shmueli2010">(<a href="references.html#ref-shmueli2010" role="doc-biblioref">Shmueli, 2010</a>)</span>.</p></li>
+<li><p><strong>Gépi tanulás (machine learning, ML):</strong> Az MI olyan területe, ahol a rendszer példákból tanul mintázatokat, majd ezeket új adatokra alkalmazza. A modell teljesítményét döntően alakítja az adat minősége, a célváltozó meghatározása és az értékelés módja <span class="citation" data-cites="mitchell1997 jordan2015">(<a href="references.html#ref-jordan2015" role="doc-biblioref">Jordan &amp; Mitchell, 2015</a>; <a href="references.html#ref-mitchell1997" role="doc-biblioref">T. M. Mitchell, 1997</a>)</span>.</p></li>
+<li><p><strong>Szűk MI (artificial narrow intelligence, ANI):</strong> Egy vagy néhány, jól körülhatárolt feladatban működő MI-rendszer, például ajánlórendszer, képosztályozó, beszédfelismerő vagy nagy nyelvi modell. A jelenleg gyakorlati használatban lévő rendszerek túlnyomó része szűk MI <span class="citation" data-cites="russell2021">(<a href="references.html#ref-russell2021" role="doc-biblioref">Russell &amp; Norvig, 2021</a>)</span>.</p></li>
+<li><p><strong>Mesterséges általános intelligencia (AGI):</strong> Vitatott, jövőorientált fogalom olyan rendszerre, amely rugalmasan és széles feladattartományban képes emberhez hasonló általános problémamegoldásra, tanulásra és transzferre. Nem azonos a mai LLM-ek szöveges folyékonyságával <span class="citation" data-cites="goertzel2007">(<a href="references.html#ref-goertzel2007" role="doc-biblioref">Goertzel &amp; Pennachin, 2007</a>)</span>.</p></li>
+<li><p><strong>MI-tél:</strong> Az MI iránti érdeklődés, finanszírozás és társadalmi várakozás visszaesésének időszaka, amelyet rendszerint túlzó ígéretek és az elmaradó gyakorlati eredmények előztek meg. Tanulsága: a technológiai állításokat konkrét feladatra, populációra, adatra és teljesítménymutatóra kell szűkíteni <span class="citation" data-cites="crevier1993">(<a href="references.html#ref-crevier1993" role="doc-biblioref">Crevier, 1993</a>)</span>.</p></li>
+<li><p><strong>Skálázás és számítási kapacitás:</strong> A modellek teljesítményének összefüggése a paraméterszámmal, a tanítóadat mennyiségével és a számítási kapacitással. A skálázás jelentős teljesítménynövekedést eredményezhet, de nem oldja meg automatikusan a validitás, igazságosság, biztonság vagy értelmezhetőség problémáit <span class="citation" data-cites="kaplan2020">(<a href="references.html#ref-kaplan2020" role="doc-biblioref">Kaplan és mtsai., 2020</a>)</span>.</p></li>
+<li><p><strong>Benchmark:</strong> Standardizált feladat- és adatkészlet, amelyen különböző modellek teljesítménye összehasonlítható. A benchmark-eredmény nem azonos a valós alkalmazási helyzetben mutatott teljesítménnyel, különösen eltérő populációk, nyelvek vagy magas kockázatú döntések esetén <span class="citation" data-cites="raji2021">(<a href="references.html#ref-raji2021" role="doc-biblioref">Raji és mtsai., 2021</a>)</span>.</p></li>
+</ul>
+<blockquote class="blockquote">
+<p><strong>Pszichológiai értelmezés:</strong> Az MI története sok ponton kapcsolódik a kognitív tudományhoz, de egy MI-rendszer információfeldolgozása nem teszi automatikusan pszichológiailag hiteles modellé az emberi megismerésről. A számítógépes metafora elméleti eszköz, nem az elme bizonyított leírása.</p>
+</blockquote>
+</section>
+<section id="tanulási-paradigmák-és-feladattípusok" class="level2">
+<h2 class="anchored" data-anchor-id="tanulási-paradigmák-és-feladattípusok">2. Tanulási paradigmák és feladattípusok</h2>
+<ul>
+<li><p><strong>Felügyelt tanulás:</strong> Olyan gépi tanulási eljárás, amelyben a rendszer bemenet–címke párokból tanul. Például korábbi, szakértők által kategorizált szövegek alapján becsüli meg, hogy egy új szöveg mely kategóriába tartozik <span class="citation" data-cites="hastie2009">(<a href="references.html#ref-hastie2009" role="doc-biblioref">Hastie és mtsai., 2009</a>)</span>.</p></li>
+<li><p><strong>Felügyelet nélküli tanulás:</strong> Címke nélküli adatokban keres szabályszerűségeket, csoportokat vagy alacsonyabb dimenziójú struktúrát. Az eredményül kapott klaszterek statisztikai csoportok; pszichológiai jelentésüket külön elméleti és empirikus vizsgálatnak kell alátámasztania <span class="citation" data-cites="hastie2009">(<a href="references.html#ref-hastie2009" role="doc-biblioref">Hastie és mtsai., 2009</a>)</span>.</p></li>
+<li><p><strong>Megerősítéses tanulás (reinforcement learning, RL):</strong> A rendszer cselekvéseket próbál ki egy környezetben, és jutalmakból vagy büntetésekből tanulja meg, melyik stratégia maximalizálja a hosszú távú eredményt <span class="citation" data-cites="sutton2018">(<a href="references.html#ref-sutton2018" role="doc-biblioref">Sutton &amp; Barto, 2018</a>)</span>.</p></li>
+<li><p><strong>Ágens:</strong> A környezet állapotát érzékelő, célok vagy jutalomfüggvény alapján cselekvő rendszer. A kifejezés technikai értelemben nem jelent autonóm személyt, erkölcsi ágenciát vagy tudatos szándékot <span class="citation" data-cites="russell2021">(<a href="references.html#ref-russell2021" role="doc-biblioref">Russell &amp; Norvig, 2021</a>)</span>.</p></li>
+<li><p><strong>Jutalomfüggvény:</strong> A megerősítéses tanulásban az a formális szabály, amely pontértéket rendel a rendszer állapotaihoz vagy cselekvéseihez. A rosszul megválasztott jutalomfüggvény azt eredményezheti, hogy a rendszer technikailag optimalizál, de a tényleges emberi céllal ellentétes viselkedést mutat <span class="citation" data-cites="amodei2016">(<a href="references.html#ref-amodei2016" role="doc-biblioref">Amodei és mtsai., 2016</a>)</span>.</p></li>
+<li><p><strong>Osztályozás (klasszifikáció):</strong> Esetek kategóriákba sorolása, például „pozitív/negatív”, „kockázatos/nem kockázatos” vagy „spam/nem spam”. Klinikai vagy pszichológiai környezetben az osztályozás eredménye nem azonos diagnózissal <span class="citation" data-cites="hastie2009">(<a href="references.html#ref-hastie2009" role="doc-biblioref">Hastie és mtsai., 2009</a>)</span>.</p></li>
+<li><p><strong>Regresszió:</strong> Folytonos kimeneti érték — például egy pontszám, reakcióidő vagy kockázati valószínűség — előrejelzése <span class="citation" data-cites="hastie2009">(<a href="references.html#ref-hastie2009" role="doc-biblioref">Hastie és mtsai., 2009</a>)</span>.</p></li>
+<li><p><strong>Klaszterezés:</strong> Hasonló mintázatú esetek csoportosítása előre megadott címkék nélkül. A klaszterezés exploratív eszköz; a kapott csoportok stabilitását, reprodukálhatóságát és konstruktumérvényességét ellenőrizni kell <span class="citation" data-cites="jain2010">(<a href="references.html#ref-jain2010" role="doc-biblioref">Jain, 2010</a>)</span>.</p></li>
+<li><p><strong>Predikció:</strong> Jövőbeli, ismeretlen vagy nem megfigyelt érték becslése korábbi mintázatok alapján. A prediktív siker önmagában nem indokol oksági vagy beavatkozási következtetést <span class="citation" data-cites="shmueli2010">(<a href="references.html#ref-shmueli2010" role="doc-biblioref">Shmueli, 2010</a>)</span>.</p></li>
+<li><p><strong>Korreláció:</strong> Változók együttjárása. Gépi tanulási modell képes erős korrelációkat használni akkor is, ha azok nem ok-okozati viszonyt, hanem mérési sajátosságot, társadalmi egyenlőtlenséget vagy adatfelvételi torzítást tükröznek <span class="citation" data-cites="pearl2018">(<a href="references.html#ref-pearl2018" role="doc-biblioref">Pearl &amp; Mackenzie, 2018</a>)</span>.</p></li>
+<li><p><strong>Oksági következtetés:</strong> Annak vizsgálata, hogy egy tényező megváltoztatása okoz-e változást egy másik tényezőben. A pszichológiai intervenciók tervezéséhez az oksági kérdés gyakran fontosabb, mint a pusztán prediktív pontosság <span class="citation" data-cites="pearl2018 shmueli2010">(<a href="references.html#ref-pearl2018" role="doc-biblioref">Pearl &amp; Mackenzie, 2018</a>; <a href="references.html#ref-shmueli2010" role="doc-biblioref">Shmueli, 2010</a>)</span>.</p></li>
+</ul>
+<blockquote class="blockquote">
+<p><strong>Pszichológiai példa:</strong> Ha egy modell jól jósolja meg a terápiából való lemorzsolódást, abból még nem következik, hogy a modellben fontos prediktor okozza is a lemorzsolódást, vagy hogy annak módosítása hatékony beavatkozás lenne.</p>
+</blockquote>
+</section>
+<section id="adatok-modellalkotás-és-értékelés" class="level2">
+<h2 class="anchored" data-anchor-id="adatok-modellalkotás-és-értékelés">3. Adatok, modellalkotás és értékelés</h2>
+<ul>
+<li><p><strong>Adat:</strong> Valamilyen eljárással rögzített megfigyelés vagy információ. Pszichológiában lehet kérdőívválasz, tesztpontszám, reakcióidő, szemmozgás, interjúátirat, hangfelvétel, közösségi média szövege vagy telefonos szenzoradat <span class="citation" data-cites="apa2020">(<a href="references.html#ref-apa2020" role="doc-biblioref">American Psychological Association, 2020</a>)</span>.</p></li>
+<li><p><strong>Adathalmaz (dataset):</strong> Együtt kezelt adatok szervezett gyűjteménye. Az adathalmaz nem „nyers valóság”: keletkezését a mérőeszköz, mintavétel, adatvédelmi döntések, címkézés, tisztítás és kizárási szabályok formálják <span class="citation" data-cites="gebru2021">(<a href="references.html#ref-gebru2021" role="doc-biblioref">Gebru és mtsai., 2021</a>)</span>.</p></li>
+<li><p><strong>Jellemző vagy prediktor (feature):</strong> A modell bemeneteként használt információ. Jellemző lehet például életkor, korábbi válasz, szövegből képzett nyelvi mutató vagy digitális viselkedési adat <span class="citation" data-cites="hastie2009">(<a href="references.html#ref-hastie2009" role="doc-biblioref">Hastie és mtsai., 2009</a>)</span>.</p></li>
+<li><p><strong>Célváltozó vagy címke (label):</strong> Az az érték, amelyet a modell tanulni vagy előrejelezni próbál. A címke elméleti meghatározása és mérési minősége közvetlenül korlátozza a modell értelmezhetőségét <span class="citation" data-cites="jacobucci2020">(<a href="references.html#ref-jacobucci2020" role="doc-biblioref">Jacobucci &amp; Grimm, 2020</a>)</span>.</p></li>
+<li><p><strong>Annotáció vagy címkézés:</strong> Az a folyamat, amelyben személyek vagy szabályok jelentést rendelnek adatokhoz. Például szövegek érzelmi tónusának, képek kategóriájának vagy interjúrészletek témájának megjelölése <span class="citation" data-cites="geiger2020">(<a href="references.html#ref-geiger2020" role="doc-biblioref">Geiger és mtsai., 2020</a>)</span>.</p></li>
+<li><p><strong>Operacionalizáció:</strong> Elméleti konstruktumok mérhető változókká alakítása. MI-modelleknél kulcskérdés, hogy a választott digitális nyom vagy nyelvi jellemző valóban a vizsgálni kívánt pszichológiai konstruktumot méri-e <span class="citation" data-cites="flake2020">(<a href="references.html#ref-flake2020" role="doc-biblioref">Flake &amp; Fried, 2020</a>)</span>.</p></li>
+<li><p><strong>Konstruktumvaliditás:</strong> Annak bizonyítékokon alapuló értékelése, hogy egy mérőeljárás tényleg azt a pszichológiai konstruktumot reprezentálja-e, amelyet állít. Magas modellpontosság nem helyettesíti a konstruktumvaliditást <span class="citation" data-cites="aera2014">(<a href="references.html#ref-aera2014" role="doc-biblioref">American Educational Research Association és mtsai., 2014</a>)</span>.</p></li>
+<li><p><strong>Proxi változó:</strong> Olyan könnyen megfigyelhető mutató, amelyet egy nehezebben mérhető jelenség helyettesítésére alkalmaznak. Például a hiányzások száma lehet az egyetemi nehézségek proxi mutatója, de nem azonos motivációval, depresszióval vagy tanulmányi elköteleződéssel <span class="citation" data-cites="selbst2019">(<a href="references.html#ref-selbst2019" role="doc-biblioref"><span class="nocase">Selbst és mtsai.</span>, 2019</a>)</span>.</p></li>
+<li><p><strong>Tanítás (training):</strong> A modell paramétereinek beállítása a tanítóadat alapján úgy, hogy a modell vesztesége csökkenjen vagy teljesítménye javuljon <span class="citation" data-cites="goodfellow2016">(<a href="references.html#ref-goodfellow2016" role="doc-biblioref">Goodfellow és mtsai., 2016</a>)</span>.</p></li>
+<li><p><strong>Inferencia:</strong> A már betanított modell alkalmazása új bemenetekre; ekkor a modell becslést, kategóriát, rangsort vagy generált választ ad <span class="citation" data-cites="goodfellow2016">(<a href="references.html#ref-goodfellow2016" role="doc-biblioref">Goodfellow és mtsai., 2016</a>)</span>.</p></li>
+<li><p><strong>Paraméter:</strong> A modell tanulás során beállított belső értéke, például egy neurális hálózat kapcsolati súlya <span class="citation" data-cites="goodfellow2016">(<a href="references.html#ref-goodfellow2016" role="doc-biblioref">Goodfellow és mtsai., 2016</a>)</span>.</p></li>
+<li><p><strong>Hiperparaméter:</strong> A tanítás előtt vagy során a fejlesztő által választott beállítás, például tanulási ráta, rétegszám, regularizáció vagy döntési fa mélysége <span class="citation" data-cites="bergstra2012">(<a href="references.html#ref-bergstra2012" role="doc-biblioref">Bergstra &amp; Bengio, 2012</a>)</span>.</p></li>
+<li><p><strong>Veszteségfüggvény:</strong> A modell hibáját számszerűsítő függvény, amely megmutatja, milyen mértékben tér el a modell kimenete a kívánt eredménytől <span class="citation" data-cites="goodfellow2016">(<a href="references.html#ref-goodfellow2016" role="doc-biblioref">Goodfellow és mtsai., 2016</a>)</span>.</p></li>
+<li><p><strong>Optimalizálás:</strong> Az a folyamat, amelyben a modell paramétereit úgy módosítják, hogy a veszteségfüggvény értéke csökkenjen <span class="citation" data-cites="goodfellow2016">(<a href="references.html#ref-goodfellow2016" role="doc-biblioref">Goodfellow és mtsai., 2016</a>)</span>.</p></li>
+<li><p><strong>Tanító-, validációs- és teszthalmaz:</strong> A tanítóhalmazból a modell mintázatokat tanul; a validációs halmaz segíti a modell és hiperparaméterek kiválasztását; a teszthalmaz a végső, lehetőleg érintetlen értékelést szolgálja <span class="citation" data-cites="hastie2009">(<a href="references.html#ref-hastie2009" role="doc-biblioref">Hastie és mtsai., 2009</a>)</span>.</p></li>
+<li><p><strong>K-szoros keresztvalidáció:</strong> Az adatok több részre osztásán alapuló módszer, amelyben a modellt ismételten más-más részen tanítják és tesztelik. Kis mintán hasznos, de nem helyettesíti a valóban független külső validációt <span class="citation" data-cites="varma2006">(<a href="references.html#ref-varma2006" role="doc-biblioref">Varma &amp; Simon, 2006</a>)</span>.</p></li>
+<li><p><strong>Túlilleszkedés (overfitting):</strong> Amikor a modell a tanítóadat sajátosságaihoz, akár zajához is túl erősen alkalmazkodik, ezért új adatokon romlik a teljesítménye <span class="citation" data-cites="hastie2009">(<a href="references.html#ref-hastie2009" role="doc-biblioref">Hastie és mtsai., 2009</a>)</span>.</p></li>
+<li><p><strong>Generalizáció:</strong> A modell azon képessége, hogy korábban nem látott adatokon is megfelelően működjön. Pszichológiai alkalmazásokban érdemes külön kérdezni: más intézményben, nyelven, életkori csoportban, kultúrában és időszakban is működik-e <span class="citation" data-cites="yarkoni2022">(<a href="references.html#ref-yarkoni2022" role="doc-biblioref">Yarkoni, 2022</a>)</span>?</p></li>
+<li><p><strong>Külső validáció:</strong> A modell tesztelése fejlesztéstől független, új mintán vagy helyszínen. Ez a gyakorlati alkalmazhatóság egyik legerősebb próbája <span class="citation" data-cites="steyerberg2016">(<a href="references.html#ref-steyerberg2016" role="doc-biblioref">Steyerberg &amp; Harrell, 2016</a>)</span>.</p></li>
+<li><p><strong>Pontosság (accuracy):</strong> A helyesen osztályozott esetek aránya. Erősen kiegyensúlyozatlan osztályok esetén félrevezető mutató lehet <span class="citation" data-cites="sokolova2009">(<a href="references.html#ref-sokolova2009" role="doc-biblioref">Sokolova &amp; Lapalme, 2009</a>)</span>.</p></li>
+<li><p><strong>Precizitás (precision):</strong> A pozitívnak jelölt esetek közül a ténylegesen pozitívak aránya. A téves pozitív jelzések gyakorlati költségét tükrözi <span class="citation" data-cites="sokolova2009">(<a href="references.html#ref-sokolova2009" role="doc-biblioref">Sokolova &amp; Lapalme, 2009</a>)</span>.</p></li>
+<li><p><strong>Recall vagy szenzitivitás:</strong> A valóban pozitív esetek közül a modell által helyesen azonosítottak aránya. Szűrési helyzetben alacsony értéke sok elmulasztott esetet jelenthet <span class="citation" data-cites="sokolova2009">(<a href="references.html#ref-sokolova2009" role="doc-biblioref">Sokolova &amp; Lapalme, 2009</a>)</span>.</p></li>
+<li><p><strong>Specificitás:</strong> A valóban negatív esetek közül helyesen negatívnak jelöltek aránya <span class="citation" data-cites="altman1994">(<a href="references.html#ref-altman1994" role="doc-biblioref">Altman &amp; Bland, 1994</a>)</span>.</p></li>
+<li><p><strong>F1-mutató:</strong> A precision és recall harmonikus átlaga. Akkor különösen hasznos, ha a pozitív osztály ritka, és mind a téves pozitív, mind a téves negatív döntés releváns <span class="citation" data-cites="sokolova2009">(<a href="references.html#ref-sokolova2009" role="doc-biblioref">Sokolova &amp; Lapalme, 2009</a>)</span>.</p></li>
+<li><p><strong>Téves pozitív döntés:</strong> A rendszer pozitív jelzést ad olyan esetre, amely valójában nem pozitív. Például tévesen magas kockázatúnak minősít valakit <span class="citation" data-cites="altman1994">(<a href="references.html#ref-altman1994" role="doc-biblioref">Altman &amp; Bland, 1994</a>)</span>.</p></li>
+<li><p><strong>Téves negatív döntés:</strong> A rendszer nem jelez olyan esetben, amely valójában pozitív. Például elmulaszt egy valóban magas kockázatú esetet <span class="citation" data-cites="altman1994">(<a href="references.html#ref-altman1994" role="doc-biblioref">Altman &amp; Bland, 1994</a>)</span>.</p></li>
+<li><p><strong>Kalibráció:</strong> Annak mértéke, hogy a modell által becsült valószínűségek megfelelnek-e a tényleges gyakoriságoknak. Egy 70%-os kockázati becslés akkor jól kalibrált, ha az ilyen esetek közel 70%-ában tényleg bekövetkezik az esemény <span class="citation" data-cites="vancalster2019">(<a href="references.html#ref-vancalster2019" role="doc-biblioref"><span class="nocase">Van Calster és mtsai.</span>, 2019</a>)</span>.</p></li>
+<li><p><strong>Döntési küszöb:</strong> Az a határérték, amely fölött egy modell pozitív jelzést vagy intézkedési javaslatot ad. Megválasztása normatív döntés is, mert a különböző hibatípusok emberi költségei eltérnek <span class="citation" data-cites="vickers2006">(<a href="references.html#ref-vickers2006" role="doc-biblioref">Vickers &amp; Elkin, 2006</a>)</span>.</p></li>
+</ul>
+</section>
+<section id="neurális-hálózatok-és-nyelvi-modellek" class="level2">
+<h2 class="anchored" data-anchor-id="neurális-hálózatok-és-nyelvi-modellek">4. Neurális hálózatok és nyelvi modellek</h2>
+<ul>
+<li><p><strong>Mesterséges neurális hálózat:</strong> Egymáshoz kapcsolt számítási egységekből álló modell, amely bemenetekből rétegenként alakít ki reprezentációkat. Biológiai inspirációja ellenére nem az agy strukturálisan vagy funkcionálisan hű modellje <span class="citation" data-cites="goodfellow2016">(<a href="references.html#ref-goodfellow2016" role="doc-biblioref">Goodfellow és mtsai., 2016</a>)</span>.</p></li>
+<li><p><strong>Súly:</strong> A neurális hálózat kapcsolatainak tanulható paramétere, amely meghatározza, hogy egy bemenet milyen mértékben befolyásoljon egy későbbi egységet <span class="citation" data-cites="goodfellow2016">(<a href="references.html#ref-goodfellow2016" role="doc-biblioref">Goodfellow és mtsai., 2016</a>)</span>.</p></li>
+<li><p><strong>Mélytanulás (deep learning):</strong> Több rejtett réteget használó neurális hálózati tanulás. Különösen eredményes képi, hangi és nyelvi adatok feldolgozásában, de nagy adatmennyiséget, számítási kapacitást és gondos validációt igényel <span class="citation" data-cites="lecun2015">(<a href="references.html#ref-lecun2015" role="doc-biblioref">LeCun és mtsai., 2015</a>)</span>.</p></li>
+<li><p><strong>Természetesnyelv-feldolgozás (NLP):</strong> Az emberi nyelv automatikus elemzésének, reprezentációjának és generálásának területe. Pszichológiai kutatásban alkalmazható például interjúk, szabad válaszok, online kommunikáció vagy naplószövegek elemzésére <span class="citation" data-cites="jurafsky2023">(<a href="references.html#ref-jurafsky2023" role="doc-biblioref">Jurafsky &amp; Martin, 2023</a>)</span>.</p></li>
+<li><p><strong>Token:</strong> A nyelvi modell által feldolgozott szövegegység. Nem feltétlenül azonos egy szóval: lehet szó, szóelem, írásjel vagy karakterláncrészlet <span class="citation" data-cites="jurafsky2023">(<a href="references.html#ref-jurafsky2023" role="doc-biblioref">Jurafsky &amp; Martin, 2023</a>)</span>.</p></li>
+<li><p><strong>Tokenizáció:</strong> A szöveg tokenekre bontásának eljárása. A nyelvek közötti különbségek, a ragozás, az írásjelek és a ritkább szavak befolyásolhatják a tokenizáció hatékonyságát és ezáltal a modell teljesítményét <span class="citation" data-cites="sennrich2016">(<a href="references.html#ref-sennrich2016" role="doc-biblioref">Sennrich és mtsai., 2016</a>)</span>.</p></li>
+<li><p><strong>Beágyazás (embedding):</strong> Szavak, mondatok, képek vagy más objektumok numerikus vektorreprezentációja, amelyben a hasonló használatú vagy jelentésű elemek tipikusan közelebb helyezkednek el <span class="citation" data-cites="mikolov2013">(<a href="references.html#ref-mikolov2013" role="doc-biblioref">Mikolov és mtsai., 2013</a>)</span>.</p></li>
+<li><p><strong>Vektortér:</strong> Többdimenziós matematikai tér, amelyben a beágyazások reprezentálhatók és összehasonlíthatók. A közelség gyakran hasonlóságot fejez ki, de nem garantál stabil emberi vagy pszichológiai jelentést <span class="citation" data-cites="mikolov2013">(<a href="references.html#ref-mikolov2013" role="doc-biblioref">Mikolov és mtsai., 2013</a>)</span>.</p></li>
+<li><p><strong>Figyelmi mechanizmus (attention):</strong> Olyan eljárás, amely dinamikusan súlyozza, hogy a modell az input mely részeihez kapcsoljon nagyobb jelentőséget egy adott feldolgozási lépésben. Nem azonos az emberi figyelemmel <span class="citation" data-cites="bahdanau2015">(<a href="references.html#ref-bahdanau2015" role="doc-biblioref">Bahdanau és mtsai., 2015</a>)</span>.</p></li>
+<li><p><strong>Transzformer:</strong> Figyelmi mechanizmusokra épülő neurális architektúra, amely a modern nagy nyelvi modellek alapvető építőeleme. Hatékonyan kezeli a szöveg távolabbi összefüggéseit és párhuzamosítható tanítást tesz lehetővé <span class="citation" data-cites="vaswani2017">(<a href="references.html#ref-vaswani2017" role="doc-biblioref">Vaswani és mtsai., 2017</a>)</span>.</p></li>
+<li><p><strong>Alapmodell (foundation model):</strong> Nagy, széles körű adatokon előtanított modell, amelyet később sokféle feladatra lehet adaptálni. Előnye a rugalmasság; kockázata, hogy hibái és torzításai sok downstream alkalmazásba továbbvihetők <span class="citation" data-cites="bommasani2021">(<a href="references.html#ref-bommasani2021" role="doc-biblioref"><span class="nocase">Bommasani és mtsai.</span>, 2021</a>)</span>.</p></li>
+<li><p><strong>Nagy nyelvi modell (LLM):</strong> Nagy mennyiségű szövegen betanított modell, amely tipikusan a következő token valószínűségét becsüli, majd ebből szöveget generál. A folyékony nyelvhasználat nem bizonyítja, hogy a modell tényellenőrzött tudással, emberi szintű megértéssel vagy stabil világreprezentációval rendelkezik <span class="citation" data-cites="brown2020 bender2021">(<a href="references.html#ref-bender2021" role="doc-biblioref">Bender és mtsai., 2021</a>; <a href="references.html#ref-brown2020" role="doc-biblioref"><span class="nocase">Brown és mtsai.</span>, 2020</a>)</span>.</p></li>
+<li><p><strong>Következőtoken-becslés:</strong> Az LLM-ek alapvető tanulási célja: a korábbi szövegkörnyezet alapján becsülni a következő token eloszlását. Ez magyarázza a rendszer nyelvi folyékonyságát, de azt is, hogy a hihetőség nem egyenlő a tényszerűséggel <span class="citation" data-cites="brown2020">(<a href="references.html#ref-brown2020" role="doc-biblioref"><span class="nocase">Brown és mtsai.</span>, 2020</a>)</span>.</p></li>
+<li><p><strong>Finomhangolás (fine-tuning):</strong> Előtanított modell további tanítása kisebb, célfeladathoz vagy doménhez illeszkedő adathalmazon. Segíthet specializálásban, de adatvédelmi, torzítási és túlillesztési kockázatokkal járhat <span class="citation" data-cites="howard2018">(<a href="references.html#ref-howard2018" role="doc-biblioref">Howard &amp; Ruder, 2018</a>)</span>.</p></li>
+<li><p><strong>Igazítás (alignment):</strong> Annak törekvése, hogy a modell viselkedése jobban illeszkedjen az emberi utasításokhoz, értékekhez, biztonsági elvárásokhoz és használati korlátokhoz. Nem egyszeri technikai megoldás, hanem társadalmi és intézményi kérdés is <span class="citation" data-cites="gabriel2020">(<a href="references.html#ref-gabriel2020" role="doc-biblioref">Gabriel, 2020</a>)</span>.</p></li>
+<li><p><strong>RLHF (reinforcement learning from human feedback):</strong> Olyan igazítási eljárás, amelyben emberi értékelések alapján tanítanak jutalommodellt, majd ezt használják a generatív modell viselkedésének alakítására <span class="citation" data-cites="ouyang2022">(<a href="references.html#ref-ouyang2022" role="doc-biblioref"><span class="nocase">Ouyang és mtsai.</span>, 2022</a>)</span>.</p></li>
+<li><p><strong>Multimodális MI:</strong> Több adattípus — például szöveg, kép, hang, videó és strukturált adat — együttes feldolgozására vagy létrehozására képes rendszer. Pszichológiai környezetben a multimodalitás növelheti az információgazdagságot, de összetettebbé teszi a validálást, az adatvédelmet és az esetleges torzítások feltárását <span class="citation" data-cites="bommasani2021">(<a href="references.html#ref-bommasani2021" role="doc-biblioref"><span class="nocase">Bommasani és mtsai.</span>, 2021</a>)</span>.</p></li>
+</ul>
+</section>
+<section id="generatív-mi-promptolás-és-eszközök" class="level2">
+<h2 class="anchored" data-anchor-id="generatív-mi-promptolás-és-eszközök">5. Generatív MI, promptolás és eszközök</h2>
+<ul>
+<li><p><strong>Generatív mesterséges intelligencia:</strong> Olyan MI, amely új szöveget, képet, hangot, videót, kódot vagy más tartalmat generál a tanítás során elsajátított statisztikai mintázatok alapján. A generált tartalom lehet hasznos és kreatív, de nem garantáltan pontos, eredeti vagy jogszerűen felhasználható <span class="citation" data-cites="nist2024">(<a href="references.html#ref-nist2024" role="doc-biblioref">National Institute of Standards and Technology, 2024</a>)</span>.</p></li>
+<li><p><strong>Prompt:</strong> A generatív rendszernek adott utasítás, kérdés, kontextus vagy példa. A prompt kijelöli a feladatot, a kívánt formátumot, a célközönséget, a korlátozásokat és az értékelési szempontokat <span class="citation" data-cites="liu2023prompt">(<a href="references.html#ref-liu2023prompt" role="doc-biblioref">P. Liu és mtsai., 2023</a>)</span>.</p></li>
+<li><p><strong>Prompttervezés:</strong> A promptok tudatos kialakítása annak érdekében, hogy a modell kimenete relevánsabb, strukturáltabb és ellenőrizhetőbb legyen. A jó prompt nem pótolja a szakértelmet vagy a forráskritikát <span class="citation" data-cites="white2023">(<a href="references.html#ref-white2023" role="doc-biblioref">White és mtsai., 2023</a>)</span>.</p></li>
+<li><p><strong>Kontextus:</strong> Az a bemeneti információhalmaz, amelyre a modell adott válasz előállításakor támaszkodik. Tartalmazhat felhasználói utasítást, korábbi üzeneteket, idézett dokumentumot vagy visszakeresett forrást <span class="citation" data-cites="liu2023prompt">(<a href="references.html#ref-liu2023prompt" role="doc-biblioref">P. Liu és mtsai., 2023</a>)</span>.</p></li>
+<li><p><strong>Kontextusablak:</strong> Az input azon maximális mérete, amelyet a modell egy adott lépésben feldolgozni tud. Túl hosszú dokumentumoknál információvesztés, figyelmi torzulás vagy részleges feldolgozás lehetséges <span class="citation" data-cites="liu2025longcontext">(<a href="references.html#ref-liu2025longcontext" role="doc-biblioref"><span class="nocase">J. Liu és mtsai.</span>, 2025</a>)</span>.</p></li>
+<li><p><strong>Ötelemű promptmodell:</strong> Pedagógiai promptolási séma, amely legalább a feladatot, a szerepet vagy nézőpontot, a kontextust, a kimeneti formátumot és a korlátokat/értékelési szempontokat különíti el. Oktatási célja a gondolkodás strukturálása, nem „varázsutasítások” adása <span class="citation" data-cites="white2023 unesco2023">(<a href="references.html#ref-unesco2023" role="doc-biblioref">Miao &amp; Holmes, 2023</a>; <a href="references.html#ref-white2023" role="doc-biblioref">White és mtsai., 2023</a>)</span>.</p></li>
+<li><p><strong>PPAE-hurok — Perceive, Plan, Act, Evaluate:</strong> Iteratív munkafolyamat, amelyben a felhasználó előbb felméri a feladatot és kockázatot, megtervezi a lépéseket, használja az MI-eszközt, majd ellenőrzi és javítja a kimenetet. A keret jól illeszkedik a kritikus MI-használat és az önszabályozott tanulás elveihez <span class="citation" data-cites="zimmerman2002 unesco2023">(<a href="references.html#ref-unesco2023" role="doc-biblioref">Miao &amp; Holmes, 2023</a>; <a href="references.html#ref-zimmerman2002" role="doc-biblioref">Zimmerman, 2002</a>)</span>.</p></li>
+<li><p><strong>Visszakereséssel támogatott generálás (retrieval-augmented generation, RAG):</strong> Olyan architektúra, amely a válasz létrehozása előtt dokumentumokat vagy adatbázisrészleteket keres vissza, majd azokra támaszkodva generál választ. Csökkentheti a téves állítások arányát, de a visszakeresett forrás minőségét, aktualitását és relevanciáját továbbra is ellenőrizni kell <span class="citation" data-cites="lewis2020">(<a href="references.html#ref-lewis2020" role="doc-biblioref"><span class="nocase">Lewis és mtsai.</span>, 2020</a>)</span>.</p></li>
+<li><p><strong>Forrásalapú megalapozottság (grounding):</strong> A modell kimenetének ellenőrizhető forrásokhoz, dokumentumokhoz vagy strukturált adatokhoz kapcsolása. A használhatóság feltétele nem csak az, hogy a modell forrást mutasson, hanem hogy a hivatkozás valóban alátámassza az adott állítást <span class="citation" data-cites="nist2024">(<a href="references.html#ref-nist2024" role="doc-biblioref">National Institute of Standards and Technology, 2024</a>)</span>.</p></li>
+<li><p><strong>MI-ágens vagy ágensalapú MI:</strong> Olyan rendszer, amely egy összetett cél eléréséhez több lépést tervezhet, eszközöket használhat, információt kereshet vagy digitális műveleteket kezdeményezhet. Az autonómia növekedésével nő a hibás célértelmezés, a jogosultságkezelés és az emberi felügyelet jelentősége is <span class="citation" data-cites="wang2024agents">(<a href="references.html#ref-wang2024agents" role="doc-biblioref"><span class="nocase">Wang és mtsai.</span>, 2024</a>)</span>.</p></li>
+<li><p><strong>Számítógép-használó ágens:</strong> Olyan ágens, amely grafikus felületen vagy alkalmazásokon belül képes műveleteket végezni, például keresni, adatot rögzíteni, fájlt kezelni vagy űrlapot kitölteni. Magasabb kockázatú, mert tényleges külső műveleteket indíthat <span class="citation" data-cites="nist2024">(<a href="references.html#ref-nist2024" role="doc-biblioref">National Institute of Standards and Technology, 2024</a>)</span>.</p></li>
+<li><p><strong>Chatbot:</strong> Elsősorban beszélgetéses interfészen keresztül működő rendszer, amely kérdésekre reagál, információt keres, feladatokat támogat vagy tartalmat generál. Nyelvi folyékonysága nem bizonyít szakértelmet, empátiát vagy terápiás alkalmasságot <span class="citation" data-cites="folstad2017">(<a href="references.html#ref-folstad2017" role="doc-biblioref">Følstad &amp; Brandtzæg, 2017</a>)</span>.</p></li>
+<li><p><strong>MI-asszisztens vagy copilot:</strong> Emberi munka támogatására tervezett MI-rendszer, amely például szöveget fogalmaz, összefoglal, keresést végez, adatot elemez vagy javaslatokat ad. Felelős használat esetén a végső szakmai kontroll az embernél marad <span class="citation" data-cites="nist2024">(<a href="references.html#ref-nist2024" role="doc-biblioref">National Institute of Standards and Technology, 2024</a>)</span>.</p></li>
+<li><p><strong>Kereső- és válaszmotor:</strong> Olyan eszköz, amely dokumentumokat keres, majd rövid válaszban összegzi vagy szintetizálja a találatokat. A hallgatónak külön kell értékelnie a keresés lefedettségét, a források minőségét és az állítás–forrás megfelelést <span class="citation" data-cites="unesco2023">(<a href="references.html#ref-unesco2023" role="doc-biblioref">Miao &amp; Holmes, 2023</a>)</span>.</p></li>
+<li><p><strong>Specializált MI-eszköz:</strong> Meghatározott szakterületre, feladatra vagy adatkörnyezetre kialakított MI-rendszer. A specializáció nem helyettesíti a független validációt; különösen egészségügyi vagy pszichológiai célú eszközöknél kulcsfontosságú a célpopuláción való értékelés <span class="citation" data-cites="maidment2026">(<a href="references.html#ref-maidment2026" role="doc-biblioref"><span class="nocase">Maidment és mtsai.</span>, 2026</a>)</span>.</p></li>
+<li><p><strong>Szintetikus média:</strong> MI által generált vagy szerkesztett szöveg, kép, hang vagy videó. Ide tartoznak a deepfake-ek, amelyek hitelesnek tűnő, de mesterségesen létrehozott személyábrázolást vagy hanganyagot eredményezhetnek <span class="citation" data-cites="nist2024">(<a href="references.html#ref-nist2024" role="doc-biblioref">National Institute of Standards and Technology, 2024</a>)</span>.</p></li>
+<li><p><strong>Deepfake:</strong> Olyan szintetikus vagy manipulált audiovizuális tartalom, amely egy személy hangját, arcát vagy viselkedését valószerűen utánozza. Kockázata a félretájékoztatás, reputációs kár, beleegyezés nélküli intim tartalom és bizonyítékokba vetett bizalom romlása <span class="citation" data-cites="westerlund2019">(<a href="references.html#ref-westerlund2019" role="doc-biblioref">Westerlund, 2019</a>)</span>.</p></li>
+</ul>
+</section>
+<section id="megbízhatóság-értelmezés-és-forráskritika" class="level2">
+<h2 class="anchored" data-anchor-id="megbízhatóság-értelmezés-és-forráskritika">6. Megbízhatóság, értelmezés és forráskritika</h2>
+<ul>
+<li><p><strong>Hallucináció vagy konfabuláció:</strong> Olyan generatív MI-kimenet, amely magabiztosan közöl hibás, kitalált, nem ellenőrizhető vagy a megadott forrásokkal ellentétes állítást. A NIST a „confabulation” kifejezést használja, és hangsúlyozza, hogy ez a generatív modellek működési sajátosságából fakadó kockázat <span class="citation" data-cites="nist2024">(<a href="references.html#ref-nist2024" role="doc-biblioref">National Institute of Standards and Technology, 2024</a>)</span>.</p></li>
+<li><p><strong>Antropomorfizálás:</strong> Emberi tulajdonságok, érzelmek, szándékok vagy tudat tulajdonítása nem emberi rendszernek. A „hallucináció” metafora szemléletes lehet, de félrevezetővé válik, ha emberi szándékot vagy belső mentális állapotot sugall a modellnek <span class="citation" data-cites="epley2007 bender2021">(<a href="references.html#ref-bender2021" role="doc-biblioref">Bender és mtsai., 2021</a>; <a href="references.html#ref-epley2007" role="doc-biblioref">Epley és mtsai., 2007</a>)</span>.</p></li>
+<li><p><strong>ELIZA-hatás:</strong> Az a jelenség, amikor a felhasználó egy nyelvileg reagáló rendszernek több megértést, empátiát vagy szakértelmet tulajdonít, mint amennyit az technikailag igazolhatóan nyújt <span class="citation" data-cites="weizenbaum1966">(<a href="references.html#ref-weizenbaum1966" role="doc-biblioref">Weizenbaum, 1966</a>)</span>.</p></li>
+<li><p><strong>Értelmezhetőség (interpretability):</strong> Annak mértéke, hogy az ember milyen mértékben képes megérteni egy modell működését vagy egy adott kimenethez vezető tényezőket <span class="citation" data-cites="doshivelez2017">(<a href="references.html#ref-doshivelez2017" role="doc-biblioref">Doshi-Velez &amp; Kim, 2017</a>)</span>.</p></li>
+<li><p><strong>Magyarázható MI (explainable AI, XAI):</strong> Olyan módszerek és rendszerek gyűjtőneve, amelyek a modell döntéseit, működését vagy hibáit ember számára hozzáférhetőbb formában próbálják bemutatni. A magyarázat lehet utólagos és megtévesztően meggyőző is, ezért maga is értékelést igényel <span class="citation" data-cites="gunning2019">(<a href="references.html#ref-gunning2019" role="doc-biblioref">Gunning és mtsai., 2019</a>)</span>.</p></li>
+<li><p><strong>Globális magyarázat:</strong> A modell általános működésére, fontos változóira vagy döntési mintázataira vonatkozó értelmezés <span class="citation" data-cites="molnar2022">(<a href="references.html#ref-molnar2022" role="doc-biblioref">Molnar, 2022</a>)</span>.</p></li>
+<li><p><strong>Lokális magyarázat:</strong> Egy konkrét esethez, egyéni predikcióhoz vagy egy adott kimenethez kapcsolt értelmezés. Nem feltétlenül általánosítható a teljes modellre <span class="citation" data-cites="ribeiro2016">(<a href="references.html#ref-ribeiro2016" role="doc-biblioref">Ribeiro és mtsai., 2016</a>)</span>.</p></li>
+<li><p><strong>Forráshierarchia:</strong> A források megbízhatóságának és bizonyító erejének összehasonlítása. Általában előnyt élvez az eredeti kutatás, a lektorált szisztematikus áttekintés, a hivatalos dokumentum és a dokumentált adatbázis a másodlagos összefoglalóval vagy ellenőrizetlen MI-válasszal szemben <span class="citation" data-cites="apa2020 unesco2023">(<a href="references.html#ref-apa2020" role="doc-biblioref">American Psychological Association, 2020</a>; <a href="references.html#ref-unesco2023" role="doc-biblioref">Miao &amp; Holmes, 2023</a>)</span>.</p></li>
+<li><p><strong>Hivatkozásellenőrzés:</strong> Annak vizsgálata, hogy a hivatkozás létezik-e, a bibliográfiai adatai pontosak-e, hozzáférhető-e, és ténylegesen alátámasztja-e az adott állítást. Generatív MI által javasolt hivatkozásokat mindig ellenőrizni kell eredeti adatbázisban vagy kiadói felületen <span class="citation" data-cites="nist2024">(<a href="references.html#ref-nist2024" role="doc-biblioref">National Institute of Standards and Technology, 2024</a>)</span>.</p></li>
+<li><p><strong>CRAAP–MI ellenőrzés:</strong> A forráskritika oktatási célú kiterjesztése, amely a forrás aktualitását, relevanciáját, szerzői/kiadói tekintélyét, pontosságát és célját vizsgálja, majd ezt MI-specifikus kérdésekkel egészíti ki: Milyen modell állította elő? Van-e dokumentált forrás? Ellenőrizhető-e az állítás <span class="citation" data-cites="blakeslee2004 unesco2023">(<a href="references.html#ref-blakeslee2004" role="doc-biblioref">Blakeslee, 2004</a>; <a href="references.html#ref-unesco2023" role="doc-biblioref">Miao &amp; Holmes, 2023</a>)</span>?</p></li>
+<li><p><strong>Feladatbontás:</strong> Összetett probléma kisebb, ellenőrizhető részfeladatokra bontása. Generatív MI használatakor csökkentheti a homályos utasítások és túláltalános válaszok kockázatát <span class="citation" data-cites="white2023">(<a href="references.html#ref-white2023" role="doc-biblioref">White és mtsai., 2023</a>)</span>.</p></li>
+<li><p><strong>Visszakérdezés:</strong> A modell válaszának tisztázására, feltételezéseinek feltárására vagy alternatívák kérésére irányuló további prompt. Akkor értékes, ha a hallgató nem automatikusan fogadja el a választ, hanem ellenőrzési hipotézisként kezeli <span class="citation" data-cites="unesco2023">(<a href="references.html#ref-unesco2023" role="doc-biblioref">Miao &amp; Holmes, 2023</a>)</span>.</p></li>
+<li><p><strong>Ellenőrző prompt:</strong> Olyan utasítás, amely explicit módon kéri a rendszer bizonytalanságainak, feltételezéseinek, ellenpéldáinak, forrásainak vagy hibalehetőségeinek felsorolását. Nem helyettesíti a külső ellenőrzést <span class="citation" data-cites="nist2024">(<a href="references.html#ref-nist2024" role="doc-biblioref">National Institute of Standards and Technology, 2024</a>)</span>.</p></li>
+<li><p><strong>AI slop:</strong> Alacsony minőségű, gyakran tömegesen előállított MI-tartalom, amely felszínesen hihető, de pontatlan, ismétlődő, irreleváns vagy gyenge információs értékű. A kifejezés elsősorban médiakritikai és oktatási használatban terjedt el <span class="citation" data-cites="unesco2023 nist2024">(<a href="references.html#ref-unesco2023" role="doc-biblioref">Miao &amp; Holmes, 2023</a>; <a href="references.html#ref-nist2024" role="doc-biblioref">National Institute of Standards and Technology, 2024</a>)</span>.</p></li>
+<li><p><strong>Workslop:</strong> Munkahelyi vagy tanulmányi kontextusban továbbadott, látszólag kész, de valójában pontatlan, ellenőrizetlen vagy másokra áthárított feldolgozási terhet okozó MI-tartalom. A lényegi probléma nem az MI használata, hanem a felelősség és a minőségellenőrzés hiánya <span class="citation" data-cites="nist2024">(<a href="references.html#ref-nist2024" role="doc-biblioref">National Institute of Standards and Technology, 2024</a>)</span>.</p></li>
+<li><p><strong>Kalibrált bizalom:</strong> Olyan bizalmi szint, amely arányban áll a rendszer bizonyított teljesítményével, feladatkörével és hibahatáraival. A cél nem a maximális bizalom, hanem a helyesen elhelyezett bizalom <span class="citation" data-cites="lee2004">(<a href="references.html#ref-lee2004" role="doc-biblioref">Lee &amp; See, 2004</a>)</span>.</p></li>
+<li><p><strong>Automatizációs averzió:</strong> Az automatizált rendszer túlzott elutasítása, például egyetlen észlelt hiba után, akkor is, ha a rendszer adott feladatban összességében hasznos vagy pontos <span class="citation" data-cites="dietvorst2015">(<a href="references.html#ref-dietvorst2015" role="doc-biblioref">Dietvorst és mtsai., 2015</a>)</span>.</p></li>
+</ul>
+</section>
+<section id="etika-adatvédelem-és-emberi-felügyelet" class="level2">
+<h2 class="anchored" data-anchor-id="etika-adatvédelem-és-emberi-felügyelet">7. Etika, adatvédelem és emberi felügyelet</h2>
+<ul>
+<li><p><strong>Algoritmikus torzítás:</strong> Szisztematikus, igazságtalan különbség az MI-rendszer teljesítményében vagy következményeiben egyes társadalmi csoportok között. Forrása lehet a mintavétel, a mérés, a címkézés, a modell, a döntési küszöb vagy az alkalmazási környezet <span class="citation" data-cites="mehrabi2021">(<a href="references.html#ref-mehrabi2021" role="doc-biblioref">Mehrabi és mtsai., 2021</a>)</span>.</p></li>
+<li><p><strong>Gender Shades:</strong> Joy Buolamwini és Timnit Gebru kutatása, amely jelentős eltéréseket mutatott ki kereskedelmi arcelemző rendszerek nemi besorolási hibaarányaiban: különösen a sötétebb bőrű nőknél volt magas a hibaarány. Fontos példa arra, hogy az átlagteljesítmény elfedheti a csoportközi egyenlőtlenségeket <span class="citation" data-cites="buolamwini2018">(<a href="references.html#ref-buolamwini2018" role="doc-biblioref">Buolamwini &amp; Gebru, 2018</a>)</span>.</p></li>
+<li><p><strong>Mintavételi torzítás:</strong> Akkor keletkezik, amikor a tanítóadat nem reprezentálja megfelelően a célpopulációt. Egy angol nyelvű, magas jövedelmű, fiatal felhasználókból álló minta alapján fejlesztett rendszer nem tekinthető automatikusan alkalmasnak magyar, idős vagy klinikai populációban <span class="citation" data-cites="mehrabi2021">(<a href="references.html#ref-mehrabi2021" role="doc-biblioref">Mehrabi és mtsai., 2021</a>)</span>.</p></li>
+<li><p><strong>Címkézési torzítás:</strong> Amikor a célváltozó vagy szakértői címke maga is korábbi előítéleteket, társadalmi egyenlőtlenségeket vagy bizonytalan kategorizációt tükröz <span class="citation" data-cites="barocas2016">(<a href="references.html#ref-barocas2016" role="doc-biblioref">Barocas &amp; Selbst, 2016</a>)</span>.</p></li>
+<li><p><strong>Mérési torzítás:</strong> Akkor áll fenn, ha a választott adat vagy mérési eljárás eltérő csoportokban eltérő jelentésű, pontosságú vagy következményű. Pszichológiai MI-alkalmazásokban ez közvetlenül konstruktumvaliditási kérdés <span class="citation" data-cites="flake2020">(<a href="references.html#ref-flake2020" role="doc-biblioref">Flake &amp; Fried, 2020</a>)</span>.</p></li>
+<li><p><strong>Méltányosság (fairness):</strong> Etikai, jogi és technikai kérdés arról, milyen egyenlőségi feltétel vagy hibamegoszlás tekinthető igazságosnak. Több, egymással konfliktusba kerülő matematikai fairness-kritérium létezik, ezért a választás nem pusztán technikai döntés <span class="citation" data-cites="barocas2019 kleinberg2017">(<a href="references.html#ref-barocas2019" role="doc-biblioref">Barocas és mtsai., 2019</a>; <a href="references.html#ref-kleinberg2017" role="doc-biblioref">Kleinberg és mtsai., 2017</a>)</span>.</p></li>
+<li><p><strong>Érzékeny személyes adat:</strong> Olyan személyes adat, amely különleges védelmet igényel, például egészségügyi adat, biometrikus adat, politikai véleményre, vallási meggyőződésre vagy szexuális orientációra vonatkozó adat. Pszichológiai adatok gyakran ebbe a magas érzékenységű körbe tartoznak <span class="citation" data-cites="gdpr2016">(<a href="references.html#ref-gdpr2016" role="doc-biblioref">GDPR, 2016</a>, 9. cikk)</span>.</p></li>
+<li><p><strong>Adatvédelem:</strong> A személyes adatok jogszerű, tisztességes, átlátható, célhoz kötött és biztonságos kezelésének elve és gyakorlata. Nyilvános generatív MI-eszközbe kliens-, páciens-, résztvevő- vagy nem publikált kutatási adatot nem szabad a helyi szabályok, szerződések és adatvédelmi vizsgálat nélkül feltölteni <span class="citation" data-cites="gdpr2016 unesco2023">(<a href="references.html#ref-unesco2023" role="doc-biblioref">Miao &amp; Holmes, 2023</a>; <a href="references.html#ref-gdpr2016" role="doc-biblioref">GDPR, 2016</a>)</span>.</p></li>
+<li><p><strong>Célhoz kötöttség:</strong> A személyes adatokat meghatározott, egyértelmű és jogszerű célra kell gyűjteni és kezelni. Egy kutatási interjú nem válik automatikusan felhasználhatóvá modelltréningre vagy oktatási demonstrációra <span class="citation" data-cites="gdpr2016">(<a href="references.html#ref-gdpr2016" role="doc-biblioref">GDPR, 2016</a>, 5. cikk)</span>.</p></li>
+<li><p><strong>Adatminimalizálás:</strong> Csak az adott célhoz szükséges mértékű személyes adat gyűjthető és kezelhető. A technikai lehetőség vagy a „minél több adat, annál jobb” intuíciója nem írja felül ezt az elvet <span class="citation" data-cites="gdpr2016">(<a href="references.html#ref-gdpr2016" role="doc-biblioref">GDPR, 2016</a>, 5. cikk)</span>.</p></li>
+<li><p><strong>Pszeudonimizálás:</strong> Az az eljárás, amelyben a személyazonosításra alkalmas adatokat elkülönítik vagy helyettesítik, de megfelelő kiegészítő információval az érintett elvileg újraazonosítható. Ez nem azonos az anonimizálással <span class="citation" data-cites="gdpr2016">(<a href="references.html#ref-gdpr2016" role="doc-biblioref">GDPR, 2016</a>, 4. cikk)</span>.</p></li>
+<li><p><strong>Anonimizálás:</strong> Olyan visszafordíthatatlan adatkezelés, amely után az érintett személy ésszerűen nem azonosítható. A valódi anonimizálás technikailag és kontextuálisan nehéz lehet, különösen gazdag digitális viselkedési adatok esetén <span class="citation" data-cites="article29wp2014">(<a href="references.html#ref-article29wp2014" role="doc-biblioref">Article 29 Data Protection Working Party, 2014</a>)</span>.</p></li>
+<li><p><strong>Adatosztályozási jelzőlámpa:</strong> Gyakorlati adatkezelési séma, amely a megoszthatóság szerint elkülöníti például a nyilvános, belső, bizalmas és szigorúan védett adatokat. Oktatási célja, hogy a hallgató gyorsan felismerje: milyen adat nem másolható be külső MI-eszközbe <span class="citation" data-cites="nist2024">(<a href="references.html#ref-nist2024" role="doc-biblioref">National Institute of Standards and Technology, 2024</a>)</span>.</p></li>
+<li><p><strong>Shadow AI:</strong> Szervezeti jóváhagyás, dokumentáció vagy kockázatkezelés nélkül használt MI-eszköz. Különösen veszélyes lehet, ha a felhasználó érzékeny adatot, belső dokumentumot vagy szakmai döntést érintő információt visz be külső rendszerbe <span class="citation" data-cites="nist2024">(<a href="references.html#ref-nist2024" role="doc-biblioref">National Institute of Standards and Technology, 2024</a>)</span>.</p></li>
+<li><p><strong>Automatizált döntéshozatal:</strong> Olyan döntés, amelyet kizárólag automatizált feldolgozás hoz meg, és amely az érintettre nézve jelentős jogi vagy hasonló hatással járhat. A GDPR 22. cikke korlátozásokat és érintetti jogokat fogalmaz meg ilyen helyzetekre <span class="citation" data-cites="gdpr2016">(<a href="references.html#ref-gdpr2016" role="doc-biblioref">GDPR, 2016</a>, 22. cikk)</span>.</p></li>
+<li><p><strong>Profilalkotás:</strong> Személyes adatok automatizált feldolgozása egy személy jellemzőinek, például teljesítményének, egészségi állapotának, preferenciáinak, érdeklődésének vagy viselkedésének elemzésére vagy előrejelzésére <span class="citation" data-cites="gdpr2016">(<a href="references.html#ref-gdpr2016" role="doc-biblioref">GDPR, 2016</a>, 4. cikk)</span>.</p></li>
+<li><p><strong>Emberi felügyelet (human oversight):</strong> Olyan intézkedések és kompetenciák rendszere, amely lehetővé teszi, hogy az ember megértse a rendszer lehetőségeit és korlátait, felismerje a hibát, felülbírálja a javaslatot, illetve szükség esetén leállítsa a rendszert <span class="citation" data-cites="euaiact2024">(<a href="references.html#ref-euaiact2024" role="doc-biblioref">EU AI Act, 2024</a>, 14. cikk)</span>.</p></li>
+<li><p><strong>Ember a döntési körben (human-in-the-loop):</strong> Olyan működési modell, amelyben ember érdemben részt vesz az MI által támogatott döntésben. Nem teljesül pusztán azzal, hogy valaki formálisan jóváhagy egy átláthatatlan vagy időnyomás alatt született automatizált ajánlást <span class="citation" data-cites="parasuraman2000">(<a href="references.html#ref-parasuraman2000" role="doc-biblioref">Parasuraman és mtsai., 2000</a>)</span>.</p></li>
+<li><p><strong>Automatizációs torzítás:</strong> Az a hajlam, hogy a felhasználó indokolatlanul elfogadja az automatizált rendszer javaslatát, és kevésbé keresi az ellentmondó bizonyítékokat. Magas kockázatú pszichológiai vagy egészségügyi döntésekben különösen veszélyes <span class="citation" data-cites="skitka1999">(<a href="references.html#ref-skitka1999" role="doc-biblioref">Skitka és mtsai., 1999</a>)</span>.</p></li>
+<li><p><strong>Kontrollvesztés:</strong> Az a kockázat, hogy a rendszer működése, céloptimalizálása vagy szervezeti beágyazottsága miatt a felhasználók már nem képesek hatékonyan előre jelezni, ellenőrizni vagy korrigálni a következményeket <span class="citation" data-cites="amodei2016">(<a href="references.html#ref-amodei2016" role="doc-biblioref">Amodei és mtsai., 2016</a>)</span>.</p></li>
+<li><p><strong>Rekurzív önfejlesztés:</strong> Elméleti elképzelés, amely szerint egy rendszer saját képességeinek fejlesztésével gyorsuló fejlődési ciklust indíthat. A fogalom fontos az MI-biztonsági vitákban, de nem tekinthető a mai hétköznapi MI-eszközök közvetlen működési leírásának <span class="citation" data-cites="bostrom2014">(<a href="references.html#ref-bostrom2014" role="doc-biblioref">Bostrom, 2014</a>)</span>.</p></li>
+<li><p><strong>EU AI Act:</strong> Az Európai Unió MI-rendelete, a 2024/1689 rendelet, amely kockázatalapú megközelítést alkalmaz, és szabályokat állapít meg többek között a tiltott gyakorlatokra, magas kockázatú MI-rendszerekre, átláthatóságra, dokumentációra és emberi felügyeletre <span class="citation" data-cites="euaiact2024">(<a href="references.html#ref-euaiact2024" role="doc-biblioref">EU AI Act, 2024</a>)</span>.</p></li>
+<li><p><strong>Akadémiai integritás:</strong> A tanulmányi és tudományos munka őszinteségének, átláthatóságának, szerzőségi felelősségének és ellenőrizhetőségének elve. Generatív MI használatakor ide tartozik a helyi szabályok követése, a használat dokumentálása, a hivatkozások ellenőrzése és a beadott szöveg tartalmi felelőssége <span class="citation" data-cites="cope2023 unesco2023">(<a href="references.html#ref-cope2023" role="doc-biblioref">Committee on Publication Ethics, 2023</a>; <a href="references.html#ref-unesco2023" role="doc-biblioref">Miao &amp; Holmes, 2023</a>)</span>.</p></li>
+<li><p><strong>MI és szerzőség:</strong> A generatív MI nem viselhet emberi értelemben vett szerzői felelősséget, ezért a tudományos szerzőség feltételeinek általában nem felel meg. Az emberi szerző felel a tartalomért, az adatokért, a hivatkozásokért és a közölt állításokért <span class="citation" data-cites="cope2023">(<a href="references.html#ref-cope2023" role="doc-biblioref">Committee on Publication Ethics, 2023</a>)</span>.</p></li>
+</ul>
+</section>
+<section id="mi-a-pszichológiában-és-digitális-kompetencia" class="level2">
+<h2 class="anchored" data-anchor-id="mi-a-pszichológiában-és-digitális-kompetencia">8. MI a pszichológiában és digitális kompetencia</h2>
+<ul>
+<li><p><strong>Digitális fenotipizálás:</strong> Viselkedési, kommunikációs és szenzoradatok — például telefonhasználat, aktivitás, alvásra utaló mintázatok vagy geolokáció — elemzése egészségi vagy pszichológiai állapotok becslésére. Jelentős potenciálja mellett különösen erős adatvédelmi, beleegyezési, validitási és méltányossági kockázatokkal jár <span class="citation" data-cites="onnela2016 insel2017">(<a href="references.html#ref-insel2017" role="doc-biblioref">Insel, 2017</a>; <a href="references.html#ref-onnela2016" role="doc-biblioref">Onnela &amp; Rauch, 2016</a>)</span>.</p></li>
+<li><p><strong>Affektív számítástechnika:</strong> Olyan kutatási és fejlesztési terület, amely az érzelmekhez kapcsolódó jelzések felismerésével, értelmezésével, modellezésével vagy kommunikációjával foglalkozik. A rendszer által felismert arckifejezés, hangjel vagy szövegtónus nem tekinthető automatikusan a személy belső érzelmi állapotának bizonyítékának <span class="citation" data-cites="picard1997 barrett2019">(<a href="references.html#ref-barrett2019" role="doc-biblioref">Barrett és mtsai., 2019</a>; <a href="references.html#ref-picard1997" role="doc-biblioref">Picard, 1997</a>)</span>.</p></li>
+<li><p><strong>Arckifejezés-alapú érzelemfelismerés:</strong> Arcmozgásokból vagy képekből érzelmi kategóriákra következtető MI-eljárás. Tudományos korlátai közé tartozik az erős kontextus-, kultúra- és személyfüggőség, valamint az, hogy az arckifejezés és a szubjektív érzelem kapcsolata nem egyértelmű <span class="citation" data-cites="barrett2019">(<a href="references.html#ref-barrett2019" role="doc-biblioref">Barrett és mtsai., 2019</a>)</span>.</p></li>
+<li><p><strong>Természetesnyelv-feldolgozás pszichológiában:</strong> Szövegek — például interjúk, naplók, terápiás jegyzetek, közösségi médiabejegyzések — automatizált elemzése. A nyelvi mintázat lehet kutatási jel, de nem azonos az egyén diagnózisával, motivációjával vagy mentális állapotával <span class="citation" data-cites="jurafsky2023 eichstaedt2018">(<a href="references.html#ref-eichstaedt2018" role="doc-biblioref">Eichstaedt és mtsai., 2018</a>; <a href="references.html#ref-jurafsky2023" role="doc-biblioref">Jurafsky &amp; Martin, 2023</a>)</span>.</p></li>
+<li><p><strong>Érzelemelemzés (sentiment analysis):</strong> Szövegek értékelő vagy érzelmi tónusának automatikus becslése. Különösen óvatos értelmezést igényel pszichológiai alkalmazásban, mert a szarkazmus, a kontextus, a nyelvváltozat és a kulturális jelentések hibaforrások <span class="citation" data-cites="jurafsky2023">(<a href="references.html#ref-jurafsky2023" role="doc-biblioref">Jurafsky &amp; Martin, 2023</a>)</span>.</p></li>
+<li><p><strong>Klinikai döntéstámogatás:</strong> MI-rendszer használata szakmai döntések támogatására, például kockázatjelzés, információ-visszakeresés, dokumentáció vagy triázs céljából. Nem helyettesíti a klinikai ítélőképességet, a kompetenciahatárok betartását és a felelősségi láncot <span class="citation" data-cites="maidment2026">(<a href="references.html#ref-maidment2026" role="doc-biblioref"><span class="nocase">Maidment és mtsai.</span>, 2026</a>)</span>.</p></li>
+<li><p><strong>Algoritmikus triázs:</strong> Esetek automatizált előszűrése sürgősség, kockázat vagy várható szükséglet alapján. A rendszer hibáinak költsége aszimmetrikus lehet: egy téves negatív elmulasztott segítséget, egy téves pozitív indokolatlan beavatkozást vagy stigmatizációt eredményezhet <span class="citation" data-cites="maidment2026">(<a href="references.html#ref-maidment2026" role="doc-biblioref"><span class="nocase">Maidment és mtsai.</span>, 2026</a>)</span>.</p></li>
+<li><p><strong>Digitális mentális egészség:</strong> Digitális eszközök használata mentális egészségi információadásra, önsegítésre, monitorozásra, távellátásra vagy intervencióra. Az eszközök klinikai haszna és biztonsága termékenként, célcsoportonként és alkalmazási feltételek szerint értékelendő <span class="citation" data-cites="maidment2026">(<a href="references.html#ref-maidment2026" role="doc-biblioref"><span class="nocase">Maidment és mtsai.</span>, 2026</a>)</span>.</p></li>
+<li><p><strong>Predikció kontra magyarázat:</strong> A predikció célja a pontos előrejelzés; a magyarázat célja az összefüggések, mechanizmusok és okok megértése. Egy MI-modell lehet kiváló prediktor anélkül, hogy érvényes pszichológiai elméletet vagy oksági mechanizmust szolgáltatna <span class="citation" data-cites="shmueli2010">(<a href="references.html#ref-shmueli2010" role="doc-biblioref">Shmueli, 2010</a>)</span>.</p></li>
+<li><p><strong>Okság:</strong> Olyan kapcsolat, amelyben egy tényező megváltoztatása a másik tényező változását idézi elő. A prediktív pontosság nem azonos oksági bizonyítékkal <span class="citation" data-cites="pearl2018">(<a href="references.html#ref-pearl2018" role="doc-biblioref">Pearl &amp; Mackenzie, 2018</a>)</span>.</p></li>
+<li><p><strong>Pszichometria:</strong> A pszichológiai mérőeszközök fejlesztésének, értékelésének és értelmezésének tudománya. MI-alapú mérési eljárásokra ugyanúgy vonatkoznak a megbízhatóság, validitás, mérési invariancia és következményes validitás követelményei <span class="citation" data-cites="aera2014">(<a href="references.html#ref-aera2014" role="doc-biblioref">American Educational Research Association és mtsai., 2014</a>)</span>.</p></li>
+<li><p><strong>Mérési invariancia:</strong> Annak vizsgálata, hogy egy mérőeszköz vagy modell különböző csoportokban ugyanazt a konstruktumot azonos jelentéssel méri-e. Enélkül a csoportok közötti MI-alapú összehasonlítások félrevezetők vagy diszkriminatívak lehetnek <span class="citation" data-cites="putnick2016">(<a href="references.html#ref-putnick2016" role="doc-biblioref">Putnick &amp; Bornstein, 2016</a>)</span>.</p></li>
+<li><p><strong>Digitális kompetencia:</strong> A digitális technológiák magabiztos, kritikus, biztonságos és felelős használatához szükséges tudás, készség és attitűd rendszere <span class="citation" data-cites="vuorikari2022">(<a href="references.html#ref-vuorikari2022" role="doc-biblioref">Vuorikari és mtsai., 2022</a>)</span>.</p></li>
+<li><p><strong>DigComp 3.0:</strong> Az európai digitális kompetenciakeret frissített kerete, amely a digitális kompetenciát öt nagy területen szervezi: információ- és adatműveltség; kommunikáció és együttműködés; digitális tartalomkészítés; biztonság; problémamegoldás. Az MI-vel kapcsolatos kompetenciák ezekhez keresztmetszeti módon kapcsolódnak <span class="citation" data-cites="vuorikari2022">(<a href="references.html#ref-vuorikari2022" role="doc-biblioref">Vuorikari és mtsai., 2022</a>)</span>.</p></li>
+<li><p><strong>Jártassági szintek:</strong> A kompetenciafejlődés leírására szolgáló szintek, amelyek a kezdeti, irányított használattól az önálló, kritikus, kreatív és másokat támogató alkalmazás felé haladnak <span class="citation" data-cites="vuorikari2022">(<a href="references.html#ref-vuorikari2022" role="doc-biblioref">Vuorikari és mtsai., 2022</a>)</span>.</p></li>
+<li><p><strong>Tudás, készség és attitűd:</strong> A kompetencia három egymást kiegészítő összetevője: mit tud a hallgató az MI-ről; mit képes vele megtenni; illetve milyen kritikai, etikai és felelősségi beállítódással használja <span class="citation" data-cites="vuorikari2022">(<a href="references.html#ref-vuorikari2022" role="doc-biblioref">Vuorikari és mtsai., 2022</a>)</span>.</p></li>
+<li><p><strong>Explicit MI (AI-E):</strong> Olyan MI-rendszer, amelynek jelenléte a felhasználó számára nyilvánvaló, például chatbot, képgenerátor vagy MI-alapú fordító <span class="citation" data-cites="long2020">(<a href="references.html#ref-long2020" role="doc-biblioref">Long &amp; Magerko, 2020</a>)</span>.</p></li>
+<li><p><strong>Implicit MI (AI-I):</strong> Olyan MI, amely egy digitális szolgáltatás háttérfolyamatában működik — például ajánlórendszer, automatikus tartalomrangsorolás vagy spam-szűrés — és a felhasználó számára kevésbé látható <span class="citation" data-cites="long2020">(<a href="references.html#ref-long2020" role="doc-biblioref">Long &amp; Magerko, 2020</a>)</span>.</p></li>
+<li><p><strong>MI-műveltség (AI literacy):</strong> Az a kompetenciakészlet, amely képessé teszi a személyt az MI-rendszerek felismerésére, alapelveinek megértésére, kritikus értékelésére, hatékony használatára és társadalmi-etikai következményeinek mérlegelésére <span class="citation" data-cites="long2020 unesco2023">(<a href="references.html#ref-long2020" role="doc-biblioref">Long &amp; Magerko, 2020</a>; <a href="references.html#ref-unesco2023" role="doc-biblioref">Miao &amp; Holmes, 2023</a>)</span>.</p></li>
+<li><p><strong>Kognitív tehermentesítés (cognitive offloading):</strong> Az a gyakorlat, amikor a gondolkodási vagy emlékezeti feladat egy részét külső eszközre ruházzuk. MI esetén lehet adaptív támogatás, de túlzott vagy reflektálatlan használata csökkentheti a mély feldolgozást, az önellenőrzést és a készségfejlődést <span class="citation" data-cites="risko2016 park2026">(<a href="references.html#ref-park2026" role="doc-biblioref">Park &amp; Shin, 2026</a>; <a href="references.html#ref-risko2016" role="doc-biblioref">Risko &amp; Gilbert, 2016</a>)</span>.</p></li>
+<li><p><strong>Kognitív adósság:</strong> Oktatási metafora arra, hogy az MI rövid távon gyorsíthatja a feladatmegoldást, miközben a hallgató később „visszafizetendő” hiányt halmoz fel a fogalmi megértésben, az önálló problémamegoldásban vagy a forráskritikában. A fogalom pedagógiai hipotézisként kezelendő, amelyet konkrét tanulási kimenetekkel kell vizsgálni <span class="citation" data-cites="risko2016 zhang2026">(<a href="references.html#ref-risko2016" role="doc-biblioref">Risko &amp; Gilbert, 2016</a>; <a href="references.html#ref-zhang2026" role="doc-biblioref">Zhang és mtsai., 2026</a>)</span>.</p></li>
+<li><p><strong>Pszichológiai MI-műveltség:</strong> A pszichológiai mérés, kutatás, klinikai gyakorlat és emberi viselkedés sajátosságaira kiterjesztett MI-műveltség. Magában foglalja a konstruktumvaliditás, adatvédelem, torzítás, emberi felügyelet és szakmai kompetenciahatárok értelmezését <span class="citation" data-cites="oliver2024">(<a href="references.html#ref-oliver2024" role="doc-biblioref">Oliver &amp; Guiller, 2024</a>)</span>.</p></li>
+</ul>
+</section>
+<section id="embermi-interakció-és-társas-következmények" class="level2">
+<h2 class="anchored" data-anchor-id="embermi-interakció-és-társas-következmények">9. Ember–MI interakció és társas következmények</h2>
+<ul>
+<li><p><strong>Ember–számítógép interakció (HCI):</strong> Az emberek és digitális rendszerek kapcsolatát vizsgáló interdiszciplináris terület. Az MI-rendszer minőségét nem csak technikai pontossága, hanem a felület, visszajelzés, érthetőség, hozzáférhetőség és hibakezelés is meghatározza <span class="citation" data-cites="norman2013">(<a href="references.html#ref-norman2013" role="doc-biblioref">Norman, 2013</a>)</span>.</p></li>
+<li><p><strong>Ember–MI együttműködés:</strong> Olyan munkamegosztás, amelyben az ember és az MI eltérő erősségei egészítik ki egymást. Hasznos együttműködéshez világos szerepek, megfelelő visszajelzés, átlátható korlátok és emberi döntési felelősség szükséges <span class="citation" data-cites="amershi2019">(<a href="references.html#ref-amershi2019" role="doc-biblioref">Amershi és mtsai., 2019</a>)</span>.</p></li>
+<li><p><strong>Antropomorf társas jelzés:</strong> Olyan nyelvi, vizuális vagy interakciós tulajdonság, amely emberi jelenlét, érzelem vagy szándék benyomását kelti. A társas jelenlét érzete növelheti az elköteleződést, de túlzott bizalomhoz vagy félreértett kompetenciához is vezethet <span class="citation" data-cites="nass2000">(<a href="references.html#ref-nass2000" role="doc-biblioref">Nass &amp; Moon, 2000</a>)</span>.</p></li>
+<li><p><strong>Társas chatbot:</strong> Beszélgetéses rendszer, amely társas, támogató vagy segítő jellegű interakciót kínál. Pszichológiai alkalmazásban külön kell választani a kommunikációs élményt, az önsegítő támogatást és az evidencián alapuló terápiás ellátást <span class="citation" data-cites="folstad2017">(<a href="references.html#ref-folstad2017" role="doc-biblioref">Følstad &amp; Brandtzæg, 2017</a>)</span>.</p></li>
+<li><p><strong>Algoritmikus ajánlórendszer:</strong> Olyan rendszer, amely a felhasználó korábbi viselkedése, más felhasználók mintázatai vagy tartalmi jellemzők alapján rangsorol vagy ajánl tartalmakat. Befolyásolhatja a figyelmet, az információs környezetet és a viselkedést, ezért pszichológiai és társadalmi jelentősége van <span class="citation" data-cites="ricci2022">(<a href="references.html#ref-ricci2022" role="doc-biblioref">Ricci és mtsai., 2022</a>)</span>.</p></li>
+<li><p><strong>Perszonalizáció:</strong> Tartalmak, visszajelzések vagy ajánlások egyéni jellemzőkhöz igazítása. Előnye lehet a relevancia; kockázata a túlzott profilalkotás, az átláthatatlanság és a társadalmi egyenlőtlenségek felerősítése <span class="citation" data-cites="ricci2022">(<a href="references.html#ref-ricci2022" role="doc-biblioref">Ricci és mtsai., 2022</a>)</span>.</p></li>
+<li><p><strong>Algoritmikus transzparencia:</strong> A felhasználó számára hozzáférhető információ a rendszer céljáról, működési logikájáról, korlátairól és adatkezeléséről. A transzparencia nem mindig egyenlő a teljes technikai nyilvánossággal, de előfeltétele lehet a tájékozott használatnak <span class="citation" data-cites="kroll2017">(<a href="references.html#ref-kroll2017" role="doc-biblioref">Kroll és mtsai., 2017</a>)</span>.</p></li>
+<li><p><strong>Bizalom az automatizálásban:</strong> A felhasználó hite abban, hogy a rendszer megfelelően fog működni a célhelyzetben. A kívánatos cél a kalibrált bizalom: se vak elfogadás, se automatikus elutasítás <span class="citation" data-cites="lee2004">(<a href="references.html#ref-lee2004" role="doc-biblioref">Lee &amp; See, 2004</a>)</span>.</p></li>
+<li><p><strong>Technológiai elfogadás:</strong> Annak folyamata, amelyben a felhasználó az eszköz észlelt hasznossága, könnyű használhatósága, társas környezete és kockázatészlelése alapján eldönti, alkalmazza-e az új technológiát <span class="citation" data-cites="davis1989">(<a href="references.html#ref-davis1989" role="doc-biblioref">Davis, 1989</a>)</span>.</p></li>
+<li><p><strong>MI-szorongás:</strong> Az MI használatához, következményeihez vagy társadalmi hatásához kapcsolódó félelem, bizonytalanság vagy fenyegetettségérzés. Oktatásban csökkentheti a biztonságos gyakorlás, a világos szabályok, az MI-műveltség és a fokozatos kompetenciafejlesztés <span class="citation" data-cites="yu2026">(<a href="references.html#ref-yu2026" role="doc-biblioref"><span class="nocase">Yu és mtsai.</span>, 2026</a>)</span>.</p></li>
+<li><p><strong>Digitális egyenlőtlenség:</strong> A digitális eszközökhöz, infrastruktúrához, tudáshoz, támogatáshoz és biztonságos használathoz való hozzáférés társadalmilag egyenlőtlen eloszlása. Az MI bevezetése ezt mérsékelheti vagy tovább növelheti <span class="citation" data-cites="aminee2026">(<a href="references.html#ref-aminee2026" role="doc-biblioref">Aminee &amp; Taylor, 2026</a>)</span>.</p></li>
+</ul>
+</section>
+<section id="felelős-mi-használat-a-tanulásban-és-kutatásban" class="level2">
+<h2 class="anchored" data-anchor-id="felelős-mi-használat-a-tanulásban-és-kutatásban">10. Felelős MI-használat a tanulásban és kutatásban</h2>
+<ul>
+<li><p><strong>Felelős MI-használat:</strong> Olyan gyakorlat, amely egyesíti a célhoz illeszkedést, a szakmai kompetenciát, az adatvédelmet, az átláthatóságot, a torzításvizsgálatot, a forrásellenőrzést, az emberi felügyeletet és a dokumentációt <span class="citation" data-cites="nist2024 dutta2026">(<a href="references.html#ref-dutta2026" role="doc-biblioref">Dutta és mtsai., 2026</a>; <a href="references.html#ref-nist2024" role="doc-biblioref">National Institute of Standards and Technology, 2024</a>)</span>.</p></li>
+<li><p><strong>Kockázatalapú megközelítés:</strong> Az MI-rendszerek értékelése a lehetséges károk súlyossága, valószínűsége, érintetti köre és visszafordíthatósága alapján. Más követelmény indokolt egy kreatív ötletelést segítő eszköznél, mint egy klinikai kockázatjelző rendszernél <span class="citation" data-cites="euaiact2024 nist2024">(<a href="references.html#ref-nist2024" role="doc-biblioref">National Institute of Standards and Technology, 2024</a>; <a href="references.html#ref-euaiact2024" role="doc-biblioref">EU AI Act, 2024</a>)</span>.</p></li>
+<li><p><strong>Kettős felhasználás (dual use):</strong> Olyan technológia vagy tudás, amely hasznos és káros célokra egyaránt alkalmazható. Például egy szöveggeneráló rendszer segíthet akadálymentesítésben és oktatásban, de félretájékoztatás, manipuláció vagy csalás eszköze is lehet <span class="citation" data-cites="nist2024">(<a href="references.html#ref-nist2024" role="doc-biblioref">National Institute of Standards and Technology, 2024</a>)</span>.</p></li>
+<li><p><strong>AI red teaming:</strong> Szisztematikus stressztesztelés, amelynek során a rendszer gyenge pontjait, biztonsági hibáit, torzításait, káros kimeneteit vagy megkerülhető védelmeit próbálják feltárni <span class="citation" data-cites="nist2024">(<a href="references.html#ref-nist2024" role="doc-biblioref">National Institute of Standards and Technology, 2024</a>)</span>.</p></li>
+<li><p><strong>Modellkártya (model card):</strong> Strukturált dokumentáció a modell céljáról, fejlesztési kontextusáról, teljesítményéről, célpopulációjáról, korlátairól, torzításairól és nem ajánlott felhasználásairól <span class="citation" data-cites="mitchell2019modelcards">(<a href="references.html#ref-mitchell2019modelcards" role="doc-biblioref">M. Mitchell és mtsai., 2019</a>)</span>.</p></li>
+<li><p><strong>Adatlap (datasheet for datasets):</strong> Az adathalmaz eredetét, motivációját, összetételét, gyűjtését, feldolgozását, javasolt használatát és korlátait rögzítő dokumentáció <span class="citation" data-cites="gebru2021">(<a href="references.html#ref-gebru2021" role="doc-biblioref">Gebru és mtsai., 2021</a>)</span>.</p></li>
+<li><p><strong>Reprodukálhatóság:</strong> Annak lehetősége, hogy más kutató hasonló adatokkal és dokumentált eljárással ellenőrizni, megismételni vagy újraelemezni tudja az eredményt. MI-kutatásban ide tartozik a kód, az adatok, a promptok, modellverziók és beállítások dokumentálása is <span class="citation" data-cites="peng2011">(<a href="references.html#ref-peng2011" role="doc-biblioref">Peng, 2011</a>)</span>.</p></li>
+<li><p><strong>Promptnapló:</strong> A generatív MI-használat során alkalmazott promptok, modellverziók, dátumok, kimenetek és emberi módosítások dokumentációja. Kutatási és oktatási helyzetben növeli az átláthatóságot és segíti a folyamat utólagos értékelését <span class="citation" data-cites="unesco2023 apa2023policy">(<a href="references.html#ref-apa2023policy" role="doc-biblioref">American Psychological Association, 2023</a>; <a href="references.html#ref-unesco2023" role="doc-biblioref">Miao &amp; Holmes, 2023</a>)</span>.</p></li>
+<li><p><strong>MI-használat nyilatkozata:</strong> Rövid, átlátható közlés arról, hogy a hallgató vagy szerző mely MI-eszközt, milyen célra, milyen mértékben és milyen emberi ellenőrzés mellett használta. A konkrét forma intézményi, kurzus- vagy folyóirat-előírástól függ <span class="citation" data-cites="cope2023 apa2023policy">(<a href="references.html#ref-apa2023policy" role="doc-biblioref">American Psychological Association, 2023</a>; <a href="references.html#ref-cope2023" role="doc-biblioref">Committee on Publication Ethics, 2023</a>)</span>.</p></li>
+<li><p><strong>Akadémiai szerzőség:</strong> A munka intellektuális tartalmáért, pontosságáért, integritásáért és javításáért viselt emberi felelősség. Generatív MI nem lehet önálló szerző, mert nem vállal felelősséget és nem képes hozzájárulását jóváhagyni <span class="citation" data-cites="cope2023">(<a href="references.html#ref-cope2023" role="doc-biblioref">Committee on Publication Ethics, 2023</a>)</span>.</p></li>
+<li><p><strong>Kritikus MI-használat:</strong> Az MI-kimenetek hipotézisként vagy kiindulópontként való kezelése, nem pedig kész tudásként való elfogadása. Része a források ellenőrzése, ellenpéldák keresése, alternatív magyarázatok mérlegelése és a bizonytalanság nyílt jelzése <span class="citation" data-cites="unesco2023">(<a href="references.html#ref-unesco2023" role="doc-biblioref">Miao &amp; Holmes, 2023</a>)</span>.</p></li>
+<li><p><strong>Önszabályozott tanulás:</strong> A tanuló saját céljainak, stratégiáinak, előrehaladásának és eredményeinek tudatos tervezése, monitorozása és értékelése. Generatív MI akkor támogatja ezt, ha a hallgató gondolkodását és visszajelzési ciklusait erősíti, nem pedig kiváltja <span class="citation" data-cites="zimmerman2002">(<a href="references.html#ref-zimmerman2002" role="doc-biblioref">Zimmerman, 2002</a>)</span>.</p></li>
+<li><p><strong>Értékelési validitás MI-gazdag környezetben:</strong> Annak vizsgálata, hogy egy beadandó, teszt vagy vizsgafeladat valóban a hallgató célzott tudását és készségét méri-e, amikor a hallgató MI-eszközökhöz férhet hozzá. A feladatoknak ezért gyakran hangsúlyosabban kell értékelniük az indoklást, folyamatot, helyzethez kötött alkalmazást és reflektív ellenőrzést <span class="citation" data-cites="delvenne2026">(<a href="references.html#ref-delvenne2026" role="doc-biblioref">Delvenne, 2026</a>)</span>.</p></li>
+<li><p><strong>Folyamatorientált értékelés:</strong> Olyan értékelési forma, amely nem csak a végterméket, hanem a keresési, tervezési, döntési, ellenőrzési és javítási folyamatot is értékeli. Generatív MI használata mellett ez segíthet megőrizni az értékelés érvényességét <span class="citation" data-cites="delvenne2026">(<a href="references.html#ref-delvenne2026" role="doc-biblioref">Delvenne, 2026</a>)</span>.</p></li>
+<li><p><strong>MI-alfabetizációs tanulási eredmény:</strong> Olyan megfogalmazott kurzuscél, amely kimondja, hogy a hallgató milyen MI-vel kapcsolatos tudást, készséget és etikai-kritikai attitűdöt sajátít el. Például: „képes egy MI-válasz állításait ellenőrizhető primer vagy szisztematikus forrásokkal összevetni” <span class="citation" data-cites="long2020 unesco2023">(<a href="references.html#ref-long2020" role="doc-biblioref">Long &amp; Magerko, 2020</a>; <a href="references.html#ref-unesco2023" role="doc-biblioref">Miao &amp; Holmes, 2023</a>)</span>.</p></li>
+</ul>
+</section>
+<section id="kurzushoz-javasolt-minimumlista" class="level2">
+<h2 class="anchored" data-anchor-id="kurzushoz-javasolt-minimumlista">Kurzushoz javasolt minimumlista</h2>
+<p>A 10 témakör kibővített fogalomtára összesen jóval több fogalmat tartalmaz, mint amennyi egy belépő kurzus vizsgáján számonkérhető. A pszichológia BA-szintű <strong>minimummag</strong> az alábbi fogalmakból állhat:</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Témakör</th>
+<th>Kiemelt vizsgafogalmak</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1. Történet és alapok</td>
+<td>MI, ANI, AGI, algoritmus, modell, gépi tanulás, benchmark</td>
+</tr>
+<tr class="even">
+<td>2. Tanulási paradigmák</td>
+<td>Felügyelt és felügyelet nélküli tanulás, RL, osztályozás, regresszió, predikció–okság</td>
+</tr>
+<tr class="odd">
+<td>3. Adatok és értékelés</td>
+<td>Jellemző, címke, validitás, overfitting, generalizáció, külső validáció, precision, recall, specificitás</td>
+</tr>
+<tr class="even">
+<td>4. Neurális modellek</td>
+<td>Neurális háló, mélytanulás, token, embedding, attention, transformer, LLM, fine-tuning</td>
+</tr>
+<tr class="odd">
+<td>5. Generatív MI</td>
+<td>Generatív MI, prompt, kontextusablak, prompttervezés, RAG, multimodalitás, MI-ágens</td>
+</tr>
+<tr class="even">
+<td>6. Megbízhatóság</td>
+<td>Hallucináció, antropomorfizáció, XAI, hivatkozásellenőrzés, forráshierarchia, kalibrált bizalom</td>
+</tr>
+<tr class="odd">
+<td>7. Etika és felügyelet</td>
+<td>Algoritmikus torzítás, fairness, érzékeny adat, pszeudonimizálás, human-in-the-loop, EU AI Act</td>
+</tr>
+<tr class="even">
+<td>8. Pszichológiai alkalmazás</td>
+<td>Digitális fenotipizálás, affektív számítástechnika, operacionalizáció, pszichometria, MI-műveltség</td>
+</tr>
+<tr class="odd">
+<td>9. Ember–MI kapcsolat</td>
+<td>ELIZA-hatás, automatizációs torzítás, algoritmikus ajánlórendszer, perszonalizáció, MI-szorongás</td>
+</tr>
+<tr class="even">
+<td>10. Felelős használat</td>
+<td>Kockázatalapú megközelítés, modellkártya, reprodukálhatóság, promptnapló, akadémiai integritás</td>
+</tr>
+</tbody>
+</table>
+<p>A kurzustervezésben indokolt külön kezelni a <strong>fogalomismeretet</strong>, a <strong>kritikai alkalmazást</strong> és a <strong>helyzetgyakorlatot</strong>. A szakirodalom szerint a felsőoktatási generatív MI-használat értelmes integrációjához nem elegendő az eszközfunkciók megtanítása: elengedhetetlen a tanulási eredmények, az értékelési validitás, a méltányosság és az etikai következmények tudatos kezelése <span class="citation" data-cites="zhang2026">(<a href="references.html#ref-zhang2026" role="doc-biblioref">Zhang és mtsai., 2026</a>)</span>.</p>
+
+
+<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" data-line-spacing="2" role="list" style="display: none">
+<div id="ref-altman1994" class="csl-entry" role="listitem">
+Altman, D. G., &amp; Bland, J. M. (1994). Diagnostic tests 1: Sensitivity and specificity. <em>BMJ</em>, <em>308</em>(6943), 1552. <a href="https://doi.org/10.1136/bmj.308.6943.1552">https://doi.org/10.1136/bmj.308.6943.1552</a>
+</div>
+<div id="ref-aera2014" class="csl-entry" role="listitem">
+American Educational Research Association, American Psychological Association, &amp; National Council on Measurement in Education. (2014). <em>Standards for educational and psychological testing</em>. American Educational Research Association.
+</div>
+<div id="ref-apa2020" class="csl-entry" role="listitem">
+American Psychological Association. (2020). <em>Publication manual of the <span>American Psychological Association</span></em> (7. kiad.). American Psychological Association. <a href="https://doi.org/10.1037/0000165-000">https://doi.org/10.1037/0000165-000</a>
+</div>
+<div id="ref-apa2023policy" class="csl-entry" role="listitem">
+American Psychological Association. (2023). <em><span>APA</span> journals policy on generative <span>AI</span>: Additional guidance</em>. <a href="https://www.apa.org/pubs/journals/resources/publishing-tips/policy-generative-ai">https://www.apa.org/pubs/journals/resources/publishing-tips/policy-generative-ai</a>
+</div>
+<div id="ref-amershi2019" class="csl-entry" role="listitem">
+Amershi, S., Weld, D., Vorvoreanu, M., Fourney, A., Nushi, B., Collisson, P., Suh, J., Iqbal, S., Bennett, P. N., Inkpen, K., Teevan, J., Kikin-Gil, R., &amp; Horvitz, E. (2019). Guidelines for human-<span>AI</span> interaction. <em>Proceedings of the 2019 CHI Conference on Human Factors in Computing Systems</em>, 1–13. <a href="https://doi.org/10.1145/3290605.3300233">https://doi.org/10.1145/3290605.3300233</a>
+</div>
+<div id="ref-aminee2026" class="csl-entry" role="listitem">
+Aminee, A. M., &amp; Taylor, J. (2026). <span>GenAI</span> uses and challenges in society—<span>A</span> macro-level analysis. <em>International Journal of Technology, Knowledge &amp; Society: Annual Review</em>. <a href="https://openurl.ebsco.com/contentitem/lgd:195004193?sid=ebsco:plink:pplx&amp;id=ebsco:lgd:195004193">https://openurl.ebsco.com/contentitem/lgd:195004193?sid=ebsco:plink:pplx&amp;id=ebsco:lgd:195004193</a>
+</div>
+<div id="ref-amodei2016" class="csl-entry" role="listitem">
+Amodei, D., Olah, C., Steinhardt, J., Christiano, P., Schulman, J., &amp; Mané, D. (2016). <em>Concrete problems in <span>AI</span> safety</em>. <a href="https://arxiv.org/abs/1606.06565">https://arxiv.org/abs/1606.06565</a>
+</div>
+<div id="ref-article29wp2014" class="csl-entry" role="listitem">
+Article 29 Data Protection Working Party. (2014). <em>Opinion 05/2014 on anonymisation techniques (<span>WP216</span>)</em>.
+</div>
+<div id="ref-bahdanau2015" class="csl-entry" role="listitem">
+Bahdanau, D., Cho, K., &amp; Bengio, Y. (2015). Neural machine translation by jointly learning to align and translate. <em>3rd International Conference on Learning Representations (ICLR 2015)</em>. <a href="https://arxiv.org/abs/1409.0473">https://arxiv.org/abs/1409.0473</a>
+</div>
+<div id="ref-barocas2019" class="csl-entry" role="listitem">
+Barocas, S., Hardt, M., &amp; Narayanan, A. (2019). <em>Fairness and machine learning: Limitations and opportunities</em>. fairmlbook.org. <a href="https://fairmlbook.org/">https://fairmlbook.org/</a>
+</div>
+<div id="ref-barocas2016" class="csl-entry" role="listitem">
+Barocas, S., &amp; Selbst, A. D. (2016). Big data’s disparate impact. <em>California Law Review</em>, <em>104</em>(3), 671–732. <a href="https://doi.org/10.15779/Z38BG31">https://doi.org/10.15779/Z38BG31</a>
+</div>
+<div id="ref-barrett2019" class="csl-entry" role="listitem">
+Barrett, L. F., Adolphs, R., Marsella, S., Martinez, A. M., &amp; Pollak, S. D. (2019). Emotional expressions reconsidered: Challenges to inferring emotion from human facial movements. <em>Psychological Science in the Public Interest</em>, <em>20</em>(1), 1–68. <a href="https://doi.org/10.1177/1529100619832930">https://doi.org/10.1177/1529100619832930</a>
+</div>
+<div id="ref-bender2021" class="csl-entry" role="listitem">
+Bender, E. M., Gebru, T., McMillan-Major, A., &amp; Shmitchell, S. (2021). On the dangers of stochastic parrots: Can language models be too big? <em>Proceedings of the 2021 ACM Conference on Fairness, Accountability, and Transparency</em>, 610–623. <a href="https://doi.org/10.1145/3442188.3445922">https://doi.org/10.1145/3442188.3445922</a>
+</div>
+<div id="ref-bergstra2012" class="csl-entry" role="listitem">
+Bergstra, J., &amp; Bengio, Y. (2012). Random search for hyper-parameter optimization. <em>Journal of Machine Learning Research</em>, <em>13</em>, 281–305.
+</div>
+<div id="ref-blakeslee2004" class="csl-entry" role="listitem">
+Blakeslee, S. (2004). The <span>CRAAP</span> test. <em>LOEX Quarterly</em>, <em>31</em>(3), 6–7.
+</div>
+<div id="ref-bommasani2021" class="csl-entry" role="listitem">
+<span class="nocase">Bommasani, R., Hudson, D. A., Adeli, E., Altman, R., Arora, S., és mtsai.</span> (2021). <em>On the opportunities and risks of foundation models</em>. <a href="https://arxiv.org/abs/2108.07258">https://arxiv.org/abs/2108.07258</a>
+</div>
+<div id="ref-bostrom2014" class="csl-entry" role="listitem">
+Bostrom, N. (2014). <em>Superintelligence: Paths, dangers, strategies</em>. Oxford University Press.
+</div>
+<div id="ref-brown2020" class="csl-entry" role="listitem">
+<span class="nocase">Brown, T. B., Mann, B., Ryder, N., Subbiah, M., Kaplan, J., Dhariwal, P., és mtsai.</span> (2020). Language models are few-shot learners. <em>Advances in Neural Information Processing Systems</em>, <em>33</em>, 1877–1901.
+</div>
+<div id="ref-buolamwini2018" class="csl-entry" role="listitem">
+Buolamwini, J., &amp; Gebru, T. (2018). Gender shades: Intersectional accuracy disparities in commercial gender classification. <em>Proceedings of the 1st Conference on Fairness, Accountability and Transparency, Proceedings of Machine Learning Research</em>, <em>81</em>, 77–91. <a href="https://proceedings.mlr.press/v81/buolamwini18a.html">https://proceedings.mlr.press/v81/buolamwini18a.html</a>
+</div>
+<div id="ref-cope2023" class="csl-entry" role="listitem">
+Committee on Publication Ethics. (2023). <em>Authorship and <span>AI</span> tools: <span>COPE</span> position statement</em>. <a href="https://publicationethics.org/cope-position-statements/ai-author">https://publicationethics.org/cope-position-statements/ai-author</a>
+</div>
+<div id="ref-cormen2022" class="csl-entry" role="listitem">
+Cormen, T. H., Leiserson, C. E., Rivest, R. L., &amp; Stein, C. (2022). <em>Introduction to algorithms</em> (4. kiad.). MIT Press.
+</div>
+<div id="ref-crevier1993" class="csl-entry" role="listitem">
+Crevier, D. (1993). <em>AI: The tumultuous history of the search for artificial intelligence</em>. Basic Books.
+</div>
+<div id="ref-davis1989" class="csl-entry" role="listitem">
+Davis, F. D. (1989). Perceived usefulness, perceived ease of use, and user acceptance of information technology. <em>MIS Quarterly</em>, <em>13</em>(3), 319–340. <a href="https://doi.org/10.2307/249008">https://doi.org/10.2307/249008</a>
+</div>
+<div id="ref-delvenne2026" class="csl-entry" role="listitem">
+Delvenne, J.-F. (2026). Navigating <span>GenAI</span> in psychology education: Assessment validity, academic integrity, and the realities of teaching in an <span>AI</span>-rich era. <em>Psychology Learning &amp; Teaching</em>. <a href="https://eprints.whiterose.ac.uk/id/eprint/238706">https://eprints.whiterose.ac.uk/id/eprint/238706</a>
+</div>
+<div id="ref-dietvorst2015" class="csl-entry" role="listitem">
+Dietvorst, B. J., Simmons, J. P., &amp; Massey, C. (2015). Algorithm aversion: People erroneously avoid algorithms after seeing them err. <em>Journal of Experimental Psychology: General</em>, <em>144</em>(1), 114–126. <a href="https://doi.org/10.1037/xge0000033">https://doi.org/10.1037/xge0000033</a>
+</div>
+<div id="ref-doshivelez2017" class="csl-entry" role="listitem">
+Doshi-Velez, F., &amp; Kim, B. (2017). <em>Towards a rigorous science of interpretable machine learning</em>. <a href="https://arxiv.org/abs/1702.08608">https://arxiv.org/abs/1702.08608</a>
+</div>
+<div id="ref-dutta2026" class="csl-entry" role="listitem">
+Dutta, K., Kumar, A., Guo, Z., Bichler, M., Delen, D., Ramesh, R., &amp; Brooks, J. P. (2026). Responsible <span>AI</span> and data science for social good. <em>INFORMS Journal on Computing</em>, <em>38</em>(4), 1033–1044. <a href="https://doi.org/10.1287/ijoc.2026.ed.v38.n4">https://doi.org/10.1287/ijoc.2026.ed.v38.n4</a>
+</div>
+<div id="ref-eichstaedt2018" class="csl-entry" role="listitem">
+Eichstaedt, J. C., Smith, R. J., Merchant, R. M., Ungar, L. H., Crutchley, P., Preoţiuc-Pietro, D., Asch, D. A., &amp; Schwartz, H. A. (2018). Facebook language predicts depression in medical records. <em>Proceedings of the National Academy of Sciences</em>, <em>115</em>(44), 11203–11208. <a href="https://doi.org/10.1073/pnas.1802331115">https://doi.org/10.1073/pnas.1802331115</a>
+</div>
+<div id="ref-epley2007" class="csl-entry" role="listitem">
+Epley, N., Waytz, A., &amp; Cacioppo, J. T. (2007). On seeing human: A three-factor theory of anthropomorphism. <em>Psychological Review</em>, <em>114</em>(4), 864–886. <a href="https://doi.org/10.1037/0033-295X.114.4.864">https://doi.org/10.1037/0033-295X.114.4.864</a>
+</div>
+<div id="ref-flake2020" class="csl-entry" role="listitem">
+Flake, J. K., &amp; Fried, E. I. (2020). Measurement schmeasurement: Questionable measurement practices and how to avoid them. <em>Advances in Methods and Practices in Psychological Science</em>, <em>3</em>(4), 456–465. <a href="https://doi.org/10.1177/2515245920952393">https://doi.org/10.1177/2515245920952393</a>
+</div>
+<div id="ref-folstad2017" class="csl-entry" role="listitem">
+Følstad, A., &amp; Brandtzæg, P. B. (2017). Chatbots and the new world of <span>HCI</span>. <em>Interactions</em>, <em>24</em>(4), 38–42. <a href="https://doi.org/10.1145/3085558">https://doi.org/10.1145/3085558</a>
+</div>
+<div id="ref-gabriel2020" class="csl-entry" role="listitem">
+Gabriel, I. (2020). Artificial intelligence, values, and alignment. <em>Minds and Machines</em>, <em>30</em>(3), 411–437. <a href="https://doi.org/10.1007/s11023-020-09539-2">https://doi.org/10.1007/s11023-020-09539-2</a>
+</div>
+<div id="ref-gebru2021" class="csl-entry" role="listitem">
+Gebru, T., Morgenstern, J., Vecchione, B., Vaughan, J. W., Wallach, H., Daumé III, H., &amp; Crawford, K. (2021). Datasheets for datasets. <em>Communications of the ACM</em>, <em>64</em>(12), 86–92. <a href="https://doi.org/10.1145/3458723">https://doi.org/10.1145/3458723</a>
+</div>
+<div id="ref-geiger2020" class="csl-entry" role="listitem">
+Geiger, R. S., Yu, K., Yang, Y., Dai, M., Qiu, J., Tang, R., &amp; Huang, J. (2020). Garbage in, garbage out? <span>Do</span> machine learning application papers in social computing report where human-labeled training data comes from? <em>Proceedings of the 2020 Conference on Fairness, Accountability, and Transparency</em>, 325–336. <a href="https://doi.org/10.1145/3351095.3372862">https://doi.org/10.1145/3351095.3372862</a>
+</div>
+<div id="ref-goertzel2007" class="csl-entry" role="listitem">
+Goertzel, B., &amp; Pennachin, C. (Szerk.). (2007). <em>Artificial general intelligence</em>. Springer. <a href="https://doi.org/10.1007/978-3-540-68677-4">https://doi.org/10.1007/978-3-540-68677-4</a>
+</div>
+<div id="ref-goodfellow2016" class="csl-entry" role="listitem">
+Goodfellow, I., Bengio, Y., &amp; Courville, A. (2016). <em>Deep learning</em>. MIT Press. <a href="https://www.deeplearningbook.org/">https://www.deeplearningbook.org/</a>
+</div>
+<div id="ref-gunning2019" class="csl-entry" role="listitem">
+Gunning, D., Stefik, M., Choi, J., Miller, T., Stumpf, S., &amp; Yang, G.-Z. (2019). <span>XAI</span>—<span>Explainable</span> artificial intelligence. <em>Science Robotics</em>, <em>4</em>(37), eaay7120. <a href="https://doi.org/10.1126/scirobotics.aay7120">https://doi.org/10.1126/scirobotics.aay7120</a>
+</div>
+<div id="ref-hastie2009" class="csl-entry" role="listitem">
+Hastie, T., Tibshirani, R., &amp; Friedman, J. (2009). <em>The elements of statistical learning: Data mining, inference, and prediction</em> (2. kiad.). Springer. <a href="https://doi.org/10.1007/978-0-387-84858-7">https://doi.org/10.1007/978-0-387-84858-7</a>
+</div>
+<div id="ref-howard2018" class="csl-entry" role="listitem">
+Howard, J., &amp; Ruder, S. (2018). Universal language model fine-tuning for text classification. <em>Proceedings of the 56th Annual Meeting of the Association for Computational Linguistics</em>, 328–339. <a href="https://doi.org/10.18653/v1/P18-1031">https://doi.org/10.18653/v1/P18-1031</a>
+</div>
+<div id="ref-insel2017" class="csl-entry" role="listitem">
+Insel, T. R. (2017). Digital phenotyping: Technology for a new science of behavior. <em>JAMA</em>, <em>318</em>(13), 1215–1216. <a href="https://doi.org/10.1001/jama.2017.11295">https://doi.org/10.1001/jama.2017.11295</a>
+</div>
+<div id="ref-jacobucci2020" class="csl-entry" role="listitem">
+Jacobucci, R., &amp; Grimm, K. J. (2020). Machine learning and psychological research: The unexplored effect of measurement. <em>Perspectives on Psychological Science</em>, <em>15</em>(3), 809–816. <a href="https://doi.org/10.1177/1745691620902467">https://doi.org/10.1177/1745691620902467</a>
+</div>
+<div id="ref-jain2010" class="csl-entry" role="listitem">
+Jain, A. K. (2010). Data clustering: 50 years beyond <span>K</span>-means. <em>Pattern Recognition Letters</em>, <em>31</em>(8), 651–666. <a href="https://doi.org/10.1016/j.patrec.2009.09.011">https://doi.org/10.1016/j.patrec.2009.09.011</a>
+</div>
+<div id="ref-jordan2015" class="csl-entry" role="listitem">
+Jordan, M. I., &amp; Mitchell, T. M. (2015). Machine learning: Trends, perspectives, and prospects. <em>Science</em>, <em>349</em>(6245), 255–260. <a href="https://doi.org/10.1126/science.aaa8415">https://doi.org/10.1126/science.aaa8415</a>
+</div>
+<div id="ref-jurafsky2023" class="csl-entry" role="listitem">
+Jurafsky, D., &amp; Martin, J. H. (2023). <em>Speech and language processing</em> (3. kiad.). <a href="https://web.stanford.edu/~jurafsky/slp3/">https://web.stanford.edu/~jurafsky/slp3/</a>
+</div>
+<div id="ref-kaplan2020" class="csl-entry" role="listitem">
+Kaplan, J., McCandlish, S., Henighan, T., Brown, T. B., Chess, B., Child, R., Gray, S., Radford, A., Wu, J., &amp; Amodei, D. (2020). <em>Scaling laws for neural language models</em>. <a href="https://arxiv.org/abs/2001.08361">https://arxiv.org/abs/2001.08361</a>
+</div>
+<div id="ref-kleinberg2017" class="csl-entry" role="listitem">
+Kleinberg, J., Mullainathan, S., &amp; Raghavan, M. (2017). Inherent trade-offs in the fair determination of risk scores. <em>8th Innovations in Theoretical Computer Science Conference (ITCS 2017), Leibniz International Proceedings in Informatics (LIPIcs)</em>, <em>67</em>, 43:1–43:23. <a href="https://doi.org/10.4230/LIPIcs.ITCS.2017.43">https://doi.org/10.4230/LIPIcs.ITCS.2017.43</a>
+</div>
+<div id="ref-kroll2017" class="csl-entry" role="listitem">
+Kroll, J. A., Huey, J., Barocas, S., Felten, E. W., Reidenberg, J. R., Robinson, D. G., &amp; Yu, H. (2017). Accountable algorithms. <em>University of Pennsylvania Law Review</em>, <em>165</em>(3), 633–705.
+</div>
+<div id="ref-lecun2015" class="csl-entry" role="listitem">
+LeCun, Y., Bengio, Y., &amp; Hinton, G. (2015). Deep learning. <em>Nature</em>, <em>521</em>(7553), 436–444. <a href="https://doi.org/10.1038/nature14539">https://doi.org/10.1038/nature14539</a>
+</div>
+<div id="ref-lee2004" class="csl-entry" role="listitem">
+Lee, J. D., &amp; See, K. A. (2004). Trust in automation: Designing for appropriate reliance. <em>Human Factors</em>, <em>46</em>(1), 50–80. <a href="https://doi.org/10.1518/hfes.46.1.50_30392">https://doi.org/10.1518/hfes.46.1.50_30392</a>
+</div>
+<div id="ref-lewis2020" class="csl-entry" role="listitem">
+<span class="nocase">Lewis, P., Perez, E., Piktus, A., Petroni, F., Karpukhin, V., Goyal, N., és mtsai.</span> (2020). Retrieval-augmented generation for knowledge-intensive <span>NLP</span> tasks. <em>Advances in Neural Information Processing Systems</em>, <em>33</em>, 9459–9474.
+</div>
+<div id="ref-liu2025longcontext" class="csl-entry" role="listitem">
+<span class="nocase">Liu, J., Zhu, D., Bai, Z., és mtsai.</span> (2025). <em>A comprehensive survey on long context language modeling</em>. <a href="https://arxiv.org/abs/2503.17407">https://arxiv.org/abs/2503.17407</a>
+</div>
+<div id="ref-liu2023prompt" class="csl-entry" role="listitem">
+Liu, P., Yuan, W., Fu, J., Jiang, Z., Hayashi, H., &amp; Neubig, G. (2023). Pre-train, prompt, and predict: A systematic survey of prompting methods in natural language processing. <em>ACM Computing Surveys</em>, <em>55</em>(9), 1–35. <a href="https://doi.org/10.1145/3560815">https://doi.org/10.1145/3560815</a>
+</div>
+<div id="ref-long2020" class="csl-entry" role="listitem">
+Long, D., &amp; Magerko, B. (2020). What is <span>AI</span> literacy? <span>Competencies</span> and design considerations. <em>Proceedings of the 2020 CHI Conference on Human Factors in Computing Systems</em>, 1–16. <a href="https://doi.org/10.1145/3313831.3376727">https://doi.org/10.1145/3313831.3376727</a>
+</div>
+<div id="ref-maidment2026" class="csl-entry" role="listitem">
+<span class="nocase">Maidment, K., Christensen, H., Lattimore, J., és mtsai.</span> (2026). Developing policy and regulation for the safer use of artificial intelligence technologies for mental health in <span>Australia</span>. <em>Australian &amp; New Zealand Journal of Psychiatry</em>. <a href="https://openurl.ebsco.com/contentitem/lgd:194777521?sid=ebsco:plink:pplx&amp;id=ebsco:lgd:194777521">https://openurl.ebsco.com/contentitem/lgd:194777521?sid=ebsco:plink:pplx&amp;id=ebsco:lgd:194777521</a>
+</div>
+<div id="ref-maslej2025" class="csl-entry" role="listitem">
+<span class="nocase">Maslej, N. és mtsai.</span> (2025). <em>The <span>AI</span> index 2025 annual report</em>. Stanford Institute for Human-Centered Artificial Intelligence. <a href="https://hai.stanford.edu/ai-index/2025-ai-index-report">https://hai.stanford.edu/ai-index/2025-ai-index-report</a>
+</div>
+<div id="ref-mccarthy2006" class="csl-entry" role="listitem">
+McCarthy, J., Minsky, M. L., Rochester, N., &amp; Shannon, C. E. (2006). A proposal for the <span>Dartmouth</span> summer research project on artificial intelligence, <span>August</span> 31, 1955. <em>AI Magazine</em>, <em>27</em>(4), 12–14. <a href="https://doi.org/10.1609/aimag.v27i4.1904">https://doi.org/10.1609/aimag.v27i4.1904</a> (Original work published 1955)
+</div>
+<div id="ref-mehrabi2021" class="csl-entry" role="listitem">
+Mehrabi, N., Morstatter, F., Saxena, N., Lerman, K., &amp; Galstyan, A. (2021). A survey on bias and fairness in machine learning. <em>ACM Computing Surveys</em>, <em>54</em>(6), 1–35. <a href="https://doi.org/10.1145/3457607">https://doi.org/10.1145/3457607</a>
+</div>
+<div id="ref-unesco2023" class="csl-entry" role="listitem">
+Miao, F., &amp; Holmes, W. (2023). <em>Guidance for generative <span>AI</span> in education and research</em>. UNESCO. <a href="https://www.unesco.org/en/articles/guidance-generative-ai-education-and-research">https://www.unesco.org/en/articles/guidance-generative-ai-education-and-research</a>
+</div>
+<div id="ref-mikolov2013" class="csl-entry" role="listitem">
+Mikolov, T., Chen, K., Corrado, G., &amp; Dean, J. (2013). <em>Efficient estimation of word representations in vector space</em>. <a href="https://arxiv.org/abs/1301.3781">https://arxiv.org/abs/1301.3781</a>
+</div>
+<div id="ref-mitchell2019modelcards" class="csl-entry" role="listitem">
+Mitchell, M., Wu, S., Zaldivar, A., Barnes, P., Vasserman, L., Hutchinson, B., Spitzer, E., Raji, I. D., &amp; Gebru, T. (2019). Model cards for model reporting. <em>Proceedings of the Conference on Fairness, Accountability, and Transparency</em>, 220–229. <a href="https://doi.org/10.1145/3287560.3287596">https://doi.org/10.1145/3287560.3287596</a>
+</div>
+<div id="ref-mitchell1997" class="csl-entry" role="listitem">
+Mitchell, T. M. (1997). <em>Machine learning</em>. McGraw-Hill.
+</div>
+<div id="ref-molnar2022" class="csl-entry" role="listitem">
+Molnar, C. (2022). <em>Interpretable machine learning: A guide for making black box models explainable</em> (2. kiad.). <a href="https://christophm.github.io/interpretable-ml-book/">https://christophm.github.io/interpretable-ml-book/</a>
+</div>
+<div id="ref-nass2000" class="csl-entry" role="listitem">
+Nass, C., &amp; Moon, Y. (2000). Machines and mindlessness: Social responses to computers. <em>Journal of Social Issues</em>, <em>56</em>(1), 81–103. <a href="https://doi.org/10.1111/0022-4537.00153">https://doi.org/10.1111/0022-4537.00153</a>
+</div>
+<div id="ref-nist2024" class="csl-entry" role="listitem">
+National Institute of Standards and Technology. (2024). <em>Artificial intelligence risk management framework: Generative artificial intelligence profile</em> (NIST AI Nos. 600-1). U.S. Department of Commerce. <a href="https://doi.org/10.6028/NIST.AI.600-1">https://doi.org/10.6028/NIST.AI.600-1</a>
+</div>
+<div id="ref-norman2013" class="csl-entry" role="listitem">
+Norman, D. A. (2013). <em>The design of everyday things</em> (Revised and expanded). Basic Books.
+</div>
+<div id="ref-oliver2024" class="csl-entry" role="listitem">
+Oliver, A., &amp; Guiller, J. (2024). Generative <span>AI</span> in sport and exercise psychology: Exploring opportunities and overcoming challenges. <em>Sport &amp; Exercise Psychology Review</em>. <a href="https://openurl.ebsco.com/contentitem/lgd:182290355?sid=ebsco:plink:pplx&amp;id=ebsco:lgd:182290355">https://openurl.ebsco.com/contentitem/lgd:182290355?sid=ebsco:plink:pplx&amp;id=ebsco:lgd:182290355</a>
+</div>
+<div id="ref-onnela2016" class="csl-entry" role="listitem">
+Onnela, J.-P., &amp; Rauch, S. L. (2016). Harnessing smartphone-based digital phenotyping to enhance behavioral and mental health. <em>Neuropsychopharmacology</em>, <em>41</em>(7), 1691–1696. <a href="https://doi.org/10.1038/npp.2016.7">https://doi.org/10.1038/npp.2016.7</a>
+</div>
+<div id="ref-ouyang2022" class="csl-entry" role="listitem">
+<span class="nocase">Ouyang, L., Wu, J., Jiang, X., Almeida, D., Wainwright, C. L., Mishkin, P., és mtsai.</span> (2022). Training language models to follow instructions with human feedback. <em>Advances in Neural Information Processing Systems</em>, <em>35</em>, 27730–27744.
+</div>
+<div id="ref-parasuraman2000" class="csl-entry" role="listitem">
+Parasuraman, R., Sheridan, T. B., &amp; Wickens, C. D. (2000). A model for types and levels of human interaction with automation. <em>IEEE Transactions on Systems, Man, and Cybernetics – Part A: Systems and Humans</em>, <em>30</em>(3), 286–297. <a href="https://doi.org/10.1109/3468.844354">https://doi.org/10.1109/3468.844354</a>
+</div>
+<div id="ref-park2026" class="csl-entry" role="listitem">
+Park, J., &amp; Shin, M. (2026). An introduction to the special series on artificial intelligence for students with learning disabilities. <em>Learning Disability Quarterly</em>. <a href="https://openurl.ebsco.com/contentitem/lgd:195361864?sid=ebsco:plink:pplx&amp;id=ebsco:lgd:195361864">https://openurl.ebsco.com/contentitem/lgd:195361864?sid=ebsco:plink:pplx&amp;id=ebsco:lgd:195361864</a>
+</div>
+<div id="ref-pearl2018" class="csl-entry" role="listitem">
+Pearl, J., &amp; Mackenzie, D. (2018). <em>The book of why: The new science of cause and effect</em>. Basic Books.
+</div>
+<div id="ref-peng2011" class="csl-entry" role="listitem">
+Peng, R. D. (2011). Reproducible research in computational science. <em>Science</em>, <em>334</em>(6060), 1226–1227. <a href="https://doi.org/10.1126/science.1213847">https://doi.org/10.1126/science.1213847</a>
+</div>
+<div id="ref-picard1997" class="csl-entry" role="listitem">
+Picard, R. W. (1997). <em>Affective computing</em>. MIT Press.
+</div>
+<div id="ref-polomoshnov2026" class="csl-entry" role="listitem">
+Polomoshnov, J., Masso, A., &amp; Lobanova, K. (2026). Comparing digital, data, and <span>AI</span> literacy: A narrative review. <em>Information Polity</em>. <a href="https://doi.org/10.1177/15701255251401863">https://doi.org/10.1177/15701255251401863</a>
+</div>
+<div id="ref-putnick2016" class="csl-entry" role="listitem">
+Putnick, D. L., &amp; Bornstein, M. H. (2016). Measurement invariance conventions and reporting: The state of the art and future directions for psychological research. <em>Developmental Review</em>, <em>41</em>, 71–90. <a href="https://doi.org/10.1016/j.dr.2016.06.004">https://doi.org/10.1016/j.dr.2016.06.004</a>
+</div>
+<div id="ref-raji2021" class="csl-entry" role="listitem">
+Raji, I. D., Bender, E. M., Paullada, A., Denton, E., &amp; Hanna, A. (2021). <span>AI</span> and the everything in the whole wide world benchmark. <em>Proceedings of the Neural Information Processing Systems Track on Datasets and Benchmarks</em>. <a href="https://datasets-benchmarks-proceedings.neurips.cc/paper/2021/hash/084b6fbb10729ed4da8c3d3f5a3ae7c9-Abstract-round2.html">https://datasets-benchmarks-proceedings.neurips.cc/paper/2021/hash/084b6fbb10729ed4da8c3d3f5a3ae7c9-Abstract-round2.html</a>
+</div>
+<div id="ref-gdpr2016" class="csl-entry" role="listitem">
+Regulation (<span>EU</span>) 2016/679 of the <span>European Parliament</span> and of the <span>Council</span> of 27 <span>April</span> 2016 on the protection of natural persons with regard to the processing of personal data and on the free movement of such data (<span>General Data Protection Regulation</span>) (2016). <a href="https://eur-lex.europa.eu/eli/reg/2016/679/oj">https://eur-lex.europa.eu/eli/reg/2016/679/oj</a>
+</div>
+<div id="ref-euaiact2024" class="csl-entry" role="listitem">
+Regulation (<span>EU</span>) 2024/1689 of the <span>European Parliament</span> and of the <span>Council</span> of 13 <span>June</span> 2024 laying down harmonised rules on artificial intelligence (<span>Artificial Intelligence Act</span>) (2024). <a href="https://eur-lex.europa.eu/eli/reg/2024/1689/oj">https://eur-lex.europa.eu/eli/reg/2024/1689/oj</a>
+</div>
+<div id="ref-ribeiro2016" class="csl-entry" role="listitem">
+Ribeiro, M. T., Singh, S., &amp; Guestrin, C. (2016). <span>„<span>Why</span> should <span>I</span> trust you?”</span>: Explaining the predictions of any classifier. <em>Proceedings of the 22nd ACM SIGKDD International Conference on Knowledge Discovery and Data Mining</em>, 1135–1144. <a href="https://doi.org/10.1145/2939672.2939778">https://doi.org/10.1145/2939672.2939778</a>
+</div>
+<div id="ref-ricci2022" class="csl-entry" role="listitem">
+Ricci, F., Rokach, L., &amp; Shapira, B. (Szerk.). (2022). <em>Recommender systems handbook</em> (3. kiad.). Springer. <a href="https://doi.org/10.1007/978-1-0716-2197-4">https://doi.org/10.1007/978-1-0716-2197-4</a>
+</div>
+<div id="ref-risko2016" class="csl-entry" role="listitem">
+Risko, E. F., &amp; Gilbert, S. J. (2016). Cognitive offloading. <em>Trends in Cognitive Sciences</em>, <em>20</em>(9), 676–688. <a href="https://doi.org/10.1016/j.tics.2016.07.002">https://doi.org/10.1016/j.tics.2016.07.002</a>
+</div>
+<div id="ref-russell2021" class="csl-entry" role="listitem">
+Russell, S., &amp; Norvig, P. (2021). <em>Artificial intelligence: A modern approach</em> (4. kiad.). Pearson.
+</div>
+<div id="ref-selbst2019" class="csl-entry" role="listitem">
+<span class="nocase">Selbst, A. D., boyd, danah, Friedler, S. A., Venkatasubramanian, S., &amp; Vertesi, J.</span> (2019). Fairness and abstraction in sociotechnical systems. <em>Proceedings of the Conference on Fairness, Accountability, and Transparency</em>, 59–68. <a href="https://doi.org/10.1145/3287560.3287598">https://doi.org/10.1145/3287560.3287598</a>
+</div>
+<div id="ref-sennrich2016" class="csl-entry" role="listitem">
+Sennrich, R., Haddow, B., &amp; Birch, A. (2016). Neural machine translation of rare words with subword units. <em>Proceedings of the 54th Annual Meeting of the Association for Computational Linguistics</em>, 1715–1725. <a href="https://doi.org/10.18653/v1/P16-1162">https://doi.org/10.18653/v1/P16-1162</a>
+</div>
+<div id="ref-shmueli2010" class="csl-entry" role="listitem">
+Shmueli, G. (2010). To explain or to predict? <em>Statistical Science</em>, <em>25</em>(3), 289–310. <a href="https://doi.org/10.1214/10-STS330">https://doi.org/10.1214/10-STS330</a>
+</div>
+<div id="ref-skitka1999" class="csl-entry" role="listitem">
+Skitka, L. J., Mosier, K. L., &amp; Burdick, M. (1999). Does automation bias decision-making? <em>International Journal of Human-Computer Studies</em>, <em>51</em>(5), 991–1006. <a href="https://doi.org/10.1006/ijhc.1999.0252">https://doi.org/10.1006/ijhc.1999.0252</a>
+</div>
+<div id="ref-sokolova2009" class="csl-entry" role="listitem">
+Sokolova, M., &amp; Lapalme, G. (2009). A systematic analysis of performance measures for classification tasks. <em>Information Processing &amp; Management</em>, <em>45</em>(4), 427–437. <a href="https://doi.org/10.1016/j.ipm.2009.03.002">https://doi.org/10.1016/j.ipm.2009.03.002</a>
+</div>
+<div id="ref-steyerberg2016" class="csl-entry" role="listitem">
+Steyerberg, E. W., &amp; Harrell, F. E. (2016). Prediction models need appropriate internal, internal-external, and external validation. <em>Journal of Clinical Epidemiology</em>, <em>69</em>, 245–247. <a href="https://doi.org/10.1016/j.jclinepi.2015.04.005">https://doi.org/10.1016/j.jclinepi.2015.04.005</a>
+</div>
+<div id="ref-sutton2018" class="csl-entry" role="listitem">
+Sutton, R. S., &amp; Barto, A. G. (2018). <em>Reinforcement learning: An introduction</em> (2. kiad.). MIT Press.
+</div>
+<div id="ref-turing1950" class="csl-entry" role="listitem">
+Turing, A. M. (1950). Computing machinery and intelligence. <em>Mind</em>, <em>59</em>(236), 433–460. <a href="https://doi.org/10.1093/mind/LIX.236.433">https://doi.org/10.1093/mind/LIX.236.433</a>
+</div>
+<div id="ref-vancalster2019" class="csl-entry" role="listitem">
+<span class="nocase">Van Calster, B., McLernon, D. J., van Smeden, M., Wynants, L., &amp; Steyerberg, E. W.</span> (2019). Calibration: The <span>Achilles</span> heel of predictive analytics. <em>BMC Medicine</em>, <em>17</em>, 230. <a href="https://doi.org/10.1186/s12916-019-1466-7">https://doi.org/10.1186/s12916-019-1466-7</a>
+</div>
+<div id="ref-varma2006" class="csl-entry" role="listitem">
+Varma, S., &amp; Simon, R. (2006). Bias in error estimation when using cross-validation for model selection. <em>BMC Bioinformatics</em>, <em>7</em>, 91. <a href="https://doi.org/10.1186/1471-2105-7-91">https://doi.org/10.1186/1471-2105-7-91</a>
+</div>
+<div id="ref-vaswani2017" class="csl-entry" role="listitem">
+Vaswani, A., Shazeer, N., Parmar, N., Uszkoreit, J., Jones, L., Gomez, A. N., Kaiser, Ł., &amp; Polosukhin, I. (2017). Attention is all you need. <em>Advances in Neural Information Processing Systems</em>, <em>30</em>.
+</div>
+<div id="ref-vickers2006" class="csl-entry" role="listitem">
+Vickers, A. J., &amp; Elkin, E. B. (2006). Decision curve analysis: A novel method for evaluating prediction models. <em>Medical Decision Making</em>, <em>26</em>(6), 565–574. <a href="https://doi.org/10.1177/0272989X06295361">https://doi.org/10.1177/0272989X06295361</a>
+</div>
+<div id="ref-vuorikari2022" class="csl-entry" role="listitem">
+Vuorikari, R., Kluzer, S., &amp; Punie, Y. (2022). <em><span>DigComp</span> 2.2: The digital competence framework for citizens</em>. Publications Office of the European Union. <a href="https://doi.org/10.2760/115376">https://doi.org/10.2760/115376</a>
+</div>
+<div id="ref-wang2024agents" class="csl-entry" role="listitem">
+<span class="nocase">Wang, L., Ma, C., Feng, X., Zhang, Z., Yang, H., Zhang, J., és mtsai.</span> (2024). A survey on large language model based autonomous agents. <em>Frontiers of Computer Science</em>, <em>18</em>(6), 186345. <a href="https://doi.org/10.1007/s11704-024-40231-1">https://doi.org/10.1007/s11704-024-40231-1</a>
+</div>
+<div id="ref-weizenbaum1966" class="csl-entry" role="listitem">
+Weizenbaum, J. (1966). <span>ELIZA</span>—A computer program for the study of natural language communication between man and machine. <em>Communications of the ACM</em>, <em>9</em>(1), 36–45. <a href="https://doi.org/10.1145/365153.365168">https://doi.org/10.1145/365153.365168</a>
+</div>
+<div id="ref-westerlund2019" class="csl-entry" role="listitem">
+Westerlund, M. (2019). The emergence of deepfake technology: A review. <em>Technology Innovation Management Review</em>, <em>9</em>(11), 39–52. <a href="https://doi.org/10.22215/timreview/1282">https://doi.org/10.22215/timreview/1282</a>
+</div>
+<div id="ref-white2023" class="csl-entry" role="listitem">
+White, J., Fu, Q., Hays, S., Sandborn, M., Olea, C., Gilbert, H., Elnashar, A., Spencer-Smith, J., &amp; Schmidt, D. C. (2023). <em>A prompt pattern catalog to enhance prompt engineering with <span>ChatGPT</span></em>. <a href="https://arxiv.org/abs/2302.11382">https://arxiv.org/abs/2302.11382</a>
+</div>
+<div id="ref-yarkoni2022" class="csl-entry" role="listitem">
+Yarkoni, T. (2022). The generalizability crisis. <em>Behavioral and Brain Sciences</em>, <em>45</em>, e1. <a href="https://doi.org/10.1017/S0140525X20001685">https://doi.org/10.1017/S0140525X20001685</a>
+</div>
+<div id="ref-yu2026" class="csl-entry" role="listitem">
+<span class="nocase">Yu, M., Jiang, D., Xu, Q., és mtsai.</span> (2026). Artificial intelligence literacy and utilization barriers in nursing learning. <em>Journal of Nursing Education</em>. <a href="https://openurl.ebsco.com/contentitem/lgd:196890694?sid=ebsco:plink:pplx&amp;id=ebsco:lgd:196890694">https://openurl.ebsco.com/contentitem/lgd:196890694?sid=ebsco:plink:pplx&amp;id=ebsco:lgd:196890694</a>
+</div>
+<div id="ref-zhang2026" class="csl-entry" role="listitem">
+Zhang, L., Deng, X., &amp; Shadiev, R. (2026). A meta-review of generative <span>AI</span> in education: Synthesizing findings from systematic reviews. <em>Journal of Educational Computing Research</em>. <a href="https://openurl.ebsco.com/contentitem/lgd:192767645?sid=ebsco:plink:pplx&amp;id=ebsco:lgd:192767645">https://openurl.ebsco.com/contentitem/lgd:192767645?sid=ebsco:plink:pplx&amp;id=ebsco:lgd:192767645</a>
+</div>
+<div id="ref-zimmerman2002" class="csl-entry" role="listitem">
+Zimmerman, B. J. (2002). Becoming a self-regulated learner: An overview. <em>Theory Into Practice</em>, <em>41</em>(2), 64–70. <a href="https://doi.org/10.1207/s15430421tip4102_2">https://doi.org/10.1207/s15430421tip4102_2</a>
+</div>
+</div>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    // Ensure there is a toggle, if there isn't float one in the top right
+    if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
+      const a = window.document.createElement('a');
+      a.classList.add('top-right');
+      a.classList.add('quarto-color-scheme-toggle');
+      a.href = "";
+      a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
+      const i = window.document.createElement("i");
+      i.classList.add('bi');
+      a.appendChild(i);
+      window.document.body.appendChild(a);
+    }
+    setColorSchemeToggle(hasAlternateSentinel())
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./kurzusosszefoglalo_pai.html" class="pagination-link" aria-label="Kurzusösszefoglaló: bevezető fogalomtár">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Kurzusösszefoglaló: bevezető fogalomtár</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./kurzusosszefoglalo_pai_3.html" class="pagination-link" aria-label="MI–pszichológia BA fogalomtár">
+        <span class="nav-page-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">MI–pszichológia BA fogalomtár</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+
+<script src="site_libs/quarto-html/zenscroll-min.js"></script>
+</body></html>

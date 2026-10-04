@@ -1,0 +1,2109 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="hu" xml:lang="hu"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.10.18">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Hivatkozások – MI-tesztek</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./MI-kockazat-monitoring.html" rel="prev">
+<script src="site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-b85bc7c33db8c58e0ec93c3465666fed.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap-9d427fb9aa4e7f60cd390d7ae3c7ba90.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-dark-494993c62a01dd0104ea6b4a58da199b.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="site_libs/bootstrap/bootstrap-9d427fb9aa4e7f60cd390d7ae3c7ba90.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "Nincs találat",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<style>html{ scroll-behavior: smooth; }</style>
+
+
+</head>
+
+<body class="nav-sidebar floating quarto-light"><script id="quarto-html-before-body" type="application/javascript">
+    const toggleBodyColorMode = (bsSheetEl) => {
+      const mode = bsSheetEl.getAttribute("data-mode");
+      const bodyEl = window.document.querySelector("body");
+      if (mode === "dark") {
+        bodyEl.classList.add("quarto-dark");
+        bodyEl.classList.remove("quarto-light");
+      } else {
+        bodyEl.classList.add("quarto-light");
+        bodyEl.classList.remove("quarto-dark");
+      }
+    }
+    const toggleBodyColorPrimary = () => {
+      const bsSheetEl = window.document.querySelector("link#quarto-bootstrap:not([rel=disabled-stylesheet])");
+      if (bsSheetEl) {
+        toggleBodyColorMode(bsSheetEl);
+      }
+    }
+    const setColorSchemeToggle = (alternate) => {
+      const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
+      for (let i=0; i < toggles.length; i++) {
+        const toggle = toggles[i];
+        if (toggle) {
+          if (alternate) {
+            toggle.classList.add("alternate");
+          } else {
+            toggle.classList.remove("alternate");
+          }
+        }
+      }
+    };
+    const toggleColorMode = (alternate) => {
+      // Switch the stylesheets
+      const primaryStylesheets = window.document.querySelectorAll('link.quarto-color-scheme:not(.quarto-color-alternate)');
+      const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
+      manageTransitions('#quarto-margin-sidebar .nav-link', false);
+      if (alternate) {
+        // note: dark is layered on light, we don't disable primary!
+        enableStylesheet(alternateStylesheets);
+        for (const sheetNode of alternateStylesheets) {
+          if (sheetNode.id === "quarto-bootstrap") {
+            toggleBodyColorMode(sheetNode);
+          }
+        }
+      } else {
+        disableStylesheet(alternateStylesheets);
+        enableStylesheet(primaryStylesheets)
+        toggleBodyColorPrimary();
+      }
+      manageTransitions('#quarto-margin-sidebar .nav-link', true);
+      // Switch the toggles
+      setColorSchemeToggle(alternate)
+      // Hack to workaround the fact that safari doesn't
+      // properly recolor the scrollbar when toggling (#1455)
+      if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
+        manageTransitions("body", false);
+        window.scrollTo(0, 1);
+        setTimeout(() => {
+          window.scrollTo(0, 0);
+          manageTransitions("body", true);
+        }, 40);
+      }
+    }
+    const disableStylesheet = (stylesheets) => {
+      for (let i=0; i < stylesheets.length; i++) {
+        const stylesheet = stylesheets[i];
+        stylesheet.rel = 'disabled-stylesheet';
+      }
+    }
+    const enableStylesheet = (stylesheets) => {
+      for (let i=0; i < stylesheets.length; i++) {
+        const stylesheet = stylesheets[i];
+        if(stylesheet.rel !== 'stylesheet') { // for Chrome, which will still FOUC without this check
+          stylesheet.rel = 'stylesheet';
+        }
+      }
+    }
+    const manageTransitions = (selector, allowTransitions) => {
+      const els = window.document.querySelectorAll(selector);
+      for (let i=0; i < els.length; i++) {
+        const el = els[i];
+        if (allowTransitions) {
+          el.classList.remove('notransition');
+        } else {
+          el.classList.add('notransition');
+        }
+      }
+    }
+    const isFileUrl = () => {
+      return window.location.protocol === 'file:';
+    }
+    const hasAlternateSentinel = () => {
+      let styleSentinel = getColorSchemeSentinel();
+      if (styleSentinel !== null) {
+        return styleSentinel === "alternate";
+      } else {
+        return false;
+      }
+    }
+    const setStyleSentinel = (alternate) => {
+      const value = alternate ? "alternate" : "default";
+      if (!isFileUrl()) {
+        window.localStorage.setItem("quarto-color-scheme", value);
+      } else {
+        localAlternateSentinel = value;
+      }
+    }
+    const getColorSchemeSentinel = () => {
+      if (!isFileUrl()) {
+        const storageValue = window.localStorage.getItem("quarto-color-scheme");
+        return storageValue != null ? storageValue : localAlternateSentinel;
+      } else {
+        return localAlternateSentinel;
+      }
+    }
+    const toggleGiscusIfUsed = (isAlternate, darkModeDefault) => {
+      const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
+      const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
+      let newTheme = '';
+      if(authorPrefersDark) {
+        newTheme = isAlternate ? baseTheme : alternateTheme;
+      } else {
+        newTheme = isAlternate ? alternateTheme : baseTheme;
+      }
+      const changeGiscusTheme = () => {
+        // From: https://github.com/giscus/giscus/issues/336
+        const sendMessage = (message) => {
+          const iframe = document.querySelector('iframe.giscus-frame');
+          if (!iframe) return;
+          iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
+        }
+        sendMessage({
+          setConfig: {
+            theme: newTheme
+          }
+        });
+      }
+      const isGiscussLoaded = window.document.querySelector('iframe.giscus-frame') !== null;
+      if (isGiscussLoaded) {
+        changeGiscusTheme();
+      }
+    };
+    const authorPrefersDark = false;
+    const darkModeDefault = authorPrefersDark;
+      document.querySelector('link#quarto-text-highlighting-styles.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
+      document.querySelector('link#quarto-bootstrap.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
+    let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
+    // Dark / light mode switch
+    window.quartoToggleColorScheme = () => {
+      // Read the current dark / light value
+      let toAlternate = !hasAlternateSentinel();
+      toggleColorMode(toAlternate);
+      setStyleSentinel(toAlternate);
+      toggleGiscusIfUsed(toAlternate, darkModeDefault);
+      window.dispatchEvent(new Event('resize'));
+    };
+    // Switch to dark mode if need be
+    if (hasAlternateSentinel()) {
+      toggleColorMode(true);
+    } else {
+      toggleColorMode(false);
+    }
+  </script>
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./references.html">Hivatkozások</a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">MI-tesztek</a> 
+        <div class="sidebar-tools-main">
+  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
+</div>
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Előszó</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
+ <span class="menu-text">Témakörök és fogalmak</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./temakorok.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Témakörök a kurzus weboldala alapján</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./temakorok_irodalom.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Témakörök a szakirodalom alapján</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./temakorok_irodalom_kifejtve.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Fogalmak kifejtve</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./kurzusosszefoglalo_pai.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Kurzusösszefoglaló: bevezető fogalomtár</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./kurzusosszefoglalo_pai_2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Kibővített fogalomtár</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./kurzusosszefoglalo_pai_3.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">MI–pszichológia BA fogalomtár</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./kurzusosszefoglalo_pai_4.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">MI–pszichológia BA fogalomtár (bővített)</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
+ <span class="menu-text">Kitekintés</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./MI-ellenesseg.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Az „MI-ellenesség” típusai és történeti dokumentumai</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./MI-kockazat-monitoring.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">MI-kockázatok, figyelmeztetések és cselekvési felhívások folyamatos monitorozása</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./references.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Hivatkozások</span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
+        
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Hivatkozások</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" data-line-spacing="2" role="list">
+<div id="ref-cs2023" class="csl-entry" role="listitem">
+ACM/IEEE-CS/AAAI Joint Task Force on Computing Curricula. (2024).
+<em>Computer science curricula 2023</em>. Association for Computing
+Machinery. <a href="https://doi.org/10.1145/3664191">https://doi.org/10.1145/3664191</a>
+</div>
+<div id="ref-ai4k12" class="csl-entry" role="listitem">
+AI4K12 Initiative. (é. n.). <em>Five big ideas in artificial
+intelligence</em>. Elérés <a href="https://ai4k12.org/wp-content/uploads/AI4K12_Five_Big_Ideas_Poster_v2.pdf">https://ai4k12.org/wp-content/uploads/AI4K12_Five_Big_Ideas_Poster_v2.pdf</a>
+</div>
+<div id="ref-altman1994" class="csl-entry" role="listitem">
+Altman, D. G., &amp; Bland, J. M. (1994). Diagnostic tests 1:
+Sensitivity and specificity. <em>BMJ</em>, <em>308</em>(6943), 1552. <a href="https://doi.org/10.1136/bmj.308.6943.1552">https://doi.org/10.1136/bmj.308.6943.1552</a>
+</div>
+<div id="ref-aws2026" class="csl-entry" role="listitem">
+Amazon Web Services. (2026). <em><span>AWS</span> Certified
+<span>AI</span> Practitioner (<span>AIF-C01</span>) exam guide</em>. <a href="https://docs.aws.amazon.com/aws-certification/latest/ai-practitioner-01/ai-practitioner-01.html">https://docs.aws.amazon.com/aws-certification/latest/ai-practitioner-01/ai-practitioner-01.html</a>
+</div>
+<div id="ref-aera2014" class="csl-entry" role="listitem">
+American Educational Research Association, American Psychological
+Association, &amp; National Council on Measurement in Education. (2014).
+<em>Standards for educational and psychological testing</em>. American
+Educational Research Association.
+</div>
+<div id="ref-apa2020" class="csl-entry" role="listitem">
+American Psychological Association. (2020). <em>Publication manual of
+the <span>American Psychological Association</span></em> (7. kiad.).
+American Psychological Association. <a href="https://doi.org/10.1037/0000165-000">https://doi.org/10.1037/0000165-000</a>
+</div>
+<div id="ref-apa2023policy" class="csl-entry" role="listitem">
+American Psychological Association. (2023). <em><span>APA</span>
+journals policy on generative <span>AI</span>: Additional guidance</em>.
+<a href="https://www.apa.org/pubs/journals/resources/publishing-tips/policy-generative-ai">https://www.apa.org/pubs/journals/resources/publishing-tips/policy-generative-ai</a>
+</div>
+<div id="ref-apa2025ethical" class="csl-entry" role="listitem">
+American Psychological Association. (2025a). <em>Ethical guidance for
+<span>AI</span> in the professional practice of health service
+psychology</em>. <a href="https://www.apa.org/topics/artificial-intelligence-machine-learning/ethical-guidance-ai-professional-practice">https://www.apa.org/topics/artificial-intelligence-machine-learning/ethical-guidance-ai-professional-practice</a>
+</div>
+<div id="ref-apa2025advisory" class="csl-entry" role="listitem">
+American Psychological Association. (2025b). <em>Health advisory: Use of
+generative <span>AI</span> chatbots and wellness applications for mental
+health</em>. <a href="https://www.apa.org/topics/artificial-intelligence-machine-learning/health-advisory-ai-chatbots-wellness-apps-mental-health.pdf">https://www.apa.org/topics/artificial-intelligence-machine-learning/health-advisory-ai-chatbots-wellness-apps-mental-health.pdf</a>
+</div>
+<div id="ref-apaservices" class="csl-entry" role="listitem">
+American Psychological Association Services. (é. n.). <em>Artificial
+intelligence factsheet</em>. Elérés <a href="https://www.apaservices.org/advocacy/artificial-intelligence-factsheet.pdf">https://www.apaservices.org/advocacy/artificial-intelligence-factsheet.pdf</a>
+</div>
+<div id="ref-amershi2019" class="csl-entry" role="listitem">
+Amershi, S., Weld, D., Vorvoreanu, M., Fourney, A., Nushi, B.,
+Collisson, P., Suh, J., Iqbal, S., Bennett, P. N., Inkpen, K., Teevan,
+J., Kikin-Gil, R., &amp; Horvitz, E. (2019). Guidelines for
+human-<span>AI</span> interaction. <em>Proceedings of the 2019 CHI
+Conference on Human Factors in Computing Systems</em>, 1–13. <a href="https://doi.org/10.1145/3290605.3300233">https://doi.org/10.1145/3290605.3300233</a>
+</div>
+<div id="ref-aminee2026" class="csl-entry" role="listitem">
+Aminee, A. M., &amp; Taylor, J. (2026). <span>GenAI</span> uses and
+challenges in society—<span>A</span> macro-level analysis.
+<em>International Journal of Technology, Knowledge &amp; Society: Annual
+Review</em>. <a href="https://openurl.ebsco.com/contentitem/lgd:195004193?sid=ebsco:plink:pplx&amp;id=ebsco:lgd:195004193">https://openurl.ebsco.com/contentitem/lgd:195004193?sid=ebsco:plink:pplx&amp;id=ebsco:lgd:195004193</a>
+</div>
+<div id="ref-amnesty2025" class="csl-entry" role="listitem">
+Amnesty International. (2025). <em>Stop killer robots</em>. <a href="https://www.amnesty.org/en/petition/stop-killer-robots/">https://www.amnesty.org/en/petition/stop-killer-robots/</a>
+</div>
+<div id="ref-toronto2018" class="csl-entry" role="listitem">
+Amnesty International, &amp; Access Now. (2018, május 16). <em>The
+<span>Toronto</span> declaration: Protecting the rights to equality and
+non-discrimination in machine learning systems</em>. <a href="https://www.accessnow.org/the-toronto-declaration-protecting-the-rights-to-equality-and-non-discrimination-in-machine-learning-systems/">https://www.accessnow.org/the-toronto-declaration-protecting-the-rights-to-equality-and-non-discrimination-in-machine-learning-systems/</a>
+</div>
+<div id="ref-amodei2016" class="csl-entry" role="listitem">
+Amodei, D., Olah, C., Steinhardt, J., Christiano, P., Schulman, J.,
+&amp; Mané, D. (2016). <em>Concrete problems in <span>AI</span>
+safety</em>. <a href="https://arxiv.org/abs/1606.06565">https://arxiv.org/abs/1606.06565</a>
+</div>
+<div id="ref-angwin2016" class="csl-entry" role="listitem">
+Angwin, J., Larson, J., Mattu, S., &amp; Kirchner, L. (2016, május 23).
+<em>Machine bias</em>. ProPublica. <a href="https://www.propublica.org/article/machine-bias-risk-assessments-in-criminal-sentencing">https://www.propublica.org/article/machine-bias-risk-assessments-in-criminal-sentencing</a>
+</div>
+<div id="ref-arntz2016" class="csl-entry" role="listitem">
+Arntz, M., Gregory, T., &amp; Zierahn, U. (2016). <em>The risk of
+automation for jobs in <span>OECD</span> countries: A comparative
+analysis</em> (OECD Social, Employment and Migration Working Papers No.
+189). OECD Publishing. <a href="https://doi.org/10.1787/5jlz9h56dvq7-en">https://doi.org/10.1787/5jlz9h56dvq7-en</a>
+</div>
+<div id="ref-article29wp2014" class="csl-entry" role="listitem">
+Article 29 Data Protection Working Party. (2014). <em>Opinion 05/2014 on
+anonymisation techniques (<span>WP216</span>)</em>.
+</div>
+<div id="ref-augenstein2024" class="csl-entry" role="listitem">
+<span class="nocase">Augenstein, I., Baldwin, T., Cha, M., Chakraborty,
+T., Ciampaglia, G. L., Corney, D., és mtsai.</span> (2024). Factuality
+challenges in the era of large language models and opportunities for
+fact-checking. <em>Nature Machine Intelligence</em>, <em>6</em>(8),
+852–863. <a href="https://doi.org/10.1038/s42256-024-00881-z">https://doi.org/10.1038/s42256-024-00881-z</a>
+</div>
+<div id="ref-authorsguild2023" class="csl-entry" role="listitem">
+Authors Guild. (2023, július 18). <em>Thousands of authors demand
+payment from <span>AI</span> companies for use of copyrighted
+works</em>. <a href="https://authorsguild.org/news/thousands-of-authors-demand-payment-from-ai-companies-for-use-of-copyrighted-works/">https://authorsguild.org/news/thousands-of-authors-demand-payment-from-ai-companies-for-use-of-copyrighted-works/</a>
+</div>
+<div id="ref-bahdanau2015" class="csl-entry" role="listitem">
+Bahdanau, D., Cho, K., &amp; Bengio, Y. (2015). Neural machine
+translation by jointly learning to align and translate. <em>3rd
+International Conference on Learning Representations (ICLR 2015)</em>.
+<a href="https://arxiv.org/abs/1409.0473">https://arxiv.org/abs/1409.0473</a>
+</div>
+<div id="ref-barocas2019" class="csl-entry" role="listitem">
+Barocas, S., Hardt, M., &amp; Narayanan, A. (2019). <em>Fairness and
+machine learning: Limitations and opportunities</em>. fairmlbook.org. <a href="https://fairmlbook.org/">https://fairmlbook.org/</a>
+</div>
+<div id="ref-barocas2016" class="csl-entry" role="listitem">
+Barocas, S., &amp; Selbst, A. D. (2016). Big data’s disparate impact.
+<em>California Law Review</em>, <em>104</em>(3), 671–732. <a href="https://doi.org/10.15779/Z38BG31">https://doi.org/10.15779/Z38BG31</a>
+</div>
+<div id="ref-barrett2019" class="csl-entry" role="listitem">
+Barrett, L. F., Adolphs, R., Marsella, S., Martinez, A. M., &amp;
+Pollak, S. D. (2019). Emotional expressions reconsidered: Challenges to
+inferring emotion from human facial movements. <em>Psychological Science
+in the Public Interest</em>, <em>20</em>(1), 1–68. <a href="https://doi.org/10.1177/1529100619832930">https://doi.org/10.1177/1529100619832930</a>
+</div>
+<div id="ref-bender2021" class="csl-entry" role="listitem">
+Bender, E. M., Gebru, T., McMillan-Major, A., &amp; Shmitchell, S.
+(2021). On the dangers of stochastic parrots: Can language models be too
+big? <em>Proceedings of the 2021 ACM Conference on Fairness,
+Accountability, and Transparency</em>, 610–623. <a href="https://doi.org/10.1145/3442188.3445922">https://doi.org/10.1145/3442188.3445922</a>
+</div>
+<div id="ref-bengio2023managing" class="csl-entry" role="listitem">
+<span class="nocase">Bengio, Y., Hinton, G., Yao, A., Song, D., Abbeel,
+P., Harari, Y. N., és mtsai.</span> (2023). <em>Managing <span>AI</span>
+risks in an era of rapid progress</em>. <a href="https://arxiv.org/abs/2310.17688">https://arxiv.org/abs/2310.17688</a>
+</div>
+<div id="ref-bergstra2012" class="csl-entry" role="listitem">
+Bergstra, J., &amp; Bengio, Y. (2012). Random search for hyper-parameter
+optimization. <em>Journal of Machine Learning Research</em>,
+<em>13</em>, 281–305.
+</div>
+<div id="ref-blakeslee2004" class="csl-entry" role="listitem">
+Blakeslee, S. (2004). The <span>CRAAP</span> test. <em>LOEX
+Quarterly</em>, <em>31</em>(3), 6–7.
+</div>
+<div id="ref-bommasani2021" class="csl-entry" role="listitem">
+<span class="nocase">Bommasani, R., Hudson, D. A., Adeli, E., Altman,
+R., Arora, S., és mtsai.</span> (2021). <em>On the opportunities and
+risks of foundation models</em>. <a href="https://arxiv.org/abs/2108.07258">https://arxiv.org/abs/2108.07258</a>
+</div>
+<div id="ref-bostrom2014" class="csl-entry" role="listitem">
+Bostrom, N. (2014). <em>Superintelligence: Paths, dangers,
+strategies</em>. Oxford University Press.
+</div>
+<div id="ref-brickman2025" class="csl-entry" role="listitem">
+Brickman, J., Gupta, M., &amp; Oltmanns, J. R. (2025). Large language
+models for psychological assessment: A comprehensive overview.
+<em>Advances in Methods and Practices in Psychological Science</em>,
+<em>8</em>(3). <a href="https://doi.org/10.1177/25152459251343582">https://doi.org/10.1177/25152459251343582</a>
+</div>
+<div id="ref-brown2020" class="csl-entry" role="listitem">
+<span class="nocase">Brown, T. B., Mann, B., Ryder, N., Subbiah, M.,
+Kaplan, J., Dhariwal, P., és mtsai.</span> (2020). Language models are
+few-shot learners. <em>Advances in Neural Information Processing
+Systems</em>, <em>33</em>, 1877–1901.
+</div>
+<div id="ref-wemustact2026" class="csl-entry" role="listitem">
+Brynjolfsson, E., Agrawal, A., Korinek, A., &amp; Cunningham, T. (2026,
+július 13). <em>We must act now: A statement on <span>AI’s</span>
+transformation of the economy</em>. <a href="https://www.wemustactnow.ai/">https://www.wemustactnow.ai/</a>
+</div>
+<div id="ref-buchanan1984" class="csl-entry" role="listitem">
+Buchanan, B. G., &amp; Shortliffe, E. H. (1984). <em>Rule-based expert
+systems: The <span>MYCIN</span> experiments of the Stanford Heuristic
+Programming Project</em>. Addison-Wesley.
+</div>
+<div id="ref-buolamwini2018" class="csl-entry" role="listitem">
+Buolamwini, J., &amp; Gebru, T. (2018). Gender shades: Intersectional
+accuracy disparities in commercial gender classification.
+<em>Proceedings of the 1st Conference on Fairness, Accountability and
+Transparency, Proceedings of Machine Learning Research</em>,
+<em>81</em>, 77–91. <a href="https://proceedings.mlr.press/v81/buolamwini18a.html">https://proceedings.mlr.press/v81/buolamwini18a.html</a>
+</div>
+<div id="ref-burton2020" class="csl-entry" role="listitem">
+Burton, J. W., Stein, M.-K., &amp; Jensen, T. B. (2020). A systematic
+review of algorithm aversion in augmented decision making. <em>Journal
+of Behavioral Decision Making</em>, <em>33</em>(2), 220–239. <a href="https://doi.org/10.1002/bdm.2155">https://doi.org/10.1002/bdm.2155</a>
+</div>
+<div id="ref-butler1863" class="csl-entry" role="listitem">
+Butler, S. (1863). Darwin among the machines. <em>The Press</em>. <a href="https://nzetc.victoria.ac.nz/tm/scholarly/tei-ButFir-t1-g1-t1-g1-t4-body.html">https://nzetc.victoria.ac.nz/tm/scholarly/tei-ButFir-t1-g1-t1-g1-t4-body.html</a>
+</div>
+<div id="ref-cbc2023" class="csl-entry" role="listitem">
+CBC News. (2023, május 30). <em>Artificial intelligence poses
+<span>„risk of extinction,”</span> tech executives and scientists
+warn</em>. <a href="https://www.cbc.ca/news/world/artificial-intelligence-extinction-risk-1.6859118">https://www.cbc.ca/news/world/artificial-intelligence-extinction-risk-1.6859118</a>
+</div>
+<div id="ref-cais2023" class="csl-entry" role="listitem">
+Center for AI Safety. (2023, május 30). <em>Statement on <span>AI</span>
+risk</em>. <a href="https://safe.ai/work/statement-on-ai-risk">https://safe.ai/work/statement-on-ai-risk</a>
+</div>
+<div id="ref-charmeu" class="csl-entry" role="listitem">
+CHARM-EU. (é. n.). <em><span>AI</span> literacy for higher education:
+Applying <span>GenAI</span> responsibly in your studies</em>. Elérés <a href="https://charm-eu.eu/transnational-course/ai-literacy-for-higher-education-applying-genai-responsibly-in-your-studies/">https://charm-eu.eu/transnational-course/ai-literacy-for-higher-education-applying-genai-responsibly-in-your-studies/</a>
+</div>
+<div id="ref-chouldechova2017" class="csl-entry" role="listitem">
+Chouldechova, A. (2017). Fair prediction with disparate impact: A study
+of bias in recidivism prediction instruments. <em>Big Data</em>,
+<em>5</em>(2), 153–163. <a href="https://doi.org/10.1089/big.2016.0047">https://doi.org/10.1089/big.2016.0047</a>
+</div>
+<div id="ref-cnbc2018maven" class="csl-entry" role="listitem">
+CNBC. (2018, április 4). <em>Google workers urge <span>CEO</span>
+<span>Sundar Pichai</span> to pull out of <span>Pentagon</span>
+project</em>. <a href="https://www.cnbc.com/2018/04/04/google-workers-urge-ceo-sundar-pichai-to-pull-out-of-pentagon-project.html">https://www.cnbc.com/2018/04/04/google-workers-urge-ceo-sundar-pichai-to-pull-out-of-pentagon-project.html</a>
+</div>
+<div id="ref-collins1969" class="csl-entry" role="listitem">
+Collins, A. M., &amp; Quillian, M. R. (1969). Retrieval time from
+semantic memory. <em>Journal of Verbal Learning and Verbal
+Behavior</em>, <em>8</em>(2), 240–247. <a href="https://doi.org/10.1016/S0022-5371(69)80069-1">https://doi.org/10.1016/S0022-5371(69)80069-1</a>
+</div>
+<div id="ref-columbia2026" class="csl-entry" role="listitem">
+Columbia University, Department of Psychology. (2026). <em><span>PSYC
+UN2255</span>: Machine intelligence – Syllabus, spring 2026</em>. <a href="https://psychology.columbia.edu/sites/psychology.columbia.edu/files/content/UN2255%20Syllabus%20Spring%202026.pdf">https://psychology.columbia.edu/sites/psychology.columbia.edu/files/content/UN2255%20Syllabus%20Spring%202026.pdf</a>
+</div>
+<div id="ref-cope2023" class="csl-entry" role="listitem">
+Committee on Publication Ethics. (2023). <em>Authorship and
+<span>AI</span> tools: <span>COPE</span> position statement</em>. <a href="https://publicationethics.org/cope-position-statements/ai-author">https://publicationethics.org/cope-position-statements/ai-author</a>
+</div>
+<div id="ref-cormen2022" class="csl-entry" role="listitem">
+Cormen, T. H., Leiserson, C. E., Rivest, R. L., &amp; Stein, C. (2022).
+<em>Introduction to algorithms</em> (4. kiad.). MIT Press.
+</div>
+<div id="ref-cosgrove2025" class="csl-entry" role="listitem">
+Cosgrove, J., &amp; Cachia, R. (2025). <em><span>DigComp</span> 3.0:
+European digital competence framework</em> (5. kiad.). Publications
+Office of the European Union. <a href="https://ideas.repec.org/p/ipt/iptwpa/jrc144121.html">https://ideas.repec.org/p/ipt/iptwpa/jrc144121.html</a>
+</div>
+<div id="ref-crevier1993" class="csl-entry" role="listitem">
+Crevier, D. (1993). <em>AI: The tumultuous history of the search for
+artificial intelligence</em>. Basic Books.
+</div>
+<div id="ref-dakan2025" class="csl-entry" role="listitem">
+Dakan, R., &amp; Feller, J. (2025). <em><span>AI</span> fluency:
+Framework &amp; foundations</em>. Anthropic.
+</div>
+<div id="ref-dastin2018" class="csl-entry" role="listitem">
+Dastin, J. (2018, október 10). <em>Amazon scraps secret <span>AI</span>
+recruiting tool that showed bias against women</em>. Reuters. <a href="https://www.reuters.com/article/us-amazon-com-jobs-automation-insight-idUSKCN1MK08G">https://www.reuters.com/article/us-amazon-com-jobs-automation-insight-idUSKCN1MK08G</a>
+</div>
+<div id="ref-davis1989" class="csl-entry" role="listitem">
+Davis, F. D. (1989). Perceived usefulness, perceived ease of use, and
+user acceptance of information technology. <em>MIS Quarterly</em>,
+<em>13</em>(3), 319–340. <a href="https://doi.org/10.2307/249008">https://doi.org/10.2307/249008</a>
+</div>
+<div id="ref-davis1993" class="csl-entry" role="listitem">
+Davis, R., Shrobe, H., &amp; Szolovits, P. (1993). What is a knowledge
+representation? <em>AI Magazine</em>, <em>14</em>(1), 17–33. <a href="https://doi.org/10.1609/aimag.v14i1.1029">https://doi.org/10.1609/aimag.v14i1.1029</a>
+</div>
+<div id="ref-dellacqua2023" class="csl-entry" role="listitem">
+Dell’Acqua, F., McFowland, E., Mollick, E. R., Lifshitz-Assaf, H.,
+Kellogg, K., Rajendran, S., Krayer, L., Candelon, F., &amp; Lakhani, K.
+R. (2023). <em>Navigating the jagged technological frontier: Field
+experimental evidence of the effects of <span>AI</span> on knowledge
+worker productivity and quality</em> (Working Paper Nos. 24-013).
+Harvard Business School.
+</div>
+<div id="ref-delvenne2026" class="csl-entry" role="listitem">
+Delvenne, J.-F. (2026). Navigating <span>GenAI</span> in psychology
+education: Assessment validity, academic integrity, and the realities of
+teaching in an <span>AI</span>-rich era. <em>Psychology Learning &amp;
+Teaching</em>. <a href="https://eprints.whiterose.ac.uk/id/eprint/238706">https://eprints.whiterose.ac.uk/id/eprint/238706</a>
+</div>
+<div id="ref-dw2023" class="csl-entry" role="listitem">
+Deutsche Welle. (2023, május 30). <em>Top <span>AI</span> executives
+warn of <span>„risk of extinction”</span></em>. <a href="https://www.dw.com/en/top-ai-executives-warn-of-risk-of-extinction/a-65772574">https://www.dw.com/en/top-ai-executives-warn-of-risk-of-extinction/a-65772574</a>
+</div>
+<div id="ref-devito2017" class="csl-entry" role="listitem">
+DeVito, M. A., Gergle, D., &amp; Birnholtz, J. (2017).
+<span>„<span>Algorithms</span> ruin everything”</span>:
+#<span>RIPTwitter</span>, folk theories, and resistance to algorithmic
+change in social media. <em>Proceedings of the 2017 CHI Conference on
+Human Factors in Computing Systems</em>, 3163–3174. <a href="https://doi.org/10.1145/3025453.3025659">https://doi.org/10.1145/3025453.3025659</a>
+</div>
+<div id="ref-devlin2019" class="csl-entry" role="listitem">
+Devlin, J., Chang, M.-W., Lee, K., &amp; Toutanova, K. (2019).
+<span>BERT</span>: Pre-training of deep bidirectional transformers for
+language understanding. <em>Proceedings of the 2019 Conference of the
+North American Chapter of the Association for Computational Linguistics:
+Human Language Technologies</em>, 4171–4186. <a href="https://doi.org/10.18653/v1/N19-1423">https://doi.org/10.18653/v1/N19-1423</a>
+</div>
+<div id="ref-dietvorst2015" class="csl-entry" role="listitem">
+Dietvorst, B. J., Simmons, J. P., &amp; Massey, C. (2015). Algorithm
+aversion: People erroneously avoid algorithms after seeing them err.
+<em>Journal of Experimental Psychology: General</em>, <em>144</em>(1),
+114–126. <a href="https://doi.org/10.1037/xge0000033">https://doi.org/10.1037/xge0000033</a>
+</div>
+<div id="ref-doshivelez2017" class="csl-entry" role="listitem">
+Doshi-Velez, F., &amp; Kim, B. (2017). <em>Towards a rigorous science of
+interpretable machine learning</em>. <a href="https://arxiv.org/abs/1702.08608">https://arxiv.org/abs/1702.08608</a>
+</div>
+<div id="ref-dutta2026" class="csl-entry" role="listitem">
+Dutta, K., Kumar, A., Guo, Z., Bichler, M., Delen, D., Ramesh, R., &amp;
+Brooks, J. P. (2026). Responsible <span>AI</span> and data science for
+social good. <em>INFORMS Journal on Computing</em>, <em>38</em>(4),
+1033–1044. <a href="https://doi.org/10.1287/ijoc.2026.ed.v38.n4">https://doi.org/10.1287/ijoc.2026.ed.v38.n4</a>
+</div>
+<div id="ref-eichstaedt2018" class="csl-entry" role="listitem">
+Eichstaedt, J. C., Smith, R. J., Merchant, R. M., Ungar, L. H.,
+Crutchley, P., Preoţiuc-Pietro, D., Asch, D. A., &amp; Schwartz, H. A.
+(2018). Facebook language predicts depression in medical records.
+<em>Proceedings of the National Academy of Sciences</em>,
+<em>115</em>(44), 11203–11208. <a href="https://doi.org/10.1073/pnas.1802331115">https://doi.org/10.1073/pnas.1802331115</a>
+</div>
+<div id="ref-epley2007" class="csl-entry" role="listitem">
+Epley, N., Waytz, A., &amp; Cacioppo, J. T. (2007). On seeing human: A
+three-factor theory of anthropomorphism. <em>Psychological Review</em>,
+<em>114</em>(4), 864–886. <a href="https://doi.org/10.1037/0033-295X.114.4.864">https://doi.org/10.1037/0033-295X.114.4.864</a>
+</div>
+<div id="ref-euronews2025hollywood" class="csl-entry" role="listitem">
+Euronews. (2025, március 21). <em>More than 400 artists send letter to
+<span>Trump</span> over <span>AI</span> companies exploiting copyrighted
+works</em>. <a href="https://euronews.com/culture/2025/03/21/more-than-400-artists-send-letter-to-trump-over-ai-companies-exploiting-copyrighted-works">https://euronews.com/culture/2025/03/21/more-than-400-artists-send-letter-to-trump-over-ai-companies-exploiting-copyrighted-works</a>
+</div>
+<div id="ref-ec_aiact_art5" class="csl-entry" role="listitem">
+European Commission. (é. n.). <em><span>AI</span> Act Service Desk:
+Article 5 – Prohibited <span>AI</span> practices</em>. Elérés <a href="https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-5">https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-5</a>
+</div>
+<div id="ref-flake2020" class="csl-entry" role="listitem">
+Flake, J. K., &amp; Fried, E. I. (2020). Measurement schmeasurement:
+Questionable measurement practices and how to avoid them. <em>Advances
+in Methods and Practices in Psychological Science</em>, <em>3</em>(4),
+456–465. <a href="https://doi.org/10.1177/2515245920952393">https://doi.org/10.1177/2515245920952393</a>
+</div>
+<div id="ref-folstad2017" class="csl-entry" role="listitem">
+Følstad, A., &amp; Brandtzæg, P. B. (2017). Chatbots and the new world
+of <span>HCI</span>. <em>Interactions</em>, <em>24</em>(4), 38–42. <a href="https://doi.org/10.1145/3085558">https://doi.org/10.1145/3085558</a>
+</div>
+<div id="ref-fortune2024artists" class="csl-entry" role="listitem">
+Fortune. (2024, április 2). <em>Billie Eilish, <span>Bon Jovi</span> and
+200 other artists sign open letter against <span>„predatory”</span> use
+of <span>AI</span> in music</em>. <a href="https://fortune.com/2024/04/02/singers-pump-breaks-billie-eilish-bonjovi-sign-open-letter">https://fortune.com/2024/04/02/singers-pump-breaks-billie-eilish-bonjovi-sign-open-letter</a>
+</div>
+<div id="ref-frey2013" class="csl-entry" role="listitem">
+Frey, C. B., &amp; Osborne, M. A. (2013). <em>The future of employment:
+How susceptible are jobs to computerisation?</em> [Working paper].
+Oxford Martin Programme on Technology; Employment. <a href="https://www.oxfordmartin.ox.ac.uk/downloads/academic/The_Future_of_Employment.pdf">https://www.oxfordmartin.ox.ac.uk/downloads/academic/The_Future_of_Employment.pdf</a>
+</div>
+<div id="ref-frey2017" class="csl-entry" role="listitem">
+Frey, C. B., &amp; Osborne, M. A. (2017). The future of employment: How
+susceptible are jobs to computerisation? <em>Technological Forecasting
+and Social Change</em>, <em>114</em>, 254–280. <a href="https://doi.org/10.1016/j.techfore.2016.08.019">https://doi.org/10.1016/j.techfore.2016.08.019</a>
+</div>
+<div id="ref-fli2015" class="csl-entry" role="listitem">
+Future of Life Institute. (2015a). <em>Research priorities for robust
+and beneficial artificial intelligence: An open letter</em>. <a href="https://futureoflife.org/open-letter/ai-open-letter/">https://futureoflife.org/open-letter/ai-open-letter/</a>
+</div>
+<div id="ref-fli2015weapons" class="csl-entry" role="listitem">
+Future of Life Institute. (2015b, július 28). <em>Autonomous weapons: An
+open letter from <span>AI</span> &amp; robotics researchers</em>. <a href="https://futureoflife.org/open-letter/open-letter-autonomous-weapons-ai-robotics/">https://futureoflife.org/open-letter/open-letter-autonomous-weapons-ai-robotics/</a>
+</div>
+<div id="ref-fli2017" class="csl-entry" role="listitem">
+Future of Life Institute. (2017). <em>Asilomar <span>AI</span>
+principles</em>. <a href="https://futureoflife.org/open-letter/ai-principles/">https://futureoflife.org/open-letter/ai-principles/</a>
+</div>
+<div id="ref-fli2018pledge" class="csl-entry" role="listitem">
+Future of Life Institute. (2018, július 18). <em>Lethal autonomous
+weapons pledge</em>. <a href="https://futureoflife.org/open-letter/lethal-autonomous-weapons-pledge/">https://futureoflife.org/open-letter/lethal-autonomous-weapons-pledge/</a>
+</div>
+<div id="ref-fli2023" class="csl-entry" role="listitem">
+Future of Life Institute. (2023). <em>Pause giant <span>AI</span>
+experiments: An open letter</em>. <a href="https://futureoflife.org/open-letter/pause-giant-ai-experiments/">https://futureoflife.org/open-letter/pause-giant-ai-experiments/</a>
+</div>
+<div id="ref-gabriel2020" class="csl-entry" role="listitem">
+Gabriel, I. (2020). Artificial intelligence, values, and alignment.
+<em>Minds and Machines</em>, <em>30</em>(3), 411–437. <a href="https://doi.org/10.1007/s11023-020-09539-2">https://doi.org/10.1007/s11023-020-09539-2</a>
+</div>
+<div id="ref-dair2023" class="csl-entry" role="listitem">
+Gebru, T., Bender, E. M., McMillan-Major, A., &amp; Mitchell, M. (2023,
+március 31). <em>Statement from the listed authors of <span>Stochastic
+Parrots</span> on the <span>„<span>AI</span> pause”</span> letter</em>.
+<a href="https://www.dair-institute.org/blog/letter-statement-March2023/">https://www.dair-institute.org/blog/letter-statement-March2023/</a>
+</div>
+<div id="ref-gebru2021" class="csl-entry" role="listitem">
+Gebru, T., Morgenstern, J., Vecchione, B., Vaughan, J. W., Wallach, H.,
+Daumé III, H., &amp; Crawford, K. (2021). Datasheets for datasets.
+<em>Communications of the ACM</em>, <em>64</em>(12), 86–92. <a href="https://doi.org/10.1145/3458723">https://doi.org/10.1145/3458723</a>
+</div>
+<div id="ref-geiger2020" class="csl-entry" role="listitem">
+Geiger, R. S., Yu, K., Yang, Y., Dai, M., Qiu, J., Tang, R., &amp;
+Huang, J. (2020). Garbage in, garbage out? <span>Do</span> machine
+learning application papers in social computing report where
+human-labeled training data comes from? <em>Proceedings of the 2020
+Conference on Fairness, Accountability, and Transparency</em>, 325–336.
+<a href="https://doi.org/10.1145/3351095.3372862">https://doi.org/10.1145/3351095.3372862</a>
+</div>
+<div id="ref-redlines2025" class="csl-entry" role="listitem">
+Global Call for AI Red Lines. (2025, szeptember 22). <em>Global call for
+<span>AI</span> red lines</em>. <a href="https://red-lines.ai/">https://red-lines.ai/</a>
+</div>
+<div id="ref-goertzel2007" class="csl-entry" role="listitem">
+Goertzel, B., &amp; Pennachin, C. (Szerk.). (2007). <em>Artificial
+general intelligence</em>. Springer. <a href="https://doi.org/10.1007/978-3-540-68677-4">https://doi.org/10.1007/978-3-540-68677-4</a>
+</div>
+<div id="ref-gma2024" class="csl-entry" role="listitem">
+Good Morning America. (2024, október 24). <em>Generative <span>AI</span>
+is disrupting creative communities; here is how they are fighting
+back</em>. <a href="https://www.goodmorningamerica.com/news/story/generative-ai-disrupting-creative-communities-fighting-back-115120318">https://www.goodmorningamerica.com/news/story/generative-ai-disrupting-creative-communities-fighting-back-115120318</a>
+</div>
+<div id="ref-goodfellow2016" class="csl-entry" role="listitem">
+Goodfellow, I., Bengio, Y., &amp; Courville, A. (2016). <em>Deep
+learning</em>. MIT Press. <a href="https://www.deeplearningbook.org/">https://www.deeplearningbook.org/</a>
+</div>
+<div id="ref-google_mlcc" class="csl-entry" role="listitem">
+Google. (é. n.). <em>Machine learning crash course</em>. Elérés <a href="https://developers.google.com/machine-learning/crash-course">https://developers.google.com/machine-learning/crash-course</a>
+</div>
+<div id="ref-google2024" class="csl-entry" role="listitem">
+Google. (2024). <em>Google <span>AI</span> essentials</em>. <a href="https://grow.google/ai-essentials/">https://grow.google/ai-essentials/</a>
+</div>
+<div id="ref-gunning2019" class="csl-entry" role="listitem">
+Gunning, D., Stefik, M., Choi, J., Miller, T., Stumpf, S., &amp; Yang,
+G.-Z. (2019). <span>XAI</span>—<span>Explainable</span> artificial
+intelligence. <em>Science Robotics</em>, <em>4</em>(37), eaay7120. <a href="https://doi.org/10.1126/scirobotics.aay7120">https://doi.org/10.1126/scirobotics.aay7120</a>
+</div>
+<div id="ref-haenlein2019" class="csl-entry" role="listitem">
+Haenlein, M., &amp; Kaplan, A. (2019). A brief history of artificial
+intelligence: On the past, present, and future of artificial
+intelligence. <em>California Management Review</em>, <em>61</em>(4),
+5–14. <a href="https://doi.org/10.1177/0008125619864925">https://doi.org/10.1177/0008125619864925</a>
+</div>
+<div id="ref-hardcastle2015" class="csl-entry" role="listitem">
+Hardcastle, V. G., &amp; Hardcastle, K. (2015). Marr’s levels revisited:
+Understanding how brains break. <em>Topics in Cognitive Science</em>,
+<em>7</em>(2), 259–273. <a href="https://doi.org/10.1111/tops.12130">https://doi.org/10.1111/tops.12130</a>
+</div>
+<div id="ref-hastie2009" class="csl-entry" role="listitem">
+Hastie, T., Tibshirani, R., &amp; Friedman, J. (2009). <em>The elements
+of statistical learning: Data mining, inference, and prediction</em> (2.
+kiad.). Springer. <a href="https://doi.org/10.1007/978-0-387-84858-7">https://doi.org/10.1007/978-0-387-84858-7</a>
+</div>
+<div id="ref-haugeland1985" class="csl-entry" role="listitem">
+Haugeland, J. (1985). <em>Artificial intelligence: The very idea</em>.
+MIT Press.
+</div>
+<div id="ref-hleg2019" class="csl-entry" role="listitem">
+High-Level Expert Group on Artificial Intelligence. (2019). <em>Ethics
+guidelines for trustworthy <span>AI</span></em>. European Commission. <a href="https://digital-strategy.ec.europa.eu/en/library/ethics-guidelines-trustworthy-ai">https://digital-strategy.ec.europa.eu/en/library/ethics-guidelines-trustworthy-ai</a>
+</div>
+<div id="ref-ho2020" class="csl-entry" role="listitem">
+Ho, J., Jain, A., &amp; Abbeel, P. (2020). Denoising diffusion
+probabilistic models. <em>Advances in Neural Information Processing
+Systems</em>, <em>33</em>, 6840–6851.
+</div>
+<div id="ref-hochreiter1997" class="csl-entry" role="listitem">
+Hochreiter, S., &amp; Schmidhuber, J. (1997). Long short-term memory.
+<em>Neural Computation</em>, <em>9</em>(8), 1735–1780. <a href="https://doi.org/10.1162/neco.1997.9.8.1735">https://doi.org/10.1162/neco.1997.9.8.1735</a>
+</div>
+<div id="ref-hornberger2023" class="csl-entry" role="listitem">
+Hornberger, M., Bewersdorff, A., &amp; Nerdel, C. (2023). What do
+university students know about artificial intelligence?
+<span>Development</span> and validation of an <span>AI</span> literacy
+test. <em>Computers and Education: Artificial Intelligence</em>,
+<em>5</em>, 100165. <a href="https://doi.org/10.1016/j.caeai.2023.100165">https://doi.org/10.1016/j.caeai.2023.100165</a>
+</div>
+<div id="ref-howard2018" class="csl-entry" role="listitem">
+Howard, J., &amp; Ruder, S. (2018). Universal language model fine-tuning
+for text classification. <em>Proceedings of the 56th Annual Meeting of
+the Association for Computational Linguistics</em>, 328–339. <a href="https://doi.org/10.18653/v1/P18-1031">https://doi.org/10.18653/v1/P18-1031</a>
+</div>
+<div id="ref-hua2025" class="csl-entry" role="listitem">
+<span class="nocase">Hua, Y., Siddals, S., Ma, Z., Galatzer-Levy, I.,
+Xia, W., Hau, C., és mtsai.</span> (2025). Charting the evolution of
+artificial intelligence mental health chatbots from rule-based systems
+to large language models: A systematic review. <em>World
+Psychiatry</em>, <em>24</em>(3), 383–394. <a href="https://doi.org/10.1002/wps.21352">https://doi.org/10.1002/wps.21352</a>
+</div>
+<div id="ref-insel2017" class="csl-entry" role="listitem">
+Insel, T. R. (2017). Digital phenotyping: Technology for a new science
+of behavior. <em>JAMA</em>, <em>318</em>(13), 1215–1216. <a href="https://doi.org/10.1001/jama.2017.11295">https://doi.org/10.1001/jama.2017.11295</a>
+</div>
+<div id="ref-idais2024" class="csl-entry" role="listitem">
+International Dialogues on AI Safety. (2024).
+<em><span>IDAIS-Beijing</span> consensus statement on red lines in
+<span>AI</span> development</em>. <a href="https://idais.ai/">https://idais.ai/</a>
+</div>
+<div id="ref-iea2025" class="csl-entry" role="listitem">
+International Energy Agency. (2025). <em>Energy and
+<span>AI</span></em>. IEA. <a href="https://www.iea.org/reports/energy-and-ai">https://www.iea.org/reports/energy-and-ai</a>
+</div>
+<div id="ref-jacobucci2020" class="csl-entry" role="listitem">
+Jacobucci, R., &amp; Grimm, K. J. (2020). Machine learning and
+psychological research: The unexplored effect of measurement.
+<em>Perspectives on Psychological Science</em>, <em>15</em>(3), 809–816.
+<a href="https://doi.org/10.1177/1745691620902467">https://doi.org/10.1177/1745691620902467</a>
+</div>
+<div id="ref-jain2010" class="csl-entry" role="listitem">
+Jain, A. K. (2010). Data clustering: 50 years beyond
+<span>K</span>-means. <em>Pattern Recognition Letters</em>,
+<em>31</em>(8), 651–666. <a href="https://doi.org/10.1016/j.patrec.2009.09.011">https://doi.org/10.1016/j.patrec.2009.09.011</a>
+</div>
+<div id="ref-ji2023" class="csl-entry" role="listitem">
+Ji, Z., Lee, N., Frieske, R., Yu, T., Su, D., Xu, Y., Ishii, E., Bang,
+Y. J., Madotto, A., &amp; Fung, P. (2023). Survey of hallucination in
+natural language generation. <em>ACM Computing Surveys</em>,
+<em>55</em>(12), 1–38. <a href="https://doi.org/10.1145/3571730">https://doi.org/10.1145/3571730</a>
+</div>
+<div id="ref-jin2025" class="csl-entry" role="listitem">
+Jin, X., &amp; Li, J. (2025). The influence of <span>„algorithm
+aversion”</span> and <span>„algorithm appreciation”</span> among
+consumers in unstructured tasks. <em>International Journal of Consumer
+Studies</em>, <em>49</em>(6), e70133. <a href="https://doi.org/10.1111/ijcs.70133">https://doi.org/10.1111/ijcs.70133</a>
+</div>
+<div id="ref-jordan2015" class="csl-entry" role="listitem">
+Jordan, M. I., &amp; Mitchell, T. M. (2015). Machine learning: Trends,
+perspectives, and prospects. <em>Science</em>, <em>349</em>(6245),
+255–260. <a href="https://doi.org/10.1126/science.aaa8415">https://doi.org/10.1126/science.aaa8415</a>
+</div>
+<div id="ref-jurafsky2023" class="csl-entry" role="listitem">
+Jurafsky, D., &amp; Martin, J. H. (2023). <em>Speech and language
+processing</em> (3. kiad.). <a href="https://web.stanford.edu/~jurafsky/slp3/">https://web.stanford.edu/~jurafsky/slp3/</a>
+</div>
+<div id="ref-kahneman1973" class="csl-entry" role="listitem">
+Kahneman, D., &amp; Tversky, A. (1973). On the psychology of prediction.
+<em>Psychological Review</em>, <em>80</em>(4), 237–251. <a href="https://doi.org/10.1037/h0034747">https://doi.org/10.1037/h0034747</a>
+</div>
+<div id="ref-kahneman1979" class="csl-entry" role="listitem">
+Kahneman, D., &amp; Tversky, A. (1979). Prospect theory: An analysis of
+decision under risk. <em>Econometrica</em>, <em>47</em>(2), 263–291. <a href="https://doi.org/10.2307/1914185">https://doi.org/10.2307/1914185</a>
+</div>
+<div id="ref-ainow2023" class="csl-entry" role="listitem">
+Kak, A., &amp; Myers West, S. (2023). <em>2023 landscape: Confronting
+tech power</em>. AI Now Institute. <a href="https://ainowinstitute.org/publication/2023-landscape">https://ainowinstitute.org/publication/2023-landscape</a>
+</div>
+<div id="ref-kanade2017" class="csl-entry" role="listitem">
+Kanade, V. (2017). <em>Machine learning – <span>Michaelmas</span> term
+2017: Lecture 1</em>. University of Oxford. <a href="https://www.cs.ox.ac.uk/people/varun.kanade/teaching/ML-MT2017/lectures/lecture01.pdf">https://www.cs.ox.ac.uk/people/varun.kanade/teaching/ML-MT2017/lectures/lecture01.pdf</a>
+</div>
+<div id="ref-kaplan2020" class="csl-entry" role="listitem">
+Kaplan, J., McCandlish, S., Henighan, T., Brown, T. B., Chess, B.,
+Child, R., Gray, S., Radford, A., Wu, J., &amp; Amodei, D. (2020).
+<em>Scaling laws for neural language models</em>. <a href="https://arxiv.org/abs/2001.08361">https://arxiv.org/abs/2001.08361</a>
+</div>
+<div id="ref-kjell2024" class="csl-entry" role="listitem">
+Kjell, O. N. E., Kjell, K., &amp; Schwartz, H. A. (2024). Beyond rating
+scales: With targeted evaluation, large language models are poised for
+psychological assessment. <em>Psychiatry Research</em>, <em>333</em>,
+115667. <a href="https://doi.org/10.1016/j.psychres.2023.115667">https://doi.org/10.1016/j.psychres.2023.115667</a>
+</div>
+<div id="ref-kleinberg2017" class="csl-entry" role="listitem">
+Kleinberg, J., Mullainathan, S., &amp; Raghavan, M. (2017). Inherent
+trade-offs in the fair determination of risk scores. <em>8th Innovations
+in Theoretical Computer Science Conference (ITCS 2017), Leibniz
+International Proceedings in Informatics (LIPIcs)</em>, <em>67</em>,
+43:1–43:23. <a href="https://doi.org/10.4230/LIPIcs.ITCS.2017.43">https://doi.org/10.4230/LIPIcs.ITCS.2017.43</a>
+</div>
+<div id="ref-kotseruba2020" class="csl-entry" role="listitem">
+Kotseruba, I., &amp; Tsotsos, J. K. (2020). 40 years of cognitive
+architectures: Core cognitive abilities and practical applications.
+<em>Artificial Intelligence Review</em>, <em>53</em>(1), 17–94. <a href="https://doi.org/10.1007/s10462-018-9646-y">https://doi.org/10.1007/s10462-018-9646-y</a>
+</div>
+<div id="ref-kroll2017" class="csl-entry" role="listitem">
+Kroll, J. A., Huey, J., Barocas, S., Felten, E. W., Reidenberg, J. R.,
+Robinson, D. G., &amp; Yu, H. (2017). Accountable algorithms.
+<em>University of Pennsylvania Law Review</em>, <em>165</em>(3),
+633–705.
+</div>
+<div id="ref-lecun2015" class="csl-entry" role="listitem">
+LeCun, Y., Bengio, Y., &amp; Hinton, G. (2015). Deep learning.
+<em>Nature</em>, <em>521</em>(7553), 436–444. <a href="https://doi.org/10.1038/nature14539">https://doi.org/10.1038/nature14539</a>
+</div>
+<div id="ref-lecun1998" class="csl-entry" role="listitem">
+LeCun, Y., Bottou, L., Bengio, Y., &amp; Haffner, P. (1998).
+Gradient-based learning applied to document recognition. <em>Proceedings
+of the IEEE</em>, <em>86</em>(11), 2278–2324. <a href="https://doi.org/10.1109/5.726791">https://doi.org/10.1109/5.726791</a>
+</div>
+<div id="ref-lee2004" class="csl-entry" role="listitem">
+Lee, J. D., &amp; See, K. A. (2004). Trust in automation: Designing for
+appropriate reliance. <em>Human Factors</em>, <em>46</em>(1), 50–80. <a href="https://doi.org/10.1518/hfes.46.1.50_30392">https://doi.org/10.1518/hfes.46.1.50_30392</a>
+</div>
+<div id="ref-lewis2020" class="csl-entry" role="listitem">
+<span class="nocase">Lewis, P., Perez, E., Piktus, A., Petroni, F.,
+Karpukhin, V., Goyal, N., és mtsai.</span> (2020). Retrieval-augmented
+generation for knowledge-intensive <span>NLP</span> tasks. <em>Advances
+in Neural Information Processing Systems</em>, <em>33</em>, 9459–9474.
+</div>
+<div id="ref-lighthill1973" class="csl-entry" role="listitem">
+Lighthill, J. (1973). Artificial intelligence: A general survey. In
+<em>Artificial intelligence: A paper symposium</em>. Science Research
+Council.
+</div>
+<div id="ref-liu2025longcontext" class="csl-entry" role="listitem">
+<span class="nocase">Liu, J., Zhu, D., Bai, Z., és mtsai.</span> (2025).
+<em>A comprehensive survey on long context language modeling</em>. <a href="https://arxiv.org/abs/2503.17407">https://arxiv.org/abs/2503.17407</a>
+</div>
+<div id="ref-liu2023prompt" class="csl-entry" role="listitem">
+Liu, P., Yuan, W., Fu, J., Jiang, Z., Hayashi, H., &amp; Neubig, G.
+(2023). Pre-train, prompt, and predict: A systematic survey of prompting
+methods in natural language processing. <em>ACM Computing Surveys</em>,
+<em>55</em>(9), 1–35. <a href="https://doi.org/10.1145/3560815">https://doi.org/10.1145/3560815</a>
+</div>
+<div id="ref-long2020" class="csl-entry" role="listitem">
+Long, D., &amp; Magerko, B. (2020). What is <span>AI</span> literacy?
+<span>Competencies</span> and design considerations. <em>Proceedings of
+the 2020 CHI Conference on Human Factors in Computing Systems</em>,
+1–16. <a href="https://doi.org/10.1145/3313831.3376727">https://doi.org/10.1145/3313831.3376727</a>
+</div>
+<div id="ref-longpre2024" class="csl-entry" role="listitem">
+Longpre, S., Kapoor, S., Klyman, K., Ramaswami, A., Bommasani, R.,
+Narayanan, A., Liang, P., &amp; Henderson, P. (2024, március). <em>A
+safe harbor for <span>AI</span> evaluation and red teaming</em>. <a href="https://knightcolumbia.org/content/a-safe-harbor-for-ai-evaluation-and-red-teaming">https://knightcolumbia.org/content/a-safe-harbor-for-ai-evaluation-and-red-teaming</a>
+</div>
+<div id="ref-lund2023" class="csl-entry" role="listitem">
+Lund University. (2023). <em><span>PSYE60</span> Psychology: Artificial
+intelligence and psychology – Syllabus</em>. <a href="https://kursplaner.lu.se/pdf/kurs/en/PSYE60">https://kursplaner.lu.se/pdf/kurs/en/PSYE60</a>
+</div>
+<div id="ref-maidment2026" class="csl-entry" role="listitem">
+<span class="nocase">Maidment, K., Christensen, H., Lattimore, J., és
+mtsai.</span> (2026). Developing policy and regulation for the safer use
+of artificial intelligence technologies for mental health in
+<span>Australia</span>. <em>Australian &amp; New Zealand Journal of
+Psychiatry</em>. <a href="https://openurl.ebsco.com/contentitem/lgd:194777521?sid=ebsco:plink:pplx&amp;id=ebsco:lgd:194777521">https://openurl.ebsco.com/contentitem/lgd:194777521?sid=ebsco:plink:pplx&amp;id=ebsco:lgd:194777521</a>
+</div>
+<div id="ref-mandel2023" class="csl-entry" role="listitem">
+Mandel, D. R. (2023). <em>Artificial general intelligence, existential
+risk, and human risk perception</em>. <a href="https://arxiv.org/abs/2311.08698">https://arxiv.org/abs/2311.08698</a>
+</div>
+<div id="ref-marr1982" class="csl-entry" role="listitem">
+Marr, D. (1982). <em>Vision: A computational investigation into the
+human representation and processing of visual information</em>. W. H.
+Freeman.
+</div>
+<div id="ref-maslej2025" class="csl-entry" role="listitem">
+<span class="nocase">Maslej, N. és mtsai.</span> (2025). <em>The
+<span>AI</span> index 2025 annual report</em>. Stanford Institute for
+Human-Centered Artificial Intelligence. <a href="https://hai.stanford.edu/ai-index/2025-ai-index-report">https://hai.stanford.edu/ai-index/2025-ai-index-report</a>
+</div>
+<div id="ref-massenon2025" class="csl-entry" role="listitem">
+Massenon, R., Gambo, I., Khan, J. A., Agbonkhese, C., &amp; Alwadain, A.
+(2025). <span>„<span>My</span> <span>AI</span> is lying to me”</span>:
+User-reported <span>LLM</span> hallucinations in <span>AI</span> mobile
+apps reviews. <em>Scientific Reports</em>, <em>15</em>. <a href="https://doi.org/10.1038/s41598-025-15416-8">https://doi.org/10.1038/s41598-025-15416-8</a>
+</div>
+<div id="ref-mccarthy1959" class="csl-entry" role="listitem">
+McCarthy, J. (1959). Programs with common sense. In <em>Proceedings of
+the Teddington Conference on the Mechanization of Thought Processes</em>
+(o. 75–91). Her Majesty’s Stationery Office. <a href="http://jmc.stanford.edu/articles/mcc59/mcc59.pdf">http://jmc.stanford.edu/articles/mcc59/mcc59.pdf</a>
+</div>
+<div id="ref-mccarthy1955" class="csl-entry" role="listitem">
+McCarthy, J., Minsky, M. L., Rochester, N., &amp; Shannon, C. E. (1955).
+<em>A proposal for the <span>Dartmouth</span> summer research project on
+artificial intelligence</em>. Stanford University. <a href="https://www-formal.stanford.edu/jmc/history/dartmouth/dartmouth.html">https://www-formal.stanford.edu/jmc/history/dartmouth/dartmouth.html</a>
+</div>
+<div id="ref-mccarthy2006" class="csl-entry" role="listitem">
+McCarthy, J., Minsky, M. L., Rochester, N., &amp; Shannon, C. E. (2006).
+A proposal for the <span>Dartmouth</span> summer research project on
+artificial intelligence, <span>August</span> 31, 1955. <em>AI
+Magazine</em>, <em>27</em>(4), 12–14. <a href="https://doi.org/10.1609/aimag.v27i4.1904">https://doi.org/10.1609/aimag.v27i4.1904</a>
+(Original work published 1955)
+</div>
+<div id="ref-mcculloch1943" class="csl-entry" role="listitem">
+McCulloch, W. S., &amp; Pitts, W. (1943). A logical calculus of the
+ideas immanent in nervous activity. <em>The Bulletin of Mathematical
+Biophysics</em>, <em>5</em>(4), 115–133. <a href="https://doi.org/10.1007/BF02478259">https://doi.org/10.1007/BF02478259</a>
+</div>
+<div id="ref-mehrabi2021" class="csl-entry" role="listitem">
+Mehrabi, N., Morstatter, F., Saxena, N., Lerman, K., &amp; Galstyan, A.
+(2021). A survey on bias and fairness in machine learning. <em>ACM
+Computing Surveys</em>, <em>54</em>(6), 1–35. <a href="https://doi.org/10.1145/3457607">https://doi.org/10.1145/3457607</a>
+</div>
+<div id="ref-unesco2023" class="csl-entry" role="listitem">
+Miao, F., &amp; Holmes, W. (2023). <em>Guidance for generative
+<span>AI</span> in education and research</em>. UNESCO. <a href="https://www.unesco.org/en/articles/guidance-generative-ai-education-and-research">https://www.unesco.org/en/articles/guidance-generative-ai-education-and-research</a>
+</div>
+<div id="ref-unesco2024" class="csl-entry" role="listitem">
+Miao, F., Shiohira, K., &amp; Lao, N. (2024). <em><span>AI</span>
+competency framework for students</em>. UNESCO. <a href="https://raise.mit.edu/wp-content/uploads/2025/04/391105eng.pdf">https://raise.mit.edu/wp-content/uploads/2025/04/391105eng.pdf</a>
+</div>
+<div id="ref-mikolov2013" class="csl-entry" role="listitem">
+Mikolov, T., Chen, K., Corrado, G., &amp; Dean, J. (2013). <em>Efficient
+estimation of word representations in vector space</em>. <a href="https://arxiv.org/abs/1301.3781">https://arxiv.org/abs/1301.3781</a>
+</div>
+<div id="ref-mittr2017" class="csl-entry" role="listitem">
+MIT Technology Review. (2017, augusztus 21). <em>Tech titans call to
+stamp out killer robots</em>. <a href="https://www.technologyreview.com/2017/08/21/149597/tech-titans-call-to-stamp-out-killer-robots/">https://www.technologyreview.com/2017/08/21/149597/tech-titans-call-to-stamp-out-killer-robots/</a>
+</div>
+<div id="ref-mittr2020" class="csl-entry" role="listitem">
+MIT Technology Review. (2020, december 4). <em>We read the paper that
+forced <span>Timnit Gebru</span> out of <span>Google</span>.
+<span>Here’s</span> what it says</em>. <a href="https://www.technologyreview.com/2020/12/04/1013294/google-ai-ethics-research-paper-forced-out-timnit-gebru/">https://www.technologyreview.com/2020/12/04/1013294/google-ai-ethics-research-paper-forced-out-timnit-gebru/</a>
+</div>
+<div id="ref-mitchell2019modelcards" class="csl-entry" role="listitem">
+Mitchell, M., Wu, S., Zaldivar, A., Barnes, P., Vasserman, L.,
+Hutchinson, B., Spitzer, E., Raji, I. D., &amp; Gebru, T. (2019). Model
+cards for model reporting. <em>Proceedings of the Conference on
+Fairness, Accountability, and Transparency</em>, 220–229. <a href="https://doi.org/10.1145/3287560.3287596">https://doi.org/10.1145/3287560.3287596</a>
+</div>
+<div id="ref-mitchell2019" class="csl-entry" role="listitem">
+Mitchell, M. (2019). <em>Artificial intelligence: A guide for thinking
+humans</em>. Farrar, Straus; Giroux.
+</div>
+<div id="ref-mitchell1997" class="csl-entry" role="listitem">
+Mitchell, T. M. (1997). <em>Machine learning</em>. McGraw-Hill.
+</div>
+<div id="ref-molnar2022" class="csl-entry" role="listitem">
+Molnar, C. (2022). <em>Interpretable machine learning: A guide for
+making black box models explainable</em> (2. kiad.). <a href="https://christophm.github.io/interpretable-ml-book/">https://christophm.github.io/interpretable-ml-book/</a>
+</div>
+<div id="ref-moravec1988" class="csl-entry" role="listitem">
+Moravec, H. (1988). <em>Mind children: The future of robot and human
+intelligence</em>. Harvard University Press.
+</div>
+<div id="ref-mozilla2023" class="csl-entry" role="listitem">
+Mozilla. (2023). <em>Joint statement on <span>AI</span> safety and
+openness</em>. <a href="https://open.mozilla.org/">https://open.mozilla.org/</a>
+</div>
+<div id="ref-muller2022" class="csl-entry" role="listitem">
+Müller, V. C., &amp; Cannon, M. (2022). Existential risk from
+<span>AI</span> and orthogonality: Can we have it both ways?
+<em>Ratio</em>, <em>35</em>(1), 25–36. <a href="https://doi.org/10.1111/rati.12320">https://doi.org/10.1111/rati.12320</a>
+</div>
+<div id="ref-musically2024" class="csl-entry" role="listitem">
+Music Ally. (2024, október 23). <em>Over 13,000 creatives sign statement
+voicing <span>AI</span> concern</em>. <a href="https://musically.com/2024/10/23/over-13000-creatives-sign-statement-voicing-ai-concern/">https://musically.com/2024/10/23/over-13000-creatives-sign-statement-voicing-ai-concern/</a>
+</div>
+<div id="ref-nass2000" class="csl-entry" role="listitem">
+Nass, C., &amp; Moon, Y. (2000). Machines and mindlessness: Social
+responses to computers. <em>Journal of Social Issues</em>,
+<em>56</em>(1), 81–103. <a href="https://doi.org/10.1111/0022-4537.00153">https://doi.org/10.1111/0022-4537.00153</a>
+</div>
+<div id="ref-nist2023" class="csl-entry" role="listitem">
+National Institute of Standards and Technology. (2023). <em>Artificial
+intelligence risk management framework (<span>AI RMF</span> 1.0)</em>
+(NIST AI Nos. 100-1). U.S. Department of Commerce. <a href="https://doi.org/10.6028/NIST.AI.100-1">https://doi.org/10.6028/NIST.AI.100-1</a>
+</div>
+<div id="ref-nist2024" class="csl-entry" role="listitem">
+National Institute of Standards and Technology. (2024). <em>Artificial
+intelligence risk management framework: Generative artificial
+intelligence profile</em> (NIST AI Nos. 600-1). U.S. Department of
+Commerce. <a href="https://doi.org/10.6028/NIST.AI.600-1">https://doi.org/10.6028/NIST.AI.600-1</a>
+</div>
+<div id="ref-nist_airc2026" class="csl-entry" role="listitem">
+National Institute of Standards and Technology. (2026). <em><span>AI
+RMF</span>: Trustworthiness characteristics</em>. NIST Trustworthy;
+Responsible AI Resource Center. <a href="https://airc.nist.gov/airmf-resources/airmf/3-sec-characteristics/">https://airc.nist.gov/airmf-resources/airmf/3-sec-characteristics/</a>
+</div>
+<div id="ref-newell1980" class="csl-entry" role="listitem">
+Newell, A. (1980). Physical symbol systems. <em>Cognitive Science</em>,
+<em>4</em>(2), 135–183. <a href="https://doi.org/10.1207/s15516709cog0402_2">https://doi.org/10.1207/s15516709cog0402_2</a>
+</div>
+<div id="ref-newell1972" class="csl-entry" role="listitem">
+Newell, A., &amp; Simon, H. A. (1972). <em>Human problem solving</em>.
+Prentice-Hall.
+</div>
+<div id="ref-newell1976" class="csl-entry" role="listitem">
+Newell, A., &amp; Simon, H. A. (1976). Computer science as empirical
+inquiry: Symbols and search. <em>Communications of the ACM</em>,
+<em>19</em>(3), 113–126. <a href="https://doi.org/10.1145/360018.360022">https://doi.org/10.1145/360018.360022</a>
+</div>
+<div id="ref-newtonrex2024" class="csl-entry" role="listitem">
+Newton-Rex, E. (2024). <em>Statement on <span>AI</span> training</em>.
+<a href="https://www.aitrainingstatement.org/">https://www.aitrainingstatement.org/</a>
+</div>
+<div id="ref-ng_ai4e" class="csl-entry" role="listitem">
+Ng, A. (é. n.). <em><span>AI</span> for everyone</em>. DeepLearning.AI.
+Elérés <a href="https://www.deeplearning.ai/courses/ai-for-everyone/">https://www.deeplearning.ai/courses/ai-for-everyone/</a>
+</div>
+<div id="ref-ng_gai4e" class="csl-entry" role="listitem">
+Ng, A. (2023). <em>Generative <span>AI</span> for everyone</em>.
+DeepLearning.AI. <a href="https://www.coursera.org/learn/generative-ai-for-everyone">https://www.coursera.org/learn/generative-ai-for-everyone</a>
+</div>
+<div id="ref-ng2021" class="csl-entry" role="listitem">
+Ng, D. T. K., Leung, J. K. L., Chu, S. K. W., &amp; Qiao, M. S. (2021).
+Conceptualizing <span>AI</span> literacy: An exploratory review.
+<em>Computers and Education: Artificial Intelligence</em>, <em>2</em>,
+100041. <a href="https://doi.org/10.1016/j.caeai.2021.100041">https://doi.org/10.1016/j.caeai.2021.100041</a>
+</div>
+<div id="ref-norman2013" class="csl-entry" role="listitem">
+Norman, D. A. (2013). <em>The design of everyday things</em> (Revised
+and expanded). Basic Books.
+</div>
+<div id="ref-ntnu2025" class="csl-entry" role="listitem">
+Norwegian University of Science and Technology. (2025).
+<em><span>PSY3230</span> – Course description</em>. <a href="https://www.ntnu.edu/studies/courses/PSY3230/2025/1">https://www.ntnu.edu/studies/courses/PSY3230/2025/1</a>
+</div>
+<div id="ref-oneil2016" class="csl-entry" role="listitem">
+O’Neil, C. (2016). <em>Weapons of math destruction: How big data
+increases inequality and threatens democracy</em>. Crown.
+</div>
+<div id="ref-oecd2025" class="csl-entry" role="listitem">
+OECD, &amp; European Commission. (2025). <em>Empowering learners for the
+age of <span>AI</span>: An <span>AI</span> literacy framework for
+primary and secondary education</em> [Review draft]. OECD. <a href="https://ailiteracyframework.org/">https://ailiteracyframework.org/</a>
+</div>
+<div id="ref-oliver2024" class="csl-entry" role="listitem">
+Oliver, A., &amp; Guiller, J. (2024). Generative <span>AI</span> in
+sport and exercise psychology: Exploring opportunities and overcoming
+challenges. <em>Sport &amp; Exercise Psychology Review</em>. <a href="https://openurl.ebsco.com/contentitem/lgd:182290355?sid=ebsco:plink:pplx&amp;id=ebsco:lgd:182290355">https://openurl.ebsco.com/contentitem/lgd:182290355?sid=ebsco:plink:pplx&amp;id=ebsco:lgd:182290355</a>
+</div>
+<div id="ref-onnela2016" class="csl-entry" role="listitem">
+Onnela, J.-P., &amp; Rauch, S. L. (2016). Harnessing smartphone-based
+digital phenotyping to enhance behavioral and mental health.
+<em>Neuropsychopharmacology</em>, <em>41</em>(7), 1691–1696. <a href="https://doi.org/10.1038/npp.2016.7">https://doi.org/10.1038/npp.2016.7</a>
+</div>
+<div id="ref-openai2026cyber" class="csl-entry" role="listitem">
+OpenAI. (2026, augusztus 28). <em>A call for collective action on cyber
+defense</em>. <a href="https://openai.com/collective-cyberdefense/">https://openai.com/collective-cyberdefense/</a>
+</div>
+<div id="ref-ouyang2022" class="csl-entry" role="listitem">
+<span class="nocase">Ouyang, L., Wu, J., Jiang, X., Almeida, D.,
+Wainwright, C. L., Mishkin, P., és mtsai.</span> (2022). Training
+language models to follow instructions with human feedback. <em>Advances
+in Neural Information Processing Systems</em>, <em>35</em>, 27730–27744.
+</div>
+<div id="ref-parasuraman2010" class="csl-entry" role="listitem">
+Parasuraman, R., &amp; Manzey, D. H. (2010). Complacency and bias in
+human use of automation: An attentional integration. <em>Human
+Factors</em>, <em>52</em>(3), 381–410. <a href="https://doi.org/10.1177/0018720810376055">https://doi.org/10.1177/0018720810376055</a>
+</div>
+<div id="ref-parasuraman1997" class="csl-entry" role="listitem">
+Parasuraman, R., &amp; Riley, V. (1997). Humans and automation: Use,
+misuse, disuse, abuse. <em>Human Factors</em>, <em>39</em>(2), 230–253.
+<a href="https://doi.org/10.1518/001872097778543886">https://doi.org/10.1518/001872097778543886</a>
+</div>
+<div id="ref-parasuraman2000" class="csl-entry" role="listitem">
+Parasuraman, R., Sheridan, T. B., &amp; Wickens, C. D. (2000). A model
+for types and levels of human interaction with automation. <em>IEEE
+Transactions on Systems, Man, and Cybernetics – Part A: Systems and
+Humans</em>, <em>30</em>(3), 286–297. <a href="https://doi.org/10.1109/3468.844354">https://doi.org/10.1109/3468.844354</a>
+</div>
+<div id="ref-park2026" class="csl-entry" role="listitem">
+Park, J., &amp; Shin, M. (2026). An introduction to the special series
+on artificial intelligence for students with learning disabilities.
+<em>Learning Disability Quarterly</em>. <a href="https://openurl.ebsco.com/contentitem/lgd:195361864?sid=ebsco:plink:pplx&amp;id=ebsco:lgd:195361864">https://openurl.ebsco.com/contentitem/lgd:195361864?sid=ebsco:plink:pplx&amp;id=ebsco:lgd:195361864</a>
+</div>
+<div id="ref-pearl1988" class="csl-entry" role="listitem">
+Pearl, J. (1988). <em>Probabilistic reasoning in intelligent systems:
+Networks of plausible inference</em>. Morgan Kaufmann.
+</div>
+<div id="ref-pearl2018" class="csl-entry" role="listitem">
+Pearl, J., &amp; Mackenzie, D. (2018). <em>The book of why: The new
+science of cause and effect</em>. Basic Books.
+</div>
+<div id="ref-peebles2015" class="csl-entry" role="listitem">
+Peebles, D., &amp; Cooper, R. P. (2015). Thirty years after
+<span>Marr’s</span> <span>Vision</span>: Levels of analysis in cognitive
+science. <em>Topics in Cognitive Science</em>, <em>7</em>(2), 187–190.
+<a href="https://doi.org/10.1111/tops.12137">https://doi.org/10.1111/tops.12137</a>
+</div>
+<div id="ref-peng2011" class="csl-entry" role="listitem">
+Peng, R. D. (2011). Reproducible research in computational science.
+<em>Science</em>, <em>334</em>(6060), 1226–1227. <a href="https://doi.org/10.1126/science.1213847">https://doi.org/10.1126/science.1213847</a>
+</div>
+<div id="ref-picard1997" class="csl-entry" role="listitem">
+Picard, R. W. (1997). <em>Affective computing</em>. MIT Press.
+</div>
+<div id="ref-polomoshnov2026" class="csl-entry" role="listitem">
+Polomoshnov, J., Masso, A., &amp; Lobanova, K. (2026). Comparing
+digital, data, and <span>AI</span> literacy: A narrative review.
+<em>Information Polity</em>. <a href="https://doi.org/10.1177/15701255251401863">https://doi.org/10.1177/15701255251401863</a>
+</div>
+<div id="ref-pal2020" class="csl-entry" role="listitem">
+Pontifical Academy for Life. (2020, február 28). <em>Rome call for
+<span>AI</span> ethics</em>. <a href="https://www.vatican.va/roman_curia/pontifical_academies/acdlife/documents/rc_pont-acd_life_doc_20202228_rome-call-for-ai-ethics_en.html">https://www.vatican.va/roman_curia/pontifical_academies/acdlife/documents/rc_pont-acd_life_doc_20202228_rome-call-for-ai-ethics_en.html</a>
+</div>
+<div id="ref-putnick2016" class="csl-entry" role="listitem">
+Putnick, D. L., &amp; Bornstein, M. H. (2016). Measurement invariance
+conventions and reporting: The state of the art and future directions
+for psychological research. <em>Developmental Review</em>, <em>41</em>,
+71–90. <a href="https://doi.org/10.1016/j.dr.2016.06.004">https://doi.org/10.1016/j.dr.2016.06.004</a>
+</div>
+<div id="ref-raji2021" class="csl-entry" role="listitem">
+Raji, I. D., Bender, E. M., Paullada, A., Denton, E., &amp; Hanna, A.
+(2021). <span>AI</span> and the everything in the whole wide world
+benchmark. <em>Proceedings of the Neural Information Processing Systems
+Track on Datasets and Benchmarks</em>. <a href="https://datasets-benchmarks-proceedings.neurips.cc/paper/2021/hash/084b6fbb10729ed4da8c3d3f5a3ae7c9-Abstract-round2.html">https://datasets-benchmarks-proceedings.neurips.cc/paper/2021/hash/084b6fbb10729ed4da8c3d3f5a3ae7c9-Abstract-round2.html</a>
+</div>
+<div id="ref-reclaimyourface2021" class="csl-entry" role="listitem">
+Reclaim Your Face. (2021). <em>Reclaim your face: European citizens’
+initiative to ban biometric mass surveillance</em>. <a href="https://reclaimyourface.eu/">https://reclaimyourface.eu/</a>
+</div>
+<div id="ref-gdpr2016" class="csl-entry" role="listitem">
+Regulation (<span>EU</span>) 2016/679 of the <span>European
+Parliament</span> and of the <span>Council</span> of 27
+<span>April</span> 2016 on the protection of natural persons with regard
+to the processing of personal data and on the free movement of such data
+(<span>General Data Protection Regulation</span>) (2016). <a href="https://eur-lex.europa.eu/eli/reg/2016/679/oj">https://eur-lex.europa.eu/eli/reg/2016/679/oj</a>
+</div>
+<div id="ref-euaiact2024" class="csl-entry" role="listitem">
+Regulation (<span>EU</span>) 2024/1689 of the <span>European
+Parliament</span> and of the <span>Council</span> of 13
+<span>June</span> 2024 laying down harmonised rules on artificial
+intelligence (<span>Artificial Intelligence Act</span>) (2024). <a href="https://eur-lex.europa.eu/eli/reg/2024/1689/oj">https://eur-lex.europa.eu/eli/reg/2024/1689/oj</a>
+</div>
+<div id="ref-aiid" class="csl-entry" role="listitem">
+Responsible AI Collaborative. (é. n.). <em><span>AI</span> incident
+database</em>. Elérés <a href="https://incidentdatabase.ai/">https://incidentdatabase.ai/</a>
+</div>
+<div id="ref-reuters2020pope" class="csl-entry" role="listitem">
+Reuters. (2020a, február 28). <em>Pope to endorse principles on
+<span>AI</span> ethics with <span>Microsoft</span>,
+<span>IBM</span></em>. <a href="https://www.reuters.com/article/technology/pope-to-endorse-principles-on-ai-ethics-with-microsoft-ibm-idUSL2N2AS01S/">https://www.reuters.com/article/technology/pope-to-endorse-principles-on-ai-ethics-with-microsoft-ibm-idUSL2N2AS01S/</a>
+</div>
+<div id="ref-reuters2020gebru" class="csl-entry" role="listitem">
+Reuters. (2020b, december 4). <em>Top <span>AI</span> ethics researcher
+says <span>Google</span> fired her; company denies it</em>. <a href="https://www.reuters.com/article/technology/top-ai-ethics-researcher-says-google-fired-her-company-denies-it-idUSKBN28E2QE/">https://www.reuters.com/article/technology/top-ai-ethics-researcher-says-google-fired-her-company-denies-it-idUSKBN28E2QE/</a>
+</div>
+<div id="ref-reuters2023extinction" class="csl-entry" role="listitem">
+Reuters. (2023a, május 30). <em>Top <span>AI</span> <span>CEOs</span>,
+experts raise <span>„risk of extinction”</span> from
+<span>AI</span></em>. <a href="https://www.reuters.com/technology/top-ai-ceos-experts-raise-risk-extinction-ai-2023-05-30/">https://www.reuters.com/technology/top-ai-ceos-experts-raise-risk-extinction-ai-2023-05-30/</a>
+</div>
+<div id="ref-reuters2023actors" class="csl-entry" role="listitem">
+Reuters. (2023b, július 21). <em>Actors decry <span>„existential
+crisis”</span> over <span>AI</span>-generated synthetic actors</em>. <a href="https://www.reuters.com/technology/actors-decry-existential-crisis-over-ai-generated-synthetic-actors-2023-07-21/">https://www.reuters.com/technology/actors-decry-existential-crisis-over-ai-generated-synthetic-actors-2023-07-21/</a>
+</div>
+<div id="ref-reuters2023safeguards" class="csl-entry" role="listitem">
+Reuters. (2023c, november 9). <em>Hollywood actors secure safeguards
+around <span>AI</span> use on screen</em>. <a href="https://www.reuters.com/business/media-telecom/hollywood-actors-secure-safeguards-around-ai-use-screen-2023-11-09/">https://www.reuters.com/business/media-telecom/hollywood-actors-secure-safeguards-around-ai-use-screen-2023-11-09/</a>
+</div>
+<div id="ref-ribeiro2016" class="csl-entry" role="listitem">
+Ribeiro, M. T., Singh, S., &amp; Guestrin, C. (2016).
+<span>„<span>Why</span> should <span>I</span> trust you?”</span>:
+Explaining the predictions of any classifier. <em>Proceedings of the
+22nd ACM SIGKDD International Conference on Knowledge Discovery and Data
+Mining</em>, 1135–1144. <a href="https://doi.org/10.1145/2939672.2939778">https://doi.org/10.1145/2939672.2939778</a>
+</div>
+<div id="ref-ricci2022" class="csl-entry" role="listitem">
+Ricci, F., Rokach, L., &amp; Shapira, B. (Szerk.). (2022).
+<em>Recommender systems handbook</em> (3. kiad.). Springer. <a href="https://doi.org/10.1007/978-1-0716-2197-4">https://doi.org/10.1007/978-1-0716-2197-4</a>
+</div>
+<div id="ref-risko2016" class="csl-entry" role="listitem">
+Risko, E. F., &amp; Gilbert, S. J. (2016). Cognitive offloading.
+<em>Trends in Cognitive Sciences</em>, <em>20</em>(9), 676–688. <a href="https://doi.org/10.1016/j.tics.2016.07.002">https://doi.org/10.1016/j.tics.2016.07.002</a>
+</div>
+<div id="ref-romecall2020" class="csl-entry" role="listitem">
+Rome Call for AI Ethics. (2020). <em>The call</em>. <a href="https://www.romecall.org/the-call/">https://www.romecall.org/the-call/</a>
+</div>
+<div id="ref-romeo2026" class="csl-entry" role="listitem">
+Romeo, G., &amp; Conti, D. (2026). Exploring automation bias in
+human–<span>AI</span> collaboration: A review and implications for
+explainable <span>AI</span>. <em>AI &amp; Society</em>, <em>41</em>(1),
+259–278. <a href="https://doi.org/10.1007/s00146-025-02422-7">https://doi.org/10.1007/s00146-025-02422-7</a>
+</div>
+<div id="ref-rosenblatt1958" class="csl-entry" role="listitem">
+Rosenblatt, F. (1958). The perceptron: A probabilistic model for
+information storage and organization in the brain. <em>Psychological
+Review</em>, <em>65</em>(6), 386–408. <a href="https://doi.org/10.1037/h0042519">https://doi.org/10.1037/h0042519</a>
+</div>
+<div id="ref-rumelhart1986" class="csl-entry" role="listitem">
+Rumelhart, D. E., Hinton, G. E., &amp; Williams, R. J. (1986). Learning
+representations by back-propagating errors. <em>Nature</em>,
+<em>323</em>(6088), 533–536. <a href="https://doi.org/10.1038/323533a0">https://doi.org/10.1038/323533a0</a>
+</div>
+<div id="ref-russell2019" class="csl-entry" role="listitem">
+Russell, S. (2019). <em>Human compatible: Artificial intelligence and
+the problem of control</em>. Viking.
+</div>
+<div id="ref-russell2015" class="csl-entry" role="listitem">
+Russell, S., Dewey, D., &amp; Tegmark, M. (2015). Research priorities
+for robust and beneficial artificial intelligence. <em>AI Magazine</em>,
+<em>36</em>(4), 105–114. <a href="https://doi.org/10.1609/aimag.v36i4.2577">https://doi.org/10.1609/aimag.v36i4.2577</a>
+</div>
+<div id="ref-russell2021" class="csl-entry" role="listitem">
+Russell, S., &amp; Norvig, P. (2021). <em>Artificial intelligence: A
+modern approach</em> (4. kiad.). Pearson.
+</div>
+<div id="ref-saarland" class="csl-entry" role="listitem">
+Saarland University. (2025). <em>Working with generative <span>AI</span>
+for students</em>. <a href="https://www.uni-saarland.de/fakultaet-hw/vipa/sonstiges/schluesselkompetenzen/sommersemester-2025/working-with-generative-ai-for-students.html">https://www.uni-saarland.de/fakultaet-hw/vipa/sonstiges/schluesselkompetenzen/sommersemester-2025/working-with-generative-ai-for-students.html</a>
+</div>
+<div id="ref-sagaftra2023" class="csl-entry" role="listitem">
+SAG-AFTRA. (2023). <em>2023 <span>TV</span>/theatrical contracts</em>.
+<a href="https://www.sagaftra.org/contracts-industry-resources/contracts/2023-tvtheatrical-contracts">https://www.sagaftra.org/contracts-industry-resources/contracts/2023-tvtheatrical-contracts</a>
+</div>
+<div id="ref-schaap2023" class="csl-entry" role="listitem">
+Schaap, G., Bosse, T., &amp; Hendriks Vettehen, P. (2023). The
+<span>ABC</span> of algorithmic aversion: Not agent, but benefits and
+control determine the acceptance of automated decision-making. <em>AI
+&amp; Society</em>, <em>39</em>(4), 1947–1960. <a href="https://doi.org/10.1007/s00146-023-01649-6">https://doi.org/10.1007/s00146-023-01649-6</a>
+</div>
+<div id="ref-schwartz2022" class="csl-entry" role="listitem">
+Schwartz, R., Vassilev, A., Greene, K., Perine, L., Burt, A., &amp;
+Hall, P. (2022). <em>Towards a standard for identifying and managing
+bias in artificial intelligence</em> (NIST Special Publication No.
+1270). National Institute of Standards; Technology. <a href="https://doi.org/10.6028/NIST.SP.1270">https://doi.org/10.6028/NIST.SP.1270</a>
+</div>
+<div id="ref-searle1980" class="csl-entry" role="listitem">
+Searle, J. R. (1980). Minds, brains, and programs. <em>Behavioral and
+Brain Sciences</em>, <em>3</em>(3), 417–424. <a href="https://doi.org/10.1017/S0140525X00005756">https://doi.org/10.1017/S0140525X00005756</a>
+</div>
+<div id="ref-selbst2019" class="csl-entry" role="listitem">
+<span class="nocase">Selbst, A. D., boyd, danah, Friedler, S. A.,
+Venkatasubramanian, S., &amp; Vertesi, J.</span> (2019). Fairness and
+abstraction in sociotechnical systems. <em>Proceedings of the Conference
+on Fairness, Accountability, and Transparency</em>, 59–68. <a href="https://doi.org/10.1145/3287560.3287598">https://doi.org/10.1145/3287560.3287598</a>
+</div>
+<div id="ref-sennrich2016" class="csl-entry" role="listitem">
+Sennrich, R., Haddow, B., &amp; Birch, A. (2016). Neural machine
+translation of rare words with subword units. <em>Proceedings of the
+54th Annual Meeting of the Association for Computational
+Linguistics</em>, 1715–1725. <a href="https://doi.org/10.18653/v1/P16-1162">https://doi.org/10.18653/v1/P16-1162</a>
+</div>
+<div id="ref-shaw2005" class="csl-entry" role="listitem">
+Shaw, M. L. G., &amp; Gaines, B. R. (2005). Expertise and expert
+systems: Emulating psychological processes. In F. Fransella (Szerk.),
+<em>The essential practitioner’s handbook of personal construct
+psychology</em>. Wiley. <a href="https://gaines.library.uvic.ca/pdf/ExpertiseES05.pdf">https://gaines.library.uvic.ca/pdf/ExpertiseES05.pdf</a>
+</div>
+<div id="ref-shmueli2010" class="csl-entry" role="listitem">
+Shmueli, G. (2010). To explain or to predict? <em>Statistical
+Science</em>, <em>25</em>(3), 289–310. <a href="https://doi.org/10.1214/10-STS330">https://doi.org/10.1214/10-STS330</a>
+</div>
+<div id="ref-shortliffe1976" class="csl-entry" role="listitem">
+Shortliffe, E. H. (1976). <em>Computer-based medical consultations:
+<span>MYCIN</span></em>. Elsevier.
+</div>
+<div id="ref-notforprivategain2025" class="csl-entry" role="listitem">
+SiliconANGLE. (2025, április 23). <em>Former <span>OpenAI</span> staff,
+<span>AI</span> experts ask attorneys general to block profit
+conversion</em>. <a href="https://siliconangle.com/2025/04/23/former-openai-staff-ai-experts-ask-attorneys-general-block-profit-conversation/">https://siliconangle.com/2025/04/23/former-openai-staff-ai-experts-ask-attorneys-general-block-profit-conversation/</a>
+</div>
+<div id="ref-skitka1999" class="csl-entry" role="listitem">
+Skitka, L. J., Mosier, K. L., &amp; Burdick, M. (1999). Does automation
+bias decision-making? <em>International Journal of Human-Computer
+Studies</em>, <em>51</em>(5), 991–1006. <a href="https://doi.org/10.1006/ijhc.1999.0252">https://doi.org/10.1006/ijhc.1999.0252</a>
+</div>
+<div id="ref-sokolova2009" class="csl-entry" role="listitem">
+Sokolova, M., &amp; Lapalme, G. (2009). A systematic analysis of
+performance measures for classification tasks. <em>Information
+Processing &amp; Management</em>, <em>45</em>(4), 427–437. <a href="https://doi.org/10.1016/j.ipm.2009.03.002">https://doi.org/10.1016/j.ipm.2009.03.002</a>
+</div>
+<div id="ref-stanfordhai2022" class="csl-entry" role="listitem">
+Stanford Institute for Human-Centered Artificial Intelligence. (2022).
+<em>How foundation models can advance <span>AI</span> in
+healthcare</em>. <a href="https://hai.stanford.edu/news/how-foundation-models-can-advance-ai-healthcare">https://hai.stanford.edu/news/how-foundation-models-can-advance-ai-healthcare</a>
+</div>
+<div id="ref-cs221" class="csl-entry" role="listitem">
+Stanford University. (é. n.). <em><span>CS221</span>: Artificial
+intelligence: Principles and techniques</em>. Elérés <a href="https://stanford-cs221.github.io/">https://stanford-cs221.github.io/</a>
+</div>
+<div id="ref-steyerberg2016" class="csl-entry" role="listitem">
+Steyerberg, E. W., &amp; Harrell, F. E. (2016). Prediction models need
+appropriate internal, internal-external, and external validation.
+<em>Journal of Clinical Epidemiology</em>, <em>69</em>, 245–247. <a href="https://doi.org/10.1016/j.jclinepi.2015.04.005">https://doi.org/10.1016/j.jclinepi.2015.04.005</a>
+</div>
+<div id="ref-stone2016" class="csl-entry" role="listitem">
+<span class="nocase">Stone, P., Brooks, R., Brynjolfsson, E., Calo, R.,
+Etzioni, O., Hager, G., és mtsai.</span> (2016). <em>Artificial
+intelligence and life in 2030: One hundred year study on artificial
+intelligence. <span>Report</span> of the 2015–2016 study panel</em>.
+Stanford University. <a href="https://ai100.stanford.edu/2016-report">https://ai100.stanford.edu/2016-report</a>
+</div>
+<div id="ref-skr_policy" class="csl-entry" role="listitem">
+Stop Killer Robots. (é. n.-a). <em>Our policy position</em>. Elérés <a href="https://www.stopkillerrobots.org/our-policies/">https://www.stopkillerrobots.org/our-policies/</a>
+</div>
+<div id="ref-skr_facts" class="csl-entry" role="listitem">
+Stop Killer Robots. (é. n.-b). <em>Problems with autonomous
+weapons</em>. Elérés <a href="https://www.stopkillerrobots.org/stop-killer-robots/facts-about-autonomous-weapons/">https://www.stopkillerrobots.org/stop-killer-robots/facts-about-autonomous-weapons/</a>
+</div>
+<div id="ref-skr_home" class="csl-entry" role="listitem">
+Stop Killer Robots. (é. n.-c). <em>Stop killer robots</em>. Elérés <a href="https://www.stopkillerrobots.org/">https://www.stopkillerrobots.org/</a>
+</div>
+<div id="ref-sutton2018" class="csl-entry" role="listitem">
+Sutton, R. S., &amp; Barto, A. G. (2018). <em>Reinforcement learning: An
+introduction</em> (2. kiad.). MIT Press.
+</div>
+<div id="ref-techcrunch2026pentagon" class="csl-entry" role="listitem">
+TechCrunch. (2026a, február 27). <em>Employees at <span>Google</span>
+and <span>OpenAI</span> support <span>Anthropic’s</span>
+<span>Pentagon</span> stand in open letter</em>. <a href="https://techcrunch.com/2026/02/27/employees-at-google-and-openai-support-anthropics-pentagon-stand-in-open-letter/">https://techcrunch.com/2026/02/27/employees-at-google-and-openai-support-anthropics-pentagon-stand-in-open-letter/</a>
+</div>
+<div id="ref-techcrunch2026fields" class="csl-entry" role="listitem">
+TechCrunch. (2026b, szeptember 11). <em><span>OpenAI’s</span> feud with
+mathematicians is only escalating</em>. <a href="https://techcrunch.com/2026/09/11/openais-feud-with-mathematicians-is-only-escalating/">https://techcrunch.com/2026/09/11/openais-feud-with-mathematicians-is-only-escalating/</a>
+</div>
+<div id="ref-artnewspaper2024" class="csl-entry" role="listitem">
+The Art Newspaper. (2024, október 24). <em>Thousands sign statement
+against <span>AI</span> content scraping</em>. <a href="https://www.theartnewspaper.com/2024/10/24/artists-statement-opposing-artificial-intelligence-content-scraping">https://www.theartnewspaper.com/2024/10/24/artists-statement-opposing-artificial-intelligence-content-scraping</a>
+</div>
+<div id="ref-citadel" class="csl-entry" role="listitem">
+The Citadel. (é. n.). <em>Four generative <span>AI</span> literacy
+modules</em>. Elérés <a href="https://www.citadel.edu/ai-education/?p=108">https://www.citadel.edu/ai-education/?p=108</a>
+</div>
+<div id="ref-verge2020" class="csl-entry" role="listitem">
+The Verge. (2020, december 5). <em>Timnit Gebru’s actual paper may
+explain why <span>Google</span> ejected her</em>. <a href="https://www.theverge.com/2020/12/5/22155985/paper-timnit-gebru-fired-google-large-language-models-search-ai">https://www.theverge.com/2020/12/5/22155985/paper-timnit-gebru-fired-google-large-language-models-search-ai</a>
+</div>
+<div id="ref-touretzky2023" class="csl-entry" role="listitem">
+Touretzky, D. S., Gardner-McCune, C., &amp; Seehorn, D. W. (2023).
+Machine learning and the five big ideas in <span>AI</span>.
+<em>International Journal of Artificial Intelligence in Education</em>,
+<em>33</em>(2), 233–266. <a href="https://par.nsf.gov/biblio/10357450-machine-learning-five-big-ideas-ai">https://par.nsf.gov/biblio/10357450-machine-learning-five-big-ideas-ai</a>
+</div>
+<div id="ref-pacing2026" class="csl-entry" role="listitem">
+Transparency Coalition. (2026). <em>More than 1,300 tech employees sign
+open letter asking for <span>AI</span> to be regulated</em>. <a href="https://www.transparencycoalition.ai/news/more-than-1300-tech-employees-sign-open-letter-asking-for-ai-to-be-regulated">https://www.transparencycoalition.ai/news/more-than-1300-tech-employees-sign-open-letter-asking-for-ai-to-be-regulated</a>
+</div>
+<div id="ref-turing1950" class="csl-entry" role="listitem">
+Turing, A. M. (1950). Computing machinery and intelligence.
+<em>Mind</em>, <em>59</em>(236), 433–460. <a href="https://doi.org/10.1093/mind/LIX.236.433">https://doi.org/10.1093/mind/LIX.236.433</a>
+</div>
+<div id="ref-ukgov2023" class="csl-entry" role="listitem">
+UK Government. (2023, november 1). <em>The <span>Bletchley</span>
+declaration by countries attending the <span>AI</span> safety summit,
+1–2 <span>November</span> 2023</em>. <a href="https://www.gov.uk/government/publications/ai-safety-summit-2023-the-bletchley-declaration">https://www.gov.uk/government/publications/ai-safety-summit-2023-the-bletchley-declaration</a>
+</div>
+<div id="ref-montreal2018" class="csl-entry" role="listitem">
+Université de Montréal. (2018, december 4). <em>Montréal declaration for
+a responsible development of artificial intelligence</em>. <a href="https://montrealdeclaration-responsibleai.com/">https://montrealdeclaration-responsibleai.com/</a>
+</div>
+<div id="ref-cs188" class="csl-entry" role="listitem">
+University of California, Berkeley. (é. n.). <em><span>CS</span> 188:
+Introduction to artificial intelligence</em>. Elérés <a href="https://inst.eecs.berkeley.edu/~cs188/">https://inst.eecs.berkeley.edu/~cs188/</a>
+</div>
+<div id="ref-elementsofai" class="csl-entry" role="listitem">
+University of Helsinki, &amp; MinnaLearn. (é. n.). <em>Elements of
+<span>AI</span></em>. Elérés <a href="https://course.elementsofai.com/">https://course.elementsofai.com/</a>
+</div>
+<div id="ref-luebeck2025" class="csl-entry" role="listitem">
+University of Lübeck. (2025). <em>Psychology of artificial intelligence
+(<span>PsyKI</span>) – Module description</em>. <a href="https://www2.uni-luebeck.de/en/modulhandbuecher/details/2578/">https://www2.uni-luebeck.de/en/modulhandbuecher/details/2578/</a>
+</div>
+<div id="ref-vancalster2019" class="csl-entry" role="listitem">
+<span class="nocase">Van Calster, B., McLernon, D. J., van Smeden, M.,
+Wynants, L., &amp; Steyerberg, E. W.</span> (2019). Calibration: The
+<span>Achilles</span> heel of predictive analytics. <em>BMC
+Medicine</em>, <em>17</em>, 230. <a href="https://doi.org/10.1186/s12916-019-1466-7">https://doi.org/10.1186/s12916-019-1466-7</a>
+</div>
+<div id="ref-vannoy2026" class="csl-entry" role="listitem">
+Vannoy, T. K., Cadieux, S., &amp; Lyubomirsky, S. (2026). Human 2.0?
+<span>AI</span> and the future of well-being, connection, and personal
+growth: A narrative review. <em>Behavioral Sciences</em>,
+<em>16</em>(6), 909. <a href="https://doi.org/10.3390/bs16060909">https://doi.org/10.3390/bs16060909</a>
+</div>
+<div id="ref-varma2014" class="csl-entry" role="listitem">
+Varma, S. (2014). The subjective meaning of cognitive architecture: A
+<span>Marrian</span> analysis. <em>Frontiers in Psychology</em>,
+<em>5</em>, 440. <a href="https://doi.org/10.3389/fpsyg.2014.00440">https://doi.org/10.3389/fpsyg.2014.00440</a>
+</div>
+<div id="ref-varma2006" class="csl-entry" role="listitem">
+Varma, S., &amp; Simon, R. (2006). Bias in error estimation when using
+cross-validation for model selection. <em>BMC Bioinformatics</em>,
+<em>7</em>, 91. <a href="https://doi.org/10.1186/1471-2105-7-91">https://doi.org/10.1186/1471-2105-7-91</a>
+</div>
+<div id="ref-vaswani2017" class="csl-entry" role="listitem">
+Vaswani, A., Shazeer, N., Parmar, N., Uszkoreit, J., Jones, L., Gomez,
+A. N., Kaiser, Ł., &amp; Polosukhin, I. (2017). Attention is all you
+need. <em>Advances in Neural Information Processing Systems</em>,
+<em>30</em>.
+</div>
+<div id="ref-vickers2006" class="csl-entry" role="listitem">
+Vickers, A. J., &amp; Elkin, E. B. (2006). Decision curve analysis: A
+novel method for evaluating prediction models. <em>Medical Decision
+Making</em>, <em>26</em>(6), 565–574. <a href="https://doi.org/10.1177/0272989X06295361">https://doi.org/10.1177/0272989X06295361</a>
+</div>
+<div id="ref-vuorikari2022" class="csl-entry" role="listitem">
+Vuorikari, R., Kluzer, S., &amp; Punie, Y. (2022).
+<em><span>DigComp</span> 2.2: The digital competence framework for
+citizens</em>. Publications Office of the European Union. <a href="https://doi.org/10.2760/115376">https://doi.org/10.2760/115376</a>
+</div>
+<div id="ref-wang2024agents" class="csl-entry" role="listitem">
+<span class="nocase">Wang, L., Ma, C., Feng, X., Zhang, Z., Yang, H.,
+Zhang, J., és mtsai.</span> (2024). A survey on large language model
+based autonomous agents. <em>Frontiers of Computer Science</em>,
+<em>18</em>(6), 186345. <a href="https://doi.org/10.1007/s11704-024-40231-1">https://doi.org/10.1007/s11704-024-40231-1</a>
+</div>
+<div id="ref-weizenbaum1966" class="csl-entry" role="listitem">
+Weizenbaum, J. (1966). <span>ELIZA</span>—A computer program for the
+study of natural language communication between man and machine.
+<em>Communications of the ACM</em>, <em>9</em>(1), 36–45. <a href="https://doi.org/10.1145/365153.365168">https://doi.org/10.1145/365153.365168</a>
+</div>
+<div id="ref-weizenbaum1976" class="csl-entry" role="listitem">
+Weizenbaum, J. (1976). <em>Computer power and human reason: From
+judgment to calculation</em>. W. H. Freeman.
+</div>
+<div id="ref-westerlund2019" class="csl-entry" role="listitem">
+Westerlund, M. (2019). The emergence of deepfake technology: A review.
+<em>Technology Innovation Management Review</em>, <em>9</em>(11), 39–52.
+<a href="https://doi.org/10.22215/timreview/1282">https://doi.org/10.22215/timreview/1282</a>
+</div>
+<div id="ref-white2023" class="csl-entry" role="listitem">
+White, J., Fu, Q., Hays, S., Sandborn, M., Olea, C., Gilbert, H.,
+Elnashar, A., Spencer-Smith, J., &amp; Schmidt, D. C. (2023). <em>A
+prompt pattern catalog to enhance prompt engineering with
+<span>ChatGPT</span></em>. <a href="https://arxiv.org/abs/2302.11382">https://arxiv.org/abs/2302.11382</a>
+</div>
+<div id="ref-ainow2018" class="csl-entry" role="listitem">
+<span class="nocase">Whittaker, M., Crawford, K., Dobbe, R., Fried, G.,
+Kaziunas, E., Mathur, V., és mtsai.</span> (2018). <em><span>AI
+Now</span> report 2018</em>. AI Now Institute, New York University. <a href="https://ainowinstitute.org/publication/ai-now-2018-report-2">https://ainowinstitute.org/publication/ai-now-2018-report-2</a>
+</div>
+<div id="ref-wiener1960" class="csl-entry" role="listitem">
+Wiener, N. (1960). Some moral and technical consequences of automation.
+<em>Science</em>, <em>131</em>(3410), 1355–1358. <a href="https://doi.org/10.1126/science.131.3410.1355">https://doi.org/10.1126/science.131.3410.1355</a>
+</div>
+<div id="ref-wiener1988" class="csl-entry" role="listitem">
+Wiener, N. (1988). <em>The human use of human beings: Cybernetics and
+society</em>. Da Capo Press. (Original work published 1950)
+</div>
+<div id="ref-wilson2019" class="csl-entry" role="listitem">
+Wilson, R. C., &amp; Collins, A. G. E. (2019). Ten simple rules for the
+computational modeling of behavioral data. <em>eLife</em>, <em>8</em>,
+e49547. <a href="https://doi.org/10.7554/eLife.49547">https://doi.org/10.7554/eLife.49547</a>
+</div>
+<div id="ref-wineburg2019" class="csl-entry" role="listitem">
+Wineburg, S., &amp; McGrew, S. (2019). Lateral reading and the nature of
+expertise: Reading less and learning more when evaluating digital
+information. <em>Teachers College Record</em>, <em>121</em>(11), 1–40.
+<a href="https://doi.org/10.1177/016146811912101102">https://doi.org/10.1177/016146811912101102</a>
+</div>
+<div id="ref-wired2021" class="csl-entry" role="listitem">
+Wired. (2021, június 8). <em>What really happened when
+<span>Google</span> ousted <span>Timnit Gebru</span></em>. <a href="https://www.wired.com/story/google-timnit-gebru-ai-what-really-happened/">https://www.wired.com/story/google-timnit-gebru-ai-what-really-happened/</a>
+</div>
+<div id="ref-wga2023" class="csl-entry" role="listitem">
+Writers Guild of America. (2023). <em>Summary of the 2023
+<span>WGA</span> <span>MBA</span></em>. <a href="https://www.wgacontract2023.org/the-campaign/summary-of-the-2023-wga-mba">https://www.wgacontract2023.org/the-campaign/summary-of-the-2023-wga-mba</a>
+</div>
+<div id="ref-yarkoni2022" class="csl-entry" role="listitem">
+Yarkoni, T. (2022). The generalizability crisis. <em>Behavioral and
+Brain Sciences</em>, <em>45</em>, e1. <a href="https://doi.org/10.1017/S0140525X20001685">https://doi.org/10.1017/S0140525X20001685</a>
+</div>
+<div id="ref-cs50ai" class="csl-entry" role="listitem">
+Yu, B., &amp; Malan, D. J. (é. n.). <em><span>CS50’s</span> introduction
+to artificial intelligence with <span>Python</span></em>. Harvard
+University. Elérés <a href="https://cs50.harvard.edu/ai/">https://cs50.harvard.edu/ai/</a>
+</div>
+<div id="ref-yu2026" class="csl-entry" role="listitem">
+<span class="nocase">Yu, M., Jiang, D., Xu, Q., és mtsai.</span> (2026).
+Artificial intelligence literacy and utilization barriers in nursing
+learning. <em>Journal of Nursing Education</em>. <a href="https://openurl.ebsco.com/contentitem/lgd:196890694?sid=ebsco:plink:pplx&amp;id=ebsco:lgd:196890694">https://openurl.ebsco.com/contentitem/lgd:196890694?sid=ebsco:plink:pplx&amp;id=ebsco:lgd:196890694</a>
+</div>
+<div id="ref-yudkowsky2008" class="csl-entry" role="listitem">
+Yudkowsky, E. (2008). Artificial intelligence as a positive and negative
+factor in global risk. In N. Bostrom &amp; M. M. Ćirković (Szerk.),
+<em>Global catastrophic risks</em> (o. 308–345). Oxford University
+Press. <a href="https://intelligence.org/files/AIPosNegFactor.pdf">https://intelligence.org/files/AIPosNegFactor.pdf</a>
+</div>
+<div id="ref-zhang2026" class="csl-entry" role="listitem">
+Zhang, L., Deng, X., &amp; Shadiev, R. (2026). A meta-review of
+generative <span>AI</span> in education: Synthesizing findings from
+systematic reviews. <em>Journal of Educational Computing Research</em>.
+<a href="https://openurl.ebsco.com/contentitem/lgd:192767645?sid=ebsco:plink:pplx&amp;id=ebsco:lgd:192767645">https://openurl.ebsco.com/contentitem/lgd:192767645?sid=ebsco:plink:pplx&amp;id=ebsco:lgd:192767645</a>
+</div>
+<div id="ref-zhong2024" class="csl-entry" role="listitem">
+Zhong, W., Luo, J., &amp; Zhang, H. (2024). The therapeutic
+effectiveness of artificial intelligence-based chatbots in alleviation
+of depressive and anxiety symptoms in short-course treatments: A
+systematic review and meta-analysis. <em>Journal of Affective
+Disorders</em>, <em>356</em>, 459–469. <a href="https://doi.org/10.1016/j.jad.2024.04.057">https://doi.org/10.1016/j.jad.2024.04.057</a>
+</div>
+<div id="ref-zhu2020" class="csl-entry" role="listitem">
+Zhu, J. (2020). <em>Machine learning: Supervised, unsupervised and
+reinforcement learning</em>. University of Wisconsin–Madison. <a href="https://pages.cs.wisc.edu/~jerryzhu/cs760/lecture2.pdf">https://pages.cs.wisc.edu/~jerryzhu/cs760/lecture2.pdf</a>
+</div>
+<div id="ref-zimmerman2002" class="csl-entry" role="listitem">
+Zimmerman, B. J. (2002). Becoming a self-regulated learner: An overview.
+<em>Theory Into Practice</em>, <em>41</em>(2), 64–70. <a href="https://doi.org/10.1207/s15430421tip4102_2">https://doi.org/10.1207/s15430421tip4102_2</a>
+</div>
+</div>
+
+
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    // Ensure there is a toggle, if there isn't float one in the top right
+    if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
+      const a = window.document.createElement('a');
+      a.classList.add('top-right');
+      a.classList.add('quarto-color-scheme-toggle');
+      a.href = "";
+      a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
+      const i = window.document.createElement("i");
+      i.classList.add('bi');
+      a.appendChild(i);
+      window.document.body.appendChild(a);
+    }
+    setColorSchemeToggle(hasAlternateSentinel())
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./MI-kockazat-monitoring.html" class="pagination-link" aria-label="MI-kockázatok, figyelmeztetések és cselekvési felhívások folyamatos monitorozása">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">MI-kockázatok, figyelmeztetések és cselekvési felhívások folyamatos monitorozása</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+
+<script src="site_libs/quarto-html/zenscroll-min.js"></script>
+</body></html>
