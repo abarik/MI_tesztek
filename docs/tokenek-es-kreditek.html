@@ -486,6 +486,12 @@ window.Quarto = {
   <li><a href="#kiszámolt-példa-egy-20-körös-beszélgetés" id="toc-kiszámolt-példa-egy-20-körös-beszélgetés" class="nav-link" data-scroll-target="#kiszámolt-példa-egy-20-körös-beszélgetés">Kiszámolt példa: egy 20 körös beszélgetés</a></li>
   </ul></li>
   <li><a href="#memória-mit-tud-rólad-a-chatbot" id="toc-memória-mit-tud-rólad-a-chatbot" class="nav-link" data-scroll-target="#memória-mit-tud-rólad-a-chatbot">Memória: mit „tud rólad” a chatbot?</a></li>
+  <li><a href="#állandó-háttér-projektek-skillek-és-konnektorok" id="toc-állandó-háttér-projektek-skillek-és-konnektorok" class="nav-link" data-scroll-target="#állandó-háttér-projektek-skillek-és-konnektorok">Állandó háttér: projektek, skillek és konnektorok</a>
+  <ul class="collapse">
+  <li><a href="#projekt" id="toc-projekt" class="nav-link" data-scroll-target="#projekt">Projekt</a></li>
+  <li><a href="#skill-készség" id="toc-skill-készség" class="nav-link" data-scroll-target="#skill-készség">Skill (készség)</a></li>
+  <li><a href="#konnektorok-eszközök-mcp" id="toc-konnektorok-eszközök-mcp" class="nav-link" data-scroll-target="#konnektorok-eszközök-mcp">Konnektorok, eszközök, MCP</a></li>
+  </ul></li>
   <li><a href="#mitől-fogy-a-token-a-hallgatói-tevékenységek-következményei" id="toc-mitől-fogy-a-token-a-hallgatói-tevékenységek-következményei" class="nav-link" data-scroll-target="#mitől-fogy-a-token-a-hallgatói-tevékenységek-következményei">Mitől fogy a token? A hallgatói tevékenységek következményei</a>
   <ul class="collapse">
   <li><a href="#promptolás" id="toc-promptolás" class="nav-link" data-scroll-target="#promptolás">Promptolás</a></li>
@@ -496,6 +502,7 @@ window.Quarto = {
   <li><a href="#webes-keresés-és-források-beolvasása" id="toc-webes-keresés-és-források-beolvasása" class="nav-link" data-scroll-target="#webes-keresés-és-források-beolvasása">Webes keresés és források beolvasása</a></li>
   </ul></li>
   <li><a href="#mi-ágensek-a-tokenfogyasztás-megsokszorozódása" id="toc-mi-ágensek-a-tokenfogyasztás-megsokszorozódása" class="nav-link" data-scroll-target="#mi-ágensek-a-tokenfogyasztás-megsokszorozódása">MI-ágensek: a tokenfogyasztás megsokszorozódása</a></li>
+  <li><a href="#sec-tokencsokkentes" id="toc-sec-tokencsokkentes" class="nav-link" data-scroll-target="#sec-tokencsokkentes">Ami csökkenti a tokenfogyasztást</a></li>
   <li><a href="#kreditek-és-használati-korlátok" id="toc-kreditek-és-használati-korlátok" class="nav-link" data-scroll-target="#kreditek-és-használati-korlátok">Kreditek és használati korlátok</a>
   <ul class="collapse">
   <li><a href="#hogyan-mérik-a-szolgáltatók-a-használatot" id="toc-hogyan-mérik-a-szolgáltatók-a-használatot" class="nav-link" data-scroll-target="#hogyan-mérik-a-szolgáltatók-a-használatot">Hogyan mérik a szolgáltatók a használatot?</a></li>
@@ -538,6 +545,8 @@ window.Quarto = {
 <li>egyszerre csak korlátozott mennyiségű tokent lát: ez a <strong>kontextusablak</strong>;</li>
 <li>a modell <strong>állapotmentes</strong>, ezért minden válasznál újra el kell küldeni neki mindent, amit látnia kell;</li>
 <li>emiatt a beszélgetés hossza, a feltöltött fájlok és az ágensek lépései <strong>halmozódó tokenköltséget</strong> okoznak;</li>
+<li>az állandó háttérelemek – <strong>projektek, skillek, konnektorok</strong> – attól függően takarékosak vagy pazarlók, hogy <em>mindig</em> vagy <em>csak igény szerint</em> kerülnek a kontextusba;</li>
+<li>több mechanizmus kifejezetten a tokenfogyasztás <strong>csökkentését</strong> szolgálja;</li>
 <li>a szolgáltatók ezt a tokenmennyiséget (és a mögötte álló számítási igényt) mérik, amikor <strong>kreditet vonnak le</strong> vagy <strong>használati korlátot</strong> alkalmaznak.</li>
 </ol>
 <div class="callout callout-style-default callout-note callout-titled">
@@ -791,13 +800,76 @@ window.Quarto = {
 <td>Mint fent: minden körben bemenet.</td>
 </tr>
 <tr class="odd">
-<td><strong>Projektek, tudásbázisok (visszakeresés)</strong></td>
-<td>Feltöltött dokumentumok gyűjteménye, amelyből a rendszer a kérdéshez illő részleteket keresi elő és illeszti a kontextusba (RAG) <span class="citation" data-cites="lewis2020">(<a href="references.html#ref-lewis2020" role="doc-biblioref"><span class="nocase">Lewis és mtsai.</span>, 2020</a>)</span>.</td>
-<td>Csak a beemelt részletek számítanak; ez takarékosabb, mint a teljes dokumentum.</td>
+<td><strong>Projekt tudásbázisa</strong></td>
+<td>A projekthez feltöltött dokumentumok. Kisebb tudásbázist a rendszer gyakran <em>teljes egészében</em> a kontextusba tölt; nagyobbnál visszakeresésre (RAG) vált, és csak a kérdéshez illő részleteket emeli be <span class="citation" data-cites="lewis2020 anthropic_projects_rag">(<a href="references.html#ref-anthropic_projects_rag" role="doc-biblioref">Anthropic, é. n.-b</a>; <a href="references.html#ref-lewis2020" role="doc-biblioref"><span class="nocase">Lewis és mtsai.</span>, 2020</a>)</span>.</td>
+<td>Teljes betöltésnél a projekt minden beszélgetésének minden körében bemenet; visszakeresésnél csak a beemelt részletek. Lásd a következő alfejezetet.</td>
 </tr>
 </tbody>
 </table>
 <p><strong>Pszichológiai szempont:</strong> a „memória” funkciók könnyen erősítik az antropomorfizációt – azt az érzést, hogy a rendszer <em>ismer</em> minket. Valójában egy elmentett szövegrészlet kerül újra a modell elé. Érdemes időnként átnézni, mit tárol rólad az alkalmazás, mert minden elmentett tény adatvédelmi kérdés is.</p>
+</section>
+<section id="állandó-háttér-projektek-skillek-és-konnektorok" class="level2">
+<h2 class="anchored" data-anchor-id="állandó-háttér-projektek-skillek-és-konnektorok">Állandó háttér: projektek, skillek és konnektorok</h2>
+<p>A mai chatbotok egyre több olyan funkciót kínálnak, amely egyszer beállítva a háttérben dolgozik: projektek, skillek (készségek), konnektorok. Tokenszempontból mindegyiknél ugyanazt a kérdést érdemes feltenni:</p>
+<blockquote class="blockquote">
+<p><strong>Mi kerül be a kontextusba <em>minden</em> körben, és mi csak <em>akkor</em>, amikor tényleg szükség van rá?</strong></p>
+</blockquote>
+<p>Ami mindig bent van, az – az állapotmentesség miatt – minden válasznál újra bemenet. Ami csak igény szerint töltődik be, az jellemzően takarékos.</p>
+<section id="projekt" class="level3">
+<h3 class="anchored" data-anchor-id="projekt">Projekt</h3>
+<p>A <strong>projekt</strong> (Claude, ChatGPT; hasonló a Gemini <em>Gem</em> vagy az egyedi GPT) egy munkaterület, amelyhez három dolog tartozik:</p>
+<ol type="1">
+<li><strong>projektutasítás</strong> – állandó szöveg, amely a projekt minden beszélgetésének elejére bekerül;</li>
+<li><strong>tudásbázis</strong> – a projekthez feltöltött fájlok (pl. a kurzus jegyzetei, a szakdolgozat fejezetei);</li>
+<li><strong>beszélgetések</strong> – a projekten belül indított, egymástól külön kontextusú csevegések.</li>
+</ol>
+<p>A projekt tokenszempontból <strong>kétélű</strong>:</p>
+<ul>
+<li><strong>Segít,</strong> mert nem kell minden új beszélgetésbe újra bemásolni a háttérinformációt és az utasításokat, így könnyű a „<em>rövid beszélgetés, közös háttér</em>” munkamódot követni: témánként új beszélgetés, de mindegyik ugyanabból az anyagból dolgozik.</li>
+<li><strong>Árthat,</strong> mert a tudásbázis rejtett, állandó bemenet lehet. A szolgáltatók eltérően kezelik: a Claude például a tudásbázist teljes egészében a kontextusba tölti, amíg az belefér, és csak a kontextusablak határához közeledve vált visszakereséses (RAG) módra <span class="citation" data-cites="anthropic_projects_rag">(<a href="references.html#ref-anthropic_projects_rag" role="doc-biblioref">Anthropic, é. n.-b</a>)</span>; más szolgáltatók eleve visszakeresést használnak. Teljes betöltésnél tehát egy nagy tudásbázis <em>minden</em> kérdésnél „fizetendő”, akkor is, ha a kérdésnek semmi köze hozzá.</li>
+</ul>
+<p><strong>Kiszámolt példa.</strong> A korábbi beszélgetési modellel (2000 token háttér, 200 tokenes kérdés, 500 tokenes válasz) egy 5 körös beszélgetés bemenete összesen kb. 18 000 token. Ha ugyanez egy olyan projektben zajlik, amelynek 30 000 tokenes tudásbázisa teljes egészében a kontextusba kerül, a bemenet kb. <strong>168 000 token</strong> – több mint kilencszeres. Ha ugyanebből a projektből tíz rövid beszélgetést folytatsz, ez a többlet mind a tízben jelentkezik. A gyorsítótárazás (lásd lent) ennek <em>költségét</em> mérsékelheti, a kontextusban elfoglalt <em>helyet</em> nem.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Projekt okosan
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li>A tudásbázisba azt tedd, amire a projekt <em>legtöbb</em> beszélgetésében szükség van; ami csak egyszer kell, azt az adott beszélgetésbe töltsd fel.</li>
+<li>A projektutasítás legyen rövid és lényegre törő – minden kör elején ott lesz.</li>
+<li>Ne egyetlen végtelen beszélgetést folytass a projektben: a projekt éppen azt teszi lehetővé, hogy témánként új, rövid beszélgetést nyiss a közös háttérrel.</li>
+</ul>
+</div>
+</div>
+</section>
+<section id="skill-készség" class="level3">
+<h3 class="anchored" data-anchor-id="skill-készség">Skill (készség)</h3>
+<p>A <strong>skill</strong> egy mappába szervezett, újrahasznosítható „tudáscsomag”: egy leíró fájl (<code>SKILL.md</code>) utasításokkal, kiegészítve opcionálisan sablonokkal, példákkal, szkriptekkel – például „így formázz APA 7 szerinti hivatkozást”, „így készíts a tanszéki sablonnak megfelelő prezentációt”. Az Anthropic 2025-ben vezette be, és a formátumot azóta más szolgáltatók és fejlesztőeszközök is átvették <span class="citation" data-cites="anthropic2025skills">(<a href="references.html#ref-anthropic2025skills" role="doc-biblioref">Zhang és mtsai., 2025</a>)</span>.</p>
+<p>Tokenszempontból a skill lényege a <strong>fokozatos betöltés</strong> (<em>progressive disclosure</em>) <span class="citation" data-cites="anthropic2025skills">(<a href="references.html#ref-anthropic2025skills" role="doc-biblioref">Zhang és mtsai., 2025</a>)</span>:</p>
+<ol type="1">
+<li>alapból csak a skill <strong>neve és egymondatos leírása</strong> van a kontextusban (skillenként nagyságrendileg száz token);</li>
+<li>a <strong>teljes utasítás</strong> csak akkor töltődik be, ha a feladat illik a leíráshoz;</li>
+<li>a mellékelt <strong>fájlok és szkriptek</strong> csak akkor, ha az utasítás hivatkozik rájuk – a szkriptnek pedig nem a kódja, csak a futás eredménye kerül a kontextusba.</li>
+</ol>
+<p><strong>Kiszámolt példa.</strong> Tegyük fel, hogy 20 különféle visszatérő feladatod van, mindegyikhez kb. 3000 tokenes részletes utasítással. Ha mindet állandó (egyéni vagy projekt-) utasításba írnád, az <strong>60 000 token</strong> minden kör elején. Skillként a 20 leírás együtt kb. <strong>2000 token</strong>, és egy adott feladatnál csak a ténylegesen használt skill 3000 tokenje töltődik be.</p>
+<p>A skill tehát jellemzően <strong>csökkenti</strong> a tokenfogyasztást ahhoz képest, mintha ugyanazt a hosszú utasítást újra és újra bemásolnád. Két megkötéssel:</p>
+<ul>
+<li>minden telepített skill leírása kis állandó többlet – a soha nem használt skilleket érdemes kikapcsolni;</li>
+<li>a már betöltött skill a beszélgetés hátralevő részében a kontextusban marad.</li>
+</ul>
+</section>
+<section id="konnektorok-eszközök-mcp" class="level3">
+<h3 class="anchored" data-anchor-id="konnektorok-eszközök-mcp">Konnektorok, eszközök, MCP</h3>
+<p>A <strong>konnektorok</strong> (pl. naptár, e-mail, felhőtárhely, jegyzetalkalmazás) és egyéb <strong>eszközök</strong> lehetővé teszik, hogy a chatbot külső rendszerekből olvasson vagy azokba írjon. Ezek kapcsolódásának egyik nyílt szabványa a <strong>Model Context Protocol (MCP)</strong> <span class="citation" data-cites="anthropic2024mcp">(<a href="references.html#ref-anthropic2024mcp" role="doc-biblioref">Anthropic, 2024</a>)</span>.</p>
+<p>Ahhoz, hogy a modell használni tudjon egy eszközt, látnia kell annak <strong>leírását</strong> (mit csinál, milyen paramétereket vár). Hagyományos megoldásnál minden bekapcsolt eszköz leírása <strong>minden körben</strong> bemenet – sok konnektor esetén ez már az első kérdés előtt több ezer, szélsőséges esetben több tízezer tokent jelenthet <span class="citation" data-cites="anthropic2025mcpcode">(<a href="references.html#ref-anthropic2025mcpcode" role="doc-biblioref">Anthropic, 2025</a>)</span>. Ráadásul az eszközök által visszaadott adatok (egy hosszú e-mail-lista, egy dokumentum) is a kontextusba kerülnek.</p>
+<p>Az újabb rendszerek ezt is igény szerinti betöltéssel kezelik (csak a feladathoz szükséges eszközök leírását keresik elő), vagy úgy, hogy a modell kódot ír, amely az eszközt meghívja és az adatot feldolgozza, így csak a végeredmény jut vissza a kontextusba <span class="citation" data-cites="anthropic2025mcpcode">(<a href="references.html#ref-anthropic2025mcpcode" role="doc-biblioref">Anthropic, 2025</a>)</span>.</p>
+<p><strong>Tanács:</strong> csak azokat a konnektorokat tartsd bekapcsolva, amelyekre az adott munkához valóban szükség van.</p>
+</section>
 </section>
 <section id="mitől-fogy-a-token-a-hallgatói-tevékenységek-következményei" class="level2">
 <h2 class="anchored" data-anchor-id="mitől-fogy-a-token-a-hallgatói-tevékenységek-következményei">Mitől fogy a token? A hallgatói tevékenységek következményei</h2>
@@ -827,11 +899,11 @@ window.Quarto = {
 <li>egy fénykép vagy képernyőkép felbontástól függően néhány száz – néhány ezer token.</li>
 </ul>
 <p><strong>Kiszámolt példa.</strong> Az előző beszélgetési modellben egy 40 000 tokenes PDF feltöltése után 10 kör beszélgetés összesen kb. <strong>453 500</strong> bemeneti tokent jelent – a fájl nélküli 53 500 helyett, vagyis több mint nyolcszorosát. Ennek oka, hogy a 40 000 token mind a tíz körben újra a modell elé kerül.</p>
-<p>Egyes szolgáltatók ezt <strong>gyorsítótárazással</strong> (prompt caching) mérséklik: ha a beszélgetés eleje változatlan, annak újraolvasását kedvezményesen számolják el, és gyorsabban is dolgozzák fel. A tartalom ettől még a kontextusablakban marad, tehát a helyet ugyanúgy foglalja.</p>
+<p>Egyes szolgáltatók ezt <strong>gyorsítótárazással</strong> (prompt caching) mérséklik (részletesen lásd az <a href="#sec-tokencsokkentes">Ami csökkenti a tokenfogyasztást</a> alfejezetben). A tartalom ettől még a kontextusablakban marad, tehát a helyet ugyanúgy foglalja.</p>
 <p><strong>Gyakorlati tanácsok:</strong></p>
 <ul>
 <li>csak azt töltsd fel, ami a kérdéshez valóban kell (pl. a módszertani fejezetet, ne a teljes tanulmányt);</li>
-<li>ha több kérdésed van ugyanarról a dokumentumról, tedd fel őket egy jól átgondolt üzenetben, vagy használj projekt- / tudásbázis-funkciót, amely csak a releváns részleteket emeli be;</li>
+<li>ha több kérdésed van ugyanarról a dokumentumról, tedd fel őket egy jól átgondolt üzenetben; ha a dokumentumra hosszabb távon, több beszélgetésben is szükséged lesz, egy projekt tudásbázisa kényelmes megoldás – de ne feledd, hogy kisebb tudásbázist a rendszer gyakran teljes egészében, minden körben beolvas;</li>
 <li>a kép felbontását ne növeld feleslegesen: egy jól olvasható képernyőkép elegendő.</li>
 </ul>
 </section>
@@ -861,7 +933,7 @@ window.Quarto = {
 <p>Az ágensek tokenigényét tovább növeli:</p>
 <ul>
 <li><strong>böngészés képernyőképekkel:</strong> minden képernyőkép kép-tokenként számít;</li>
-<li><strong>alágensek:</strong> ha egy ágens több „segédágenst” indít, mindegyik saját kontextussal és saját tokenfogyasztással dolgozik;</li>
+<li><strong>alágensek:</strong> ha egy ágens több „segédágenst” indít, mindegyik saját kontextussal és saját tokenfogyasztással dolgozik (az alágensnek ugyanakkor előnye is van: lásd a következő alfejezetet);</li>
 <li><strong>hibakörök:</strong> egy sikertelen lépés (pl. hibás kód) javítása további köröket jelent;</li>
 <li><strong>hosszú munkamenet:</strong> a kontextus gyorsan betelik, ezért az ágensrendszerek gyakran automatikusan tömörítik az előzményeket, ami részletvesztéssel járhat.</li>
 </ul>
@@ -878,6 +950,66 @@ window.Quarto = {
 <p>Az ágens akkor hasznos, ha a feladat valóban sok lépést, eszközhasználatot és önálló döntést igényel (pl. több forrás összegyűjtése és táblázatba rendezése). Egy definíció megkérdezéséhez vagy egy bekezdés átfogalmazásához az ágens a tokenfogyasztás szempontjából olyan, mintha egy rövid szöveg kinyomtatásához egy egész nyomdát indítanánk be. Ágensnél különösen fontos a pontos, jól körülhatárolt feladatleírás és a megállási feltétel megadása.</p>
 </div>
 </div>
+</section>
+<section id="sec-tokencsokkentes" class="level2">
+<h2 class="anchored" data-anchor-id="sec-tokencsokkentes">Ami csökkenti a tokenfogyasztást</h2>
+<p>Az eddigiek főként azt mutatták meg, mi <em>növeli</em> a tokenfogyasztást. A szolgáltatók és az alkalmazások azonban számos olyan mechanizmust is beépítenek, amely kifejezetten a csökkentését szolgálja. Ezek egy részét a felhasználó is tudatosan kihasználhatja.</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Mechanizmus</th>
+<th>Mit csinál?</th>
+<th>Mire figyelj?</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Gyorsítótárazás (prompt caching)</strong></td>
+<td>A beszélgetés változatlan elejét (rendszerutasítás, projekt, korábbi körök) a szolgáltató eltárolja, és újraolvasását kedvezményesen, gyorsabban számolja el.</td>
+<td>A gyorsítótár rövid életű: alapesetben néhány perc után lejár, ha nem használják <span class="citation" data-cites="anthropic_prompt_caching">(<a href="references.html#ref-anthropic_prompt_caching" role="doc-biblioref">Anthropic, é. n.-a</a>)</span>. Hosszú szünet után a folytatás újra teljes áron olvassa be az előzményeket. Ha a beszélgetés <em>elején</em> változik valami (pl. átírod a projektutasítást), a gyorsítótár érvénytelenné válik. A kontextusablakban elfoglalt helyen nem változtat.</td>
+</tr>
+<tr class="even">
+<td><strong>Tömörítés (compaction)</strong></td>
+<td>A betelő kontextus régi részeit a rendszer összefoglalóra cseréli.</td>
+<td>Részletvesztéssel jár; tudatos, saját összefoglalóval indított új beszélgetés gyakran jobb.</td>
+</tr>
+<tr class="odd">
+<td><strong>Fokozatos betöltés (skillek, eszközkeresés)</strong></td>
+<td>Csak a rövid leírás van mindig bent; a részletek igény szerint töltődnek be <span class="citation" data-cites="anthropic2025skills">(<a href="references.html#ref-anthropic2025skills" role="doc-biblioref">Zhang és mtsai., 2025</a>)</span>.</td>
+<td>Csak akkor takarékos, ha a ritkán használt elemeket nem töltöd be „mindig” formában (pl. állandó utasításként).</td>
+</tr>
+<tr class="even">
+<td><strong>Visszakeresés (RAG)</strong></td>
+<td>Nagy dokumentumgyűjteményből csak a releváns részletek kerülnek a kontextusba <span class="citation" data-cites="lewis2020">(<a href="references.html#ref-lewis2020" role="doc-biblioref"><span class="nocase">Lewis és mtsai.</span>, 2020</a>)</span>.</td>
+<td>Ha a visszakeresés rossz részletet talál, a válasz is hiányos lehet.</td>
+</tr>
+<tr class="odd">
+<td><strong>Alágens mint elszigetelés</strong></td>
+<td>Egy részfeladatot (pl. tíz forrás átolvasását) külön kontextusú alágens végez, és csak tömör összefoglalót ad vissza.</td>
+<td>Az <em>összes</em> tokenfogyasztás nem feltétlenül csökken, de a <em>fő</em> beszélgetés kontextusa tiszta és rövid marad, így a további körök olcsóbbak.</td>
+</tr>
+<tr class="even">
+<td><strong>Kódfuttatás nagy adaton</strong></td>
+<td>Egy nagy táblázatot vagy adatfájlt a modell nem „elolvas”, hanem kóddal dolgoz fel; csak az eredmény (pl. egy átlag, egy diagram) kerül a kontextusba <span class="citation" data-cites="anthropic2025mcpcode">(<a href="references.html#ref-anthropic2025mcpcode" role="doc-biblioref">Anthropic, 2025</a>)</span>.</td>
+<td>Adatelemzésnél kérd kifejezetten, hogy a modell kóddal számoljon, ne a teljes táblázatot „olvassa végig”.</td>
+</tr>
+<tr class="odd">
+<td><strong>Célzott szerkesztés (canvas, artifact)</strong></td>
+<td>A dokumentumszerkesztő felületek egy része csak a módosított részt írja újra.</td>
+<td>Nevezd meg pontosan, mit kell változtatni; az „írd újra az egészet” ezt az előnyt elveszíti.</td>
+</tr>
+<tr class="even">
+<td><strong>Gondolkodási erőfeszítés beállítása</strong></td>
+<td>Egyes felületeken állítható, mennyit „gondolkodjon” a modell.</td>
+<td>Egyszerű kérdéshez alacsony fokozat elegendő.</td>
+</tr>
+</tbody>
+</table>
 </section>
 <section id="kreditek-és-használati-korlátok" class="level2">
 <h2 class="anchored" data-anchor-id="kreditek-és-használati-korlátok">Kreditek és használati korlátok</h2>
@@ -967,6 +1099,31 @@ window.Quarto = {
 <td>Kis, állandó bemeneti többlet</td>
 <td>Kicsi, de mindig jelen van</td>
 </tr>
+<tr class="odd">
+<td>Projekt nagy, teljesen betöltött tudásbázissal</td>
+<td>A tudásbázis minden körben bemenet</td>
+<td>Nagy, minden beszélgetésben</td>
+</tr>
+<tr class="even">
+<td>Projekt rövid beszélgetésekkel, közös háttérrel</td>
+<td>Nem kell újra bemásolni a hátteret</td>
+<td>Csökkenti</td>
+</tr>
+<tr class="odd">
+<td>Skill használata ismétlődő utasítás helyett</td>
+<td>Csak a leírás állandó, a részletek igény szerint</td>
+<td>Csökkenti</td>
+</tr>
+<tr class="even">
+<td>Sok bekapcsolt konnektor / eszköz</td>
+<td>Az eszközleírások minden körben bemenetek</td>
+<td>Közepes–nagy</td>
+</tr>
+<tr class="odd">
+<td>Hosszú szünet után a beszélgetés folytatása</td>
+<td>A gyorsítótár lejárt, teljes áron újraolvasás</td>
+<td>Közepes–nagy</td>
+</tr>
 </tbody>
 </table>
 </section>
@@ -984,6 +1141,9 @@ window.Quarto = {
 <li><strong>Gondolkodó üzemmód és nagy modell csak ott, ahol kell.</strong></li>
 <li><strong>Ágenst valóban többlépéses feladatra használj,</strong> pontos céllal és megállási feltétellel.</li>
 <li><strong>Nézd át a memóriát és az állandó utasításokat</strong> – tokenszempontból és adatvédelmi szempontból is.</li>
+<li><strong>Projektben karcsú tudásbázis, rövid beszélgetések.</strong> A tudásbázisba csak a gyakran szükséges anyag kerüljön.</li>
+<li><strong>Ismétlődő feladathoz skill, ne bemásolt utasítás.</strong> A nem használt skilleket és konnektorokat kapcsold ki.</li>
+<li><strong>Nagy adatot kóddal dolgoztass fel,</strong> ne olvastasd végig a modellel.</li>
 </ol>
 </section>
 <section id="fogalomtár" class="level2">
@@ -1054,29 +1214,49 @@ window.Quarto = {
 </tr>
 <tr class="even">
 <td><strong>Gyorsítótárazás (prompt caching)</strong></td>
-<td>A változatlan kontextuselőtag kedvezményes, gyorsabb újrafeldolgozása.</td>
+<td>A változatlan kontextuselőtag kedvezményes, gyorsabb újrafeldolgozása; rövid idő után lejár.</td>
 </tr>
 <tr class="odd">
+<td><strong>Projekt</strong></td>
+<td>Munkaterület állandó utasítással, közös tudásbázissal és külön beszélgetésekkel; a tudásbázis teljes betöltése vagy visszakeresése szolgáltatónként eltér.</td>
+</tr>
+<tr class="even">
+<td><strong>Skill (készség)</strong></td>
+<td>Újrahasznosítható utasítás- és erőforráscsomag, amely fokozatos betöltéssel csak szükség esetén kerül teljes egészében a kontextusba <span class="citation" data-cites="anthropic2025skills">(<a href="references.html#ref-anthropic2025skills" role="doc-biblioref">Zhang és mtsai., 2025</a>)</span>.</td>
+</tr>
+<tr class="odd">
+<td><strong>Fokozatos betöltés (progressive disclosure)</strong></td>
+<td>Alapból csak rövid leírás van a kontextusban, a részletek igény szerint töltődnek be.</td>
+</tr>
+<tr class="even">
+<td><strong>Konnektor, eszköz</strong></td>
+<td>Külső rendszerhez (naptár, tárhely stb.) kapcsolódó funkció; leírása és visszaadott adatai tokent fogyasztanak.</td>
+</tr>
+<tr class="odd">
+<td><strong>Model Context Protocol (MCP)</strong></td>
+<td>Nyílt szabvány a modellek és külső eszközök, adatforrások összekapcsolására <span class="citation" data-cites="anthropic2024mcp">(<a href="references.html#ref-anthropic2024mcp" role="doc-biblioref">Anthropic, 2024</a>)</span>.</td>
+</tr>
+<tr class="even">
 <td><strong>Tudás-határidő</strong></td>
 <td>Az az időpont, ameddig a modell tanítóadatai terjednek.</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td><strong>MI-ágens</strong></td>
 <td>Többlépéses, eszközöket használó rendszer; minden lépés újabb modellhívás.</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td><strong>Alágens</strong></td>
 <td>Egy ágens által indított, saját kontextussal dolgozó segédágens.</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td><strong>API-díjazás</strong></td>
 <td>Tokenalapú elszámolás, jellemzően egymillió tokenre vetített áron.</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td><strong>Használati korlát, kredit</strong></td>
 <td>Az előfizetéses vagy kreditalapú szolgáltatásokban a felhasználható erőforrás kerete.</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td><strong>Tokenadó (nyelvi egyenlőtlenség)</strong></td>
 <td>Az a jelenség, hogy egyes nyelvek ugyanazon tartalma több tokenbe kerül <span class="citation" data-cites="petrov2023">(<a href="references.html#ref-petrov2023" role="doc-biblioref">Petrov és mtsai., 2023</a>)</span>.</td>
 </tr>
@@ -1096,10 +1276,26 @@ window.Quarto = {
 <li>Milyen memóriatípusokat különböztetünk meg egy chatbotnál, és melyiknek van minden beszélgetésben állandó tokenköltsége?</li>
 <li>Miért nem érdemes egy nagy kontextusablakot „teletölteni”, még ha a modell elvileg képes is feldolgozni?</li>
 <li>Miért lehet félrevezető az a kijelentés, hogy „a chatbot megismert engem”? Milyen pszichológiai jelenség erősítheti ezt a benyomást?</li>
+<li>Miért mondhatjuk, hogy egy projekt tokenszempontból „kétélű”? Milyen esetben növeli, és milyen esetben csökkenti a tokenfogyasztást?</li>
+<li>Mit jelent a fokozatos betöltés, és miért takarékosabb egy skill, mint ugyanannak az utasításnak az állandó utasításba írása?</li>
+<li>Miért fogyaszt tokent egy bekapcsolt, de az adott kérdéshez nem használt konnektor?</li>
+<li>Miért lehet drágább egy beszélgetést egy óra szünet után folytatni, mint közvetlenül az előző válasz után?</li>
 </ol>
 
 
 <div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" data-line-spacing="2" role="list" style="display: none">
+<div id="ref-anthropic_prompt_caching" class="csl-entry" role="listitem">
+Anthropic. (é. n.-a). <em>Prompt Caching</em>. Elérés <a href="https://platform.claude.com/docs/en/build-with-claude/prompt-caching">https://platform.claude.com/docs/en/build-with-claude/prompt-caching</a>
+</div>
+<div id="ref-anthropic_projects_rag" class="csl-entry" role="listitem">
+Anthropic. (é. n.-b). <em>Retrieval Augmented Generation (<span>RAG</span>) for Projects</em>. Elérés <a href="https://support.claude.com/en/articles/11473015-retrieval-augmented-generation-rag-for-projects">https://support.claude.com/en/articles/11473015-retrieval-augmented-generation-rag-for-projects</a>
+</div>
+<div id="ref-anthropic2024mcp" class="csl-entry" role="listitem">
+Anthropic. (2024, november 25). <em>Introducing the <span>Model Context Protocol</span></em>. <a href="https://www.anthropic.com/news/model-context-protocol">https://www.anthropic.com/news/model-context-protocol</a>
+</div>
+<div id="ref-anthropic2025mcpcode" class="csl-entry" role="listitem">
+Anthropic. (2025, november). <em>Code Execution with <span>MCP</span>: Building More Efficient Agents</em>. <a href="https://www.anthropic.com/engineering/code-execution-with-mcp">https://www.anthropic.com/engineering/code-execution-with-mcp</a>
+</div>
 <div id="ref-brown2020" class="csl-entry" role="listitem">
 <span class="nocase">Brown, T. B., Mann, B., Ryder, N., Subbiah, M., Kaplan, J., Dhariwal, P., és mtsai.</span> (2020). Language models are few-shot learners. <em>Advances in Neural Information Processing Systems</em>, <em>33</em>, 1877–1901.
 </div>
@@ -1126,6 +1322,9 @@ Sennrich, R., Haddow, B., &amp; Birch, A. (2016). Neural machine translation of 
 </div>
 <div id="ref-vaswani2017" class="csl-entry" role="listitem">
 Vaswani, A., Shazeer, N., Parmar, N., Uszkoreit, J., Jones, L., Gomez, A. N., Kaiser, Ł., &amp; Polosukhin, I. (2017). Attention is all you need. <em>Advances in Neural Information Processing Systems</em>, <em>30</em>.
+</div>
+<div id="ref-anthropic2025skills" class="csl-entry" role="listitem">
+Zhang, B., Lazuka, K., &amp; Murag, M. (2025, október 16). <em>Equipping Agents for the Real World with <span>Agent Skills</span></em>. Anthropic. <a href="https://www.anthropic.com/engineering/equipping-agents-for-the-real-world-with-agent-skills">https://www.anthropic.com/engineering/equipping-agents-for-the-real-world-with-agent-skills</a>
 </div>
 </div>
 </section>

@@ -10,7 +10,9 @@ A fejezet egyetlen gondolatmenetet követ:
 2. egyszerre csak korlátozott mennyiségű tokent lát: ez a **kontextusablak**;
 3. a modell **állapotmentes**, ezért minden válasznál újra el kell küldeni neki mindent, amit látnia kell;
 4. emiatt a beszélgetés hossza, a feltöltött fájlok és az ágensek lépései **halmozódó tokenköltséget** okoznak;
-5. a szolgáltatók ezt a tokenmennyiséget (és a mögötte álló számítási igényt) mérik, amikor **kreditet vonnak le** vagy **használati korlátot** alkalmaznak.
+5. az állandó háttérelemek – **projektek, skillek, konnektorok** – attól függően takarékosak vagy pazarlók, hogy *mindig* vagy *csak igény szerint* kerülnek a kontextusba;
+6. több mechanizmus kifejezetten a tokenfogyasztás **csökkentését** szolgálja;
+7. a szolgáltatók ezt a tokenmennyiséget (és a mögötte álló számítási igényt) mérik, amikor **kreditet vonnak le** vagy **használati korlátot** alkalmaznak.
 
 ::: {.callout-note}
 ## A számokról
@@ -149,9 +151,67 @@ A köznyelvben gyakran mondjuk, hogy a chatbot „emlékszik” ránk. Technikai
 | **Beszélgetési kontextus** | Az aktuális beszélgetés szövege, amelyet minden körben újraküld az alkalmazás. | Minden körben a teljes hossza bemenetként számít. |
 | **Tartós „memória” funkció** | Egyes alkalmazások elmentenek rólad tényeket vagy preferenciákat, és azokat **szövegként** beillesztik minden új beszélgetés elejére. | Minden beszélgetés minden körében bemenet – kicsi, de állandó többlet. |
 | **Egyéni utasítások, projektutasítások** | Általad megírt állandó szöveg („Pszichológia BA-hallgató vagyok, magyarul válaszolj…”), amely minden kérdés elé bekerül. | Mint fent: minden körben bemenet. |
-| **Projektek, tudásbázisok (visszakeresés)** | Feltöltött dokumentumok gyűjteménye, amelyből a rendszer a kérdéshez illő részleteket keresi elő és illeszti a kontextusba (RAG) [@lewis2020]. | Csak a beemelt részletek számítanak; ez takarékosabb, mint a teljes dokumentum. |
+| **Projekt tudásbázisa** | A projekthez feltöltött dokumentumok. Kisebb tudásbázist a rendszer gyakran *teljes egészében* a kontextusba tölt; nagyobbnál visszakeresésre (RAG) vált, és csak a kérdéshez illő részleteket emeli be [@lewis2020; @anthropic_projects_rag]. | Teljes betöltésnél a projekt minden beszélgetésének minden körében bemenet; visszakeresésnél csak a beemelt részletek. Lásd a következő alfejezetet. |
 
 **Pszichológiai szempont:** a „memória” funkciók könnyen erősítik az antropomorfizációt – azt az érzést, hogy a rendszer *ismer* minket. Valójában egy elmentett szövegrészlet kerül újra a modell elé. Érdemes időnként átnézni, mit tárol rólad az alkalmazás, mert minden elmentett tény adatvédelmi kérdés is.
+
+## Állandó háttér: projektek, skillek és konnektorok
+
+A mai chatbotok egyre több olyan funkciót kínálnak, amely egyszer beállítva a háttérben dolgozik: projektek, skillek (készségek), konnektorok. Tokenszempontból mindegyiknél ugyanazt a kérdést érdemes feltenni:
+
+> **Mi kerül be a kontextusba *minden* körben, és mi csak *akkor*, amikor tényleg szükség van rá?**
+
+Ami mindig bent van, az – az állapotmentesség miatt – minden válasznál újra bemenet. Ami csak igény szerint töltődik be, az jellemzően takarékos.
+
+### Projekt
+
+A **projekt** (Claude, ChatGPT; hasonló a Gemini *Gem* vagy az egyedi GPT) egy munkaterület, amelyhez három dolog tartozik:
+
+1. **projektutasítás** – állandó szöveg, amely a projekt minden beszélgetésének elejére bekerül;
+2. **tudásbázis** – a projekthez feltöltött fájlok (pl. a kurzus jegyzetei, a szakdolgozat fejezetei);
+3. **beszélgetések** – a projekten belül indított, egymástól külön kontextusú csevegések.
+
+A projekt tokenszempontból **kétélű**:
+
+- **Segít,** mert nem kell minden új beszélgetésbe újra bemásolni a háttérinformációt és az utasításokat, így könnyű a „*rövid beszélgetés, közös háttér*” munkamódot követni: témánként új beszélgetés, de mindegyik ugyanabból az anyagból dolgozik.
+- **Árthat,** mert a tudásbázis rejtett, állandó bemenet lehet. A szolgáltatók eltérően kezelik: a Claude például a tudásbázist teljes egészében a kontextusba tölti, amíg az belefér, és csak a kontextusablak határához közeledve vált visszakereséses (RAG) módra [@anthropic_projects_rag]; más szolgáltatók eleve visszakeresést használnak. Teljes betöltésnél tehát egy nagy tudásbázis *minden* kérdésnél „fizetendő”, akkor is, ha a kérdésnek semmi köze hozzá.
+
+**Kiszámolt példa.** A korábbi beszélgetési modellel (2000 token háttér, 200 tokenes kérdés, 500 tokenes válasz) egy 5 körös beszélgetés bemenete összesen kb. 18 000 token. Ha ugyanez egy olyan projektben zajlik, amelynek 30 000 tokenes tudásbázisa teljes egészében a kontextusba kerül, a bemenet kb. **168 000 token** – több mint kilencszeres. Ha ugyanebből a projektből tíz rövid beszélgetést folytatsz, ez a többlet mind a tízben jelentkezik. A gyorsítótárazás (lásd lent) ennek *költségét* mérsékelheti, a kontextusban elfoglalt *helyet* nem.
+
+::: {.callout-tip}
+## Projekt okosan
+
+- A tudásbázisba azt tedd, amire a projekt *legtöbb* beszélgetésében szükség van; ami csak egyszer kell, azt az adott beszélgetésbe töltsd fel.
+- A projektutasítás legyen rövid és lényegre törő – minden kör elején ott lesz.
+- Ne egyetlen végtelen beszélgetést folytass a projektben: a projekt éppen azt teszi lehetővé, hogy témánként új, rövid beszélgetést nyiss a közös háttérrel.
+:::
+
+### Skill (készség)
+
+A **skill** egy mappába szervezett, újrahasznosítható „tudáscsomag”: egy leíró fájl (`SKILL.md`) utasításokkal, kiegészítve opcionálisan sablonokkal, példákkal, szkriptekkel – például „így formázz APA 7 szerinti hivatkozást”, „így készíts a tanszéki sablonnak megfelelő prezentációt”. Az Anthropic 2025-ben vezette be, és a formátumot azóta más szolgáltatók és fejlesztőeszközök is átvették [@anthropic2025skills].
+
+Tokenszempontból a skill lényege a **fokozatos betöltés** (*progressive disclosure*) [@anthropic2025skills]:
+
+1. alapból csak a skill **neve és egymondatos leírása** van a kontextusban (skillenként nagyságrendileg száz token);
+2. a **teljes utasítás** csak akkor töltődik be, ha a feladat illik a leíráshoz;
+3. a mellékelt **fájlok és szkriptek** csak akkor, ha az utasítás hivatkozik rájuk – a szkriptnek pedig nem a kódja, csak a futás eredménye kerül a kontextusba.
+
+**Kiszámolt példa.** Tegyük fel, hogy 20 különféle visszatérő feladatod van, mindegyikhez kb. 3000 tokenes részletes utasítással. Ha mindet állandó (egyéni vagy projekt-) utasításba írnád, az **60 000 token** minden kör elején. Skillként a 20 leírás együtt kb. **2000 token**, és egy adott feladatnál csak a ténylegesen használt skill 3000 tokenje töltődik be.
+
+A skill tehát jellemzően **csökkenti** a tokenfogyasztást ahhoz képest, mintha ugyanazt a hosszú utasítást újra és újra bemásolnád. Két megkötéssel:
+
+- minden telepített skill leírása kis állandó többlet – a soha nem használt skilleket érdemes kikapcsolni;
+- a már betöltött skill a beszélgetés hátralevő részében a kontextusban marad.
+
+### Konnektorok, eszközök, MCP
+
+A **konnektorok** (pl. naptár, e-mail, felhőtárhely, jegyzetalkalmazás) és egyéb **eszközök** lehetővé teszik, hogy a chatbot külső rendszerekből olvasson vagy azokba írjon. Ezek kapcsolódásának egyik nyílt szabványa a **Model Context Protocol (MCP)** [@anthropic2024mcp].
+
+Ahhoz, hogy a modell használni tudjon egy eszközt, látnia kell annak **leírását** (mit csinál, milyen paramétereket vár). Hagyományos megoldásnál minden bekapcsolt eszköz leírása **minden körben** bemenet – sok konnektor esetén ez már az első kérdés előtt több ezer, szélsőséges esetben több tízezer tokent jelenthet [@anthropic2025mcpcode]. Ráadásul az eszközök által visszaadott adatok (egy hosszú e-mail-lista, egy dokumentum) is a kontextusba kerülnek.
+
+Az újabb rendszerek ezt is igény szerinti betöltéssel kezelik (csak a feladathoz szükséges eszközök leírását keresik elő), vagy úgy, hogy a modell kódot ír, amely az eszközt meghívja és az adatot feldolgozza, így csak a végeredmény jut vissza a kontextusba [@anthropic2025mcpcode].
+
+**Tanács:** csak azokat a konnektorokat tartsd bekapcsolva, amelyekre az adott munkához valóban szükség van.
 
 ## Mitől fogy a token? A hallgatói tevékenységek következményei
 
@@ -180,12 +240,12 @@ A feltöltött fájl nem „mellékletként” utazik, hanem **szöveggé (vagy 
 
 **Kiszámolt példa.** Az előző beszélgetési modellben egy 40 000 tokenes PDF feltöltése után 10 kör beszélgetés összesen kb. **453 500** bemeneti tokent jelent – a fájl nélküli 53 500 helyett, vagyis több mint nyolcszorosát. Ennek oka, hogy a 40 000 token mind a tíz körben újra a modell elé kerül.
 
-Egyes szolgáltatók ezt **gyorsítótárazással** (prompt caching) mérséklik: ha a beszélgetés eleje változatlan, annak újraolvasását kedvezményesen számolják el, és gyorsabban is dolgozzák fel. A tartalom ettől még a kontextusablakban marad, tehát a helyet ugyanúgy foglalja.
+Egyes szolgáltatók ezt **gyorsítótárazással** (prompt caching) mérséklik (részletesen lásd az [Ami csökkenti a tokenfogyasztást](#sec-tokencsokkentes) alfejezetben). A tartalom ettől még a kontextusablakban marad, tehát a helyet ugyanúgy foglalja.
 
 **Gyakorlati tanácsok:**
 
 - csak azt töltsd fel, ami a kérdéshez valóban kell (pl. a módszertani fejezetet, ne a teljes tanulmányt);
-- ha több kérdésed van ugyanarról a dokumentumról, tedd fel őket egy jól átgondolt üzenetben, vagy használj projekt- / tudásbázis-funkciót, amely csak a releváns részleteket emeli be;
+- ha több kérdésed van ugyanarról a dokumentumról, tedd fel őket egy jól átgondolt üzenetben; ha a dokumentumra hosszabb távon, több beszélgetésben is szükséged lesz, egy projekt tudásbázisa kényelmes megoldás – de ne feledd, hogy kisebb tudásbázist a rendszer gyakran teljes egészében, minden körben beolvas;
 - a kép felbontását ne növeld feleslegesen: egy jól olvasható képernyőkép elegendő.
 
 ### Fájlok generáltatása és letöltése
@@ -217,7 +277,7 @@ Ez több mint **ötszázszorosa** egy egyszerű, kb. 2000 tokenes kérdés-vála
 Az ágensek tokenigényét tovább növeli:
 
 - **böngészés képernyőképekkel:** minden képernyőkép kép-tokenként számít;
-- **alágensek:** ha egy ágens több „segédágenst” indít, mindegyik saját kontextussal és saját tokenfogyasztással dolgozik;
+- **alágensek:** ha egy ágens több „segédágenst” indít, mindegyik saját kontextussal és saját tokenfogyasztással dolgozik (az alágensnek ugyanakkor előnye is van: lásd a következő alfejezetet);
 - **hibakörök:** egy sikertelen lépés (pl. hibás kód) javítása további köröket jelent;
 - **hosszú munkamenet:** a kontextus gyorsan betelik, ezért az ágensrendszerek gyakran automatikusan tömörítik az előzményeket, ami részletvesztéssel járhat.
 
@@ -226,6 +286,21 @@ Az ágensek tokenigényét tovább növeli:
 
 Az ágens akkor hasznos, ha a feladat valóban sok lépést, eszközhasználatot és önálló döntést igényel (pl. több forrás összegyűjtése és táblázatba rendezése). Egy definíció megkérdezéséhez vagy egy bekezdés átfogalmazásához az ágens a tokenfogyasztás szempontjából olyan, mintha egy rövid szöveg kinyomtatásához egy egész nyomdát indítanánk be. Ágensnél különösen fontos a pontos, jól körülhatárolt feladatleírás és a megállási feltétel megadása.
 :::
+
+## Ami csökkenti a tokenfogyasztást {#sec-tokencsokkentes}
+
+Az eddigiek főként azt mutatták meg, mi *növeli* a tokenfogyasztást. A szolgáltatók és az alkalmazások azonban számos olyan mechanizmust is beépítenek, amely kifejezetten a csökkentését szolgálja. Ezek egy részét a felhasználó is tudatosan kihasználhatja.
+
+| Mechanizmus | Mit csinál? | Mire figyelj? |
+|---|---|---|
+| **Gyorsítótárazás (prompt caching)** | A beszélgetés változatlan elejét (rendszerutasítás, projekt, korábbi körök) a szolgáltató eltárolja, és újraolvasását kedvezményesen, gyorsabban számolja el. | A gyorsítótár rövid életű: alapesetben néhány perc után lejár, ha nem használják [@anthropic_prompt_caching]. Hosszú szünet után a folytatás újra teljes áron olvassa be az előzményeket. Ha a beszélgetés *elején* változik valami (pl. átírod a projektutasítást), a gyorsítótár érvénytelenné válik. A kontextusablakban elfoglalt helyen nem változtat. |
+| **Tömörítés (compaction)** | A betelő kontextus régi részeit a rendszer összefoglalóra cseréli. | Részletvesztéssel jár; tudatos, saját összefoglalóval indított új beszélgetés gyakran jobb. |
+| **Fokozatos betöltés (skillek, eszközkeresés)** | Csak a rövid leírás van mindig bent; a részletek igény szerint töltődnek be [@anthropic2025skills]. | Csak akkor takarékos, ha a ritkán használt elemeket nem töltöd be „mindig” formában (pl. állandó utasításként). |
+| **Visszakeresés (RAG)** | Nagy dokumentumgyűjteményből csak a releváns részletek kerülnek a kontextusba [@lewis2020]. | Ha a visszakeresés rossz részletet talál, a válasz is hiányos lehet. |
+| **Alágens mint elszigetelés** | Egy részfeladatot (pl. tíz forrás átolvasását) külön kontextusú alágens végez, és csak tömör összefoglalót ad vissza. | Az *összes* tokenfogyasztás nem feltétlenül csökken, de a *fő* beszélgetés kontextusa tiszta és rövid marad, így a további körök olcsóbbak. |
+| **Kódfuttatás nagy adaton** | Egy nagy táblázatot vagy adatfájlt a modell nem „elolvas”, hanem kóddal dolgoz fel; csak az eredmény (pl. egy átlag, egy diagram) kerül a kontextusba [@anthropic2025mcpcode]. | Adatelemzésnél kérd kifejezetten, hogy a modell kóddal számoljon, ne a teljes táblázatot „olvassa végig”. |
+| **Célzott szerkesztés (canvas, artifact)** | A dokumentumszerkesztő felületek egy része csak a módosított részt írja újra. | Nevezd meg pontosan, mit kell változtatni; az „írd újra az egészet” ezt az előnyt elveszíti. |
+| **Gondolkodási erőfeszítés beállítása** | Egyes felületeken állítható, mennyit „gondolkodjon” a modell. | Egyszerű kérdéshez alacsony fokozat elegendő. |
 
 ## Kreditek és használati korlátok
 
@@ -255,6 +330,11 @@ Ahol a keret nem pusztán az üzenetek számán, hanem a mögöttük lévő toke
 | Webes keresés, mély kutatás | Beolvasott oldalak bemenetként | Nagy |
 | MI-ágens többlépéses feladattal | Sok modellhívás, növekvő kontextus | Nagyon nagy |
 | Tartós memória, egyéni utasítás | Kis, állandó bemeneti többlet | Kicsi, de mindig jelen van |
+| Projekt nagy, teljesen betöltött tudásbázissal | A tudásbázis minden körben bemenet | Nagy, minden beszélgetésben |
+| Projekt rövid beszélgetésekkel, közös háttérrel | Nem kell újra bemásolni a hátteret | Csökkenti |
+| Skill használata ismétlődő utasítás helyett | Csak a leírás állandó, a részletek igény szerint | Csökkenti |
+| Sok bekapcsolt konnektor / eszköz | Az eszközleírások minden körben bemenetek | Közepes–nagy |
+| Hosszú szünet után a beszélgetés folytatása | A gyorsítótár lejárt, teljes áron újraolvasás | Közepes–nagy |
 
 ## Gyakorlati ellenőrzőlista: tokentudatos MI-használat
 
@@ -268,6 +348,9 @@ Ahol a keret nem pusztán az üzenetek számán, hanem a mögöttük lévő toke
 8. **Gondolkodó üzemmód és nagy modell csak ott, ahol kell.**
 9. **Ágenst valóban többlépéses feladatra használj,** pontos céllal és megállási feltétellel.
 10. **Nézd át a memóriát és az állandó utasításokat** – tokenszempontból és adatvédelmi szempontból is.
+11. **Projektben karcsú tudásbázis, rövid beszélgetések.** A tudásbázisba csak a gyakran szükséges anyag kerüljön.
+12. **Ismétlődő feladathoz skill, ne bemásolt utasítás.** A nem használt skilleket és konnektorokat kapcsold ki.
+13. **Nagy adatot kóddal dolgoztass fel,** ne olvastasd végig a modellel.
 
 ## Fogalomtár
 
@@ -286,7 +369,12 @@ Ahol a keret nem pusztán az üzenetek számán, hanem a mögöttük lévő toke
 | **„Lost in the middle”** | A hosszú kontextus közepén lévő információ gyengébb felhasználása [@liu2024lost]. |
 | **Tartós memória** | Elmentett, minden új beszélgetésbe szövegként beillesztett tények vagy preferenciák. |
 | **Visszakereséssel támogatott generálás (RAG)** | Dokumentumgyűjteményből csak a releváns részletek beemelése a kontextusba [@lewis2020]. |
-| **Gyorsítótárazás (prompt caching)** | A változatlan kontextuselőtag kedvezményes, gyorsabb újrafeldolgozása. |
+| **Gyorsítótárazás (prompt caching)** | A változatlan kontextuselőtag kedvezményes, gyorsabb újrafeldolgozása; rövid idő után lejár. |
+| **Projekt** | Munkaterület állandó utasítással, közös tudásbázissal és külön beszélgetésekkel; a tudásbázis teljes betöltése vagy visszakeresése szolgáltatónként eltér. |
+| **Skill (készség)** | Újrahasznosítható utasítás- és erőforráscsomag, amely fokozatos betöltéssel csak szükség esetén kerül teljes egészében a kontextusba [@anthropic2025skills]. |
+| **Fokozatos betöltés (progressive disclosure)** | Alapból csak rövid leírás van a kontextusban, a részletek igény szerint töltődnek be. |
+| **Konnektor, eszköz** | Külső rendszerhez (naptár, tárhely stb.) kapcsolódó funkció; leírása és visszaadott adatai tokent fogyasztanak. |
+| **Model Context Protocol (MCP)** | Nyílt szabvány a modellek és külső eszközök, adatforrások összekapcsolására [@anthropic2024mcp]. |
 | **Tudás-határidő** | Az az időpont, ameddig a modell tanítóadatai terjednek. |
 | **MI-ágens** | Többlépéses, eszközöket használó rendszer; minden lépés újabb modellhívás. |
 | **Alágens** | Egy ágens által indított, saját kontextussal dolgozó segédágens. |
@@ -306,3 +394,7 @@ Ahol a keret nem pusztán az üzenetek számán, hanem a mögöttük lévő toke
 8. Milyen memóriatípusokat különböztetünk meg egy chatbotnál, és melyiknek van minden beszélgetésben állandó tokenköltsége?
 9. Miért nem érdemes egy nagy kontextusablakot „teletölteni”, még ha a modell elvileg képes is feldolgozni?
 10. Miért lehet félrevezető az a kijelentés, hogy „a chatbot megismert engem”? Milyen pszichológiai jelenség erősítheti ezt a benyomást?
+11. Miért mondhatjuk, hogy egy projekt tokenszempontból „kétélű”? Milyen esetben növeli, és milyen esetben csökkenti a tokenfogyasztást?
+12. Mit jelent a fokozatos betöltés, és miért takarékosabb egy skill, mint ugyanannak az utasításnak az állandó utasításba írása?
+13. Miért fogyaszt tokent egy bekapcsolt, de az adott kérdéshez nem használt konnektor?
+14. Miért lehet drágább egy beszélgetést egy óra szünet után folytatni, mint közvetlenül az előző válasz után?
